@@ -1,6 +1,8 @@
+clean:
+	-rm *.html
 
-build:
+build: clean
 	python build.py
 
-serve:
+serve: build
 	python -m http.server

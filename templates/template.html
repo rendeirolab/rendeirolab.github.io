@@ -1,3 +1,5 @@
+{# templates/template.html #}
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -103,7 +105,9 @@
 
             <!-- Main content -->
             <div class="row" id="content">
-                {{ page_content }}
+                {% block content %}
+
+                {% endblock content %}
             </div>
         </div>
 
@@ -140,3 +144,4 @@
         <script src="/assets/themes/afr/js/anchor.js"></script>
     </body>
 </html>
+

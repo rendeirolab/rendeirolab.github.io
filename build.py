@@ -1,7 +1,7 @@
 from pathlib import Path
 import yaml
 
-import jinja2
+from jinja2 import Environment, FileSystemLoader
 
 
 def main():
@@ -9,37 +9,28 @@ def main():
 
 
 def build_all_pages():
-    template_file = Path("_template.html")
-    content_file = Path("content.yaml")
+    # Get templates to be filled
+    template_dir = Path("templates")
+    pages = sorted(filter(lambda x: x.stem != "template", template_dir.glob("*.html")))
 
-    pages = sorted(filter(lambda x: x.stem != "_template", Path(".").glob("_*.html")))
-    content = content_file.open().read()
+    # Get content
+    content_file = Path("content.yaml")
+    content = yaml.safe_load(content_file.open().read())
 
     # Make sure an entry in the YAML file exists for each page to be rendered
-    assert all(
-        page.stem[1:] in content for page in pages
-    ), "Missing entry in content.yaml"
+    assert all(page.stem in content for page in pages), "Missing entry in content.yaml"
 
-    environment = jinja2.Environment()
-    template = environment.from_string(template_file.open().read())
+    environment = Environment(loader=FileSystemLoader(template_dir))
 
     for page in pages:
-        page_name = page.stem[1:]
-        page_file = page.with_stem(page_name)
+        page_name = page.stem
+        page_file = Path(page_name).with_suffix(".html")
 
-        # # First render the page-specific template from the YAML content
         page_template = environment.from_string(page.open().read())
-        page_content = yaml.safe_load(content_file.open().read())[page_name]
-        html = page_template.render(**page_content)
+        html = page_template.render(**content[page_name])
 
-        # Then, render the page-specific content onto the global template
-        render = template.render(
-            page_name=page_name,
-            page_title=page_name.capitalize(),
-            page_content=html,
-        )
         with page_file.open("w") as f:
-            f.write(render)
+            f.write(html)
 
 
 if __name__ == "__main__":

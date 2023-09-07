@@ -2,8 +2,8 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Rendeiro lab - Team</title>
-        <meta name="description" content="Team of the Rendeiro group at CeMM">
+        <title>Rendeiro lab - {{ page_title }}</title>
+        <meta name="description" content="{{ page_title }} of the Rendeiro group at CeMM">
         <meta name="author" content="André Rendeiro">
         <meta name="author" content="Ernesto Abila">
         <meta name="author" content="Iva Buljan">
@@ -94,166 +94,16 @@
                 <div class="col-xs-12 col-md-12">
                     <div class="page-header">
                         <h1><a href="/">Rendeiro group</a></h1>
-                        
-                            <h2><a href="/team.html">Team</a></h2>
-                        
+                        {% if page_name != 'index' %}
+                            <h2><a href="/{{ page_name }}.html">{{ page_title }}</a></h2>
+                        {% endif %}
                     </div>
                 </div>
             </div>
 
             <!-- Main content -->
             <div class="row" id="content">
-                                <!-- Intro to the team as a whole -->
-                <div class="col-sm-12">
-                    <p>
-                         <p> asdasd </p> <p> asdasd </p> <p> asdasd </p>
-                    </p>
-                </div>
-
-                <!-- Intro for each member -->
-                <div class="col-sm-12 blog-main" id="team">
-                    <h4>Our team</h4>
-
-                    
-                    <div class="col-sm-4 col-shorter">
-                        <h5>Andre Rendeiro</h5>
-                        <img src="https://cemm.at/fileadmin/_processed_/b/8/csm_Rendeiro_Andre_Bubble_d6dba164e5.png" class="img-responsive" alt="Andre Rendeiro" width="256px">
-                        <p>
-                            Principal Investigator
-                        </p>
-                        <ol>
-                            
-                            <li>
-                                a
-                            </li>
-                            
-                            <li>
-                                b
-                            </li>
-                            
-                            <li>
-                                c
-                            </li>
-                            
-                        </ol>
-                        <p>
-                            arendeiro@cemm.at
-                        </p>
-                    </div>
-                    
-                    <div class="col-sm-4 col-shorter">
-                        <h5>Ernesto Abila</h5>
-                        <img src="https://cemm.at/fileadmin/_processed_/f/c/csm_Abila_Ernesto_Bubble_3216d6745c.png" class="img-responsive" alt="Ernesto Abila" width="256px">
-                        <p>
-                            PhD Student
-                        </p>
-                        <ol>
-                            
-                            <li>
-                                a
-                            </li>
-                            
-                            <li>
-                                b
-                            </li>
-                            
-                            <li>
-                                c
-                            </li>
-                            
-                        </ol>
-                        <p>
-                            eabila@cemm.at
-                        </p>
-                    </div>
-                    
-                    <div class="col-sm-4 col-shorter">
-                        <h5>Iva Buljan</h5>
-                        <img src="https://cemm.at/fileadmin/_processed_/3/2/csm_Buljan_Iva_Bubble_726f981332.png" class="img-responsive" alt="Iva Buljan" width="256px">
-                        <p>
-                            PhD Student
-                        </p>
-                        <ol>
-                            
-                            <li>
-                                a
-                            </li>
-                            
-                            <li>
-                                b
-                            </li>
-                            
-                            <li>
-                                c
-                            </li>
-                            
-                        </ol>
-                        <p>
-                            ibuljan@cemm.at
-                        </p>
-                    </div>
-                    
-                    <div class="col-sm-4 col-shorter">
-                        <h5>Tamas Veres</h5>
-                        <img src="assets/img/empty_bubble_photo_1.png" class="img-responsive" alt="Tamas Veres" width="256px">
-                        <p>
-                            PhD Student
-                        </p>
-                        <ol>
-                            
-                            <li>
-                                a
-                            </li>
-                            
-                            <li>
-                                b
-                            </li>
-                            
-                            <li>
-                                c
-                            </li>
-                            
-                        </ol>
-                        <p>
-                            tveres@cemm.at
-                        </p>
-                    </div>
-                    
-                    <div class="col-sm-4 col-shorter">
-                        <h5>Yimin Zheng</h5>
-                        <img src="assets/img/empty_bubble_photo_2.png" class="img-responsive" alt="Yimin Zheng" width="256px">
-                        <p>
-                            Postdoc
-                        </p>
-                        <ol>
-                            
-                            <li>
-                                a
-                            </li>
-                            
-                            <li>
-                                b
-                            </li>
-                            
-                            <li>
-                                c
-                            </li>
-                            
-                        </ol>
-                        <p>
-                            yzheng@cemm.at
-                        </p>
-                    </div>
-                    
-                </div>
-
-                <br>
-
-                <div class="col-sm-12">
-                    <p>
-                         <p> asdasd </p> <p> asdasd </p> <p> asdasd </p>
-                    </p>
-                </div>
+                {{ page_content }}
             </div>
         </div>
 

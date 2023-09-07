@@ -1,0 +1,39 @@
+                <!-- Intro to the team as a whole -->
+                <div class="col-sm-12">
+                    <p>
+                        {{ intro_text }}
+                    </p>
+                </div>
+
+                <!-- Intro for each member -->
+                <div class="col-sm-12 blog-main" id="team">
+                    <h4>Our team</h4>
+
+                    {% for id, member in members.items() %}
+                    <div class="col-sm-4 col-shorter">
+                        <h5>{{ member.name }}</h5>
+                        <img src="{{ member.photo }}" class="img-responsive" alt="{{ member.name }}" width="256px">
+                        <p>
+                            {{ member.role }}
+                        </p>
+                        <ol>
+                            {% for interest in member.interests %}
+                            <li>
+                                {{ interest }}
+                            </li>
+                            {% endfor %}
+                        </ol>
+                        <p>
+                            {{ member.email }}
+                        </p>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <br>
+
+                <div class="col-sm-12">
+                    <p>
+                        {{ outro_text }}
+                    </p>
+                </div>

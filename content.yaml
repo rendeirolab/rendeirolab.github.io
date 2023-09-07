@@ -1,0 +1,61 @@
+index:
+  a: 1
+
+research:
+  a: 1
+
+publications:
+  a: 1
+
+team:
+  intro_text: "
+    <p>
+      asdasd
+    </p>
+    <p>
+      asdasd
+    </p>
+    <p>
+      asdasd
+    </p>"
+  outro_text: "
+    <p>
+      asdasd
+    </p>
+    <p>
+      asdasd
+    </p>
+    <p>
+      asdasd
+    </p>"
+  members:
+    arendeiro:
+      name: Andre Rendeiro
+      role: Principal Investigator
+      email: arendeiro@cemm.at
+      interests: 
+        - a
+        - b
+        - c
+      # photo: assets/img/arendeiro.png
+      photo: https://cemm.at/fileadmin/_processed_/b/8/csm_Rendeiro_Andre_Bubble_d6dba164e5.png
+    eabila:
+      name: Ernesto Abila
+      role: PhD Student
+      email: eabila@cemm.at
+      interests: 
+        - a
+        - b
+        - c
+      # photo: assets/img/eabila.png
+      photo: https://cemm.at/fileadmin/_processed_/f/c/csm_Abila_Ernesto_Bubble_3216d6745c.png
+    ibuljan:
+      name: Iva Buljan
+      role: PhD Student
+      email: ibuljan@cemm.at
+      interests: 
+        - a
+        - b
+        - c
+      # photo: assets/img/ibuljan.png
+      photo: https://cemm.at/fileadmin/_processed_/3/2/csm_Buljan_Iva_Bubble_726f981332.png

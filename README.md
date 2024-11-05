@@ -17,6 +17,6 @@ The only [requirements](requirements.txt) are `jinja` and `requests`.
 
 Before development, remove the `docs` directory of the repository: `make clean`.
 
-After editing, you can render the website with `make`, which simply runs `python -m http.server` in the `docs` directory.
+After editing, you can render the website with `make serve`, which simply runs `python -m http.server` in the `docs` directory.
 
-If changes look goo, commit and push to make them live.
+If changes look good, commit and push (`make deploy`) to make them live.

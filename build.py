@@ -7,6 +7,7 @@ from jinja2 import Environment, FileSystemLoader
 config = yaml.safe_load(Path("config.yaml").open().read())
 template_dir = Path(config["template_dir"])
 build_dir = Path(config["build_dir"])
+build_dir.mkdir(exist_ok=True)
 deploy_url = config["deploy_url"]
 
 

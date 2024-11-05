@@ -3,7 +3,11 @@ import yaml
 
 from jinja2 import Environment, FileSystemLoader
 
-template_dir = Path("templates")
+
+config = yaml.safe_load(Path("config.yaml").open().read())
+template_dir = Path(config["template_dir"])
+build_dir = Path(config["build_dir"])
+deploy_url = config["deploy_url"]
 
 
 def main():
@@ -30,7 +34,7 @@ def build_all_pages():
         page_name = page.stem
         if page_name == "papers":
             continue
-        page_file = Path(page_name).with_suffix(".html")
+        page_file = build_dir / Path(page_name).with_suffix(".html")
 
         page_template = environment.from_string(page.open().read())
 
@@ -38,7 +42,7 @@ def build_all_pages():
         if page_name in additionals:
             add = {k: content[k][k] for k in additionals[page_name]}
 
-        html = page_template.render(**content[page_name], **add)
+        html = page_template.render(deploy_url=deploy_url, **content[page_name], **add)
 
         with page_file.open("w") as f:
             f.write(html)

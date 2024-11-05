@@ -6,7 +6,7 @@ index:
 
 contact:
   title: "Contact"
-  intro: "We are always happy to hear from you."
+  intro: "We would be happy to hear from you."
   content: "We are located at the CeMM Research Center for Molecular Medicine of the Austrian Academy of Sciences, in Vienna, Austria."
   outro: "<a href='mailto:arendeiro@cemm.at'>Reach out if you are interested in joining our team!</a>"
 
@@ -25,7 +25,7 @@ news:
       description:
       img: null
     2024-10-28:
-      title: "'cytomine_utils' open sourced!"
+      title: "'cytomine_utils' software package open sourced!"
       description: "A package with utilities to interact with Cytomine APIs: <a href='https://github.com/RendeiroLab/cytomine_utils'>https://github.com/RendeiroLab/cytomine_utils</a>."
       img: null
     2024-10-02:
@@ -140,7 +140,7 @@ publications:
         <br>
         BioRxiv (2024). <a href="https://doi.org/10.1101/2024.02.14.580236">doi:10.1101/2024.02.14.580236</a>
 
-papers:
+papers:  # leave here for compatibility
 
 research:
   title: "Research"
@@ -165,8 +165,7 @@ team:
     arendeiro:
       name: Andre Rendeiro
       role: Principal Investigator
-      description: "
-      "
+      description: null
       email: arendeiro@cemm.at
       interests:
 
@@ -175,8 +174,7 @@ team:
     avillanuevamarijuan:
       name: Ariadna Villanueva Marijuan
       role: PhD Student
-      description: "
-      "
+      description: null
       email: avillanuevamarijuan@cemm.at
       interests:
 
@@ -185,8 +183,7 @@ team:
     eabila:
       name: Ernesto Abila
       role: PhD Student
-      description: "
-      "
+      description: null
       email: eabila@cemm.at
       interests:
 
@@ -195,8 +192,7 @@ team:
     ibuljan:
       name: Iva Buljan
       role: PhD Student
-      description: "
-      "
+      description: null
       email: ibuljan@cemm.at
       interests:
 
@@ -205,8 +201,7 @@ team:
     lkleissl:
       name: Lisa Kleissl
       role: Postdoc
-      description: "
-      "
+      description: null
       email: lkleissl@cemm.at
       interests:
 
@@ -215,8 +210,7 @@ team:
     tveres:
       name: Tamas Veres
       role: PhD Student
-      description: "
-      "
+      description: null
       email: tveres@cemm.at
       interests:
 
@@ -225,8 +219,7 @@ team:
     yzheng:
       name: Yimin Zheng
       role: Postdoc
-      description: "
-      "
+      description: null
       email: yzheng@cemm.at
       interests:
 

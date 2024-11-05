@@ -1,13 +1,26 @@
-{# templates/publicatin.html #}
+{# templates/publications.html #}
 
 {% extends "template.html" %}
 
-{% block content %}                <div class="col-sm-8 blog-main" prefix="datacite: http://purl.org/spar/datacite/" id="publications">
-                    <h3>Publications and associated resources</h3>
-                    <br />
-                    <div class="col-sm-12" style="margin-bottom: 30px;">
-                        <p>Last updated on 2023-09-04.</p>
-                    </div>
-                    <br />
+{% block content %}
+                <div class="col-sm-12 blog-main">
+                    <h3>{{ title }}</h3>
+                    <p>{{ intro }}</p>
+                    <p>{{ content }}</p>
+                    <ul>
+                        {% for id, publication in publications.items()|sort(reverse=True) %}
+                        <li>
+                            {{ publication.description }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <p>{{ outro }}</p>
                 </div>
+                
+                <div class="col-sm-12 blog-main">
+                    <h3>Previous publications important for the foundation of our group</h3>
+                
+                    {% include "papers.html" %}
+                </div>
+
 {% endblock content %}

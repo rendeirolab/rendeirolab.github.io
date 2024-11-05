@@ -19,9 +19,8 @@
         <![endif]-->
 
         <!-- Bootstrap -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
 
         <!-- Font awesome -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
@@ -45,48 +44,57 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container-fluid">
 
-                <!-- Title and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/">Rendeiro group</a>
-                </div><!-- /.navbar-header -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+          <div class="container-fluid">
+            <!-- <a class="navbar-brand" href="index.html">Rendeiro group</a> -->
+            <a class="navbar-brand" href="index.html">
+              <img src="assets/img/rendeirolab.icon.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+              Rendeiro group
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- 
+                <li class="nav-item">
+                    <a class="nav-link" href="research.html">Research</a>
+                </li>
+                -->
+                <li class="nav-item">
+                    <a class="nav-link" href="team.html">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="news.html">News</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="publications.html">Publications</a>
+                </li>
+                <!--
+                <li class="nav-item">
+                    <a class="nav-link" href="positions.html">Positions</a>
+                </li>
+                -->
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                </ul>
+              </ul>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="research.html">Research</a></li>
-                        <li><a href="team.html">Team</a></li>
-                        <li><a href="publications.html">Publications</a></li>
-                    </ul>
-
-                    <!-- Search -->
-                    <div class="navbar-header navbar-right">
-                        <form class="navbar-form" role="search" method="get" action="https://google.com/search">
-                            <div class="form-group">
-                                <input type="hidden" name="q" value="site:http://rendeirolab.github.io">
-                                <input type="text" class="form-control search-query" name="q" placeholder="Search">
-                            </div>
-                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                        </form>
-                    </div>
-
-                    <div class="navbar-header navbar-right">
-                        <a class="btn navbar-btn btn-social-icon navbar-btn" href="https://www.twitter.com/afrendeiro"><i class="fab fa-twitter" style="color:#1DA1F2"></i></a>
-                        <a class="btn navbar-btn btn-social-icon navbar-btn" href="https://sciencemastodon.com/@afrendeiro"><i class="fab fa-brands fa-mastodon" style="color:#1DA1F2"></i></a>
-                        <a class="btn navbar-btn btn-social-icon navbar-btn" href="https://github.com/rendeirolab"><i class="fab fa-github" style="color:black"></i></a>
-                        <a class='btn navbar-btn btn-social-icon navbar-btn' href="javascript:window.location.href=atob('bWFpbHRvOmFyZW5kZWlyb0BjZW1tLmF0')" style="unicode-bidi: bidi-override; direction: rtl;"><i class='fas fa-envelope' style='color:#cc724f'></i></a>
-                    </div>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container -->
-        </nav><!-- /.navbar -->
+                <div class="navbar-header navbar-right">
+                    <a class="btn navbar-btn btn-social-icon navbar-btn" href="https://www.twitter.com/afrendeiro"><i class="fab fa-twitter" style="color:#1DA1F2"></i></a>
+                    <a class="btn navbar-btn btn-social-icon navbar-btn" href="https://sciencemastodon.com/@afrendeiro"><i class="fab fa-brands fa-mastodon" style="color:#1DA1F2"></i></a>
+                    <a class="btn navbar-btn btn-social-icon navbar-btn" href="https://github.com/rendeirolab"><i class="fab fa-github" style="color:black"></i></a>
+                    <a class='btn navbar-btn btn-social-icon navbar-btn' href="javascript:window.location.href=atob('bWFpbHRvOmFyZW5kZWlyb0BjZW1tLmF0')" style="unicode-bidi: bidi-override; direction: rtl;"><i class='fas fa-envelope' style='color:#cc724f'></i></a>
+                </div>
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            </div>
+          </div>
+        </nav>
 
         <br>
         <br>
@@ -97,6 +105,7 @@
             <div class="row">
                 <div class="col-xs-12 col-md-12">
                     <div class="page-header">
+                        <br>
                         <h1><a href="/">Rendeiro group</a></h1>
                         
                             <h2><a href="/.html"></a></h2>
@@ -108,114 +117,45 @@
             <!-- Main content -->
             <div class="row" id="content">
                 
-                <div class="col-sm-8 blog-main" id="research">
-                    <h4>Research highlights</h4>
-                    <div class="col-sm-4 col-shorter">
-                        <h5>Spatially resolved biology and tissue architecture:</h5>
-                        <ol>
-                            <li>
-                                <a rel="datacite:doi" href="http://dx.doi.org/10.1038/s41592-022-01657-2">
-                                Kim, <i>et al</i>, Nature Methods, 2022</a>
-                            </li>
-                        </ol>
-                        <h5>Novel molecular techniques:</h5>
-                        <ol>
-                            <li>
-                                scifi-RNA-seq: <a rel="datacite:doi" href="http://dx.doi.org/10.1038/s41592-021-01153-z">
-                                Datlinger<sup>*</sup>, Rendeiro<sup>*</sup>, <i>et al</i>, Nature Methods, 2021</a>
-                            </li>
-                            <li>
-                                ChIP-STARR-seq: <a rel="datacite:doi" href="http://dx.doi.org/http://dx.doi.org/10.1016/j.stem.2018.06.014">
-                                Barakat<sup>*</sup>, Halbritter<sup>*</sup>, <i>et al</i>, Cell Stem Cell, 2018</a>
-                            </li>
-                            <li>
-                                CROP-seq: <a rel="datacite:doi" href="http://dx.doi.org/10.1038/nmeth.4177">
-                                Datlinger, <i>et al</i>, Nature Methods, 2017</a>
-                            </li>
-                            <li>
-                                ChIPmentation: <a rel="datacite:doi" href="http://dx.doi.org/10.1038/nmeth.3542">
-                                Schmidl<sup>*</sup>, Rendeiro<sup>*</sup>, <i>et al</i>, Nature Methods, 2015</a>
-                            </li>
-                        </ol>
-                    </div>
-
-                    <div class="col-sm-4 col-shorter">
-                        <h5>Spatial and temporally resolved COVID-19 pathology and immunology:</h5>
-                        <ol>
-                            <li>
-                                <a rel="datacite:doi" href="http://dx.doi.org/10.1101/2022.11.28.22282811">
-                                Rendeiro*, Ravichandran*, <i>et al</i>, medRxiv, 2022</a>
-                            </li>
-                            <li>
-                                <a rel="datacite:doi" href="http://dx.doi.org/10.1038/s41586-021-03475-6">
-                                Rendeiro*, Ravichandran*, <i>et al</i>, Nature, 2021</a>
-                            </li>
-                            <li>
-                                <a rel="datacite:doi" href="http://dx.doi.org/10.1038/s41586-021-03569-1">
-                                Melms*, [...], Rendeiro*, [...] <i>et al</i>, Nature, 2021</a>
-                            </li>
-                            <li>
-                                <a rel="datacite:doi" href="http://dx.doi.org/10.3389/fimmu.2021.809937">
-                                Rendeiro <i>et al</i>, Frontiers in Immunology, 2021</a>
-                            </li>
-                            <li>
-                                <a rel="datacite:doi" href="http://dx.doi.org/10.26508/lsa.202000955">
-                                Rendeiro <i>et al</i>, Life Science Alliance, 2020</a>
-                            </li>
-                        </ol>
-                    </div>
-
-                    <div class="col-sm-4 col-shorter">
-                        <h5>Precision medicine in cancer:</h5>
-                        <ol>
-                            <li>
-                                <a rel="datacite:doi" href="http://dx.doi.org/10.1038/s41467-019-14081-6">
-                                Rendeiro*, Krausgruber*, <i>et al</i>, Nature Communications, 2020</a>
-                            </li>
-                            <li>
-                                <a rel="datacite:doi" href="http://dx.doi.org/10.1038/s41589-018-0205-2">
-                                Schmidl*, Vladimer*, Rendeiro*, Schnabl*, <i>et al</i>, Nature Chemical Biology, 2019</a>
-                            </li>
-                            <li>
-                                <a rel="datacite:doi" href="http://dx.doi.org/10.1038/ncomms11938">
-                                Rendeiro*, Schmidl*, Strefford*, <i>et al</i>, Nature Communications, 2016</a>
-                            </li>
-                        </ol>
-                    </div>
+                <div class="col-sm-12 blog-main">
+                    <h3>Research</h3>
+                    <p></p>
+                    <p></p>
+                    <p></p>
                 </div>
 
+                <br>
             </div>
+            <br>
         </div>
+        <br>
 
         <!-- Footer -->
-        <nav class="navbar navbar-default navbar-fixed-bottom navbar-inverted footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-md-12 text-center navbar-text">
+        <nav class="navbar fixed-bottom bg-body-tertiary">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="index.html"></a>
 
-                        <!-- Author -->
-                        <!--<p>&copy; André Rendeiro 2014 </p> -->
+            <!-- Author -->
+            <!--<p>&copy; André Rendeiro 2014 </p> -->
 
-                        <!-- Credit -->
-                        <small>With help from <a href="https://jekyllrb.com/" target="_blank" title="Jekyll Blogging Framework">Jekyll</a>
-                        , <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>
-                        and hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
-                        </small>
+            <!-- Credit -->
+            <small>With help from <a href="https://jinja.palletsprojects.com/en/stable/" target="_blank">Jinja</a>
+            , <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>
+            and hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+            </small>
 
-                        <!-- CC licence -->
-                        <!-- 
-                            <a class="licence" rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a>
-                         -->
-                    </div>
-                </div><!-- ./row -->
-            </div><!-- ./container -->
+            <!-- CC licence -->
+            <!-- 
+                <a class="licence" rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a>
+             -->
+          </div>
         </nav>
 
-
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <!-- Bootstrap JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
         <!-- Anchor JS -->
         <script src="/assets/themes/afr/js/anchor.js"></script>
     </body>

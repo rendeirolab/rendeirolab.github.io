@@ -3,14 +3,16 @@ import yaml
 
 from jinja2 import Environment, FileSystemLoader
 
+template_dir = Path("templates")
+
 
 def main():
+    get_publications()
     build_all_pages()
 
 
 def build_all_pages():
     # Get templates to be filled
-    template_dir = Path("templates")
     pages = sorted(filter(lambda x: x.stem != "template", template_dir.glob("*.html")))
 
     # Get content
@@ -22,15 +24,36 @@ def build_all_pages():
 
     environment = Environment(loader=FileSystemLoader(template_dir))
 
+    additionals = {"index": ["news"]}
+
     for page in pages:
         page_name = page.stem
+        if page_name == "papers":
+            continue
         page_file = Path(page_name).with_suffix(".html")
 
         page_template = environment.from_string(page.open().read())
-        html = page_template.render(**content[page_name])
+
+        add = {}
+        if page_name in additionals:
+            add = {k: content[k][k] for k in additionals[page_name]}
+
+        html = page_template.render(**content[page_name], **add)
 
         with page_file.open("w") as f:
             f.write(html)
+
+
+def get_publications():
+    import requests
+    import bs4
+
+    source = "https://andre-rendeiro.com"
+    html = requests.get(source).content
+    soup = bs4.BeautifulSoup(html, "lxml")
+    pub_list = soup.find_all("ol")[-1]
+    with open(template_dir / "papers.html", "w") as f:
+        f.write(str(pub_list))
 
 
 if __name__ == "__main__":

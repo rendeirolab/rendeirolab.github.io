@@ -3,13 +3,12 @@
 {% extends "template.html" %}
 
 {% block content %}                <!-- Left bar with info -->
-                <div class="col-sm-3 center-block text-center brd">  <!--  custom-col-width -->
+                <div class="col-sm-3 center-block brd">  <!--  custom-col-width -->
                     <dl>
-                        <dd>CeMM - Research Center</dd><dd>for Molecular Medicine,</dd>
-                        <dd>Austrian Academy of Sciences</dd>
-                        <br />
-                        <dt>Address:</dt>
-                        <dd>
+                        <p>CeMM - Research Centerfor Molecular Medicine, Austrian Academy of Sciences,</p>
+                        <p>Ludwig Boltzmann Institute for Network Medicine, University of Vienna</p>
+                        <p>Vienna, Austria</p>
+                        <!-- <dd>
                             <span property="schema:address" typeof="http://schema.org/PostalAddress" vocab="http://schema.org/PostalAddress/">
                                 <a href="https://goo.gl/maps/qa1K9PSu8xSp7z3M6">
                                     <span property="streetAddress">Lazarettgasse 14, AKH BT 25.3</span>,<br />
@@ -18,14 +17,37 @@
                                     <span property="addressCountry">Austria</span>
                                 </a>
                             </span>
-                        </dd>
+                        </dd> -->
                     </dl>
+
+                    <br>
+
+                    <h4>Research highlights</h4>
+                    <!-- <h5>Spatially resolved biology and tissue architecture:</h5> -->
+                    <ol>
+                    <!-- <h5>Computational methods and Software:</h5> -->
+                        <li>
+                            <a rel="datacite:doi" href="http://dx.doi.org/10.1101/2024.02.14.580236">
+                            Zheng, <i>et al</i>, BioRxiv, 2024</a>
+                        </li>
+                        <li>
+                            <a rel="datacite:doi" href="http://dx.doi.org/10.1038/s41592-022-01657-2">
+                            Kim, <i>et al</i>, Nature Methods, 2022</a>
+                        </li>
+                    </ol>
+
+                    <h4>Latest news</h4>
+                    {% for id, new in (news.items()|sort(reverse=True))[:4] %}
+                        <p><strong>{{ id }}</strong> - {{ new.title }}</p>
+                    {% endfor %}
+                    <a href="news.html">More news here.</a>
                 </div>
 
-                <!-- Main content, right -->
-                <div class="col-sm-8">
+                <!-- Remaining content -->
+                <div class="col-sm-9 blog-main" id="research">
+
                     <p>
-                        We are a research group at <a rel="schema:affiliation" href="https://cemm.at/research/groups/andre-rendeiro-group">CeMM </a>- the <a rel="schema:affiliation" href="https://cemm.at/research/groups/andre-rendeiro-group">Research Center for Molecular Medicine</a> of the <a rel="schema:memberOf" href="https://www.oeaw.ac.at/en/">Austrian Academy of Sciences</a> working on computational and molecular methods to study human aging and pathology.
+                        We are a research group at <a rel="schema:affiliation" href="https://cemm.at/research/groups/andre-rendeiro-group">CeMM </a>- the <a rel="schema:affiliation" href="https://cemm.at/research/groups/andre-rendeiro-group">Research Center for Molecular Medicine</a> of the <a rel="schema:memberOf" href="https://www.oeaw.ac.at/en/">Austrian Academy of Sciences</a> and at the <a href="">Ludwig Boltzmann Institute for Network Medicine</a> at the <a href=""> University of Vienna</a> working on computational and molecular methods to study human aging and pathology.
                     </p>
                     <p>
                         We are particularly interested in the organization of cells at the micro-anatomical level and understanding how this changes during the lifespan of individuals and at the onset of disease.
@@ -33,84 +55,36 @@
                     <p>
                         We primarily develop computational methods for the analysis of spatial data (spatial transcriptomics, highly multiplexed imaging), and its integration with various modalities of molecular and clinical data of individuals along their lifespan.
                     </p>
-                </div>
 
-                <!-- Remaining content -->
-                <div class="col-sm-8 blog-main" id="research">
-
-                    <h4>Research highlights</h4>
-
-                    <div class="col-sm-4 col-shorter">
-                        <h5>Spatially resolved biology and tissue architecture:</h5>
-                        <ol>
-                            <li>
-                                <a rel="datacite:doi" href="http://dx.doi.org/10.1038/s41592-022-01657-2">
-                                Kim, <i>et al</i>, Nature Methods, 2022</a>
-                            </li>
-                        </ol>
-
-                        <h5>Novel molecular techniques:</h5>
-                        <ol>
-                            <li>
-                                scifi-RNA-seq: <a rel="datacite:doi" href="http://dx.doi.org/10.1038/s41592-021-01153-z">
-                                Datlinger<sup>*</sup>, Rendeiro<sup>*</sup>, <i>et al</i>, Nature Methods, 2021</a>
-                            </li>
-                            <li>
-                                ChIP-STARR-seq: <a rel="datacite:doi" href="http://dx.doi.org/http://dx.doi.org/10.1016/j.stem.2018.06.014">
-                                Barakat<sup>*</sup>, Halbritter<sup>*</sup>, <i>et al</i>, Cell Stem Cell, 2018</a>
-                            </li>
-                            <li>
-                                CROP-seq: <a rel="datacite:doi" href="http://dx.doi.org/10.1038/nmeth.4177">
-                                Datlinger, <i>et al</i>, Nature Methods, 2017</a>
-                            </li>
-                            <li>
-                                ChIPmentation: <a rel="datacite:doi" href="http://dx.doi.org/10.1038/nmeth.3542">
-                                Schmidl<sup>*</sup>, Rendeiro<sup>*</sup>, <i>et al</i>, Nature Methods, 2015</a>
-                            </li>
-                        </ol>
-                    </div>
-
-                    <div class="col-sm-4 col-shorter">
-                        <h5>Spatial and temporally resolved COVID-19 pathology and immunology:</h5>
-                        <ol>
-                            <li>
-                                <a rel="datacite:doi" href="http://dx.doi.org/10.1101/2022.11.28.22282811">
-                                Rendeiro*, Ravichandran*, <i>et al</i>, medRxiv, 2022</a>
-                            </li>
-                            <li>
-                                <a rel="datacite:doi" href="http://dx.doi.org/10.1038/s41586-021-03475-6">
-                                Rendeiro*, Ravichandran*, <i>et al</i>, Nature, 2021</a>
-                            </li>
-                            <li>
-                                <a rel="datacite:doi" href="http://dx.doi.org/10.1038/s41586-021-03569-1">
-                                Melms*, [...], Rendeiro*, [...] <i>et al</i>, Nature, 2021</a>
-                            </li>
-                            <li>
-                                <a rel="datacite:doi" href="http://dx.doi.org/10.3389/fimmu.2021.809937">
-                                Rendeiro <i>et al</i>, Frontiers in Immunology, 2021</a>
-                            </li>
-                            <li>
-                                <a rel="datacite:doi" href="http://dx.doi.org/10.26508/lsa.202000955">
-                                Rendeiro <i>et al</i>, Life Science Alliance, 2020</a>
-                            </li>
-                        </ol>
-                    </div>
-                    <div class="col-sm-4 col-shorter">
-                        <h5>Precision medicine in cancer:</h5>
-                        <ol>
-                            <li>
-                                <a rel="datacite:doi" href="http://dx.doi.org/10.1038/s41467-019-14081-6">
-                                Rendeiro*, Krausgruber*, <i>et al</i>, Nature Communications, 2020</a>
-                            </li>
-                            <li>
-                                <a rel="datacite:doi" href="http://dx.doi.org/10.1038/s41589-018-0205-2">
-                                Schmidl*, Vladimer*, Rendeiro*, Schnabl*, <i>et al</i>, Nature Chemical Biology, 2019</a>
-                            </li>
-                            <li>
-                                <a rel="datacite:doi" href="http://dx.doi.org/10.1038/ncomms11938">
-                                Rendeiro*, Schmidl*, Strefford*, <i>et al</i>, Nature Communications, 2016</a>
-                            </li>
-                        </ol>
+                    <div class="col-sm-12 d-flex justify-content-center">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title">Spatially resolved,<br>cross-anatomical scale biology</h5>
+                                <br>
+                                <img class="card-img-top mx-auto" src="assets/img/research_a.png" alt="ALT" style="width: 105%">
+                                <!-- <p class="card-text">Text</p> -->
+                                <!-- <a href="#" class="btn btn-primary">Link</a> -->
+                            </div>
+                        </div>
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title">Aging biology,<br> disease risk and onset</h5>
+                                <br>
+                                <img class="card-img-top mx-auto" src="assets/img/research_b.png" alt="ALT" style="width: 105%">
+                                <!-- <p class="card-text">Text</p> -->
+                                <!-- <a href="#" class="btn btn-primary">Link</a> -->
+                            </div>
+                        </div>
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h5 class="card-title">Artificial intelligence and software engineering</h5>
+                                <br>
+                                <img class="card-img-top mx-auto" src="assets/img/research_c.png" alt="ALT" style="width: 105%">
+                                <!-- <p class="card-text">Text</p> -->
+                                <!-- <a href="#" class="btn btn-primary">Link</a> -->
+                            </div>
+                        </div>
                     </div>
                 </div>
+
 {% endblock content %}

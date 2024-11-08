@@ -2,6 +2,8 @@ from pathlib import Path
 import yaml
 
 from jinja2 import Environment, FileSystemLoader
+import requests
+import bs4
 
 
 config = yaml.safe_load(Path("config.yaml").open().read())
@@ -50,9 +52,6 @@ def build_all_pages():
 
 
 def get_publications():
-    import requests
-    import bs4
-
     source = "https://andre-rendeiro.com"
     html = requests.get(source).content
     soup = bs4.BeautifulSoup(html, "lxml")

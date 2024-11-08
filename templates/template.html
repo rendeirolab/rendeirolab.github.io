@@ -34,6 +34,31 @@
 
         <!-- Favicons -->
         <link rel="shortcut icon" href="{{ static_url }}/img/favicon.ico">
+
+        <!-- Other head content like title, meta tags, etc. -->
+        <style>
+            p {
+                font-size: 1.1rem; /* Default size for desktop */
+            }
+
+            @media (max-width: 320px) { /* Extra small screens like older phones */
+                p {
+                    font-size: 1.4rem; /* Larger size for very small screens */
+                }
+            }
+
+            @media (max-width: 576px) and (min-width: 321px) { /* Standard small screens */
+                p {
+                    font-size: 1.35rem; /* Slightly smaller for screens larger than 320px */
+                }
+            }
+
+            @media (min-width: 576px) and (max-width: 768px) { /* Tablet-sized screens */
+                p {
+                    font-size: 1.2rem; /* Moderate size for tablets */
+                }
+            }
+        </style>
     </head>
 
     <body>

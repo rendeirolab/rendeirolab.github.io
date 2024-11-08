@@ -7,7 +7,7 @@ build: clean
 serve: build
 	python -m http.server -d docs/
 
-deploy:
+deploy: build
 	git add -u
 	git commit -m "update"
 	git push origin gh-pages

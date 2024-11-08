@@ -3,12 +3,12 @@
 {% extends "template.html" %}
 
 {% block content %}
-                <div class="col-sm-12 blog-main">
+                <div class="col blog-main">
                     <h3>{{ title }}</h3>
                     <p>{{ intro }}</p>
                     <p>{{ content }}</p>
                     {% for id, new in news.items()|sort(reverse=True) %}
-                    <div class="col-sm-9 col-shorter">
+                    <div class="col-sm-12 col-shorter">
                         <h5><strong>{{ id }}</strong> - {{ new.title }}</h5>
                         {% if new.img is not none %}
                         <img src="{{ new.img }}" class="img-responsive" alt="{{ new.title }}" width="256px">

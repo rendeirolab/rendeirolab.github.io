@@ -10,7 +10,7 @@ config = yaml.safe_load(Path("config.yaml").open().read())
 template_dir = Path(config["template_dir"])
 build_dir = Path(config["build_dir"])
 build_dir.mkdir(exist_ok=True)
-deploy_url = config["deploy_url"]
+static_url = config["static_url"]
 
 
 def main():
@@ -45,7 +45,7 @@ def build_all_pages():
         if page_name in additionals:
             add = {k: content[k][k] for k in additionals[page_name]}
 
-        html = page_template.render(deploy_url=deploy_url, **content[page_name], **add)
+        html = page_template.render(static_url=static_url, **content[page_name], **add)
 
         with page_file.open("w") as f:
             f.write(html)

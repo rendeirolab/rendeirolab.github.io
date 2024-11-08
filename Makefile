@@ -10,6 +10,6 @@ serve: build
 deploy: build
 	git add -u
 	git commit -m "update"
-	git push origin gh-pages
+	git push origin main
 
 .DEFAULT_GOAL := serve

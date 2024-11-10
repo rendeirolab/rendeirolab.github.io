@@ -1,8 +1,8 @@
 from pathlib import Path
-import yaml
 import os
 import shutil
 
+import yaml
 from jinja2 import Environment, FileSystemLoader
 import requests
 import bs4

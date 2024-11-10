@@ -31,7 +31,7 @@
                     {% for id, new in (news.items()|sort(reverse=True))[:4] %}
                         <p><strong>{{ id }}</strong> - {{ new.title }}</p>
                     {% endfor %}
-                    <a href="news.html">More news here.</a>
+                    <a href="/news/">More news here.</a>
                 </div>
 
                 <div class="col-12 d-md-none"> <!-- Add hr on small screens -->

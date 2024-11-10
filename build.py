@@ -37,7 +37,11 @@ def build_all_pages():
         page_name = page.stem
         if page_name == "papers":
             continue
-        page_file = build_dir / Path(page_name).with_suffix(".html")
+        if page_name != "index":
+            page_file = build_dir / page_name / "index.html"
+        else:
+            page_file = build_dir / "index.html"
+        page_file.parent.mkdir(exist_ok=True)
 
         page_template = environment.from_string(page.open().read())
 

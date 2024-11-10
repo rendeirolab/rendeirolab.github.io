@@ -5,10 +5,15 @@ index:
   outro: ""
 
 contact:
-  title: "Contact"
+  title: "Contact and applications"
   intro: "We would be happy to hear from you."
-  content: "We are located at the CeMM Research Center for Molecular Medicine of the Austrian Academy of Sciences, in Vienna, Austria."
-  outro: "<a href='mailto:arendeiro@cemm.at'>Reach out if you are interested in joining our team!</a>"
+  content: |
+    <p><strong>Postdocs</strong>: Interested candidates can apply directly to the <a href='https://cemm.at/postdoc-program' target='_blank'>CeMM Postdoc Program</a> or reach out to <a href='mailto:arendeiro@cemm.oeaw.ac.at'>Andre</a> via email with a CV and a brief summary of their research interests or project ideas.</p>
+    <p><strong>PhD Students</strong>: Applications are welcomed through the annual <a href='https://cemm.at/phd-program' target='_blank'>CeMM International PhD Program</a>.</p>
+    <p><strong>Master Students</strong>: Prospective candidates for a Master's thesis should email <a href='mailto:arendeiro@cemm.oeaw.ac.at'>Andre</a> with a motivation letter, CV, and relevant certificates/transcripts. Please note that a commitment of approximately 12 months is required to ensure the success of an ambitious research project.</p>
+    <p><strong>Other Positions</strong>: For other roles, such as research technician or project scientist, candidates can either apply to specific job postings listed on the CeMM career website or contact <a href='mailto:arendeiro@cemm.oeaw.ac.at'>Andre</a> via email with a motivation letter and CV.</p>
+
+  outro: "<a href='mailto:arendeiro@cemm.oeaw.ac.at'>Reach out if you are interested in joining our team!</a>"
 
 news:
   title: "News"
@@ -124,7 +129,7 @@ news:
 #   content: "
 #   We primarily recruit through the <a href='https://cemm.at/phd-program'>CeMM PhD</a> and <a href='https://cemm.at/postdoc-program'>Postdoc</a> Programs.
 #   Other positions are advertised in commonly used platforms."
-#   outro: "<a href='mailto:arendeiro@cemm.at'>Feel free to reach out if you are interested in joining our team!</a>"
+#   outro: "<a href='mailto:arendeiro@cemm.oeaw.ac.at'>Feel free to reach out if you are interested in joining our team!</a>"
 
 publications:
   title: "Publications"
@@ -158,7 +163,7 @@ team:
     <p>We primarily recruit through the <a href='https://cemm.at/phd-program'>CeMM PhD</a> and <a href='https://cemm.at/postdoc-program'>Postdoc</a> Programs.
     Other positions are advertised in commonly used platforms.
     </p>
-    <a href='mailto:arendeiro@cemm.at'>Feel free to reach out if you are interested in joining our team!</a>
+    <a href='mailto:arendeiro@cemm.oeaw.ac.at'>Feel free to reach out if you are interested in joining our team!</a>
   members:
     # photo: assets/img/empty_bubble_photo_1.png
     # photo: assets/img/empty_bubble_photo_2.png
@@ -166,7 +171,7 @@ team:
       name: Andre Rendeiro
       role: Principal Investigator
       description: null
-      email: arendeiro@cemm.at
+      email: arendeiro@cemm.oeaw.ac.at
       interests:
 
       # photo: assets/img/arendeiro.png
@@ -175,7 +180,7 @@ team:
       name: Ariadna Villanueva Marijuan
       role: PhD Student
       description: null
-      email: avillanuevamarijuan@cemm.at
+      email: avillanuevamarijuan@cemm.oeaw.ac.at
       interests:
 
       # photo: assets/img/avillanuevamarijuan.png
@@ -184,7 +189,7 @@ team:
       name: Ernesto Abila
       role: PhD Student
       description: null
-      email: eabila@cemm.at
+      email: eabila@cemm.oeaw.ac.at
       interests:
 
       # photo: assets/img/eabila.png
@@ -193,7 +198,7 @@ team:
       name: Iva Buljan
       role: PhD Student
       description: null
-      email: ibuljan@cemm.at
+      email: ibuljan@cemm.oeaw.ac.at
       interests:
 
       # photo: assets/img/ibuljan.png
@@ -202,7 +207,7 @@ team:
       name: Lisa Kleissl
       role: Postdoc
       description: null
-      email: lkleissl@cemm.at
+      email: lkleissl@cemm.oeaw.ac.at
       interests:
 
       # photo: assets/img/lkleissl.png
@@ -211,7 +216,7 @@ team:
       name: Tamas Veres
       role: PhD Student
       description: null
-      email: tveres@cemm.at
+      email: tveres@cemm.oeaw.ac.at
       interests:
 
       # photo: assets/img/tveres.png
@@ -220,7 +225,7 @@ team:
       name: Yimin Zheng
       role: Postdoc
       description: null
-      email: yzheng@cemm.at
+      email: yzheng@cemm.oeaw.ac.at
       interests:
 
       # photo: assets/img/yzheng.png

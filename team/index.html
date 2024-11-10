@@ -52,6 +52,11 @@
             body {
                 overflow-x: hidden;
             }
+            a {
+    overflow-wrap: break-word; /* Ensures words wrap within the container */
+    word-wrap: break-word;     /* For older browsers */
+    white-space: normal;       /* Allows wrapping within the normal text flow */
+}
         </style>
 
     </head>

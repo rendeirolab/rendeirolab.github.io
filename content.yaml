@@ -21,6 +21,10 @@ news:
   content: "Some news from our lab:"
   outro: ""
   news:
+    2024-11-10:
+      title: "Yimin presented a poster at the 2024 Cell Symposia on Hallmarks of Cancer, Guangzhou, China"
+      description: "Yimin presented a poster on the microanatomical decoding of breast cancer metastasis, part of our ongoing work funded by the WWTF. Thank you for the support!"
+      img: 2024-11-10-Yimin_conference.jpg
     2024-11-06:
       title: "Congratulations to Iva and Tamas on organizing a successfull bioinformatics course at CeMM!"
       description: "The annual 2-week course at CeMM is essential to train all CeMM PhD program students and this year Iva and Tamas were centrally involved in the organization, planning and teaching of the course."

@@ -8,13 +8,13 @@
                     <p>{{ intro }}</p>
                     <p>{{ content }}</p>
                     {% for id, new in news.items()|sort(reverse=True) %}
-                    <div class="col-sm-12 col-shorter">
-                        <h5><strong>{{ id }}</strong> - {{ new.title }}</h5>
+                    <h5><strong>{{ id }}</strong> - {{ new.title }}</h5>
+                    <div class="col-sm-12 d-flex">
                         {% if new.img is not none %}
-                        <img src="{{ new.img }}" class="img-responsive" alt="{{ new.title }}" width="256px">
+                        <img class="img-responsive me-3" src="{{ static_url }}/img/{{ new.img }}" alt="{{ new.description }}" style="width: 30%;">
                         {% endif %}
                         {% if new.description is not none %}
-                        <p>{{ new.description }}</p>
+                        <p class="mb-0">{{ new.description }}</p>
                         {% endif %}
                     </div>
                     {% endfor %}

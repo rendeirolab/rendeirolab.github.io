@@ -11,7 +11,9 @@
                         <p>Vienna, Austria</p>
                     </dl>
 
-                    <img class="img-fluid" src="{{ static_url }}/img/group_photo_2023-10-23.jpg" alt="group picture">
+                    <div class="col-12 d-md-none"> <!-- Add group picture earlier on small screens -->
+                        <img class="img-fluid" src="{{ static_url }}/img/group_photo_2023-10-23.jpg" alt="group picture">
+                    </div>
 
                     <br>
 
@@ -30,7 +32,7 @@
                     </ol>
 
                     <h4>Latest news</h4>
-                    {% for id, new in (news.items()|sort(reverse=True))[:4] %}
+                    {% for id, new in (news.items()|sort(reverse=True))[:6] %}
                         <p><strong>{{ id }}</strong> - {{ new.title }}</p>
                     {% endfor %}
                     <a href="/news/">More news here.</a>
@@ -46,6 +48,10 @@
                     <p>
                         We are a research group at <a rel="schema:affiliation" target="_blank" href="https://cemm.at/research/groups/andre-rendeiro-group">CeMM </a>- the <a rel="schema:affiliation" target="_blank" href="https://cemm.at/research/groups/andre-rendeiro-group">Research Center for Molecular Medicine</a> of the <a rel="schema:memberOf" target="_blank" href="https://www.oeaw.ac.at/en/">Austrian Academy of Sciences</a> and at the <a target="_blank" href="https://lbi-netmed.com/">Ludwig Boltzmann Institute for Network Medicine</a> at the <a target="_blank" href="https://www.univie.ac.at/en/"> University of Vienna</a> working on computational and molecular methods to study human aging and pathology.
                     </p>
+
+                    <div class="col-12 d-none d-md-block text-center">
+                        <img class="img-fluid" src="{{ static_url }}/img/group_photo_2023-10-23.jpg" alt="group picture" style="width: 60%;">
+                    </div>
                     <p>
                         We are particularly interested in the organization of cells at the micro-anatomical level and understanding how this changes during the lifespan of individuals and at the onset of disease.
                     </p>
@@ -83,5 +89,7 @@
                     </div>
 
                 </div>
+
+
 
 {% endblock content %}

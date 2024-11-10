@@ -1,5 +1,7 @@
 from pathlib import Path
 import yaml
+import os
+import shutil
 
 from jinja2 import Environment, FileSystemLoader
 import requests
@@ -53,6 +55,10 @@ def build_all_pages():
 
         with page_file.open("w") as f:
             f.write(html)
+
+    # if local, copy assets folder to build
+    if not os.getenv("GITHUB_ACTIONS"):
+        shutil.copytree("assets", build_dir / "assets")
 
 
 def get_publications():

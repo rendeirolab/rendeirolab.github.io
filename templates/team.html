@@ -7,34 +7,28 @@
                     <h3>{{ title }}</h3>
                     <p>{{ intro }}</p>
                     <p>{{ content }}</p>
-                    <div class="col-sm-12 d-flex justify-content-center">
-                        {% for id, member in members.items()|sort %}
-
-                        {% if loop.index == 5 %}
-                        </div>
-                        <div class="col-sm-12 d-flex justify-content-center">
-                        {% endif %}
-
-                        <div class="card text-center" style="width: 18rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ member.name }}</h5>
-                                <!-- class="img-responsive" -->
-                                <img class="card-img-top" src="{{ member.photo }}" alt="{{ member.name }}" style="width: 90%">
-                                <!-- <img src="{{ member.photo }}" alt="{{ member.name }}" > -->
-                                <p class="card-text">{{ member.role }}
-                                    <br>
-                                    {% if member.interests %}
-                                    <ul>
-                                        {% for interest in member.interests %}
-                                        <li>{{ interest }}</li>
-                                        {% endfor %}
-                                    </ul>
-                                    {% endif %}
-                                </p>
-                                <!-- <a href="#" class="btn btn-primary">{{ member.email }}</a> -->
+                    <div class="row">
+                            {% for id, member in members.items()|sort %}
+                            <div class="card text-center col-3 col-md-3 mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ member.name }}</h5>
+                                    <img class="card-img-top" src="{{ member.photo }}" alt="{{ member.name }}" style="width: 90%">
+                                    <!-- <img src="{{ member.photo }}" alt="{{ member.name }}" > -->
+                                    <p class="card-text">{{ member.role }}
+                                        <br>
+                                        {% if member.interests %}
+                                        <ul>
+                                            {% for interest in member.interests %}
+                                            <li>{{ interest }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                        {% endif %}
+                                    </p>
+                                    <!-- <a href="#" class="btn btn-primary">{{ member.email }}</a> -->
+                                </div>
                             </div>
+                            {% endfor %}
                         </div>
-                        {% endfor %}
                     </div>
                 </div>
                 <div class="col-sm-12">

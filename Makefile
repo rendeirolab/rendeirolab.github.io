@@ -5,7 +5,7 @@ build: clean
 	python build.py
 
 serve: build
-	python -m http.server -d docs/
+	xdg-open http://0.0.0.0:8000/ & python -m http.server -d docs/
 
 deploy: build
 	git add -u

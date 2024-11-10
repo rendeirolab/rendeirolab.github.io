@@ -9,7 +9,7 @@
                     <p>{{ content }}</p>
                     <div class="row">
                             {% for id, member in members.items()|sort %}
-                            <div class="card text-center col-3 col-sm-6 col-md-3 mb-3">
+                            <div class="card text-center col-sm-6 col-md-3 mb-3">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ member.name }}</h5>
                                     <img class="card-img-top" src="{{ member.photo }}" alt="{{ member.name }}" style="width: 90%">

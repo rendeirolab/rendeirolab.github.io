@@ -3,18 +3,22 @@
 {% extends "template.html" %}
 
 {% block content %}
-                <div class="col blog-main">
+                <div class="col-12 blog-main">
                     <h3>{{ title }}</h3>
                     <p>{{ intro }}</p>
                     <p>{{ content }}</p>
                     {% for id, new in news.items()|sort(reverse=True) %}
                     <h5><strong>{{ id }}</strong> - {{ new.title }}</h5>
-                    <div class="col-sm-12 d-flex">
+                    <div class="row">
                         {% if new.img is not none %}
-                        <img class="img-responsive me-3" src="{{ static_url }}/img/{{ new.img }}" alt="{{ new.description }}" style="width: 30%;">
+                        <div class="col-3">
+                            <img class="img-responsive" src="{{ static_url }}/img/{{ new.img }}" alt="{{ new.description }}" style="width: 95%; height: auto; display: block">
+                        </div>
                         {% endif %}
                         {% if new.description is not none %}
-                        <p class="mb-0">{{ new.description }}</p>
+                        <div class="col-9">
+                            <p class="mb-0">{{ new.description }}</p>
+                        </div>
                         {% endif %}
                     </div>
                     <br>

@@ -1,5 +1,5 @@
 clean:
-	-rm docs/*.html
+	-rm -r docs
 
 build: clean
 	python build.py

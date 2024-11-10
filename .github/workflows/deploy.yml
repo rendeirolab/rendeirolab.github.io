@@ -24,6 +24,8 @@ jobs:
       run: python build.py
     - name: Add .nojekyll file
       run: touch docs/.nojekyll
+    - name: Add CNAME file
+      run: echo 'rendeiro.group' > docs/CNAME
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:

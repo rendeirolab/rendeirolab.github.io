@@ -1,5 +1,6 @@
 clean:
 	-rm -r docs
+	-rm templates/papers.html
 
 build: clean
 	python build.py

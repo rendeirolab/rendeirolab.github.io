@@ -1,10 +1,12 @@
 index:
+  description: "The Rendeiro lab at CeMM and LBI-NetMed"
   title: "Index"
   intro: ""
   content: ""
   outro: ""
 
 contact:
+  description: "Contact and applications to join the lab"
   title: "Contact and applications"
   intro: "We would be happy to hear from you."
   content: |
@@ -16,6 +18,7 @@ contact:
   outro: "<a href='mailto:arendeiro@cemm.oeaw.ac.at'>Reach out if you are interested in joining our team!</a>"
 
 news:
+  description: "Recent news from our lab"
   title: "News"
   intro: ""
   content: "Some news from our lab:"
@@ -35,11 +38,11 @@ news:
       img: null
     2024-10-28:
       title: "'cytomine_utils' software package open sourced!"
-      description: "A package with utilities to interact with Cytomine APIs: <a href='https://github.com/RendeiroLab/cytomine_utils'>https://github.com/RendeiroLab/cytomine_utils</a>."
+      description: "A package with utilities to interact with Cytomine APIs: <a href='https://github.com/RendeiroLab/cytomine_utils'>gh.com/RendeiroLab/cytomine_utils</a>."
       img: null
     2024-10-02:
       title: "'LazySlide' and 'WSIData' open sourced!"
-      description: "The two packages form a new, modular and scalable framework for whole slide image analysis, bringing the interoperability, efficiency, and familiarity of single-cell analysis in scverse: <a href='https://github.com/RendeiroLab/LazySlide'>https://github.com/RendeiroLab/LazySlide</a>, <a href='https://github.com/RendeiroLab/WSIData'>https://github.com/RendeiroLab/WSIData</a>."
+      description: "The two packages form a new, modular and scalable framework for whole slide image analysis, bringing the interoperability, efficiency, and familiarity of single-cell analysis in scverse: <a href='https://github.com/RendeiroLab/LazySlide'>gh.com/RendeiroLab/LazySlide</a>, <a href='https://github.com/RendeiroLab/WSIData'>gh.com/RendeiroLab/WSIData</a>."
       img: null
     2024-10-04:
       title: "Andre gave a talk at the IX Siena Immunooncology Think Tank in Siena, Italy"
@@ -136,6 +139,7 @@ news:
 #   outro: "<a href='mailto:arendeiro@cemm.oeaw.ac.at'>Feel free to reach out if you are interested in joining our team!</a>"
 
 publications:
+  description: "Scientific publications from our lab"
   title: "Publications"
   intro: ""
   content: ""
@@ -152,12 +156,14 @@ publications:
 papers:  # leave here for compatibility
 
 research:
+  description: "An introduction to our scientific research"
   title: "Research"
   intro: ""
   content: ""
   outro: ""
 
 team:
+  description: "The team members of the Rendeiro lab"
   title: "Team"
   intro: "We are a young and dynamic team of scientists from diverse backgrounds."
   content: "Current lab members:"

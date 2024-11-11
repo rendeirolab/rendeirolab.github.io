@@ -4,8 +4,8 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Rendeiro lab - {{ page_title }}</title>
-        <meta name="description" content="{{ page_title }} of the Rendeiro group at CeMM">
+        <title>Rendeiro lab - {{ title }}</title>
+        <meta name="description" content="{{ description }}">
         <meta name="author" content="André Rendeiro">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -15,6 +15,18 @@
         <!-- Favicons -->
         <link rel="shortcut icon" href="{{ static_url }}/img/favicon.ico">
 
+        <!-- Font awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- Bootstrap-social -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.9.2/bootstrap-social.min.css" integrity="sha512-3CYhYJnb7/677SX8kzxL2+gW6vVzXiVEC6ZhK0S4tGVp7dTlMjSZPVvA79aH8YMU0xuKn2tLZIFaBctUi4Cb/w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- Academic icons (ORCID, Google Scholar) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- SEO -->
+        <link rel="canonical" href="{{ page_url }}">
+
         <!-- Other head content like title, meta tags, etc. -->
         <style>
             :root {
@@ -22,6 +34,7 @@
             }
 
             body {
+                overflow-x: hidden;
                 font-size: var(--base-font-size); /* Apply the base font size */
             }
 
@@ -47,14 +60,11 @@
                 height: 2.5vh
             }
 
-            body {
-                overflow-x: hidden;
-            }
             a {
-    overflow-wrap: break-word; /* Ensures words wrap within the container */
-    word-wrap: break-word;     /* For older browsers */
-    white-space: normal;       /* Allows wrapping within the normal text flow */
-}
+                overflow-wrap: break-word; 
+                word-wrap: break-word;
+                white-space: normal;
+            }
         </style>
 
     </head>
@@ -123,9 +133,6 @@
                     <div class="page-header">
                         <br>
                         <h1><a href="/">Rendeiro group</a></h1>
-                        {% if page_name != 'index' %}
-                            <h2><a href="/{{ page_name }}/">{{ page_title }}</a></h2>
-                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -145,7 +152,7 @@
         <nav class="navbar fixed-bottom bg-body-tertiary">
           <div class="container-fluid">
             <a class="navbar-brand" href="/"></a>   <!-- Important to keep credits right align -->
-            <p style="font-size: 0.9rem;"><small>With help from <a href="https://jinja.palletsprojects.com/en/stable/" target="_blank">Jinja</a>
+            <p style="font-size: 0.85rem;"><small>With help from <a href="https://jinja.palletsprojects.com/en/stable/" target="_blank">Jinja</a>
             , <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>
             and hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
             </small></p>

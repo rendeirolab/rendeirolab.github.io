@@ -51,7 +51,7 @@ def build_all_pages():
             add = {k: content[k][k] for k in additionals[page_name]}
 
         html = page_template.render(
-            page_url=config["deploy_url"] + page_name + "/",
+            page_url=config["deploy_url"] + page_name,
             **config,
             **content[page_name],
             **add

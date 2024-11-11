@@ -110,10 +110,12 @@
                     <a class="btn navbar-btn btn-social-icon navbar-btn" href="https://github.com/rendeirolab"><i class="fab fa-github" style="color:black"></i></a>
                     <a class='btn navbar-btn btn-social-icon navbar-btn' href="javascript:window.location.href=atob('bWFpbHRvOmFyZW5kZWlyb0BjZW1tLmF0')" style="unicode-bidi: bidi-override; direction: rtl;"><i class='fas fa-envelope' style='color:#cc724f'></i></a>
                 </div>
-              <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-              </form>
+                <form class="d-flex" role="search" method="get" action="https://google.com/search">
+                    <input type="hidden" name="q" value="site:https://rendeiro.group/">
+                    <input class="form-control me-2" type="search" name="q" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+              
             </div>
           </div>
         </nav>

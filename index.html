@@ -67,6 +67,16 @@
                 word-wrap: break-word;
                 white-space: normal;
             }
+
+            .btn-outline-success {
+                --bs-btn-color: #0d6efd !important;
+                --bs-btn-border-color: #0d6efd !important;
+                --bs-btn-hover-bg: #0d6efd !important;
+                --bs-btn-hover-border-color: #0d6efd !important;
+            }
+            .navbar-btn {
+                 color: #0d6efd;
+            }
         </style>
 
     </head>
@@ -105,14 +115,31 @@
               </ul>
 
                 <div class="navbar-header navbar-right">
-                    <a class="btn navbar-btn btn-social-icon navbar-btn" href="https://www.twitter.com/afrendeiro"><i class="fab fa-twitter" style="color:#1DA1F2"></i></a>
-                    <a class="btn navbar-btn btn-social-icon navbar-btn" href="https://sciencemastodon.com/@afrendeiro"><i class="fab fa-brands fa-mastodon" style="color:#1DA1F2"></i></a>
-                    <a class="btn navbar-btn btn-social-icon navbar-btn" href="https://github.com/rendeirolab"><i class="fab fa-github" style="color:black"></i></a>
-                    <a class='btn navbar-btn btn-social-icon navbar-btn' href="javascript:window.location.href=atob('bWFpbHRvOmFyZW5kZWlyb0BjZW1tLmF0')" style="unicode-bidi: bidi-override; direction: rtl;"><i class='fas fa-envelope' style='color:#cc724f'></i></a>
+                    <a class="btn navbar-btn btn-social-icon" href="https://www.twitter.com/afrendeiro">
+                        <i class="fab fa-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a class="btn navbar-btn btn-social-icon" href="https://afrendeiro@bsky.social">
+                        <i class="fab fa-brands fa-bluesky" aria-hidden="true"></i>
+                    </a>
+                    <a class="btn navbar-btn btn-social-icon" href="https://sciencemastodon.com/@afrendeiro">
+                        <i class="fab fa-brands fa-mastodon" aria-hidden="true"></i>
+                    </a>
+                    <!-- <a class="btn navbar-btn btn-social-icon" href="https://github.com/rendeirolab">
+                        <i class="fab fa-wandb" aria-hidden="true"></i>
+                    </a>-->
+                    <a class="btn navbar-btn btn-social-icon" href="https://wandb.ai/rendeiro-group">
+                        <i class="fab fa-github" aria-hidden="true"></i>
+                    </a>
+                    <!-- <a class="btn navbar-btn btn-social-icon" href="https://huggingface.co/RendeiroLab">
+                        <i class="fab fa-huggingface" aria-hidden="true"></i>
+                    </a>-->
+                    <a class='btn navbar-btn btn-social-icon' href="javascript:window.location.href=atob('bWFpbHRvOmFyZW5kZWlyb0BjZW1tLmF0')">
+                        <i class='fa fa-envelope' aria-hidden="true"></i>
+                    </a>
                 </div>
                 <form class="d-flex" role="search" method="get" action="https://google.com/search">
                     <input type="hidden" name="q" value="site:https://rendeiro.group/">
-                    <input class="form-control me-2" type="search" name="q" aria-label="Search">
+                    <input class="form-control me-2 bs-primary" type="search" name="q" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
               

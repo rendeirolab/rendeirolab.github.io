@@ -24,6 +24,10 @@ news:
   content: "Some news from our lab:"
   outro: ""
   news:
+    2024-11-11:
+      title: "Dinah joins the lab for a rotation project"
+      description: "Dinah Dollack joined the lab for 4 weeks to work on a tissue biology perspective of metabolic and immune cross-talk."
+      img: null
     2024-11-10:
       title: "Yimin presented a poster at the 2024 Cell Symposia on Hallmarks of Cancer, Guangzhou, China"
       description: "Yimin presented a poster on the microanatomical decoding of breast cancer metastasis, part of our ongoing work funded by the WWTF. Thank you for the support!"
@@ -100,6 +104,10 @@ news:
       title: "Andre gave a talk at the Keystone Symposia on Single-Cell Biology: Tissue Genomics, Technologies and Disease, Whistler, Canada"
       description: "It was an amazing conference!"
       img: null
+    2023-11-20:
+      title: "Adrija joins the lab for a rotation project"
+      description: "Adrija Chakrabarty joined the lab for 4 weeks to work on cross-histological and transcriptional analysis of chronic gastritis."
+      img: null
     2023-10-01:
       title: "Andre gave a talk at the 33rd Annual Conference of the German Society for Cytometry in Berlin, Germany"
       description: "Thank you to the organizers, in particular to Bertram Bengsch!"
@@ -115,6 +123,10 @@ news:
     2023-09-18:
       title: "Welcome to Tamas!"
       description: "Tamas Veres will join the CeMM PhD Program and work on the intersection of morphological and molecular changes to tissue in health and disease."
+      img: null
+    2022-11-06:
+      title: "Jagoda joins the lab for a rotation project"
+      description: "Jagoda Pokryszka joined the lab for 4 weeks to work on a metabolomics project."
       img: null
     2022-10-01:
       title: "Andre gave a talk at the Biological Data Science Meeting at the Cold Spring Harbour Laboratory, NY, USA"

@@ -3,10 +3,55 @@
 {% extends "template.html" %}
 
 {% block content %}
-                <div class="col-12 blog-main">
+                <div class="row blog-main">
                     <h3>{{ title }}</h3>
-                    <p>{{ intro }}</p>
-                    <p>{{ content }}</p>
-                    <p>{{ outro }}</p>
+
+                    <div class="row">
+                        <h4>Spatially resolved cross-anatomical scale biology</h4>
+                        <div class="col-3">
+                            <img src="{{ static_url }}/img/research_a.png" style="width: 100%; height: auto;">
+                        </div>
+                        <div class="col-9">
+                            <p>
+                                Our lab explores the spatial organization of biological systems, bridging molecular mechanisms with tissue and organ-level structures. We aim to understand how cells and their microenvironments interact across different anatomical scales, from individual cells to whole organs. This multi-scale approach is pivotal in revealing how structural changes, such as alterations in microanatomy or cellular interactions, correlate with physiological and pathological states during aging and disease onset. By leveraging cutting-edge spatial transcriptomics, multiplexed imaging, and histopathological datasets, we uncover previously unappreciated patterns of tissue architecture and its perturbations.
+                            </p>
+                            <p>
+                                Our research goes beyond static observations, incorporating advanced computational methods to analyze spatial relationships and infer molecular functions directly from histological data. These efforts bridge the gaps in knowledge about how molecular and cellular dynamics translate into structural changes across tissues and organs, forming the foundation for understanding human biology in health and disease.
+                            </p>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                        <h4>Aging biology, disease risk, and onset</h4>
+                        <div class="col-9">
+                            <p>
+                                Aging is accompanied by gradual but profound changes in tissue structure and function, which contribute to increased vulnerability to chronic diseases. Our research investigates the molecular and cellular drivers of these changes, emphasizing their manifestation at the tissue and organ levels. We develop models to characterize these age-associated transformations, leveraging human tissue datasets.
+                            </p>
+                            <p>
+                                We focus on integrating data across biological scales to understand how age-related molecular dysregulation and tissue architecture contribute to the onset of pathologies such as fibrosis, calcification, and atrophy. This holistic approach enables us to identify biomarkers and early predictors of disease, paving the way for novel interventions that promote healthy longevity and mitigate the societal burden of aging.
+                            </p>
+                        </div>
+                        <div class="col-3">
+                            <img src="{{ static_url }}/img/research_b.png" style="width: 100%; height: auto;">
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row">
+                        <h4>Principled computational approaches and software engineering</h4>
+                        <div class="col-3">
+                            <img src="{{ static_url }}/img/research_c.png" style="width: 100%; height: auto;">
+                        </div>
+                        <div class="col-9">
+                            <p>
+                                Our lab applies artificial intelligence to advance biomedical research. We use advanced machine learning models, such as vision models, graph neural networks, and foundational models, to analyze and interpret spatial datasets. These methods enable the automation of many relevant tasks in a scalable way.
+                            </p>
+                            <p>
+                                We prioritize the development of computational resources and tools are based on biological principles and are preferably explainable.
+                                Integration with established frameworks (e.g. scverse) and making resources publicly available is also important to us, to support the community.
+                            </p>
+                        </div>
+                    </div>
                 </div>
 {% endblock content %}

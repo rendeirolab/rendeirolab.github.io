@@ -24,6 +24,10 @@ news:
   content: "Some news from our lab:"
   outro: ""
   news:
+    2024-11-13:
+      title: "Ernesto presented a poster at the 2024 Frontiers in Single Cell Genomics, Awaji, Japan"
+      description: "Ernesto presented a poster on deep learning profiling of aging cells using histopathological images at the meeting organized by Cold Spring Harbour Asia."
+      img: 2024-11-13-Ernesto_conference.jpeg
     2024-11-11:
       title: "Dinah joins the lab for a rotation project"
       description: "Dinah Dollack joined the lab for 4 weeks to work on a tissue biology perspective of metabolic and immune cross-talk."

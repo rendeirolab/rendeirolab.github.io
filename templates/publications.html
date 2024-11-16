@@ -7,13 +7,14 @@
                     <h3>{{ title }}</h3>
                     <p>{{ intro }}</p>
                     <p>{{ content }}</p>
-                    <ul>
+                    <ol reversed="">
                         {% for id, publication in publications.items()|sort(reverse=True) %}
                         <li>
                             {{ publication.description }}
                         </li>
+                        <br>
                         {% endfor %}
-                    </ul>
+                    </ol>
                     <p>{{ outro }}</p>
                 </div>
                 

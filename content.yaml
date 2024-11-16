@@ -98,10 +98,10 @@ news:
       title: "Andre gave a talk at the Department of Mathematics of the University of Oxford, UK"
       description: "Thank you for the invitation!"
       img: null
-    2024-04-01:
+    2024-04-27:
       title: "Congratulations to the team for organizing the 2024 EU-LIFE community meeting in Vienna, Austria!"
-      description: "It was challenging, but a very worth experience to organize the 2024 EU-LIFE community meeting which had the theme of artificial intelligence."
-      img: null
+      description: "It was challenging, but a very worthy experience to organize the 2024 EU-LIFE community meeting which had the theme of artificial intelligence."
+      img: 2024-04-27-EULIFE_conference.jpeg
     2024-03-30:
       title: "Our 'Marsilea' pre-print is now online!"
       description: "Yimin led a work on a framework and tool for an intuitive generalized visualization paradigm for complex datasets. <a href='https://www.biorxiv.org/content/10.1101/2024.02.14.580236v2'>Check if out at BioRxiv</a>!"
@@ -182,6 +182,13 @@ publications:
         <b>Tissue clocks derived from histological signatures of biological aging enable tissue-specific aging predictions from blood.</b>
         <br>
         BioRxiv (2024). <a href="https://doi.org/10.1101/2024.11.14.618081">doi:10.1101/2024.11.14.618081</a>
+    2024-04-19:
+      description: |
+        Andreas Reicher, Jiří Reiniš, Maria Ciobanu, Pavel Růžička, Monika Malik, Marton Siklos, Viktoriia Kartysh, Tatjana Tomek, Anna Koren, André F. Rendeiro, Stefan Kubicek.
+        <br>
+        <b>Pooled multicolor tagging for visualizing subcellular protein dynamics.</b>
+        <br>
+        Nature Cell Biology (2024). <a href="https://doi.org/10.1038/s41556-024-01407-w">doi:10.1038/s41556-024-01407-w</a>
     2024-03-30:
       description: |
         Yimin Zheng, Zhihang Zheng, André F. Rendeiro, Edwin Cheung.
@@ -189,6 +196,7 @@ publications:
         <b>Marsilea: An intuitive generalized visualization paradigm for complex datasets.</b>
         <br>
         BioRxiv (2024). <a href="https://doi.org/10.1101/2024.02.14.580236">doi:10.1101/2024.02.14.580236</a>
+
 
 papers:  # leave here for compatibility
 

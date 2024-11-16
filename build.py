@@ -70,6 +70,7 @@ def get_publications():
     html = requests.get(source).content
     soup = bs4.BeautifulSoup(html, "lxml")
     pub_list = soup.find_all("ol")[-1]
+    pub_list.li.decompose()  # remove the first <li> (included already in content.yaml:publications)
     with open(template_dir / "papers.html", "w") as f:
         f.write(str(pub_list))
 

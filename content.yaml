@@ -24,6 +24,15 @@ news:
   content: "Some news from our lab:"
   outro: ""
   news:
+    2024-11-16:
+      title: "Our manuscript on the predition of biological age from histopathological images and blood is now online!"
+      description: |
+        Our study reveals focuses on the structural changes human tissues undergo during aging and how they reflect its physiological state.
+        By analyzing over 25,000 histopathological images across various tissues from nearly 1,000 individuals, we developed "tissue clocks" that can estimate biological age based on tissue morphological characteristics.
+        We found that aging manifests differently in various organs, some showing accelerated changes early in life -  and conversely, some individuals show markedly more accceleated aging than others, sometimes in a organ-specific manner.
+        Leveraging these tissue-specific and highly physiological readouts of aging, we demonstrate how we can derive the a proxy for tissue-specific, morphologically driven biological age from blood samples and validate them in diseased samples.
+        This study highlights the intricate relationship between tissue health, biological aging and could revolutionize the way we assess and understand the biological processes leading to aging-related diseases.
+      img: 2024-11-13-Tissue-clocks.jpg
     2024-11-13:
       title: "Ernesto presented a poster at the 2024 Frontiers in Single Cell Genomics, Awaji, Japan"
       description: "Ernesto presented a poster on deep learning profiling of aging cells using histopathological images at the meeting organized by Cold Spring Harbour Asia."
@@ -161,11 +170,18 @@ publications:
   content: ""
   outro: ""
   publications:
+    2024-11-16:
+      description: |
+        Ernesto Abila, Iva Buljan, Yimin Zheng, Tamas Veres, Zhilong Weng, Maja C Nackenhorst, Wolfgang Hulla, Yuri Tolkach, Adelheid Woehrer, André F. Rendeiro.
+        <br>
+        <b>Tissue clocks derived from histological signatures of biological aging enable tissue-specific aging predictions from blood.</b>
+        <br>
+        BioRxiv (2024). <a href="https://doi.org/10.1101/2024.11.14.618081">doi:10.1101/2024.11.14.618081</a>
     2024-03-30:
       description: |
         Yimin Zheng, Zhihang Zheng, André F. Rendeiro, Edwin Cheung.
         <br>
-        <i>Marsilea: An intuitive generalized visualization paradigm for complex datasets.</i>
+        <b>Marsilea: An intuitive generalized visualization paradigm for complex datasets.</b>
         <br>
         BioRxiv (2024). <a href="https://doi.org/10.1101/2024.02.14.580236">doi:10.1101/2024.02.14.580236</a>
 

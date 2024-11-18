@@ -72,7 +72,11 @@ def get_publications():
     pub_list = soup.find_all("ol")[-1]
     pub_list.li.decompose()  # remove the first <li> (included already in content.yaml:publications)
     with open(template_dir / "papers.html", "w") as f:
-        f.write(str(pub_list))
+        f.write(
+            str(pub_list)
+            .replace("glyphicon-file", "glyphicon-card-text")
+            .replace("glyphicon glyphicon-", "bi bi-")
+        )
 
 
 if __name__ == "__main__":

@@ -65,7 +65,7 @@ news:
     2024-10-02:
       title: "'LazySlide' and 'WSIData' open sourced!"
       description: "The two packages form a new, modular and scalable framework for whole slide image analysis, bringing the interoperability, efficiency, and familiarity of single-cell analysis in scverse: <a href='https://github.com/RendeiroLab/LazySlide'>gh.com/RendeiroLab/LazySlide</a>, <a href='https://github.com/RendeiroLab/WSIData'>gh.com/RendeiroLab/WSIData</a>."
-      img: null
+      img: 2024-10-02-Lazyslide.png
     2024-10-04:
       title: "Andre gave a talk at the IX Siena Immunooncology Think Tank in Siena, Italy"
       description: "Thank you so much for the invitation to this small and tight community, in particular to Zlatko Trajanoski!"
@@ -105,7 +105,7 @@ news:
     2024-03-30:
       title: "Our 'Marsilea' pre-print is now online!"
       description: "Yimin led a work on a framework and tool for an intuitive generalized visualization paradigm for complex datasets. <a href='https://www.biorxiv.org/content/10.1101/2024.02.14.580236v2'>Check if out at BioRxiv</a>!"
-      img: null
+      img: 2024-03-30-Marsilea.jpg
     2024-03-01:
       title: "We are now also part of the Ludwig Boltzmann Institute for Network Medicine at the University of Vienna!"
       description: "We are super excited to have been awarded a grant by the Ludwig Boltzmann association to participate in the newly formed Institute for Network Medicine, headed by Jörg Mensche."
@@ -113,7 +113,7 @@ news:
     2024-03-02:
       title: "Thank you to the Vienna Science and Technology foundation (WWTF) for the awarded grant."
       description: "We have been awarded a grant by the Vienna Science and Technology foundation (WWTF) for a project led by Julianne Winkler and together with Zsuzsanna Bago-Horvath to work on the multiscale discovery of cellular and microanatomical determinants of metastasis. Our great appreciation to the WWTF for supporting us!"
-      img: null
+      img: 2024-03-02-WWTF_group_picture.png
     2024-02-01:
       title: "Welcome to Lisa!"
       description: "Lisa Kleissl, a former PhD student of Georg Stary at the Mecical University of Vienna will work on skin aging."

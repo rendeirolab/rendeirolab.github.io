@@ -14,4 +14,7 @@ deploy:
 	git commit -m "update"
 	git push origin main
 
+check:
+	gh run list
+
 .DEFAULT_GOAL := serve

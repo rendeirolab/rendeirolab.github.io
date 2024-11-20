@@ -4,7 +4,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Rendeiro lab - {{ title }}</title>
+        <title>Rendeiro lab - {% if title != 'Index' %}{{ title }} {% else %}Homepage{% endif %}</title>
         <meta name="description" content="{{ description }}">
         <meta name="author" content="André Rendeiro">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">

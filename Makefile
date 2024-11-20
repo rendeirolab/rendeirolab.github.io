@@ -18,3 +18,4 @@ check:
 	gh run list
 
 .DEFAULT_GOAL := serve
+

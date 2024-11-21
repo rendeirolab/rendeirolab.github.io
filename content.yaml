@@ -24,6 +24,19 @@ news:
   content: "Some news from our lab:"
   outro: ""
   news:
+    2024-11-18:
+      title: "The LBI-NetMed inaugural party was a blast!"
+      description: |
+        <p>
+        To celebrate the start of the LBI-NetMed institute and its new installations we had a huge party!
+        </p>
+        <p>
+        Thank you to all that attended and became part of the LBI-NetMed family!
+        </p>
+        <p>
+        A big congratulations and thank you to the organizer team, in particular Christiane Hütter and Annette Tesarek - and Jörg Mensche for putting together this bold idea!
+        </p>
+      img: 2022-11-18-LBI_inauguration_horn.jpg
     2024-11-16:
       title: "Our manuscript on the prediction of biological age from histopathological insights is now online!"
       description: |

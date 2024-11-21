@@ -8,7 +8,7 @@ build: clean
 serve: build
 	xdg-open http://0.0.0.0:8000/ & python -m http.server -d docs/
 
-deploy:
+deploy: clean
 	git add assets/**/*
 	git add -u
 	git commit -m "update"

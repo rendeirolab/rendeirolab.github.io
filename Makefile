@@ -15,7 +15,7 @@ deploy: clean
 	git push origin main
 
 check:
-	gh run list
+	gh run list -L 4
 
 .DEFAULT_GOAL := serve
 

@@ -24,6 +24,10 @@ news:
   content: "Some news from our lab:"
   outro: ""
   news:
+    2024-11-27:
+      title: "We had a fun night escaping!"
+      description: We had a lot of fun doing an escape room adventure and trying out new food at a spanish tapas restaurant.
+      img: 2024-11-27-lab_dinner.jpg
     2024-11-18:
       title: "The LBI-NetMed inaugural party was a blast!"
       description: |

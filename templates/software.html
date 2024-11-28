@@ -1,0 +1,59 @@
+{# templates/software.html #}
+
+{% extends "template.html" %}
+
+{% block content %}
+                <div class="row blog-main">
+                    <h3>{{ title }}</h3>
+                    <p>{{ intro }}</p>
+                    <p>{{ content }}</p>
+                    {% for id, soft in software.items() %}
+                    <div class="col-12">
+                        <h4>{{ soft.title }}</h4>
+                        <div class="row">
+                            {% if soft.img is not none %}
+                            <div class="col-6 col-md-3">
+                                    {% if soft.img is not none %}
+                                        {% if soft.img.startswith('http') %}
+                                        <a href="{{ soft.url_gh }}" target="_blank">
+                                            <img class="img-responsive" src="{{ soft.img }}" alt="{{ soft.description }}" style="width: 95%; height: auto; display: block">
+                                        </a>
+                                        {% else %}
+                                        <a href="{{ soft.url_gh }}" target="_blank">
+                                            <img class="img-responsive" src="{{ static_url }}/img/{{ soft.img }}" alt="{{ soft.description }}" style="width: 95%; height: auto; display: block">
+                                        </a>
+                                        {% endif %}
+                                    {% endif %}
+                            </div>
+                            {% endif %}
+                            {% if soft.img is not none %}
+                            <div class="col-6 col-md-9">
+                            {% else %}
+                            <div class="col-12">
+                            {% endif %}
+                            <h5 class="mb-0">{{ soft.subtitle }}</h5>
+                            {% if soft.description is not none %}
+                                <p class="mb-0">{{ soft.description }}</p>
+                            {% endif %}
+                            <ul class="list-inline">
+                                <li>
+                                    <button class="btn btn-default" type="button">
+                                        <span class="bi bi-link-45deg"></span>
+                                        <strong>Github:</strong> <a href="{{ soft.url_gh }}" target="_blank">{{ soft.url_gh }}</a>
+                                    </button>
+                                </li>
+                                <li>
+                                    <button class="btn btn-default" type="button">
+                                        <span class="bi bi-link-45deg"></span>
+                                        <strong>Docs:</strong> <a href="{{ soft.url_docs }}" target="_blank">{{ soft.url_docs }}</a>
+                                    </button>
+                                </li>
+                            </ul>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    {% endfor %}
+                    <p>{{ outro }}</p>
+                </div>
+{% endblock content %}

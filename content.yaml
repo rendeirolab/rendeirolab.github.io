@@ -258,6 +258,7 @@ software:
       description: |
         A simple Python library for processing whole slide images (WSI) with an object-oriented interface.
         It has the goal of doing basic processing of WSIs with reasonable defaults, but high customizability.
+        It is a fork of <a href="https://github.com/mahmoodlab/CLAM">the "CLAM" repository from the Mahmood lab</a>.
       img: null
       url_gh: https://github.com/RendeiroLab/wsi
       url_docs: https://wsi.readthedocs.io/

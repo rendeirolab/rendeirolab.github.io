@@ -35,18 +35,13 @@
                             {% if soft.description is not none %}
                                 <p class="mb-0">{{ soft.description }}</p>
                             {% endif %}
+                            <br>
                             <ul class="list-inline">
                                 <li>
-                                    <button class="btn btn-default" type="button">
-                                        <span class="bi bi-link-45deg"></span>
-                                        <strong>Github:</strong> <a href="{{ soft.url_gh }}" target="_blank">{{ soft.url_gh }}</a>
-                                    </button>
+                                    <span class="bi bi-link-45deg"><strong>Github:</strong> <a href="{{ soft.url_gh }}" target="_blank">{{ soft.url_gh }}</a></span>
                                 </li>
                                 <li>
-                                    <button class="btn btn-default" type="button">
-                                        <span class="bi bi-link-45deg"></span>
-                                        <strong>Docs:</strong> <a href="{{ soft.url_docs }}" target="_blank">{{ soft.url_docs }}</a>
-                                    </button>
+                                    <span class="bi bi-link-45deg"><strong>Docs:</strong> <a href="{{ soft.url_docs }}" target="_blank">{{ soft.url_docs }}</a></span>
                                 </li>
                             </ul>
                             </div>

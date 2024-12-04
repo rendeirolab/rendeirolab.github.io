@@ -234,21 +234,28 @@ software:
     Marsilea:
       title: "Marsilea"
       subtitle: "Declarative creation of composable visualizations"
-      description: null
+      description: |
+        Marsilea is a Python library for creating composable visualizations in a declarative way.
+        It is built on top of Matplotlib and provides a high-level API for you to assemble a visualization based on composable parts.
       img: https://raw.githubusercontent.com/Marsilea-viz/marsilea/main/img/banner-blue.jpg
       url_gh: https://github.com/Marsilea-viz/marsilea
       url_docs: https://marsilea.readthedocs.io/
     LazySlide:
       title: "LazySlide"
       subtitle: "Modular and scalable whole slide image analysis"
-      description: null
+      description: |
+        LasySlide is a Python library for processing whole slide images (WSI) analysis.
+        It provides a simple interface to perform robust preprocessing and advanced analysis for WSIs.
       img: https://raw.githubusercontent.com/rendeirolab/LazySlide/main/assets/logo%403x.png
       url_gh: https://github.com/RendeiroLab/LazySlide
       url_docs: https://lazyslide.readthedocs.io/
     WSIData:
       title: "WSIData"
       subtitle: "Efficient data structures and IO operations for whole slide images analysis"
-      description: null
+      description: |
+        WSIData is a data structure for manipulating whole slide images (WSI) and storing its analysis results in Python.
+        It can read a variety of WSI formats and it inherits directly from <a href='https://spatialdata.scverse.org/'>SpatialData</a>, making it interoperable with <a href='https://scverse.org/'>the scverse ecosystem</a>.
+        wsidata is designed to used with LazySlide.
       img: https://raw.githubusercontent.com/rendeirolab/WSIData/main/assets/logo%403x.png
       url_gh: https://github.com/RendeiroLab/WSIData
       url_docs: https://wsidata.readthedocs.io/

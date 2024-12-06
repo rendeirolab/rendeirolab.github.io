@@ -24,6 +24,15 @@ news:
   content: "Some news from our lab:"
   outro: ""
   news:
+    2024-12-06:
+      title: "Exciting opportunity: PhD positions at the LBI-NetMed! "
+      description: "Exciting opportunity: The Ludwig Boltzmann Institute for Network Medicine in Vienna is offering interdisciplinary PhD positions.
+Join our innovative team to advance network medicine research 🧬🚀🎓. Applications open until January 12th 2025."
+      img: 2024-12-06.lbi-netmed.banner.jpg
+    2024-12-03:
+      title: "Andre gave a talk at the annual conference of the Austrian Platform for Personalized Medicine in Vienna, Austria"
+      description: "Thank you for the invitation to speak and congratulations on the organization of a conference on such a relevant topic!"
+      img: null
     2024-11-27:
       title: "We had a fun night escaping!"
       description: We had a lot of fun doing an escape room adventure and trying out new food at a spanish tapas restaurant.

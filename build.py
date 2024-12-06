@@ -76,6 +76,15 @@ def get_publications():
             str(pub_list)
             .replace("glyphicon-file", "glyphicon-card-text")
             .replace("glyphicon glyphicon-", "bi bi-")
+            .replace(
+                '<span aria-hidden="true" class="bi',
+                '<i aria-hidden="true"  style="font-size: 2rem; color: cornflowerblue;" class="bi',
+            )
+            .replace(
+                '<span aria-hidden="true" class="fab',
+                '<i aria-hidden="true" class="fab',
+            )
+            .replace('"></span>', '"></i>')
         )
 
 

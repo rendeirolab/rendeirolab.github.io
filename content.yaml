@@ -26,8 +26,17 @@ news:
   news:
     2024-12-06:
       title: "Exciting opportunity: PhD positions at the LBI-NetMed! "
-      description: "Exciting opportunity: The Ludwig Boltzmann Institute for Network Medicine in Vienna is offering interdisciplinary PhD positions.
-Join our innovative team to advance network medicine research 🧬🚀🎓. Applications open until January 12th 2025."
+      description: |
+        <p>The Ludwig Boltzmann Institute for Network Medicine in Vienna is offering interdisciplinary PhD positions.
+        Join our innovative team to advance network medicine research 🧬🚀🎓.
+        Applications open until January 12th 2025.</p>
+
+        <p>More information in the following links:</p>
+        <ul>
+          <li><a href='https://netmed.lbg.ac.at/'>Institute website</a></li>
+          <li><a href='https://www.nature.com/naturecareers/job/12833967/interdisciplinary-phd-positions-at-the-ludwig-boltzmann-institute-for-network-medicine/'>Nature careers</a></li>
+          <li><a href='https://tally.so/r/31GXQg'>Application portal</a></li>
+        </ul>
       img: 2024-12-06.lbi-netmed.banner.jpg
     2024-12-03:
       title: "Andre gave a talk at the annual conference of the Austrian Platform for Personalized Medicine in Vienna, Austria"
@@ -65,7 +74,7 @@ Join our innovative team to advance network medicine research 🧬🚀🎓. Appl
         <p><a href='https://doi.org/10.1101/2024.11.16.48333'>Read the full work here: https://doi.org/10.1101/2024.11.14.618081</a></p>
       img: 2024-11-16-Tissue-clocks.jpg
     2024-11-13:
-      title: "Ernesto presented a poster at the 2024 Frontiers in Single Cell Genomics, Awaji, Japan"
+      title: "Ernesto presented a poster at the 2024 Frontiers in Single Cell Genomics meeting, in Awaji, Japan"
       description: "Ernesto presented a poster on deep learning profiling of aging cells using histopathological images at the meeting organized by Cold Spring Harbour Asia."
       img: 2024-11-13-Ernesto_conference.jpeg
     2024-11-11:
@@ -102,7 +111,7 @@ Join our innovative team to advance network medicine research 🧬🚀🎓. Appl
       img: null
     2024-09-23:
       title: "Welcome to Ariadna!"
-      description: "Ariadna Villanueva Marijuan will join the CeMM PhD Program and work on the intersection of tissue organization genetics."
+      description: "Ariadna Villanueva Marijuan will join the CeMM PhD Program and work on the intersection of tissue organization and genetics."
       img: null
     2024-09-13:
       title: "Congratulations to Lisa on the lab's first NGS samples!"

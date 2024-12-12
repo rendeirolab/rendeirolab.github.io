@@ -24,6 +24,12 @@ news:
   content: "Some news from our lab:"
   outro: ""
   news:
+    2024-12-12:
+      title: "Iva and Tamas attended the inaugural meeting of the European Society for Spatial Biology in Berlin, Germany"
+      description: |
+        Thank you to the organizers for selecting an abstract from our team for an oral presentation and for starting a Society on such a timely and exciting field.
+        Check out their website at <a href='https://spatialbiologysociety.eu/'>https://spatialbiologysociety.eu/</a>
+      img: 2024-12-12-ESSB2024.jpeg
     2024-12-06:
       title: "Exciting opportunity: PhD positions at the LBI-NetMed! "
       description: |

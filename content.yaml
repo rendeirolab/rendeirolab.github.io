@@ -298,6 +298,7 @@ software:
         Marsilea is a Python library for creating composable visualizations in a declarative way.
         It is built on top of Matplotlib and provides a high-level API for you to assemble a visualization based on composable parts.
       img: https://raw.githubusercontent.com/Marsilea-viz/marsilea/main/img/banner-blue.jpg
+      img_alt: The Marsilea logo with a cross-layout at the center and gray background with the words "Transform your data landscape."
       url_gh: https://github.com/Marsilea-viz/marsilea
       url_docs: https://marsilea.readthedocs.io/
     LazySlide:
@@ -307,6 +308,7 @@ software:
         LasySlide is a Python library for processing whole slide images (WSI) analysis.
         It provides a simple interface to perform robust preprocessing and advanced analysis for WSIs.
       img: https://raw.githubusercontent.com/rendeirolab/LazySlide/main/assets/logo%403x.png
+      img_alt: The LazySlide logo with a sloth lying belly down on a moon, all inside a glass slide with a barcode.
       url_gh: https://github.com/RendeiroLab/LazySlide
       url_docs: https://lazyslide.readthedocs.io/
     WSIData:
@@ -317,6 +319,7 @@ software:
         It can read a variety of WSI formats and it inherits directly from <a href='https://spatialdata.scverse.org/'>SpatialData</a>, making it interoperable with <a href='https://scverse.org/'>the scverse ecosystem</a>.
         wsidata is designed to used with LazySlide.
       img: https://raw.githubusercontent.com/rendeirolab/WSIData/main/assets/logo%403x.png
+      img_alt: The WSIData logo with a stack of icons representing whole slide images and their transformations.
       url_gh: https://github.com/RendeiroLab/WSIData
       url_docs: https://wsidata.readthedocs.io/
     wsi:
@@ -327,6 +330,7 @@ software:
         It has the goal of doing basic processing of WSIs with reasonable defaults, but high customizability.
         It is a fork of <a href="https://github.com/mahmoodlab/CLAM">the "CLAM" repository from the Mahmood lab</a>.
       img: null
+      img_alt: null
       url_gh: https://github.com/RendeiroLab/wsi
       url_docs: https://wsi.readthedocs.io/
     cytomine-utils:
@@ -334,6 +338,7 @@ software:
       subtitle: "Python package for high-level interaction with a Cytomine instance"
       description: null
       img: null
+      img_alt: null
       url_gh: https://github.com/RendeiroLab/cytomine-utils
       url_docs: https://cytomine-utils.readthedocs.io/en/latest
 

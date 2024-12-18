@@ -19,15 +19,17 @@
                                             <img
                                                 class="rounded mx-auto d-block"
                                                 src="{{ soft.img }}"
-                                                alt="{{ soft.description }}" 
+                                                tabindex="0"
+                                                alt="{{ soft.img_alt }}"
                                                 style="width: auto; display: block; max-height: 12em; max-width: 12em">
                                         </a>
                                         {% else %}
                                         <a href="{{ soft.url_gh }}" target="_blank">
                                             <img
                                                 class="rounded mx-auto d-block"
-                                                src="{{ static_url }}/img/{{ soft.img }}" alt="{{ soft.description }}"
+                                                src="{{ static_url }}/img/{{ soft.img }}"
                                                 tabindex="0"
+                                                alt="{{ soft.img_alt }}"
                                                 style="width: auto; display: block; max-height: 12em; max-width: 12em">
                                         </a>
                                         {% endif %}

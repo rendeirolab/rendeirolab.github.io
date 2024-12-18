@@ -30,7 +30,7 @@ news:
         Thank you to the organizers for selecting an abstract from our team for an oral presentation and for starting a Society on such a timely and exciting field.
         Check out their website at <a href='https://spatialbiologysociety.eu/'>https://spatialbiologysociety.eu/</a>
       img: 2024-12-12-ESSB2024.jpeg
-      img-alt: Iva and Tamas next to their poster at the meeting of the European Society for Spatial Biology in Berlin.
+      img_alt: Iva and Tamas next to their poster at the meeting of the European Society for Spatial Biology in Berlin.
     2024-12-06:
       title: "Exciting opportunity: PhD positions at the LBI-NetMed! "
       description: |
@@ -45,17 +45,17 @@ news:
           <li><a href='https://tally.so/r/31GXQg'>Application portal</a></li>
         </ul>
       img: 2024-12-06.lbi-netmed.banner.jpg
-      img-alt: The logo of the LBI-NetMed institute.
+      img_alt: The logo of the LBI-NetMed institute.
     2024-12-03:
       title: "Andre gave a talk at the annual conference of the Austrian Platform for Personalized Medicine in Vienna, Austria"
       description: "Thank you for the invitation to speak and congratulations on the organization of a conference on such a relevant topic!"
       img: 2024-12-03-oeppm.jpg
-      img-alt: Andre presenting a talk at the annual conference of the Austrian Platform for Personalized Medicine in Vienna, Austria.
+      img_alt: Andre presenting a talk at the annual conference of the Austrian Platform for Personalized Medicine in Vienna, Austria.
     2024-11-27:
       title: "We had a fun night escaping!"
       description: We had a lot of fun doing an escape room adventure and trying out new food at a spanish tapas restaurant.
       img: 2024-11-27-lab_dinner.jpg
-      img-alt: Six lab members sitting around a restaurant table.
+      img_alt: Six lab members sitting around a restaurant table.
     2024-11-18:
       title: "The LBI-NetMed inaugural party was a blast!"
       description: |
@@ -69,7 +69,7 @@ news:
         A big congratulations and thank you to the organizer team, in particular Christiane Hütter and Annette Tesarek - and Jörg Mensche for putting together this bold idea!
         </p>
       img: 2024-11-18-LBI_inauguration_horn.jpg
-      img-alt: An Austrian mail post horn given as present from CeMM for the LBI-NetMed.
+      img_alt: An Austrian mail post horn given as present from CeMM for the LBI-NetMed.
     2024-11-16:
       title: "Our manuscript on the prediction of biological age from histopathological insights is now online!"
       description: |
@@ -84,157 +84,157 @@ news:
         <p>This study highlights the intricate relationship between tissue health and biological aging, and could revolutionize the way we assess and understand the biological processes leading to aging-related diseases.</p>
         <p><a href='https://doi.org/10.1101/2024.11.16.48333'>Read the full work here: https://doi.org/10.1101/2024.11.14.618081</a></p>
       img: 2024-11-16-Tissue-clocks.jpg
-      img-alt: A scientific illustration of the process to derive rich numerical descriptions from histopathological images, which are then used as predictors of biological age and age gaps. In the bottom a concept of how data from blood can be used to predict tissue-specific biological aging insights previously derived from histopathological images.
+      img_alt: A scientific illustration of the process to derive rich numerical descriptions from histopathological images, which are then used as predictors of biological age and age gaps. In the bottom a concept of how data from blood can be used to predict tissue-specific biological aging insights previously derived from histopathological images.
     2024-11-13:
       title: "Ernesto presented a poster at the 2024 Frontiers in Single Cell Genomics meeting, in Awaji, Japan"
       description: "Ernesto presented a poster on deep learning profiling of aging cells using histopathological images at the meeting organized by Cold Spring Harbour Asia."
       img: 2024-11-13-Ernesto_conference.jpeg
-      img-alt: Ernesto next to his poster at the 2024 Frontiers in Single Cell Genomics meeting, in Japan.
+      img_alt: Ernesto next to his poster at the 2024 Frontiers in Single Cell Genomics meeting, in Japan.
     2024-11-11:
       title: "Dinah joins the lab for a rotation project"
       description: "Dinah Dollack joined the lab for 4 weeks to work on a tissue biology perspective of metabolic and immune cross-talk."
       img: null
-      img-alt: null
+      img_alt: null
     2024-11-10:
       title: "Yimin presented a poster at the 2024 Cell Symposia on Hallmarks of Cancer, Guangzhou, China"
       description: "Yimin presented a poster on the microanatomical decoding of breast cancer metastasis, part of our ongoing work funded by the WWTF. Thank you for the support!"
       img: 2024-11-10-Yimin_conference.jpg
-      img-alt: Yimin next to his poster at the 2024 Cell Symposia on Hallmarks of Cancer in China.
+      img_alt: Yimin next to his poster at the 2024 Cell Symposia on Hallmarks of Cancer in China.
     2024-11-06:
       title: "Congratulations to Iva and Tamas on organizing a successfull bioinformatics course at CeMM!"
       description: "The annual 2-week course at CeMM is essential to train all CeMM PhD program students and this year Iva and Tamas were centrally involved in the organization, planning and teaching of the course."
       img: null
-      img-alt: null
+      img_alt: null
     2024-10-11:
       title: "Iva was at the Spatial Biology Symposium in Milan, Italy"
       description:
       img: null
-      img-alt: null
+      img_alt: null
     2024-10-28:
       title: "'cytomine_utils' software package open sourced!"
       description: "A package with utilities to interact with Cytomine APIs: <a href='https://github.com/RendeiroLab/cytomine_utils'>gh.com/RendeiroLab/cytomine_utils</a>."
       img: null
-      img-alt: null
+      img_alt: null
     2024-10-02:
       title: "'LazySlide' and 'WSIData' open sourced!"
       description: "The two packages form a new, modular and scalable framework for whole slide image analysis, bringing the interoperability, efficiency, and familiarity of single-cell analysis in scverse: <a href='https://github.com/RendeiroLab/LazySlide'>gh.com/RendeiroLab/LazySlide</a>, <a href='https://github.com/RendeiroLab/WSIData'>gh.com/RendeiroLab/WSIData</a>."
       img: 2024-10-02-Lazyslide.png
-      img-alt: The LazySlide logo with a sloth lying belly down on a moon, all inside a glass slide with a barcode.
+      img_alt: The LazySlide logo with a sloth lying belly down on a moon, all inside a glass slide with a barcode.
     2024-10-04:
       title: "Andre gave a talk at the IX Siena Immunooncology Think Tank in Siena, Italy"
       description: "Thank you so much for the invitation to this small and tight community, in particular to Zlatko Trajanoski!"
       img: null
-      img-alt: null
+      img_alt: null
     2024-10-01:
       title: "'wsi' open sourced!"
       description: "A Python package for the processing of whole slide histopathological images is now open sourced <a href='https://github.com/RendeiroLab/wsi'>here</a>!"
       img: null
-      img-alt: null
+      img_alt: null
     2024-09-23:
       title: "Welcome to Ariadna!"
       description: "Ariadna Villanueva Marijuan will join the CeMM PhD Program and work on the intersection of tissue organization and genetics."
       img: null
-      img-alt: null
+      img_alt: null
     2024-09-13:
       title: "Congratulations to Lisa on the lab's first NGS samples!"
       description: "We are super excited our first wet lab experiment was a success!"
       img: null
-      img-alt: null
+      img_alt: null
     2024-09-10:
       title: "Yimin gave a workshop at the scverse conference 2024!"
       description: "Yimin's talk and workshop on declarative creation of composable visualization for omics data at the <a href='https://scverse.org/conference2024'>scverse conference 2024</a> was a success."
       img: null
-      img-alt: null
+      img_alt: null
     2024-08-16:
       title: "We released a balanced dataset of healthy tissue for deep learning model training."
       description: "The dataset of histological slides from the GTEx project that has been balanced for 3 major factors (organ, sex, and age bracket) that may be useful to train models in supervised or self-supervised modes. <a href='https://zenodo.org/doi/10.5281/zenodo.13330658'>https://zenodo.org/doi/10.5281/zenodo.13330658</a>"
       img: null
-      img-alt: null
+      img_alt: null
     2024-06-29:
       title: "Andre gave a talk at the VitaDAO minisymposium: 'Aging across scales and systems' in Vienna, Austria"
       description: "Thank you to Mikolaj Ogrodnik and Alexis Lomakin for organizing!"
       img: null
-      img-alt: null
+      img_alt: null
     2024-05-31:
       title: "Andre gave a talk at the Department of Mathematics of the University of Oxford, UK"
       description: "Thank you for the invitation!"
       img: null
-      img-alt: null
+      img_alt: null
     2024-04-27:
       title: "Congratulations to the team for organizing the 2024 EU-LIFE community meeting in Vienna, Austria!"
       description: "It was challenging, but a very worthy experience to organize the 2024 EU-LIFE community meeting which had the theme of artificial intelligence."
       img: 2024-04-27-EULIFE_conference.jpeg
-      img-alt: A photograph with all conference participants in the festival hall of the Austrian House of Industry.
+      img_alt: A photograph with all conference participants in the festival hall of the Austrian House of Industry.
     2024-03-30:
       title: "Our 'Marsilea' pre-print is now online!"
       description: "Yimin led a work on a framework and tool for an intuitive generalized visualization paradigm for complex datasets. <a href='https://www.biorxiv.org/content/10.1101/2024.02.14.580236v2'>Check if out at BioRxiv</a>!"
       img: 2024-03-30-Marsilea.jpg
-      img-alt: The marsilea logo with a cross layout in the center and gray background saying "Transform your data landscape".
+      img_alt: The marsilea logo with a cross layout in the center and gray background saying "Transform your data landscape".
     2024-03-01:
       title: "We are now also part of the Ludwig Boltzmann Institute for Network Medicine at the University of Vienna!"
       description: "We are super excited to have been awarded a grant by the Ludwig Boltzmann association to participate in the newly formed Institute for Network Medicine, headed by Jörg Mensche."
       img: null
-      img-alt: null
+      img_alt: null
     2024-03-02:
       title: "Thank you to the Vienna Science and Technology foundation (WWTF) for the awarded grant."
       description: "We have been awarded a grant by the Vienna Science and Technology foundation (WWTF) for a project led by Julianne Winkler and together with Zsuzsanna Bago-Horvath to work on the multiscale discovery of cellular and microanatomical determinants of metastasis. Our great appreciation to the WWTF for supporting us!"
       img: 2024-03-02-WWTF_group_picture.png
-      img-alt: "A photo of the three principal investigators: Zsuzsanna Bago-Horvath, Julianne Winkler and Andre Rendeiro."
+      img_alt: "A photo of the three principal investigators: Zsuzsanna Bago-Horvath, Julianne Winkler and Andre Rendeiro."
     2024-02-01:
       title: "Welcome to Lisa!"
       description: "Lisa Kleissl, a former PhD student of Georg Stary at the Mecical University of Vienna will work on skin aging."
       img: null
-      img-alt: null
+      img_alt: null
     2024-01-21:
       title: "Andre gave a talk at the Keystone Symposia on Single-Cell Biology: Tissue Genomics, Technologies and Disease, Whistler, Canada"
       description: "It was an amazing conference!"
       img: null
-      img-alt: null
+      img_alt: null
     2023-11-20:
       title: "Adrija joins the lab for a rotation project"
       description: "Adrija Chakrabarty joined the lab for 4 weeks to work on cross-histological and transcriptional analysis of chronic gastritis."
       img: null
-      img-alt: null
+      img_alt: null
     2023-10-01:
       title: "Andre gave a talk at the 33rd Annual Conference of the German Society for Cytometry in Berlin, Germany"
       description: "Thank you to the organizers, in particular to Bertram Bengsch!"
       img: null
-      img-alt: null
+      img_alt: null
     2023-09-01:
       title: "Andre gave a talk at the 3rd International Danube Symposium on Whole Person Research in Vienna, Austria"
       description: "Thank you to the Department of Nuclear Medicine at the Medical University of Vienna, in particular Markus Hacker and Thomas Beyer for organizing!"
       img: null
-      img-alt: null
+      img_alt: null
     2023-09-20:
       title: "Welcome to Yimin!"
       description: "Yimin Zheng has a background on computational biology and software engineering and will work on cancer biology."
       img: null
-      img-alt: null
+      img_alt: null
     2023-09-18:
       title: "Welcome to Tamas!"
       description: "Tamas Veres will join the CeMM PhD Program and work on the intersection of morphological and molecular changes to tissue in health and disease."
       img: null
-      img-alt: null
+      img_alt: null
     2022-11-06:
       title: "Jagoda joins the lab for a rotation project"
       description: "Jagoda Pokryszka joined the lab for 4 weeks to work on a metabolomics project."
       img: null
-      img-alt: null
+      img_alt: null
     2022-10-01:
       title: "Andre gave a talk at the Biological Data Science Meeting at the Cold Spring Harbour Laboratory, NY, USA"
       description: null
       img: null
-      img-alt: null
+      img_alt: null
     2022-10-01:
       title: "Andre gave a talk at the VBC PhD Symposium 'Pushing Boundaries' in Vienna, Austria"
       description: null
       img: null
-      img-alt: null
+      img_alt: null
     2022-09-19:
       title: "Welcome to Ernesto and Iva!"
       description: "Our first two PhD students will be participating in the CeMM PhD Program and work on the principles of tissue organization in health an disease."
       img: null
-      img-alt: null
+      img_alt: null
 
 
 # positions:

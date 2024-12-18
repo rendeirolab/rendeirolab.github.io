@@ -17,6 +17,8 @@ build_dir.mkdir(exist_ok=True)
 def main():
     get_publications()
     build_all_pages()
+    make_sitemap()
+    make_robots_txt()
 
 
 def build_all_pages():
@@ -54,7 +56,7 @@ def build_all_pages():
             page_url=config["deploy_url"] + page_name,
             **config,
             **content[page_name],
-            **add
+            **add,
         )
 
         with page_file.open("w") as f:
@@ -63,6 +65,70 @@ def build_all_pages():
     # if local, copy assets folder to build
     if not os.getenv("GITHUB_ACTIONS"):
         shutil.copytree("assets", build_dir / "assets")
+
+
+def get_last_mod_date() -> dict[str, str]:
+    import subprocess
+    from datetime import datetime
+
+    now = datetime.now().strftime("%Y-%m-%d")
+
+    try:
+        subprocess.run(
+            ["git", "rev-parse", "--is-inside-work-tree"],
+            check=True,
+            capture_output=True,
+        )
+    except subprocess.CalledProcessError:
+        print("Not a git repository. Using current date as last modification date.")
+        return {page.stem: now for page in template_dir.glob("*.html")}
+
+    last_mod_dates = {}
+    for page in template_dir.glob("*.html"):
+        page_name = page.stem
+        try:
+            result = subprocess.run(
+                ["git", "log", "-n", "1", "--format=%ci", "--", page],
+                check=True,
+                capture_output=True,
+                text=True,
+            )
+            date_str = result.stdout.strip()
+            if not date_str:
+                continue
+            date_obj = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
+            formatted_date = date_obj.strftime("%Y-%m-%d")
+            last_mod_dates[page_name] = formatted_date
+        except subprocess.CalledProcessError as e:
+            print(f"Error getting git log for {page}: {e}")
+            last_mod_dates[page_name] = now
+    return last_mod_dates
+
+
+def make_sitemap():
+    import xml.etree.cElementTree as ET
+
+    mod_dates = get_last_mod_date()
+
+    sitemap = ET.Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
+
+    for page in build_dir.glob("**/*.html"):
+        page_name = page.parent.name if page.parent != build_dir else page.stem
+        url = config["deploy_url"] + str(page.relative_to(build_dir))
+        url_element = ET.SubElement(sitemap, "url")
+        ET.SubElement(url_element, "loc").text = url
+        ET.SubElement(url_element, "lastmod").text = mod_dates[page_name]
+
+    tree = ET.ElementTree(sitemap)
+    ET.indent(tree, space="\t", level=0)
+    with open(build_dir / "sitemap.xml", "wb") as f:
+        tree.write(f, encoding="utf-8", xml_declaration=True, method="xml")
+
+
+def make_robots_txt():
+    txt = f"Sitemap: {config['deploy_url']}sitemap.xml"
+    with open(build_dir / "robots.txt", "w") as f:
+        f.write(txt)
 
 
 def get_publications():

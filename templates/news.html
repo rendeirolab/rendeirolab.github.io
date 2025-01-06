@@ -9,7 +9,7 @@
                     <p>{{ content }}</p>
                     {% for id, new in news.items()|sort(reverse=True) %}
                     <div class="col-12">
-                        <h5><strong>{{ id }}</strong> - {{ new.title }}</h5>
+                        <h5 tabindex="0"><strong>{{ id }}</strong> - {{ new.title }}</h5>
                         <div class="row">
                             {% if new.img is not none %}
                             <div class="col-6 col-md-3">

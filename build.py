@@ -11,7 +11,7 @@ import bs4
 config = yaml.safe_load(Path("config.yaml").open().read())
 template_dir = Path(config["template_dir"])
 build_dir = Path(config["build_dir"])
-build_dir.mkdir(exist_ok=True)
+build_dir.mkdir(exist_ok=True, parents=True)
 
 
 def main():
@@ -44,7 +44,7 @@ def build_all_pages():
             page_file = build_dir / page_name / "index.html"
         else:
             page_file = build_dir / "index.html"
-        page_file.parent.mkdir(exist_ok=True)
+        page_file.parent.mkdir(exist_ok=True, parents=True)
 
         page_template = environment.from_string(page.open().read())
 
@@ -152,6 +152,10 @@ def get_publications():
             )
             .replace('"></span>', '"></i>')
         )
+
+
+def clean_build_dir():
+    shutil.rmtree(build_dir)
 
 
 if __name__ == "__main__":

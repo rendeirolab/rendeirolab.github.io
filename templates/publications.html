@@ -13,11 +13,17 @@
 }
 %}
 
+{% set article_type = {
+    'opinion': 'bi-lightbulb',
+    'review': 'bi-book',
+}
+%}
+
 {% block title %}Publication{% endblock title %}
 
 {% block head %}
 {{ super() }}
-    <!-- Altermetrics -->
+    <!-- Altmetrics -->
     <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
     <!-- Dimensions -->
     <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
@@ -37,6 +43,12 @@
                             <br>
                             {{ publication.publisher }} ({{ publication.year }}). <a rel="datacite:doi" href="https://doi.org/{{ doi }}">doi:{{ doi }}</a>
                             <br>
+                            {% if publication.type not in ['journal', 'preprint'] %}
+                            <i class="bi {{ article_type[publication.type] }}">
+                            {{ publication.type.capitalize() }} article
+                            </i>
+                            <br>
+                            {% endif %}
                             {% if publication.resources is not none %}
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
                             {% for resource in publication.resources %}

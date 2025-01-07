@@ -19,7 +19,7 @@
 }
 %}
 
-{% block title %}Publication{% endblock title %}
+{% block title %}Publications{% endblock title %}
 
 {% block head %}
 {{ super() }}
@@ -41,7 +41,7 @@
                             <br>
                             <strong>{{ publication.title }}</strong>.
                             <br>
-                            {{ publication.publisher }} ({{ publication.year }}). <a rel="datacite:doi" href="https://doi.org/{{ doi }}">doi:{{ doi }}</a>
+                            <i>{{ publication.publisher }}</i> ({{ publication.year }}). <a rel="datacite:doi" href="https://doi.org/{{ doi }}">doi:{{ doi }}</a>
                             <br>
                             {% if publication.type not in ['journal', 'preprint'] %}
                             <i class="bi {{ article_type[publication.type] }}">
@@ -86,7 +86,7 @@
                     <p>{{ outro }}</p>
                 </div>
                 
-                <div class="col-12 blog-main">
+                <div class="col-12">
                     <h3>Previous publications important for the foundation of our group</h3>
                     <ol reversed="">
                         {% for doi, publication in previous_publications.items() %}
@@ -95,7 +95,7 @@
                             <br>
                             <strong>{{ publication.title }}</strong>.
                             <br>
-                            {{ publication.publisher }} ({{ publication.year }}). <a rel="datacite:doi" href="https://doi.org/{{ doi }}">doi:{{ doi }}</a>
+                            <i>{{ publication.publisher }}</i> ({{ publication.year }}). <a rel="datacite:doi" href="https://doi.org/{{ doi }}">doi:{{ doi }}</a>
                             <br>
                             {% if publication.resources is not none %}
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">

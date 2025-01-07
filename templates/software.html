@@ -11,7 +11,7 @@
 {% block title %}Software{% endblock title %}
 
 {% block content %}
-                <div class="row blog-main">
+                <div class="col-12">
                     <h3>{{ title }}</h3>
                     <p>{{ intro }}</p>
                     <p>{{ content }}</p>
@@ -21,27 +21,27 @@
                         <div class="row">
                             {% if soft.img is not none %}
                             <div class="col-9 col-md-3">
-                                    {% if soft.img is not none %}
-                                        {% if soft.img.startswith('http') %}
-                                        <a href="{{ soft.url_gh }}" target="_blank">
-                                            <img
-                                                class="rounded mx-auto d-block"
-                                                src="{{ soft.img }}"
-                                                tabindex="0"
-                                                alt="{{ soft.img_alt }}"
-                                                style="width: auto; display: block; max-height: 12em; max-width: 12em">
-                                        </a>
-                                        {% else %}
-                                        <a href="{{ soft.url_gh }}" target="_blank">
-                                            <img
-                                                class="rounded mx-auto d-block"
-                                                src="{{ static_url }}/img/{{ soft.img }}"
-                                                tabindex="0"
-                                                alt="{{ soft.img_alt }}"
-                                                style="width: auto; display: block; max-height: 12em; max-width: 12em">
-                                        </a>
-                                        {% endif %}
+                                {% if soft.img is not none %}
+                                    {% if soft.img.startswith('http') %}
+                                    <a href="{{ soft.url_gh }}" target="_blank">
+                                        <img
+                                            class="rounded mx-auto d-block"
+                                            src="{{ soft.img }}"
+                                            tabindex="0"
+                                            alt="{{ soft.img_alt }}"
+                                            style="width: auto; display: block; max-height: 12em; max-width: 12em">
+                                    </a>
+                                    {% else %}
+                                    <a href="{{ soft.url_gh }}" target="_blank">
+                                        <img
+                                            class="rounded mx-auto d-block"
+                                            src="{{ static_url }}/img/{{ soft.img }}"
+                                            tabindex="0"
+                                            alt="{{ soft.img_alt }}"
+                                            style="width: auto; display: block; max-height: 12em; max-width: 12em">
+                                    </a>
                                     {% endif %}
+                                {% endif %}
                             </div>
                             {% endif %}
                             {% if soft.img is not none %}

@@ -3,7 +3,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
     <head>
         
         <meta charset="utf-8">
@@ -40,7 +40,7 @@
             }
 
             a {
-                overflow-wrap: break-word; 
+                overflow-wrap: break-word;
                 word-wrap: break-word;
                 white-space: normal;
             }
@@ -63,38 +63,36 @@
     </head>
 
     <body>
-
         <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
           <div class="container-fluid">
             <a class="navbar-brand" href="/">
-              <img src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/rendeirolab.icon.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-center">
+                <img src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/rendeirolab.icon.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-center">
               Rendeiro group
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="/team/">Team</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/research/">Research</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/news/">News</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/publications/">Publications</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/software/">Software</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/contact/">Contact</a>
-                </li>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/team/">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/research/">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/news/">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/publications/">Publications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/software/">Software</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact/">Contact</a>
+                    </li>
                 </ul>
-              </ul>
 
                 <div class="navbar-header navbar-right">
                     <a class="btn navbar-btn btn-social-icon" href="https://www.twitter.com/afrendeiro">
@@ -119,13 +117,52 @@
                         <i class='fa fa-envelope' aria-hidden="true"></i>
                     </a>
                 </div>
+
                 <form class="d-flex" role="search" method="get" action="https://google.com/search">
                     <input type="hidden" name="q" value="site:https://rendeiro.group/">
                     <input class="form-control me-2 bs-primary" type="search" name="q" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
-              
+
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-highlights me-2 navbar-btn"></i>Theme
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <button
+                                    type="button"
+                                    class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+                                    aria-pressed="false">
+                                    <i class="bi bi-brightness-high-fill me-2 navbar-btn"></i>
+                                    Light
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                    type="button"
+                                    class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+                                    aria-pressed="false">
+                                    <i class="bi bi-brightness-alt-high me-2 navbar-btn"></i>
+                                    Dark
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                    type="button"
+                                    class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto"
+                                    aria-pressed="true">
+                                    <i class="bi bi-gear-fill me-2 navbar-btn"></i>
+                                    Auto
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
             </div>
+
           </div>
         </nav>
 
@@ -147,7 +184,7 @@
             <!-- Main content -->
             <div class="row" id="content">
                 
-                <div class="row blog-main">
+                <div class="row">
                     <h3>News</h3>
                     <p></p>
                     <p>Some news from our lab:</p>
@@ -157,7 +194,7 @@
                         <div class="row">
                             
                             <div class="col-6 col-md-3">
-                                <img class="img-responsive" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-03-30-Marsilea.jpg"
+                                <img class="img-responsive rounded" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-03-30-Marsilea.jpg"
                                 
                                 alt="The marsilea logo with a cross layout in the center and gray background saying "Transform your data landscape"."
                                 
@@ -198,7 +235,7 @@ In great part this was due to Yimin's talk and workshop on declarative creation 
                         <div class="row">
                             
                             <div class="col-6 col-md-3">
-                                <img class="img-responsive" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-12-12-ESSB2024.jpeg"
+                                <img class="img-responsive rounded" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-12-12-ESSB2024.jpeg"
                                 
                                 alt="Iva and Tamas next to their poster at the meeting of the European Society for Spatial Biology in Berlin."
                                 
@@ -224,7 +261,7 @@ Check out their website at <a href='https://spatialbiologysociety.eu/'>https://s
                         <div class="row">
                             
                             <div class="col-6 col-md-3">
-                                <img class="img-responsive" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-12-06.lbi-netmed.banner.jpg"
+                                <img class="img-responsive rounded" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-12-06.lbi-netmed.banner.jpg"
                                 
                                 alt="The logo of the LBI-NetMed institute."
                                 
@@ -258,7 +295,7 @@ Applications open until January 12th 2025.</p>
                         <div class="row">
                             
                             <div class="col-6 col-md-3">
-                                <img class="img-responsive" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-12-03-oeppm.jpg"
+                                <img class="img-responsive rounded" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-12-03-oeppm.jpg"
                                 
                                 alt="Andre presenting a talk at the annual conference of the Austrian Platform for Personalized Medicine in Vienna, Austria."
                                 
@@ -282,7 +319,7 @@ Applications open until January 12th 2025.</p>
                         <div class="row">
                             
                             <div class="col-6 col-md-3">
-                                <img class="img-responsive" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-11-27-lab_dinner.jpg"
+                                <img class="img-responsive rounded" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-11-27-lab_dinner.jpg"
                                 
                                 alt="Six lab members sitting around a restaurant table."
                                 
@@ -306,7 +343,7 @@ Applications open until January 12th 2025.</p>
                         <div class="row">
                             
                             <div class="col-6 col-md-3">
-                                <img class="img-responsive" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-11-18-LBI_inauguration_horn.jpg"
+                                <img class="img-responsive rounded" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-11-18-LBI_inauguration_horn.jpg"
                                 
                                 alt="An Austrian mail post horn given as present from CeMM for the LBI-NetMed."
                                 
@@ -339,7 +376,7 @@ A big congratulations and thank you to the organizer team, in particular Christi
                         <div class="row">
                             
                             <div class="col-6 col-md-3">
-                                <img class="img-responsive" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-11-16-Tissue-clocks.jpg"
+                                <img class="img-responsive rounded" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-11-16-Tissue-clocks.jpg"
                                 
                                 alt="A scientific illustration of the process to derive rich numerical descriptions from histopathological images, which are then used as predictors of biological age and age gaps. In the bottom a concept of how data from blood can be used to predict tissue-specific biological aging insights previously derived from histopathological images."
                                 
@@ -373,7 +410,7 @@ Leveraging these tissue-specific and highly physiological readouts of aging, we 
                         <div class="row">
                             
                             <div class="col-6 col-md-3">
-                                <img class="img-responsive" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-11-13-Ernesto_conference.jpeg"
+                                <img class="img-responsive rounded" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-11-13-Ernesto_conference.jpeg"
                                 
                                 alt="Ernesto next to his poster at the 2024 Frontiers in Single Cell Genomics meeting, in Japan."
                                 
@@ -412,7 +449,7 @@ Leveraging these tissue-specific and highly physiological readouts of aging, we 
                         <div class="row">
                             
                             <div class="col-6 col-md-3">
-                                <img class="img-responsive" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-11-10-Yimin_conference.jpg"
+                                <img class="img-responsive rounded" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-11-10-Yimin_conference.jpg"
                                 
                                 alt="Yimin next to his poster at the 2024 Cell Symposia on Hallmarks of Cancer in China."
                                 
@@ -490,7 +527,7 @@ Leveraging these tissue-specific and highly physiological readouts of aging, we 
                         <div class="row">
                             
                             <div class="col-6 col-md-3">
-                                <img class="img-responsive" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-10-02-Lazyslide.png"
+                                <img class="img-responsive rounded" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-10-02-Lazyslide.png"
                                 
                                 alt="The LazySlide logo with a sloth lying belly down on a moon, all inside a glass slide with a barcode."
                                 
@@ -619,7 +656,7 @@ Leveraging these tissue-specific and highly physiological readouts of aging, we 
                         <div class="row">
                             
                             <div class="col-6 col-md-3">
-                                <img class="img-responsive" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-04-27-EULIFE_conference.jpeg"
+                                <img class="img-responsive rounded" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-04-27-EULIFE_conference.jpeg"
                                 
                                 alt="A photograph with all conference participants in the festival hall of the Austrian House of Industry."
                                 
@@ -643,7 +680,7 @@ Leveraging these tissue-specific and highly physiological readouts of aging, we 
                         <div class="row">
                             
                             <div class="col-6 col-md-3">
-                                <img class="img-responsive" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-03-30-Marsilea.jpg"
+                                <img class="img-responsive rounded" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-03-30-Marsilea.jpg"
                                 
                                 alt="The marsilea logo with a cross layout in the center and gray background saying "Transform your data landscape"."
                                 
@@ -667,7 +704,7 @@ Leveraging these tissue-specific and highly physiological readouts of aging, we 
                         <div class="row">
                             
                             <div class="col-6 col-md-3">
-                                <img class="img-responsive" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-03-02-WWTF_group_picture.png"
+                                <img class="img-responsive rounded" src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2024-03-02-WWTF_group_picture.png"
                                 
                                 alt="A photo of the three principal investigators: Zsuzsanna Bago-Horvath, Julianne Winkler and Andre Rendeiro."
                                 
@@ -868,5 +905,87 @@ Leveraging these tissue-specific and highly physiological readouts of aging, we 
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            /*!
+             * Color mode toggler for Bootstrap's docs (https://getbootstrap.com/)
+             * Copyright 2011-2024 The Bootstrap Authors
+             * Licensed under the Creative Commons Attribution 3.0 Unported License.
+             */
+
+            (() => {
+              'use strict'
+
+              const getStoredTheme = () => localStorage.getItem('theme')
+              const setStoredTheme = theme => localStorage.setItem('theme', theme)
+
+              const getPreferredTheme = () => {
+                const storedTheme = getStoredTheme()
+                if (storedTheme) {
+                  return storedTheme
+                }
+
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+              }
+
+              const setTheme = theme => {
+                if (theme === 'auto') {
+                  document.documentElement.setAttribute('data-bs-theme', (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'))
+                } else {
+                  document.documentElement.setAttribute('data-bs-theme', theme)
+                }
+              }
+
+              setTheme(getPreferredTheme())
+
+              const showActiveTheme = (theme, focus = false) => {
+                const themeSwitcher = document.querySelector('#bd-theme')
+
+                if (!themeSwitcher) {
+                  return
+                }
+
+                const themeSwitcherText = document.querySelector('#bd-theme-text')
+                const activeThemeIcon = document.querySelector('.theme-icon-active use')
+                const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+                const svgOfActiveBtn = btnToActive.querySelector('svg use').getAttribute('href')
+
+                document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+                  element.classList.remove('active')
+                  element.setAttribute('aria-pressed', 'false')
+                })
+
+                btnToActive.classList.add('active')
+                btnToActive.setAttribute('aria-pressed', 'true')
+                activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+                const themeSwitcherLabel = `${themeSwitcherText.textContent} (${btnToActive.dataset.bsThemeValue})`
+                themeSwitcher.setAttribute('aria-label', themeSwitcherLabel)
+
+                if (focus) {
+                  themeSwitcher.focus()
+                }
+              }
+
+              window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                const storedTheme = getStoredTheme()
+                if (storedTheme !== 'light' && storedTheme !== 'dark') {
+                  setTheme(getPreferredTheme())
+                }
+              })
+
+              window.addEventListener('DOMContentLoaded', () => {
+                showActiveTheme(getPreferredTheme())
+
+                document.querySelectorAll('[data-bs-theme-value]')
+                  .forEach(toggle => {
+                    toggle.addEventListener('click', () => {
+                      const theme = toggle.getAttribute('data-bs-theme-value')
+                      setStoredTheme(theme)
+                      setTheme(theme)
+                      showActiveTheme(theme, true)
+                    })
+                  })
+              })
+            })()
+        </script>
     </body>
 </html>

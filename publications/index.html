@@ -3,12 +3,12 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
     <head>
         
 
         <meta charset="utf-8">
-        <title>Publication - Rendeiro lab</title>
+        <title>Publications - Rendeiro lab</title>
         <meta name="description" content="Scientific publications from our lab">
         <meta name="author" content="André Rendeiro">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,7 +41,7 @@
             }
 
             a {
-                overflow-wrap: break-word; 
+                overflow-wrap: break-word;
                 word-wrap: break-word;
                 white-space: normal;
             }
@@ -69,38 +69,36 @@
     </head>
 
     <body>
-
         <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
           <div class="container-fluid">
             <a class="navbar-brand" href="/">
-              <img src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/rendeirolab.icon.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-center">
+                <img src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/rendeirolab.icon.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-center">
               Rendeiro group
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="/team/">Team</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/research/">Research</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/news/">News</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/publications/">Publications</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/software/">Software</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/contact/">Contact</a>
-                </li>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/team/">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/research/">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/news/">News</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/publications/">Publications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/software/">Software</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact/">Contact</a>
+                    </li>
                 </ul>
-              </ul>
 
                 <div class="navbar-header navbar-right">
                     <a class="btn navbar-btn btn-social-icon" href="https://www.twitter.com/afrendeiro">
@@ -125,13 +123,52 @@
                         <i class='fa fa-envelope' aria-hidden="true"></i>
                     </a>
                 </div>
+
                 <form class="d-flex" role="search" method="get" action="https://google.com/search">
                     <input type="hidden" name="q" value="site:https://rendeiro.group/">
                     <input class="form-control me-2 bs-primary" type="search" name="q" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
-              
+
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-highlights me-2 navbar-btn"></i>Theme
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <button
+                                    type="button"
+                                    class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+                                    aria-pressed="false">
+                                    <i class="bi bi-brightness-high-fill me-2 navbar-btn"></i>
+                                    Light
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                    type="button"
+                                    class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+                                    aria-pressed="false">
+                                    <i class="bi bi-brightness-alt-high me-2 navbar-btn"></i>
+                                    Dark
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                    type="button"
+                                    class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto"
+                                    aria-pressed="true">
+                                    <i class="bi bi-gear-fill me-2 navbar-btn"></i>
+                                    Auto
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
             </div>
+
           </div>
         </nav>
 
@@ -164,7 +201,7 @@
                             <br>
                             <strong>Marsilea: An intuitive generalized visualization paradigm for complex datasets</strong>.
                             <br>
-                            Genome Biology (2025). <a rel="datacite:doi" href="https://doi.org/10.1186/s13059-024-03469-3">doi:10.1186/s13059-024-03469-3</a>
+                            <i>Genome Biology</i> (2025). <a rel="datacite:doi" href="https://doi.org/10.1186/s13059-024-03469-3">doi:10.1186/s13059-024-03469-3</a>
                             <br>
                             
                             
@@ -231,7 +268,7 @@
                             <br>
                             <strong>Tissue clocks derived from histological signatures of biological aging enable tissue-specific aging predictions from blood</strong>.
                             <br>
-                            BioRxiv (2024). <a rel="datacite:doi" href="https://doi.org/10.1101/2024.11.14.618081">doi:10.1101/2024.11.14.618081</a>
+                            <i>BioRxiv</i> (2024). <a rel="datacite:doi" href="https://doi.org/10.1101/2024.11.14.618081">doi:10.1101/2024.11.14.618081</a>
                             <br>
                             
                             
@@ -285,7 +322,7 @@
                             <br>
                             <strong>Pooled multicolor tagging for visualizing subcellular protein dynamics</strong>.
                             <br>
-                            Nature Cell Biology (2024). <a rel="datacite:doi" href="https://doi.org/10.1038/s41556-024-01407-w">doi:10.1038/s41556-024-01407-w</a>
+                            <i>Nature Cell Biology</i> (2024). <a rel="datacite:doi" href="https://doi.org/10.1038/s41556-024-01407-w">doi:10.1038/s41556-024-01407-w</a>
                             <br>
                             
                             
@@ -326,7 +363,7 @@
                             <br>
                             <strong>Transcriptomic signatures of progressive and regressive liver fibrosis and portal hypertension</strong>.
                             <br>
-                            iScience (2024). <a rel="datacite:doi" href="https://doi.org/10.1016/j.isci.2024.109301">doi:10.1016/j.isci.2024.109301</a>
+                            <i>iScience</i> (2024). <a rel="datacite:doi" href="https://doi.org/10.1016/j.isci.2024.109301">doi:10.1016/j.isci.2024.109301</a>
                             <br>
                             
                             
@@ -367,7 +404,7 @@
                             <br>
                             <strong>Navigating the thymic landscape through development: from cellular atlas to tissue cartography</strong>.
                             <br>
-                            Genes & Immunity (2024). <a rel="datacite:doi" href="https://doi.org/10.1038/s41435-024-00257-8">doi:10.1038/s41435-024-00257-8</a>
+                            <i>Genes & Immunity</i> (2024). <a rel="datacite:doi" href="https://doi.org/10.1038/s41435-024-00257-8">doi:10.1038/s41435-024-00257-8</a>
                             <br>
                             
                             <i class="bi bi-lightbulb">
@@ -384,7 +421,7 @@
                             <br>
                             <strong>What do you most hope spatial molecular profiling will help us understand? Part 1</strong>.
                             <br>
-                            Cell Systems (2023). <a rel="datacite:doi" href="https://doi.org/10.1016/j.cels.2023.05.009">doi:10.1016/j.cels.2023.05.009</a>
+                            <i>Cell Systems</i> (2023). <a rel="datacite:doi" href="https://doi.org/10.1016/j.cels.2023.05.009">doi:10.1016/j.cels.2023.05.009</a>
                             <br>
                             
                             <i class="bi bi-lightbulb">
@@ -400,7 +437,7 @@
                     <p></p>
                 </div>
                 
-                <div class="col-12 blog-main">
+                <div class="col-12">
                     <h3>Previous publications important for the foundation of our group</h3>
                     <ol reversed="">
                         
@@ -409,7 +446,7 @@
                             <br>
                             <strong>The evolution of genomic, transcriptomic, and single-cell protein markers of metastatic upper tract urothelial carcinoma</strong>.
                             <br>
-                            Nature Communications (2024). <a rel="datacite:doi" href="https://doi.org/10.1038/s41467-024-46320-w">doi:10.1038/s41467-024-46320-w</a>
+                            <i>Nature Communications</i> (2024). <a rel="datacite:doi" href="https://doi.org/10.1038/s41467-024-46320-w">doi:10.1038/s41467-024-46320-w</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -475,7 +512,7 @@
                             <br>
                             <strong>A reversible epigenetic memory of inflammatory injury controls lineage plasticity and tumor initiation in the mouse pancreas</strong>.
                             <br>
-                            Developmental Cell (2023). <a rel="datacite:doi" href="https://doi.org/10.1016/j.devcel.2023.11.008">doi:10.1016/j.devcel.2023.11.008</a>
+                            <i>Developmental Cell</i> (2023). <a rel="datacite:doi" href="https://doi.org/10.1016/j.devcel.2023.11.008">doi:10.1016/j.devcel.2023.11.008</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -515,7 +552,7 @@
                             <br>
                             <strong>Mapping human natural killer cell development in tonsil</strong>.
                             <br>
-                            BioRxiv (2023). <a rel="datacite:doi" href="https://doi.org/10.1101/2023.09.05.556371">doi:10.1101/2023.09.05.556371</a>
+                            <i>BioRxiv</i> (2023). <a rel="datacite:doi" href="https://doi.org/10.1101/2023.09.05.556371">doi:10.1101/2023.09.05.556371</a>
                             <br>
                             
                         </li>
@@ -526,7 +563,7 @@
                             <br>
                             <strong>Epigenetic memory of coronavirus infection in innate immune cells and their progenitors</strong>.
                             <br>
-                            Cell (2023). <a rel="datacite:doi" href="https://doi.org/10.1016/j.cell.2023.07.019">doi:10.1016/j.cell.2023.07.019</a>
+                            <i>Cell</i> (2023). <a rel="datacite:doi" href="https://doi.org/10.1016/j.cell.2023.07.019">doi:10.1016/j.cell.2023.07.019</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -566,7 +603,7 @@
                             <br>
                             <strong>Insulin feedback is a targetable resistance mechanism of PI3K inhibition in glioblastoma</strong>.
                             <br>
-                            Neuro-Oncology (2023). <a rel="datacite:doi" href="https://doi.org/10.1093/neuonc/noad117">doi:10.1093/neuonc/noad117</a>
+                            <i>Neuro-Oncology</i> (2023). <a rel="datacite:doi" href="https://doi.org/10.1093/neuonc/noad117">doi:10.1093/neuonc/noad117</a>
                             <br>
                             
                         </li>
@@ -577,7 +614,7 @@
                             <br>
                             <strong>A unique cellular organization of human distal airways and its disarray in chronic obstructive pulmonary disease</strong>.
                             <br>
-                            American Journal of Respiratory and Critical Care Medicine (2023). <a rel="datacite:doi" href="https://doi.org/10.1164/rccm.202207-1384OC">doi:10.1164/rccm.202207-1384OC</a>
+                            <i>American Journal of Respiratory and Critical Care Medicine</i> (2023). <a rel="datacite:doi" href="https://doi.org/10.1164/rccm.202207-1384OC">doi:10.1164/rccm.202207-1384OC</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -617,7 +654,7 @@
                             <br>
                             <strong>Spatial omics technologies at multimodal and single cell/subcellular level</strong>.
                             <br>
-                            Genome Biology (2022). <a rel="datacite:doi" href="https://doi.org/10.1186/s13059-022-02824-6">doi:10.1186/s13059-022-02824-6</a>
+                            <i>Genome Biology</i> (2022). <a rel="datacite:doi" href="https://doi.org/10.1186/s13059-022-02824-6">doi:10.1186/s13059-022-02824-6</a>
                             <br>
                             
                         </li>
@@ -628,7 +665,7 @@
                             <br>
                             <strong>Persistent alveolar type 2 dysfunction and lung structural derangement in post-acute COVID-19</strong>.
                             <br>
-                            medRxiv (2022). <a rel="datacite:doi" href="https://doi.org/10.1101/2022.11.28.22282811">doi:10.1101/2022.11.28.22282811</a>
+                            <i>medRxiv</i> (2022). <a rel="datacite:doi" href="https://doi.org/10.1101/2022.11.28.22282811">doi:10.1101/2022.11.28.22282811</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -694,7 +731,7 @@
                             <br>
                             <strong>Unsupervised discovery of tissue architecture in multiplexed imaging</strong>.
                             <br>
-                            Nature Methods (2022). <a rel="datacite:doi" href="https://doi.org/10.1038/s41592-022-01657-2">doi:10.1038/s41592-022-01657-2</a>
+                            <i>Nature Methods</i> (2022). <a rel="datacite:doi" href="https://doi.org/10.1038/s41592-022-01657-2">doi:10.1038/s41592-022-01657-2</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -773,7 +810,7 @@
                             <br>
                             <strong>Sensing of SARS-CoV-2 by pDCs and their subsequent production of IFN-I contribute to macrophage-induced cytokine storm during COVID-19</strong>.
                             <br>
-                            Science Immunology (2022). <a rel="datacite:doi" href="https://doi.org/10.1126/sciimmunol.add4906">doi:10.1126/sciimmunol.add4906</a>
+                            <i>Science Immunology</i> (2022). <a rel="datacite:doi" href="https://doi.org/10.1126/sciimmunol.add4906">doi:10.1126/sciimmunol.add4906</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -813,7 +850,7 @@
                             <br>
                             <strong>Inflammatory responses in the placenta upon SARS-CoV-2 infection late in pregnancy</strong>.
                             <br>
-                            iScience (2022). <a rel="datacite:doi" href="https://doi.org/10.1016/j.isci.2022.104223">doi:10.1016/j.isci.2022.104223</a>
+                            <i>iScience</i> (2022). <a rel="datacite:doi" href="https://doi.org/10.1016/j.isci.2022.104223">doi:10.1016/j.isci.2022.104223</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -866,7 +903,7 @@
                             <br>
                             <strong>Tumor-immune microenvironment revealed by imaging mass cytometry in a metastatic sarcomatoid urothelial carcinoma with a prolonged response to pembrolizumab</strong>.
                             <br>
-                            Cold Spring Harbor Molecular Case Studies (2022). <a rel="datacite:doi" href="https://doi.org/10.1101/mcs.a006151">doi:10.1101/mcs.a006151</a>
+                            <i>Cold Spring Harbor Molecular Case Studies</i> (2022). <a rel="datacite:doi" href="https://doi.org/10.1101/mcs.a006151">doi:10.1101/mcs.a006151</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -906,7 +943,7 @@
                             <br>
                             <strong>System-wide transcriptome damage and tissue identity loss in COVID-19 patients</strong>.
                             <br>
-                            Cell Reports Medicine (2022). <a rel="datacite:doi" href="https://doi.org/10.1016/j.xcrm.2022.100522">doi:10.1016/j.xcrm.2022.100522</a>
+                            <i>Cell Reports Medicine</i> (2022). <a rel="datacite:doi" href="https://doi.org/10.1016/j.xcrm.2022.100522">doi:10.1016/j.xcrm.2022.100522</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -946,7 +983,7 @@
                             <br>
                             <strong>Metabolic and immune markers for precise monitoring of COVID-19 severity and treatment</strong>.
                             <br>
-                            Frontiers in Immunology (2021). <a rel="datacite:doi" href="https://doi.org/10.3389/fimmu.2021.809937">doi:10.3389/fimmu.2021.809937</a>
+                            <i>Frontiers in Immunology</i> (2021). <a rel="datacite:doi" href="https://doi.org/10.3389/fimmu.2021.809937">doi:10.3389/fimmu.2021.809937</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -1012,7 +1049,7 @@
                             <br>
                             <strong>Linking big biomedical datasets to modular analysis with Portable Encapsulated Projects</strong>.
                             <br>
-                            GigaScience (2021). <a rel="datacite:doi" href="https://doi.org/10.1093/gigascience/giab077">doi:10.1093/gigascience/giab077</a>
+                            <i>GigaScience</i> (2021). <a rel="datacite:doi" href="https://doi.org/10.1093/gigascience/giab077">doi:10.1093/gigascience/giab077</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -1078,7 +1115,7 @@
                             <br>
                             <strong>Ultra-high throughput single-cell RNA sequencing by combinatorial fluidic indexing</strong>.
                             <br>
-                            Nature Methods (2021). <a rel="datacite:doi" href="https://doi.org/10.1038/s41592-021-01153-z">doi:10.1038/s41592-021-01153-z</a>
+                            <i>Nature Methods</i> (2021). <a rel="datacite:doi" href="https://doi.org/10.1038/s41592-021-01153-z">doi:10.1038/s41592-021-01153-z</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -1144,7 +1181,7 @@
                             <br>
                             <strong>Multimodal analysis of cell-free DNA whole genome sequencing for pediatric cancers with low mutational burden</strong>.
                             <br>
-                            Nature Communications (2021). <a rel="datacite:doi" href="https://doi.org/10.1038/s41467-021-23445-w">doi:10.1038/s41467-021-23445-w</a>
+                            <i>Nature Communications</i> (2021). <a rel="datacite:doi" href="https://doi.org/10.1038/s41467-021-23445-w">doi:10.1038/s41467-021-23445-w</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -1197,7 +1234,7 @@
                             <br>
                             <strong>A molecular single-cell lung atlas of lethal COVID-19</strong>.
                             <br>
-                            Nature (2021). <a rel="datacite:doi" href="https://doi.org/10.1038/s41586-021-03569-1">doi:10.1038/s41586-021-03569-1</a>
+                            <i>Nature</i> (2021). <a rel="datacite:doi" href="https://doi.org/10.1038/s41586-021-03569-1">doi:10.1038/s41586-021-03569-1</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -1237,7 +1274,7 @@
                             <br>
                             <strong>The spatial landscape of lung pathology during COVID-19 progression</strong>.
                             <br>
-                            Nature (2021). <a rel="datacite:doi" href="https://doi.org/10.1038/s41586-021-03475-6">doi:10.1038/s41586-021-03475-6</a>
+                            <i>Nature</i> (2021). <a rel="datacite:doi" href="https://doi.org/10.1038/s41586-021-03475-6">doi:10.1038/s41586-021-03475-6</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -1381,7 +1418,7 @@
                             <br>
                             <strong>Acute BAF perturbation causes immediate changes in chromatin accessibility</strong>.
                             <br>
-                            Nature Genetics (2021). <a rel="datacite:doi" href="https://doi.org/10.1038/s41588-021-00777-3">doi:10.1038/s41588-021-00777-3</a>
+                            <i>Nature Genetics</i> (2021). <a rel="datacite:doi" href="https://doi.org/10.1038/s41588-021-00777-3">doi:10.1038/s41588-021-00777-3</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -1421,7 +1458,7 @@
                             <br>
                             <strong>Profiling of immune dysfunction in COVID-19 patients allows early prediction of disease progression</strong>.
                             <br>
-                            Life Science Alliance (2020). <a rel="datacite:doi" href="https://doi.org/10.26508/lsa.202000955">doi:10.26508/lsa.202000955</a>
+                            <i>Life Science Alliance</i> (2020). <a rel="datacite:doi" href="https://doi.org/10.26508/lsa.202000955">doi:10.26508/lsa.202000955</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -1487,7 +1524,7 @@
                             <br>
                             <strong>STAT3 promotes melanoma metastasis by CEBP-induced repression of the MITF pathway</strong>.
                             <br>
-                            Oncogene (2020). <a rel="datacite:doi" href="https://doi.org/10.1038/s41388-020-01584-6">doi:10.1038/s41388-020-01584-6</a>
+                            <i>Oncogene</i> (2020). <a rel="datacite:doi" href="https://doi.org/10.1038/s41388-020-01584-6">doi:10.1038/s41388-020-01584-6</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -1527,7 +1564,7 @@
                             <br>
                             <strong>Structural cells are key regulators of organ-specific immune responses</strong>.
                             <br>
-                            Nature (2020). <a rel="datacite:doi" href="https://doi.org/10.1038/s41586-020-2424-4">doi:10.1038/s41586-020-2424-4</a>
+                            <i>Nature</i> (2020). <a rel="datacite:doi" href="https://doi.org/10.1038/s41586-020-2424-4">doi:10.1038/s41586-020-2424-4</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -1593,7 +1630,7 @@
                             <br>
                             <strong>Targeting nuclear NOTCH2 by gliotoxin recovers a tumor-suppressor NOTCH3 activity in CLL</strong>.
                             <br>
-                            Cells (2020). <a rel="datacite:doi" href="https://doi.org/10.3390/cells9061484">doi:10.3390/cells9061484</a>
+                            <i>Cells</i> (2020). <a rel="datacite:doi" href="https://doi.org/10.3390/cells9061484">doi:10.3390/cells9061484</a>
                             <br>
                             
                         </li>
@@ -1604,7 +1641,7 @@
                             <br>
                             <strong>Microbiota-derived metabolites suppress arthritis by amplifying aryl-hydrocarbon receptor activation in regulatory B cells</strong>.
                             <br>
-                            Cell Metabolism (2020). <a rel="datacite:doi" href="https://doi.org/10.1016/j.cmet.2020.03.003">doi:10.1016/j.cmet.2020.03.003</a>
+                            <i>Cell Metabolism</i> (2020). <a rel="datacite:doi" href="https://doi.org/10.1016/j.cmet.2020.03.003">doi:10.1016/j.cmet.2020.03.003</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -1657,7 +1694,7 @@
                             <br>
                             <strong>Chromatin mapping and single-cell immune profiling define the temporal dynamics of ibrutinib drug response in CLL</strong>.
                             <br>
-                            Nature Communications (2020). <a rel="datacite:doi" href="https://doi.org/10.1038/s41467-019-14081-6">doi:10.1038/s41467-019-14081-6</a>
+                            <i>Nature Communications</i> (2020). <a rel="datacite:doi" href="https://doi.org/10.1038/s41467-019-14081-6">doi:10.1038/s41467-019-14081-6</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -1723,7 +1760,7 @@
                             <br>
                             <strong>Precursors for nonlymphoid-tissue Treg cells reside in secondary lymphoid organs and are programmed by the transcription factor BATF</strong>.
                             <br>
-                            Immunity (2020). <a rel="datacite:doi" href="https://doi.org/10.1016/j.immuni.2019.12.002">doi:10.1016/j.immuni.2019.12.002</a>
+                            <i>Immunity</i> (2020). <a rel="datacite:doi" href="https://doi.org/10.1016/j.immuni.2019.12.002">doi:10.1016/j.immuni.2019.12.002</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -1776,7 +1813,7 @@
                             <br>
                             <strong>Aryl hydrocarbon receptor contributes to the transcriptional program of IL-10-producing regulatory B cells</strong>.
                             <br>
-                            Cell Reports (2019). <a rel="datacite:doi" href="https://doi.org/10.1016/j.celrep.2019.10.018">doi:10.1016/j.celrep.2019.10.018</a>
+                            <i>Cell Reports</i> (2019). <a rel="datacite:doi" href="https://doi.org/10.1016/j.celrep.2019.10.018">doi:10.1016/j.celrep.2019.10.018</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -1842,7 +1879,7 @@
                             <br>
                             <strong>Mitochondria are a subset of extracellular vesicles released by activated monocytes and induce type I IFN and TNF responses in endothelial cells</strong>.
                             <br>
-                            Circulation Research (2019). <a rel="datacite:doi" href="https://doi.org/10.1161/CIRCRESAHA.118.314601">doi:10.1161/CIRCRESAHA.118.314601</a>
+                            <i>Circulation Research</i> (2019). <a rel="datacite:doi" href="https://doi.org/10.1161/CIRCRESAHA.118.314601">doi:10.1161/CIRCRESAHA.118.314601</a>
                             <br>
                             
                         </li>
@@ -1853,7 +1890,7 @@
                             <br>
                             <strong>Systematic characterization of BAF mutations provides insights into intracomplex synthetic lethalities in human cancers</strong>.
                             <br>
-                            Nature Genetics (2019). <a rel="datacite:doi" href="https://doi.org/10.1038/s41588-019-0477-9">doi:10.1038/s41588-019-0477-9</a>
+                            <i>Nature Genetics</i> (2019). <a rel="datacite:doi" href="https://doi.org/10.1038/s41588-019-0477-9">doi:10.1038/s41588-019-0477-9</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -1906,7 +1943,7 @@
                             <br>
                             <strong>MTHFD1 interaction with BRD4 links folate metabolism to transcriptional regulation</strong>.
                             <br>
-                            Nature Genetics (2019). <a rel="datacite:doi" href="https://doi.org/10.1038/s41588-019-0413-z">doi:10.1038/s41588-019-0413-z</a>
+                            <i>Nature Genetics</i> (2019). <a rel="datacite:doi" href="https://doi.org/10.1038/s41588-019-0413-z">doi:10.1038/s41588-019-0413-z</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -1959,7 +1996,7 @@
                             <br>
                             <strong>Combined chemosensitivity and chromatin profiling prioritizes drug combinations in CLL</strong>.
                             <br>
-                            Nature Chemical Biology (2019). <a rel="datacite:doi" href="https://doi.org/10.1038/s41589-018-0205-2">doi:10.1038/s41589-018-0205-2</a>
+                            <i>Nature Chemical Biology</i> (2019). <a rel="datacite:doi" href="https://doi.org/10.1038/s41589-018-0205-2">doi:10.1038/s41589-018-0205-2</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -2025,7 +2062,7 @@
                             <br>
                             <strong>Functional dissection of the enhancer repertoire in human embryonic stem cells</strong>.
                             <br>
-                            Cell Stem Cell (2018). <a rel="datacite:doi" href="https://doi.org/10.1016/j.stem.2018.06.014">doi:10.1016/j.stem.2018.06.014</a>
+                            <i>Cell Stem Cell</i> (2018). <a rel="datacite:doi" href="https://doi.org/10.1016/j.stem.2018.06.014">doi:10.1016/j.stem.2018.06.014</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -2065,7 +2102,7 @@
                             <br>
                             <strong>Pooled CRISPR screening with single-cell transcriptome readout</strong>.
                             <br>
-                            Nature Methods (2017). <a rel="datacite:doi" href="https://doi.org/10.1038/nmeth.4177">doi:10.1038/nmeth.4177</a>
+                            <i>Nature Methods</i> (2017). <a rel="datacite:doi" href="https://doi.org/10.1038/nmeth.4177">doi:10.1038/nmeth.4177</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -2131,7 +2168,7 @@
                             <br>
                             <strong>Molecular interrogation of hypothalamic organization reveals distinct dopamine neuronal subtypes</strong>.
                             <br>
-                            Nature Neuroscience (2016). <a rel="datacite:doi" href="https://doi.org/10.1038/nn.4462">doi:10.1038/nn.4462</a>
+                            <i>Nature Neuroscience</i> (2016). <a rel="datacite:doi" href="https://doi.org/10.1038/nn.4462">doi:10.1038/nn.4462</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -2171,7 +2208,7 @@
                             <br>
                             <strong>Malondialdehyde epitopes are sterile mediators of hepatic inflammation in hypercholesterolemic mice</strong>.
                             <br>
-                            Hepatology (2017). <a rel="datacite:doi" href="https://doi.org/10.1002/hep.28970">doi:10.1002/hep.28970</a>
+                            <i>Hepatology</i> (2017). <a rel="datacite:doi" href="https://doi.org/10.1002/hep.28970">doi:10.1002/hep.28970</a>
                             <br>
                             
                         </li>
@@ -2182,7 +2219,7 @@
                             <br>
                             <strong>Chromatin accessibility maps of chronic lymphocytic leukaemia identify subtype-specific epigenome signatures and transcription regulatory networks</strong>.
                             <br>
-                            Nature Communications (2016). <a rel="datacite:doi" href="https://doi.org/10.1038/ncomms11938">doi:10.1038/ncomms11938</a>
+                            <i>Nature Communications</i> (2016). <a rel="datacite:doi" href="https://doi.org/10.1038/ncomms11938">doi:10.1038/ncomms11938</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -2261,7 +2298,7 @@
                             <br>
                             <strong>ChIPmentation: fast, robust, low-input ChIP-seq for histones and transcription factors</strong>.
                             <br>
-                            Nature Methods (2015). <a rel="datacite:doi" href="https://doi.org/10.1038/nmeth.3542">doi:10.1038/nmeth.3542</a>
+                            <i>Nature Methods</i> (2015). <a rel="datacite:doi" href="https://doi.org/10.1038/nmeth.3542">doi:10.1038/nmeth.3542</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -2327,7 +2364,7 @@
                             <br>
                             <strong>Evolutionary conservation of the eumetazoan gene regulatory landscape</strong>.
                             <br>
-                            Genome Research (2014). <a rel="datacite:doi" href="https://doi.org/10.1101/gr.162529.113">doi:10.1101/gr.162529.113</a>
+                            <i>Genome Research</i> (2014). <a rel="datacite:doi" href="https://doi.org/10.1101/gr.162529.113">doi:10.1101/gr.162529.113</a>
                             <br>
                             
                             <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
@@ -2400,5 +2437,87 @@
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            /*!
+             * Color mode toggler for Bootstrap's docs (https://getbootstrap.com/)
+             * Copyright 2011-2024 The Bootstrap Authors
+             * Licensed under the Creative Commons Attribution 3.0 Unported License.
+             */
+
+            (() => {
+              'use strict'
+
+              const getStoredTheme = () => localStorage.getItem('theme')
+              const setStoredTheme = theme => localStorage.setItem('theme', theme)
+
+              const getPreferredTheme = () => {
+                const storedTheme = getStoredTheme()
+                if (storedTheme) {
+                  return storedTheme
+                }
+
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+              }
+
+              const setTheme = theme => {
+                if (theme === 'auto') {
+                  document.documentElement.setAttribute('data-bs-theme', (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'))
+                } else {
+                  document.documentElement.setAttribute('data-bs-theme', theme)
+                }
+              }
+
+              setTheme(getPreferredTheme())
+
+              const showActiveTheme = (theme, focus = false) => {
+                const themeSwitcher = document.querySelector('#bd-theme')
+
+                if (!themeSwitcher) {
+                  return
+                }
+
+                const themeSwitcherText = document.querySelector('#bd-theme-text')
+                const activeThemeIcon = document.querySelector('.theme-icon-active use')
+                const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`)
+                const svgOfActiveBtn = btnToActive.querySelector('svg use').getAttribute('href')
+
+                document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+                  element.classList.remove('active')
+                  element.setAttribute('aria-pressed', 'false')
+                })
+
+                btnToActive.classList.add('active')
+                btnToActive.setAttribute('aria-pressed', 'true')
+                activeThemeIcon.setAttribute('href', svgOfActiveBtn)
+                const themeSwitcherLabel = `${themeSwitcherText.textContent} (${btnToActive.dataset.bsThemeValue})`
+                themeSwitcher.setAttribute('aria-label', themeSwitcherLabel)
+
+                if (focus) {
+                  themeSwitcher.focus()
+                }
+              }
+
+              window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                const storedTheme = getStoredTheme()
+                if (storedTheme !== 'light' && storedTheme !== 'dark') {
+                  setTheme(getPreferredTheme())
+                }
+              })
+
+              window.addEventListener('DOMContentLoaded', () => {
+                showActiveTheme(getPreferredTheme())
+
+                document.querySelectorAll('[data-bs-theme-value]')
+                  .forEach(toggle => {
+                    toggle.addEventListener('click', () => {
+                      const theme = toggle.getAttribute('data-bs-theme-value')
+                      setStoredTheme(theme)
+                      setTheme(theme)
+                      showActiveTheme(theme, true)
+                    })
+                  })
+              })
+            })()
+        </script>
     </body>
 </html>

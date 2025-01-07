@@ -2,15 +2,71 @@
 
 {% extends "template.html" %}
 
+{% set icons = {
+    'Data': 'bi-database-fill',
+    'Preprint': 'bi-file-earmark-text-fill',
+    'PDF': 'bi-file-pdf-fill',
+    'Code': 'bi-code-slash',
+    'Notebook': 'bi-file-earmark-text-fill',
+    'Press': 'bi-newspaper',
+    'Video': 'bi-file-play-fill',
+}
+%}
+
+{% block title %}Publication{% endblock title %}
+
+{% block head %}
+{{ super() }}
+    <!-- Altermetrics -->
+    <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+    <!-- Dimensions -->
+    <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
+{% endblock head %}
+
 {% block content %}
-                <div class="col-12 blog-main">
+                <div class="col-12">
                     <h3>{{ title }}</h3>
                     <p>{{ intro }}</p>
                     <p>{{ content }}</p>
                     <ol reversed="">
-                        {% for id, publication in publications.items()|sort(reverse=True) %}
+                        {% for doi, publication in publications.items() %}
                         <li>
-                            {{ publication.description }}
+                            {{ publication.authors }}.
+                            <br>
+                            <strong>{{ publication.title }}</strong>.
+                            <br>
+                            {{ publication.publisher }} ({{ publication.year }}). <a rel="datacite:doi" href="https://doi.org/{{ doi }}">doi:{{ doi }}</a>
+                            <br>
+                            {% if publication.resources is not none %}
+                            <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
+                            {% for resource in publication.resources %}
+                            {% for resource_type, url in resource.items() %}
+                                <a href="{{ url }}">
+                                    <button type="button" class="btn btn-default btn-sm">
+                                        <span
+                                            class="{{ icons[resource_type] }}"
+                                            aria-hidden="true"
+                                            style="font-size: 1rem; color: cornflowerblue;"
+                                        ></span>
+                                        {{ resource_type }}
+                                    </button>
+                                </a>
+                            {% endfor %}
+                            {% endfor %}
+                                <span
+                                    data-badge-type="2"
+                                    data-doi="{{ doi }}"
+                                    data-hide-no-mentions="true"
+                                    class="altmetric-embed">
+                                </span>
+                                <span
+                                    class="__dimensions_badge_embed__"
+                                    data-doi="{{ doi }}"
+                                    data-legend="hover-right"
+                                    data-style="small_rectangle">
+                                </span>
+                            </div>
+                            {% endif %}
                         </li>
                         <br>
                         {% endfor %}
@@ -20,8 +76,50 @@
                 
                 <div class="col-12 blog-main">
                     <h3>Previous publications important for the foundation of our group</h3>
+                    <ol reversed="">
+                        {% for doi, publication in previous_publications.items() %}
+                        <li>
+                            {{ publication.authors }}.
+                            <br>
+                            <strong>{{ publication.title }}</strong>.
+                            <br>
+                            {{ publication.publisher }} ({{ publication.year }}). <a rel="datacite:doi" href="https://doi.org/{{ doi }}">doi:{{ doi }}</a>
+                            <br>
+                            {% if publication.resources is not none %}
+                            <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
+                            {% for resource in publication.resources %}
+                            {% for resource_type, url in resource.items() %}
+                                <a href="{{ url }}">
+                                    <button type="button" class="btn btn-default btn-sm">
+                                        <span
+                                            class="{{ icons[resource_type] }}"
+                                            aria-hidden="true"
+                                            style="font-size: 1rem; color: cornflowerblue;"
+                                        ></span>
+                                        {{ resource_type }}
+                                    </button>
+                                </a>
+                            {% endfor %}
+                            {% endfor %}
+                                <span
+                                    data-badge-type="2"
+                                    data-doi="{{ doi }}"
+                                    data-hide-no-mentions="true"
+                                    class="altmetric-embed">
+                                </span>
+                                <span
+                                    class="__dimensions_badge_embed__"
+                                    data-doi="{{ doi }}"
+                                    data-legend="hover-right"
+                                    data-style="small_rectangle">
+                                </span>
+                            </div>
+                            {% endif %}
+                        </li>
+                        <br>
+                        {% endfor %}
+                    </ol>
                 
-                    {% include "papers.html" %}
                 </div>
 
 {% endblock content %}

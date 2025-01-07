@@ -42,7 +42,7 @@ news:
         <a href='https://scverse.org/conference2024'>scverse conference in 2024</a> - thank you to the whole community for the support and encouragement.
         </p>
         <p> Check out the full paper at
-        <a href='https://genomebiology.biomedcentral.com/articles/10.1186/s13059-024-03469-3'>https://genomebiology.biomedcentral.com/articles/10.1186/s13059-024-03469-3</a>
+        <a href='https://genomebiology.biomedcentral.com/articles/10.1186/s13059-024-03469-3'>https://genomebiology.biomedcentral.com/articles/10.1186/s13059-024-03469-3</a>.
         </p>
       img: 2024-03-30-Marsilea.jpg
       img_alt: The marsilea logo with a cross layout in the center and gray background saying "Transform your data landscape".
@@ -274,30 +274,453 @@ publications:
   content: ""
   outro: ""
   publications:
-    2024-11-16:
-      description: |
-        Ernesto Abila, Iva Buljan, Yimin Zheng, Tamas Veres, Zhilong Weng, Maja C Nackenhorst, Wolfgang Hulla, Yuri Tolkach, Adelheid Woehrer, André F. Rendeiro.
-        <br>
-        <b>Tissue clocks derived from histological signatures of biological aging enable tissue-specific aging predictions from blood.</b>
-        <br>
-        BioRxiv (2024). <a href="https://doi.org/10.1101/2024.11.14.618081">doi:10.1101/2024.11.14.618081</a>
-    2024-04-19:
-      description: |
-        Andreas Reicher, Jiří Reiniš, Maria Ciobanu, Pavel Růžička, Monika Malik, Marton Siklos, Viktoriia Kartysh, Tatjana Tomek, Anna Koren, André F. Rendeiro, Stefan Kubicek.
-        <br>
-        <b>Pooled multicolor tagging for visualizing subcellular protein dynamics.</b>
-        <br>
-        Nature Cell Biology (2024). <a href="https://doi.org/10.1038/s41556-024-01407-w">doi:10.1038/s41556-024-01407-w</a>
-    2024-03-30:
-      description: |
-        Yimin Zheng, Zhihang Zheng, André F. Rendeiro, Edwin Cheung.
-        <br>
-        <b>Marsilea: An intuitive generalized visualization paradigm for complex datasets.</b>
-        <br>
-        BioRxiv (2024). <a href="https://doi.org/10.1101/2024.02.14.580236">doi:10.1101/2024.02.14.580236</a>
+    10.1186/s13059-024-03469-3:
+      authors: "Yimin Zheng, Zhihang Zheng, André F. Rendeiro<sup>+</sup>, Edwin Cheung<sup>+</sup>"
+      title: "Marsilea: An intuitive generalized visualization paradigm for complex datasets"
+      publisher: "Genome Biology"
+      year: 2025
+      type: journal
+      description: null
+      resources:
+        - Code: https://marsilea.readthedocs.io/
+        - Code: https://github.com/Marsilea-viz/marsilea
+        - Preprint: https://doi.org/10.1101/2024.02.14.580236
+    10.1101/2024.11.14.618081:
+      authors: "Ernesto Abila<sup>*</sup>, Iva Buljan<sup>*</sup>, Yimin Zheng<sup>*</sup>, Tamas Veres, Zhilong Weng, Maja C Nackenhorst, Wolfgang Hulla, Yuri Tolkach, Adelheid Woehrer, André F. Rendeiro<sup>+</sup>"
+      title: "Tissue clocks derived from histological signatures of biological aging enable tissue-specific aging predictions from blood"
+      publisher: "BioRxiv"
+      year: 2024
+      type: preprint
+      description: null
+      resources:
+        - Data: https://zenodo.org/doi/10.5281/zenodo.13330658
+        - Code: https://github.com/rendeirolab/agingpath
+    10.1038/s41556-024-01407-w:
+      authors: "Andreas Reicher, Jiří Reiniš, Maria Ciobanu, Pavel Rūžícka, Monika Malik, Marton Szellós, Viktoriia Kartysh, Tatjana Tomek, Anna Koren, André F. Rendeiro, Stefan Kubicek"
+      title: "Pooled multicolor tagging for visualizing subcellular protein dynamics"
+      publisher: "Nature Cell Biology"
+      year: 2024
+      type: journal
+      description: null
+      resources:
+        - Code: https://github.com/reinisj/intron_tagging
+    10.1016/j.isci.2024.109301:
+      authors: "Oleksandr Petrenko, Philipp Königshofer, Ksenia Brusilovskaya, Benedikt S. Hofer, Katharina Bareiner, Benedikt Simbrunner, Frank Jühling, Thomas F. Baumert, Joachim Lupberger, Michael Trauner, Stefan G. Kauschke, Larissa Pfisterer, Eric Simon, André F. Rendeiro, Laura P.M. H. de Rooij, Philipp Schwabl, Thomas Reiberger"
+      title: "Transcriptomic signatures of progressive and regressive liver fibrosis and portal hypertension"
+      publisher: "iScience"
+      year: 2024
+      type: journal
+      description: null
+      resources:
+        - Preprint: https://doi.org/10.1101/2023.07.22.550133
+    10.1038/s41435-024-00257-8:
+      authors: "Dörte Symmank, Felix Clemens Richter, André F. Rendeiro"
+      title: "Navigating the thymic landscape through development: from cellular atlas to tissue cartography"
+      publisher: "Genes & Immunity"
+      year: 2024
+      type: opinion
+      description: null
+      resources: null
+    10.1016/j.cels.2023.05.009:
+      authors: "Fabian J. Theis, Daniel Dar, Roser Vento-Tormo, Sanja Vicković, Linghua Wang, Luciane T. Kagohara, André F. Rendeiro, Johanna A. Joyce"
+      title: "What do you most hope spatial molecular profiling will help us understand? Part 1"
+      publisher: "Cell Systems"
+      year: 2023
+      type: opinion
+      description: null
+      resources: null
+  previous_publications:
+    10.1038/s41467-024-46320-w:
+      authors: "Kentaro Ohara, André F. Rendeiro, Bhavneet Bhinder, Kenneth Wha Eng, Hiranmayi Ravichandran, David Pisapia, Aram Vosoughi, Evan Fernandez, Kyrillus Shohdy, Jyothi Manohar, Shaham Beg, David Wilkes, Brian Robinson, Francesca Khani, Rohan Bareja, Scott Tagawa, Andrea Sboner, Olivier Elemento, Bishoy Morris Faltas, Juan Miguel Mosquera"
+      title: "The evolution of genomic, transcriptomic, and single-cell protein markers of metastatic upper tract urothelial carcinoma"
+      publisher: "Nature Communications"
+      year: 2024
+      type: journal
+      description: null
+      resources:
+        - Data: https://zenodo.org/doi/10.5281/zenodo.5719187
+        - Code: https://github.com/ElementoLab/utuc-imc
+        - Preprint: https://doi.org/10.1101/2021.11.16.468622
+    10.1016/j.devcel.2023.11.008:
+      authors: "David J. Falvo, Adrien Grimont, Paul Zumbo, William B. Fall, Julie L. Yang, Alexa Osterhoudt, Grace Pan, André F. Rendeiro, Yinuo Meng, John E. Wilkinson, Friederike Dündar, Olivier Elemento, Rhonda K. Yantiss, Erika Hissong, Richard Koche, Doron Betel, Rohit Chandwani"
+      title: "A reversible epigenetic memory of inflammatory injury controls lineage plasticity and tumor initiation in the mouse pancreas"
+      publisher: "Developmental Cell"
+      year: 2023
+      type: journal
+      description: null
+      resources:
+        - Preprint: https://doi.org/10.1101/2021.11.01.466807
+    10.1101/2023.09.05.556371:
+      authors: "Everardo Hegewisch-Solloa, Janine E Melsen, Hiranmayi Ravichandran, André F. Rendeiro, Aharon G Freud, Bethany Mundy-Bosse, Johannes C Melms, Shira E Eisman, Benjamin Izar, Eli Grunstein, Thomas J Connors, Olivier Elemento, Amir Horowitz, Emily Mace"
+      title: "Mapping human natural killer cell development in tonsil"
+      publisher: "BioRxiv"
+      year: 2023
+      type: preprint
+      description: null
+      resources: null
+    10.1016/j.cell.2023.07.019:
+      authors: "Jin-Gyu Cheong, Arjun Ravishankar, Siddhartha Sharma, Christopher N Parkhurst, Simon Grassmann, Claire K Wingert, Paoline Laurent, Sai Ma, Lucinda Paddock, Isabella Miranda, Onur Karakaslar, Djamel Nehar-Belaid, Asa Thibodeau, Michael J Bale, Vinay K Kartha, Jim K Yee, Minh Y Mays, Chenyang Jiang, Andrew W Daman, Alexia Martinez de Paz, Dughan Ahimovic, Victor Ramos, Alexander Lercher, Erik Nielsen, Sergio Alvarez-Mullett, Ling Zheng, Andrew Earl, Alisha Yallowitz, Lexi Robbins, Elyse LaFond, Karissa Weidman, Sabrina Racine-Brzostek, He S Yang, David Price, André F. Rendeiro, Hiranmayi Ravichandran, Junbum Kim, Alain C Borczuk, Charles M Rice, R. Brad Jones, Edward J Schenck, Robert J Kaner, Amy Chadburn, Zhen Zhao, Virginia Pascual, Olivier Elemento, Robert E Schwartz, Jason Buenrostro, Rachel E Niec, Franck J Barrat, Lindsay Lief, Joe Sun, Duygu Ucar, Steven Z Josefowicz"
+      title: "Epigenetic memory of coronavirus infection in innate immune cells and their progenitors"
+      publisher: "Cell"
+      year: 2023
+      type: journal
+      description: null
+      resources:
+        - Preprint: https://doi.org/10.1101/2022.02.09.479588
+    10.1093/neuonc/noad117:
+      authors: "Evan K Noch, Laura N Palma, Isaiah Yim, Nayah Bullen, Yuqing Qiu, Hiranmayi Ravichandran, Junbum Kim, André F. Rendeiro, Melissa B Davis, Olivier Elemento, David J Pisapia, Kevin Zhai, H Carl LeKaye, Jason A Koutcher, Patrick Y Wen, Keith L Ligon, Lewis C Cantley"
+      title: "Insulin feedback is a targetable resistance mechanism of PI3K inhibition in glioblastoma"
+      publisher: "Neuro-Oncology"
+      year: 2023
+      type: journal
+      description: null
+      resources: null
+    10.1164/rccm.202207-1384OC:
+      authors: "Samir Rustam, Yang Hu, Seyed Babak Mahjour, André F. Rendeiro, Hiranmayi Ravichandran, Andreacarola Urso, Frank D’Ovidio, Fernando J. Martinez, Nasser K. Altorki, Bradley Richmond, Vasiliy Polosukhin, Jonathan A. Kropski, Timothy S. Blackwell, Scott H. Randell, Olivier Elemento, Renat Shaykhiev"
+      title: "A unique cellular organization of human distal airways and its disarray in chronic obstructive pulmonary disease"
+      publisher: "American Journal of Respiratory and Critical Care Medicine"
+      year: 2023
+      type: journal
+      description: null
+      resources:
+        - Preprint: https://doi.org/10.1101/2022.03.16.484543
+    10.1186/s13059-022-02824-6:
+      authors: "Jiwoon Park, Junbum Kim, Tyler Lewy, Charles M. Rice, Olivier Elemento, André F. Rendeiro, Christopher E. Mason"
+      title: "Spatial omics technologies at multimodal and single cell/subcellular level"
+      publisher: "Genome Biology"
+      year: 2022
+      type: review
+      description: null
+      resources: null
+    10.1101/2022.11.28.22282811:
+      authors: "André F. Rendeiro<sup>*</sup>, Hiranmayi Ravichandran<sup>*</sup>, Junbum Kim, Alain C. Borczuk, Olivier Elemento, Robert E. Schwartz"
+      title: "Persistent alveolar type 2 dysfunction and lung structural derangement in post-acute COVID-19"
+      publisher: "medRxiv"
+      year: 2022
+      type: preprint
+      description: null
+      resources:
+        - Code: https://github.com/ElementoLab/post-covid-imc
+        - Data: https://doi.org/10.5281/zenodo.7060271
+        - Preprint: https://doi.org/10.1101/2022.11.28.22282811
+    10.1038/s41592-022-01657-2:
+      authors: "Junbum Kim, Samir Rustam, Juan Miguel Mosquera, Scott H. Randell, Renat Shaykhiev, André F. Rendeiro<sup>Ω</sup>, Olivier Elemento<sup>Ω</sup>"
+      title: "Unsupervised discovery of tissue architecture in multiplexed imaging"
+      publisher: "Nature Methods"
+      year: 2022
+      type: journal
+      description: null
+      resources:
+        - Press: https://news.cornell.edu/stories/2022/11/new-computational-method-builds-detailed-maps-human-tissues
+        - Data: https://zenodo.org/record/6376767
+        - Code: https://github.com/ElementoLab/utag
+        - Preprint: https://doi.org/10.1101/2022.03.15.484534
+    10.1126/sciimmunol.add4906:
+      authors: "Paôline Laurent<sup>*</sup>, Chao Yang<sup>*</sup>, André F. Rendeiro<sup>*</sup>, Benjamin E. Nilsson-payant, Lucia Carrau, Vasuretha Chandar, Yaron Bram, Benjamin R. Tenoever, Olivier Elemento, Lionel B. Ivashkiv, Robert E. Schwartz, Franck J. Barrat"
+      title: "Sensing of SARS-CoV-2 by pDCs and their subsequent production of IFN-I contribute to macrophage-induced cytokine storm during COVID-19"
+      publisher: "Science Immunology"
+      year: 2022
+      type: journal
+      description: null
+      resources:
+        - Code: https://github.com/ElementoLab/covid-pdcs
+    10.1016/j.isci.2022.104223:
+      authors: "Lissenya B Argueta, Lauretta A Lacko, Yaron Bram, Takuya Tada, Lucia Carrau, André F. Rendeiro, Tuo Zhang, Skyler Uhl, Brienne C Lubor, Vasuretha Chandar, Cristianel Gil, Wei Zhang, Brittany J Dodson, Jeroen Bastiaans, Malavika Prabhu, Sean Houghton, David Redmond, Christine M Salvatore, Yawei J Yang, Olivier Elemento, Rebecca N Baergen, Benjamin R tenOever, Nathaniel R Landau, Shuibing Chen, Robert E Schwartz, Heidi Stuhlmann"
+      title: "Inflammatory responses in the placenta upon SARS-CoV-2 infection late in pregnancy"
+      publisher: "iScience"
+      year: 2022
+      type: journal
+      description: null
+      resources:
+        - Data: https://doi.org/10.5281/zenodo.5182825
+        - Code: https://github.com/ElementoLab/covid-placenta
+    10.1101/mcs.a006151:
+      authors: "Hussein Alnajar<sup>*</sup>, Hiranmayi Ravichandran<sup>*</sup>, André F. Rendeiro, Kentaro Ohara, Wael Al Zoughbi, Jyothi Manohar, Noah Greco, Michael Sigouros, Jesse Fox, Emily Muth, Samuel Angiuoli, Bishoy Faltas, Michael Shusterman, Cora N. Sternberg, Olivier Elemento, Juan Miguel Mosquera"
+      title: "Tumor-immune microenvironment revealed by imaging mass cytometry in a metastatic sarcomatoid urothelial carcinoma with a prolonged response to pembrolizumab"
+      publisher: "Cold Spring Harbor Molecular Case Studies"
+      year: 2022
+      type: journal
+      description: null
+      resources:
+        - Code: https://github.com/ElementoLab/msuc-imc
+    10.1016/j.xcrm.2022.100522:
+      authors: "Jiwoon Park, Jonathan Foox, Tyler Hether, David C. Danko, Sarah Warren, Youngmi Kim, Jason Reeves, Daniel J. Butler, Christopher Mozsary, Joel Rosiene, Alon Shaiber, Evan E. Afshin, Matthew MacKay, André F. Rendeiro, Yaron Bram, Vasuretha Chandar, Heather Geiger, Arryn Craney, Priya Velu, Ari M. Melnick, Iman Hajirasouliha, Afshin Beheshti, Deanne Taylor, Amanda Saravia-Butler, Urminder Singh, Eve Syrkin Wurtele, Jonathan Schisler, Samantha Fennessey, André Corvelo, Michael C. Zody, Soren Germer, Steven Salvatore, Shawn Levy, Shixiu Wu, Nicholas P. Tatonetti, Sagi Shapira, Mirella Salvatore, Lars F. Westblade, Melissa Cushing, Hanna Rennert, Alison J. Kriegel, Olivier Elemento, Marcin Imielinski, Charles M. Rice, Alain C. Borczuk, Cem Meydan, Robert E. Schwartz, Christopher E. Mason"
+      title: "System-wide transcriptome damage and tissue identity loss in COVID-19 patients"
+      publisher: "Cell Reports Medicine"
+      year: 2022
+      type: journal
+      description: null
+      resources:
+        - PDF: https://www.sciencedirect.com/science/article/pii/S2666379122000222/pdfft?md5=d0d26d9a767cddacc0e92b849f193155&pid=1-s2.0-S2666379122000222-main.pdf
+    10.3389/fimmu.2021.809937:
+      authors: "André F. Rendeiro, Charles Kyriakos Vorkas, Jan Krumsiek, Harjot Singh, Shashi N Kapadia, Luca Vincenzo Cappelli, Maria Teresa Cacciapuoti, Giorgio Inghirami, Olivier Elemento, Mirella Salvatore"
+      title: "Metabolic and immune markers for precise monitoring of COVID-19 severity and treatment"
+      publisher: "Frontiers in Immunology"
+      year: 2021
+      type: journal
+      description: null
+      resources:
+        - Preprint: https://dx.doi.org/10.1101/2021.09.05.21263141
+        - Code: https://github.com/ElementoLab/covid-metabolomics
+        - Data: https://github.com/ElementoLab/covid-metabolomics/tree/main/data
+    10.1093/gigascience/giab077:
+      authors: "Nathan C. Sheffield, Michał Stolarczyk, Vincent P. Reuter, André F. Rendeiro"
+      title: "Linking big biomedical datasets to modular analysis with Portable Encapsulated Projects"
+      publisher: "GigaScience"
+      year: 2021
+      type: journal
+      description: null
+      resources:
+        - Preprint: https://dx.doi.org/10.1101/2020.10.08.331322
+        - Code: https://dx.doi.org/10.5524/100936
+        - Code: https://pep.databio.org/en/latest/
+    10.1038/s41592-021-01153-z:
+      authors: "Paul Datlinger<sup>*</sup>, André F. Rendeiro<sup>*</sup>, Thorina Boenke, Thomas Krausgruber, Daniele Barreca, Christoph Bock"
+      title: "Ultra-high throughput single-cell RNA sequencing by combinatorial fluidic indexing"
+      publisher: "Nature Methods"
+      year: 2021
+      type: journal
+      description: null
+      resources:
+        - Preprint: https://dx.doi.org/10.1101/2019.12.17.879304
+        - Code: https://github.com/epigen/scifiRNA-seq_publication
+        - Notebook: /2019/12/13/chromium_modeling
+    10.1038/s41467-021-23445-w:
+      authors: "Peter Peneder, Adrian Stütz, Didier Surdez, Manuela Krumbholz, Sabine Semper, Mathieu Chicard, Nathan Sheffield, Gaelle Pierron, Eve Lapouble, Marcus Tötzl, Bekir Ergüner, Daniele Barreca, André F. Rendeiro, Abbas Agaimy, Heidrun Boztug, Gernot Engstler, Michael Dworzak, Marie Bernkopf, Sabine Taschner-Mandl, Inge Ambros, Ola Myklebost, Perrine Marec-Berard, Susan Burchill, Bernadette Brennan, Sandra Strauss, Jeremy Whelan, Gudrun Schleiermacher, Christiane Schaefer, Uta Dirksen, Caroline Hutter, Kjetil Boye, Peter Ambros, Olivier Delattre, Markus Metzler, Christoph Bock, Eleni Tomazou"
+      title: "Multimodal analysis of cell-free DNA whole genome sequencing for pediatric cancers with low mutational burden"
+      publisher: "Nature Communications"
+      year: 2021
+      type: journal
+      description: null
+      resources:
+        - PDF: https://www.nature.com/articles/s41467-021-23445-w.pdf
+        - Data: https://doi.org/10.5281/zenodo.4719434
+    10.1038/s41586-021-03569-1:
+      authors: "Johannes C. Melms<sup>*</sup>, Jana Biermann<sup>*</sup>, Huachao Huang<sup>*</sup>, Yiping Wang<sup>*</sup>, Ajay Nair<sup>*</sup>, Somnath Tagore<sup>*</sup>, Igor Katsyv<sup>*</sup>, André F. Rendeiro<sup>*</sup>, Amit Dipak Amin<sup>*</sup>, Denis Schapiro, Chris J. Frangieh, Adrienne M. Luoma, Aveline Filliol, Yinshan Fang, Hiranmayi Ravichandran, Mariano G. Clausi, George A. Alba, Meri Rogava, Sean W. Chen, Patricia Ho, Daniel T. Montoro, Adam E. Kornberg, Arnold S. Han, Mathieu F. Bakhoum, Niroshana Anandasabapathy, Mayte Suárez-Fariñas, Samuel F. Bakhoum, Yaron Bram, Alain Borczuk, Xinzheng V. Guo, Jay H. Lefkowitch, Charles Marboe, Stephen. M. Lagana, Armando Del Portillo, Emmanuel Zorn, Glen S. Markowitz, Robert F. Schwabe, Robert E. Schwartz, Olivier Elemento, Anjali Saqi, Hanina Hibshoosh, Jianwen Que, Benjamin Izar"
+      title: "A molecular single-cell lung atlas of lethal COVID-19"
+      publisher: "Nature"
+      year: 2021
+      type: journal
+      description: null
+      resources:
+        - PDF: https://www.nature.com/articles/s41586-021-03569-1.pdf
+    10.1038/s41586-021-03475-6:
+      authors: "André F. Rendeiro<sup>*</sup>, Hiranmayi Ravichandran<sup>*</sup>, Yaron Bram, Vasuretha Chandar, Junbum Kim, Cem Meydan, Jiwoon Park, Jonathan Foox, Tyler Hether, Sarah Warren, Youngmi Kim, Jason Reeves, Steven Salvatore, Christopher E. Mason, Eric C. Swanson, Alain C. Borczuk, Olivier Elemento, Robert E. Schwartz"
+      title: "The spatial landscape of lung pathology during COVID-19 progression"
+      publisher: "Nature"
+      year: 2021
+      type: journal
+      description: null
+      resources:
+        - PDF: https://www.nature.com/articles/s41586-021-03475-6.pdf
+        - Preprint: https://doi.org/10.1101/2020.10.26.20219584
+        - Data: https://doi.org/10.5281/zenodo.4719434
+        - Data: https://doi.org/10.5281/zenodo.4139443
+        - Data: https://doi.org/10.5281/zenodo.4637034
+        - Data: https://doi.org/10.5281/zenodo.4633905
+        - Data: https://doi.org/10.5281/zenodo.4635285
+        - Code: https://github.com/ElementoLab/covid-imc
+        - Code: https://github.com/ElementoLab/covid-imc-viz
+    10.1038/s41588-021-00777-3:
+      authors: "Sandra Schick, Sarah Grosche, Katharina Eva Kohl, Danica Drpic, Martin G. Jaeger, Nara C. Marella, Hana Imrichova, Jung-Ming G. Lin, Gerald Hofstätter, Michael Schuster, André F. Rendeiro, Anna Koren, Mark Petronczki, Christoph Bock, André C. Müller, Georg E. Winter, Stefan Kubicek"
+      title: "Acute BAF perturbation causes immediate changes in chromatin accessibility"
+      publisher: "Nature Genetics"
+      year: 2021
+      type: journal
+      description: null
+      resources:
+        - Code: https://github.com/Kubicek-Lab-at-CeMM/BAF-kinetics
+    10.26508/lsa.202000955:
+      authors: "André F. Rendeiro, Joseph Casano, Charles Kyriakos Vorkas, Harjot Singh, Ayana Morales, Robert A. DeSimone, Grant B. Ellsworth, Rosemary Soave, Shashi N. Kapadia, Kohta Saito, Christopher D. Brown, JingMei Hsu, Christopher Kyriakides, Steven Chui, Luca Cappelli, Maria Teresa Cacciapuoti, Wayne Tam, Lorenzo Galluzzi, Paul D. Simonson, Olivier Elemento, Mirella Salvatore, Giorgio Inghirami"
+      title: "Profiling of immune dysfunction in COVID-19 patients allows early prediction of disease progression"
+      publisher: "Life Science Alliance"
+      year: 2020
+      type: journal
+      description: null
+      resources:
+        - PDF: https://www.life-science-alliance.org/content/lsa/4/2/e202000955.full.pdf
+        - Preprint: https://dx.doi.org/10.1101/2020.09.08.20189092
+        - Code: https://github.com/ElementoLab/covid-flowcyto
+    10.1038/s41388-020-01584-6:
+      authors: "Alexander Swoboda, Robert Soukup, Oliver Eckel, Katharina Kinslechner, Bettina Wingelhofer, David Schörghofer, Christina Sternberg, Ha T. T. Pham, Maria Vallianou, Jaqueline Horvath, Dagmar Stoiber, Lukas Kenner, Lionel Larue, Valeria Poli, Friedrich Beermann, Takashi Yokota, Stefan Kubicek, Thomas Krausgruber, André F. Rendeiro, Christoph Bock, Rainer Zenz, Boris Kovacic, Fritz Aberger, Markus Hengstschläger, Peter Petzelbauer, Mario Mikula, Richard Moriggl"
+      title: "STAT3 promotes melanoma metastasis by CEBP-induced repression of the MITF pathway"
+      publisher: "Oncogene"
+      year: 2020
+      type: journal
+      description: null
+      resources:
+        - Preprint: https://dx.doi.org/10.1101/422832
+    10.1038/s41586-020-2424-4:
+      authors: "Thomas Krausgruber, Nikolaus Fortelny, Victoria Fife-Gernedl, Martin Senekowitsch, Linda C. Schuster, Alexander Lercher, Amelie Nemc, Christian Schmidl, André F. Rendeiro, Andreas Bergthaler, Christoph Bock"
+      title: "Structural cells are key regulators of organ-specific immune responses"
+      publisher: "Nature"
+      year: 2020
+      type: journal
+      description: null
+      resources:
+        - Data: https://structural-immunity-paper.medical-epigenomics.org/
+        - Data: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE134663
+        - Code: https://github.com/epigen/StructuralImmunity
+    10.3390/cells9061484:
+      authors: "Rainer Hubmann, Susanne Schnabl, Mohammad Araghi, Christian Schmidl, André F. Rendeiro, Martin Hilgarth, Dita Demirtas, Farghaly Ali, Philipp B. Staber, Peter Valent, Christoph Zielinski, Ulrich Jäger, Medhat Shehata"
+      title: "Targeting nuclear NOTCH2 by gliotoxin recovers a tumor-suppressor NOTCH3 activity in CLL"
+      publisher: "Cells"
+      year: 2020
+      type: journal
+      description: null
+      resources: null
+    10.1016/j.cmet.2020.03.003:
+      authors: "Elizabeth C. Rosser, Christopher J.M. Piper, Diana E. Matei, Paul A. Blair, André F. Rendeiro, Michael Orford, Dagmar G. Alber, Thomas Krausgruber, Diego Catalan, Nigel Klein, Jessica J. Manson, Ignat Drozdov, Christoph Bock, Lucy R. Wedderburn, Simon Eaton, Claudia Mauri"
+      title: "Microbiota-derived metabolites suppress arthritis by amplifying aryl-hydrocarbon receptor activation in regulatory B cells"
+      publisher: "Cell Metabolism"
+      year: 2020
+      type: journal
+      description: null
+      resources:
+        - Data: https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-7345/
+        - Data: https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-7525/
+    10.1038/s41467-019-14081-6:
+      authors: "André F. Rendeiro<sup>*</sup>, Thomas Krausgruber<sup>*</sup>, Nikolaus Fortelny, Fangwen Zhao, Thomas Penz, Matthias Farlik, Linda C. Schuster, Amelie Nemc, Szabolcs Tasnády, Marienn Réti, Zoltán Mátrai, Donat Alpar, Csaba Bödör, Christian Schmidl, Christoph Bock"
+      title: "Chromatin mapping and single-cell immune profiling define the temporal dynamics of ibrutinib drug response in CLL"
+      publisher: "Nature Communications"
+      year: 2020
+      type: journal
+      description: null
+      resources:
+        - Preprint: https://dx.doi.org/10.1038/s41467-019-14081-6
+        - Data: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE111015
+        - Code: https://github.com/epigen/cll-ibrutinib_time
+    10.1016/j.immuni.2019.12.002:
+      authors: "Michael Delacher, Charles D. Imbusch, Agnes Hotz-Wagenblatt, Jan-Philipp Mallm, Katharina Bauer, Malte Simon, Dania Riegel, André F. Rendeiro, Sebastian Bittner, Lieke Sanderink, Asmita Pant, Lisa Schmidleithner, Kathrin L. Braband, Bernd Echtenachter, Alexander Fischer, Valentina Giunchiglia, Petra Hoffmann, Matthias Edinger, Christoph Bock, Michael Rehli, Benedikt Brors, Christian Schmidl, Markus Feuerer"
+      title: "Precursors for nonlymphoid-tissue Treg cells reside in secondary lymphoid organs and are programmed by the transcription factor BATF"
+      publisher: "Immunity"
+      year: 2020
+      type: journal
+      description: null
+      resources:
+        - PDF: https://dx.doi.org/10.1016/j.immuni.2019.12.002
+        - Data: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE130884
+    10.1016/j.celrep.2019.10.018:
+      authors: "Christopher J.M. Piper, Elizabeth C. Rosser, Kristine Oleinika, Kiran Nistala, Thomas Krausgruber, André F. Rendeiro, Aggelos Banos, Ignat Drozdov, Matteo Villa, Scott Thomson, Georgina Xanthou, Christoph Bock, Brigitta Stockinger, Claudia Mauri"
+      title: "Aryl hydrocarbon receptor contributes to the transcriptional program of IL-10-producing regulatory B cells"
+      publisher: "Cell Reports"
+      year: 2019
+      type: journal
+      description: null
+      resources:
+        - Data: https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-7525/
+        - Data: https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-7375/
+        - Data: https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-7345/
+    10.1161/CIRCRESAHA.118.314601:
+      authors: "Florian Puhm, Taras Afonyushkin, Ulrike Resch, Georg Obermayer, Manfred Rohde, Thomas Penz, Michael Schuster, Gabriel Wagner, André F. Rendeiro, Imene Melki, Christoph Kaun, Johann Wojta, Christoph Bock, Bernd Jilma, Nigel Mackman, Eric Boilard, Christoph J. Binder"
+      title: "Mitochondria are a subset of extracellular vesicles released by activated monocytes and induce type I IFN and TNF responses in endothelial cells"
+      publisher: "Circulation Research"
+      year: 2019
+      type: journal
+      description: null
+      resources: null
+    10.1038/s41588-019-0477-9:
+      authors: "Sandra Schick, Sarah Grosche, Katharina Eva Kohl, Danica Drpic, Martin G. Jaeger, Nara C. Marella, Hana Imrichova, Jung-Ming G. Lin, Gerald Hofstätter, Michael Schuster, André F. Rendeiro, Anna Koren, Mark Petronczki, Christoph Bock, André C. Müller, Georg E. Winter, Stefan Kubicek"
+      title: "Systematic characterization of BAF mutations provides insights into intracomplex synthetic lethalities in human cancers"
+      publisher: "Nature Genetics"
+      year: 2019
+      type: journal
+      description: null
+      resources:
+        - Data: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE108390
+        - Code: https://github.com/epigen/baf-complex
+    10.1038/s41588-019-0413-z:
+      authors: "Sara Sdelci, André F. Rendeiro, Philipp Rathert, Wanhui You, Jung-Ming G. Lin, Anna Ringler, Gerald Hofstätter, Herwig P. Moll, Bettina Gürtl, Matthias Farlik, Sandra Schick, Freya Klepsch, Matthew Oldach, Pisanu Buphamalai, Fiorella Schischlik, Peter Májek, Katja Parapatics, Christian Schmidl, Michael Schuster, Thomas Penz, Dennis L. Buckley, Otto Hudecz, Richard Imre, Shuang-Yan Wang, Hans Michael Maric, Robert Kralovics, Keiryn L. Bennett, Andre C. Müller, Karl Mechtler, Jörg Menche, James E. Bradner, Georg E. Winter, Kristaps Klavins, Emilio Casanova, Christoph Bock, Johannes Zuber, Stefan Kubicek"
+      title: "MTHFD1 interaction with BRD4 links folate metabolism to transcriptional regulation"
+      publisher: "Nature Genetics"
+      year: 2019
+      type: journal
+      description: null
+      resources:
+        - Data: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE105786
+        - Code: https://github.com/epigen/mthfd1
+    10.1038/s41589-018-0205-2:
+      authors: "Christian Schmidl<sup>*</sup>, Gregory I. Vladimer<sup>*</sup>, André F. Rendeiro<sup>*</sup>, Susanne Schnabl<sup>*</sup>, Thomas Krausgruber, Christina Taubert, Nikolaus Krall, Tea Pemovska, Mohammad Araghi, Berend Snijder, Rainer Hubmann, Anna Ringler, Kathrin Runggatscher, Dita Demirtas, Oscar Lopez de la Fuente, Martin Hilgarth, Cathrin Skrabs, Edit Porpaczy, Michaela Gruber, Gregor Hoermann, Stefan Kubicek, Philipp B. Staber, Medhat Shehata, Giulio Superti-Furga, Ulrich Jäger, Christoph Bock"
+      title: "Combined chemosensitivity and chromatin profiling prioritizes drug combinations in CLL"
+      publisher: "Nature Chemical Biology"
+      year: 2019
+      type: journal
+      description: null
+      resources:
+        - PDF: https://www.nature.com/articles/s41589-018-0205-2.epdf?author_access_token=bhLY62eOUKzMxIek0Lrur9RgN0jAjWel9jnR3ZoTv0OorJZAyhsTHb_lKvE8iHB4D-HCNtQW3iuHJ6rd4yyhVuqSRybOkvDAylqw3Y4ls_TSAbSvsrbyBKCASfcuMe_LYEtnAVhV2dzkOxsLOLffEA%3D%3D
+        - Data: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE100672
+        - Code: https://github.com/epigen/cll-ibrutinib
+    10.1016/j.stem.2018.06.014:
+      authors: "Tahsin Stefan Barakat, Florian Halbritter, Man Zhang, André F. Rendeiro, Christoph Bock, Ian Chambers"
+      title: "Functional dissection of the enhancer repertoire in human embryonic stem cells"
+      publisher: "Cell Stem Cell"
+      year: 2018
+      type: journal
+      description: null
+      resources:
+        - Data: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE99631
+    10.1038/nmeth.4177:
+      authors: "Paul Datlinger, André F. Rendeiro<sup>*</sup>, Christian Schmidl<sup>*</sup>, Thomas Krausgruber, Peter Traxler, Johanna Klughammer, Linda C. Schuster, Amelie Kuchler, Donat Alpar, Christoph Bock"
+      title: "Pooled CRISPR screening with single-cell transcriptome readout"
+      publisher: "Nature Methods"
+      year: 2017
+      type: journal
+      description: null
+      resources:
+        - PDF: https://rdcu.be/oDFf
+        - Data: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81274
+        - Code: https://github.com/epigen/crop-seq
+    10.1038/nn.4462:
+      authors: "Roman A. Romanov, Amit Zeisel, Joanne Bakker, Fatima Girach, Arash Hellysaz, Raju Tomer, Alán Alpár, Jan Mulder, Frédéric Clotman, Erik Keimpema, Brian Hsueh, Ailey K. Crow, Henrik Martens, Christian Schwindling, Daniela Calvigioni, Jaideep S. Bains, Zoltán Máté, Gábor Szabó, Yuchio Yanagawa, Ming-Dong Zhang, André F. Rendeiro, Matthias Farlik, Mathias Uhlén, Peer Wulff, Christoph Bock, Christian Broberger, Karl Deisseroth, Tomas Hökfelt, Sten Linnarsson, Tamas L. Horvath, Tibor Harkany"
+      title: "Molecular interrogation of hypothalamic organization reveals distinct dopamine neuronal subtypes"
+      publisher: "Nature Neuroscience"
+      year: 2016
+      type: journal
+      description: null
+      resources:
+        - Data: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE74672
+    10.1002/hep.28970:
+      authors: "Clara Jana-Lui Busch, Tim Hendrikx, David Weismann, Sven Jäckel, Sofie M. A. Walenbergh, André F. Rendeiro, Juliane Weißer, Florian Puhm, Anastasiya Hladik, Laura Göderle, Nikolina Papac-Milicevic, Gerald Haas, Vincent Millischer, Saravanan Subramaniam, Sylvia Knapp, Keiryn L. Bennett, Christoph Bock, Christoph Reinhardt, Ronit Shiri-Sverdlov, Christoph J. Binder"
+      title: "Malondialdehyde epitopes are sterile mediators of hepatic inflammation in hypercholesterolemic mice"
+      publisher: "Hepatology"
+      year: 2017
+      type: journal
+      description: null
+      resources: null
+    10.1038/ncomms11938:
+      authors: "André F. Rendeiro<sup>*</sup>, Christian Schmidl<sup>*</sup>, Jonathan C. Strefford<sup>*</sup>, Renata Walewska, Zadie Davis, Matthias Farlik, David Oscier, Christoph Bock"
+      title: "Chromatin accessibility maps of chronic lymphocytic leukaemia identify subtype-specific epigenome signatures and transcription regulatory networks"
+      publisher: "Nature Communications"
+      year: 2016
+      type: journal
+      description: null
+      resources:
+        - PDF: https://www.nature.com/ncomms/2016/160627/ncomms11938/pdf/ncomms11938.pdf
+        - Data: https://ega-archive.org/studies/EGAS00001001821
+        - Data: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81274
+        - Code: https://github.com/epigen/cll-chromatin
+    10.1038/nmeth.3542:
+      authors: "Christian Schmidl<sup>*</sup>, André F. Rendeiro<sup>*</sup>, Nathan C. Sheffield, Christoph Bock"
+      title: "ChIPmentation: fast, robust, low-input ChIP-seq for histones and transcription factors"
+      publisher: "Nature Methods"
+      year: 2015
+      type: journal
+      description: null
+      resources:
+        - PDF: https://www.cemm.oeaw.ac.at/fileadmin/img/Research/research/Schmidl_et_al_Nature_Methods_2015.pdf
+        - Data: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE70482
+        - Code: https://github.com/epigen/chipmentation
+    10.1101/gr.162529.113:
+      authors: "Michaela Schwaiger, Anna Schönauer, André F. Rendeiro, Carina Pribitzer, Alexandra Schauer, Anna Gilles, Johannes Schinko, David Fredman, Ulrich Technau"
+      title: "Evolutionary conservation of the eumetazoan gene regulatory landscape"
+      publisher: "Genome Research"
+      year: 2014
+      type: journal
+      description: null
+      resources:
+        - PDF: https://genome.cshlp.org/content/24/4/639.full.pdf
+        - Data: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE46488
 
-
-papers:  # leave here for compatibility
 
 research:
   description: "An introduction to our scientific research"

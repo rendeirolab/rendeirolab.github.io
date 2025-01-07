@@ -4,8 +4,6 @@ import shutil
 
 import yaml
 from jinja2 import Environment, FileSystemLoader
-import requests
-import bs4
 
 
 config = yaml.safe_load(Path("config.yaml").open().read())
@@ -15,7 +13,6 @@ build_dir.mkdir(exist_ok=True, parents=True)
 
 
 def main():
-    get_publications()
     build_all_pages()
     make_sitemap()
     make_robots_txt()
@@ -38,8 +35,6 @@ def build_all_pages():
 
     for page in pages:
         page_name = page.stem
-        if page_name == "papers":
-            continue
         if page_name != "index":
             page_file = build_dir / page_name / "index.html"
         else:
@@ -129,29 +124,6 @@ def make_robots_txt():
     txt = f"Sitemap: {config['deploy_url']}sitemap.xml"
     with open(build_dir / "robots.txt", "w") as f:
         f.write(txt)
-
-
-def get_publications():
-    source = "https://andre-rendeiro.com"
-    html = requests.get(source).content
-    soup = bs4.BeautifulSoup(html, "lxml")
-    pub_list = soup.find_all("ol")[-1]
-    pub_list.li.decompose()  # remove the first <li> (included already in content.yaml:publications)
-    with open(template_dir / "papers.html", "w") as f:
-        f.write(
-            str(pub_list)
-            .replace("glyphicon-file", "glyphicon-card-text")
-            .replace("glyphicon glyphicon-", "bi bi-")
-            .replace(
-                '<span aria-hidden="true" class="bi',
-                '<i aria-hidden="true"  style="font-size: 2rem; color: cornflowerblue;" class="bi',
-            )
-            .replace(
-                '<span aria-hidden="true" class="fab',
-                '<i aria-hidden="true" class="fab',
-            )
-            .replace('"></span>', '"></i>')
-        )
 
 
 def clean_build_dir():

@@ -3,8 +3,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        {% block head %}
         <meta charset="utf-8">
-        <title>Rendeiro lab - {% if title != 'Index' %}{{ title }} {% else %}Homepage{% endif %}</title>
+        <title>{% block title %}{% endblock %} - Rendeiro lab</title>
         <meta name="description" content="{{ description }}">
         <meta name="author" content="André Rendeiro">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,7 +57,7 @@
                 color: inherit !important;
             }
         </style>
-
+        {% endblock %}
     </head>
 
     <body>

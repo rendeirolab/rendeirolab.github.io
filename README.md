@@ -13,7 +13,7 @@ The source files inside [templates](templates/) are the only ones that should be
 
 A [single Python script](build.py) is used to generate the website using the YAML [config](config.yaml) and [content](content.yaml) files and the templates, and generating the static HTML files in the `docs` directory, and these are then served through Github pages.
 
-The only [requirements](requirements.txt) are `pyyaml`, `jinja` and `requests` (and for the time being `beautifulsoup4` and `lxml` to parse publication data).
+The only [requirements](requirements.txt) are `pyyaml` and `jinja`.
 
 After editing, you can render the website with `make serve`, which simply runs `python -m http.server` in the `docs` directory.
 

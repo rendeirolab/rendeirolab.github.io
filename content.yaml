@@ -24,6 +24,28 @@ news:
   content: "Some news from our lab:"
   outro: ""
   news:
+    2025-01-07:
+      title: "Marsilea is now published at Genome Biology"
+      description: |
+        <p>Yimin's paper on a a novel visualization paradigm and implementation of cross-layout visualizations
+        is now published in the journal
+        <a href='https://genomebiology.biomedcentral.com/articles/10.1186/s13059-024-03469-3'>Genome Biology (doi:10.1186/s13059-024-03469-3)</a>.
+        </p>
+      
+        <p>First
+        <a href='https://doi.org/10.1186/s13059-024-03469-3'>published as a preprint in 2024</a>,
+        and <a href="https://github.com/Marsilea-viz/marsilea">open sourced on GitHub</a>
+        it gained some traction in the biology community.</p>
+
+        <p>
+        In great part this was due to Yimin's talk and workshop on declarative creation of composable visualization for omics data at the
+        <a href='https://scverse.org/conference2024'>scverse conference in 2024</a> - thank you to the whole community for the support and encouragement.
+        </p>
+        <p> Check out the full paper at
+        <a href='https://genomebiology.biomedcentral.com/articles/10.1186/s13059-024-03469-3'>https://genomebiology.biomedcentral.com/articles/10.1186/s13059-024-03469-3</a>
+        </p>
+      img: 2024-03-30-Marsilea.jpg
+      img_alt: The marsilea logo with a cross layout in the center and gray background saying "Transform your data landscape".
     2024-12-12:
       title: "Iva and Tamas attended the inaugural meeting of the European Society for Spatial Biology in Berlin, Germany"
       description: |

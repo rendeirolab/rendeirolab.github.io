@@ -57,6 +57,12 @@ news:
         </p>
       img: 2024-03-30-Marsilea.jpg
       img_alt: The marsilea logo with a cross layout in the center and gray background saying "Transform your data landscape".
+    2024-12-27:
+      title: "Our lab has a new promotion video"
+      description: |
+        <iframe src="https://player.vimeo.com/video/1041050660?h=3c808089eb" height="500em" width="70%" title="CeMM_Andre_Rendeiro"></iframe>
+      img: null
+      img_alt: null
     2024-12-12:
       title: "Iva and Tamas attended the inaugural meeting of the European Society for Spatial Biology in Berlin, Germany"
       description: |

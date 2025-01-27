@@ -217,6 +217,11 @@ news:
       description: "Adrija Chakrabarty joined the lab for 4 weeks to work on cross-histological and transcriptional analysis of chronic gastritis."
       img: null
       img_alt: null
+    2023-10-30:
+      title: "Our lab joined the CeMM Halloween party"
+      description: "A highlight of the year at CeMM, the halloween party is organized by the first-year PhD students and is always a lot of fun!"
+      img: 2023-10-30-Halloween.jpg
+      img_alt: The Rendeiro group dressed in Halloween costumes.
     2023-10-01:
       title: "Andre gave a talk at the 33rd Annual Conference of the German Society for Cytometry in Berlin, Germany"
       description: "Thank you to the organizers, in particular to Bertram Bengsch!"
@@ -293,6 +298,8 @@ publications:
       type: preprint
       description: null
       resources:
+        - Press: https://www.focus.it/scienza/salute/gli-organi-del-corpo-umano-non-invecchiano-tutti-alla-stessa-velocita
+        - Press: https://www.newscientist.com/article/2458249-most-comprehensive-picture-yet-of-how-organs-age-at-different-rates/
         - Data: https://zenodo.org/doi/10.5281/zenodo.13330658
         - Code: https://github.com/rendeirolab/agingpath
     10.1038/s41556-024-01407-w:
@@ -400,6 +407,7 @@ publications:
       type: preprint
       description: null
       resources:
+        - Press: https://www.biospace.com/weill-cornell-researchers-id-specific-lung-changes-in-covid-19
         - Code: https://github.com/ElementoLab/post-covid-imc
         - Data: https://doi.org/10.5281/zenodo.7060271
         - Preprint: https://doi.org/10.1101/2022.11.28.22282811

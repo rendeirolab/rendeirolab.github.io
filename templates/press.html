@@ -1,0 +1,41 @@
+{# templates/press.html #}
+
+{% extends "template.html" %}
+
+{% block title %}Press{% endblock title %}
+
+{% block content %}
+                <div class="row">
+                    <h3>{{ title }}</h3>
+                    <p>{{ intro }}</p>
+                    <p>{{ content }}</p>
+                    {% for id, item in press.items()|sort(reverse=True) %}
+                    <div class="col-12">
+                        <h5 tabindex="0"><strong>{{ id }}</strong> - {{ item.title }}</h5>
+                        <div class="row">
+                            {% if item.img is not none %}
+                            <div class="col-6 col-md-3">
+                                <img class="img-responsive rounded" src="{{ item.img }}"
+                                {% if item.description is not none %}
+                                alt="{{ item.img_alt }}"
+                                {% endif %}
+                                tabindex="0"
+                                style="width: 95%; height: auto; display: block">
+                            </div>
+                            {% endif %}
+                            {% if item.description is not none %}
+                            {% if item.img is not none %}
+                            <div class="col-6 col-md-9">
+                            {% else %}
+                            <div class="col-12">
+                            {% endif %}
+                                <p class="mb-0">{{ item.description }}</p>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <br>
+                    </div>
+                    {% endfor %}
+                    <p>{{ outro }}</p>
+                </div>
+{% endblock content %}

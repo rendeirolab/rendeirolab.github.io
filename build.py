@@ -102,6 +102,9 @@ def get_last_mod_date() -> dict[str, str]:
 
 def make_sitemap():
     import xml.etree.cElementTree as ET
+    from datetime import datetime
+
+    now = datetime.now().strftime("%Y-%m-%d")
 
     mod_dates = get_last_mod_date()
 
@@ -112,7 +115,11 @@ def make_sitemap():
         url = config["deploy_url"] + str(page.relative_to(build_dir))
         url_element = ET.SubElement(sitemap, "url")
         ET.SubElement(url_element, "loc").text = url
-        ET.SubElement(url_element, "lastmod").text = mod_dates[page_name]
+        try:
+            ET.SubElement(url_element, "lastmod").text = mod_dates[page_name]
+        except KeyError:
+            # new page
+            ET.SubElement(url_element, "lastmod").text = now
 
     tree = ET.ElementTree(sitemap)
     ET.indent(tree, space="\t", level=0)

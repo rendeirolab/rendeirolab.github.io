@@ -24,6 +24,16 @@ news:
   content: "Some news from our lab:"
   outro: ""
   news:
+    2025-02-06:
+      title: "Our lab's project template is now open source!"
+      description: |
+        <p>We're excited to share that we've open-sourced our project template, designed to make starting new projects a breeze and homogeneous across all our projects.</p>
+        <p>This template uses <a href="https://www.cookiecutter.io/">Cookiecutter</a>, a widely-used tool that helps create projects from templates.</p>
+        <p>Our template is flexible, letting you choose options like project type (research or software), package management (<a href='https://docs.astral.sh/uv/'>uv</a>, pip, conda), and your preferred code editors we most use (Sublime Text or VSCode).</p>
+        <p>By sharing we hope to help others in the scientific community organize their projects effectively and also motivate others to share their ways of structuring research and software projects.</p>
+        <p>Check it out and suggest improvements on GitHub: <a href="https://github.com/rendeirolab/_project_template">https://github.com/rendeirolab/_project_template</a></p>
+      img: 2025-02-06-project-template.png
+      img_alt: A screenshot from GitHub showing the rendeirolab/_project_template repository.
     2025-01-27:
       title: "Our lab manual is now open source!"
       description: |
@@ -297,6 +307,13 @@ press:
   content: "Press covereage of our our lab's work:"
   outro: ""
   press:
+    2025-03-01:
+      title: "We're featured in 'Epsiloon'"
+      description: |
+        <p><a href="https://www.epsiloon.com/"><strong>"Title"</strong> - Epsiloon</a></p>
+        <p>Coverage of our work on tissue-based prediction of biological age with 'tissue-clocks'</p>
+      img: https://www.epsiloon.com/
+      img_alt: null
     2024-12-27:
       title: "We're featured in 'Focus.it'"
       description: |
@@ -860,7 +877,7 @@ team:
     <p>We primarily recruit through the <a href='https://cemm.at/phd-program'>CeMM PhD</a> and <a href='https://cemm.at/postdoc-program'>Postdoc</a> Programs.
     Other positions are advertised in commonly used platforms.
     </p>
-    <p>Read more about it <a href='/contact/'>here</a></p>
+    <p>Read more about it <a href='/contact/'>here</a>.</p>
   members:
     # photo: assets/img/empty_bubble_photo_1.png
     # photo: assets/img/empty_bubble_photo_2.png

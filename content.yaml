@@ -34,6 +34,14 @@ news:
         <p>Check it out and suggest improvements on GitHub: <a href="https://github.com/rendeirolab/_project_template">https://github.com/rendeirolab/_project_template</a></p>
       img: 2025-02-06-project-template.png
       img_alt: A screenshot from GitHub showing the rendeirolab/_project_template repository.
+    2025-01-30:
+      title: "Andre visited Innsbruck"
+      description: |
+        <p>Andre had the opportunity to visit Innsbruck and connect with the scientific community there.</p>
+        <p>Thank you to everyone who attended the talk for the interest in our work, and for the great discussions.</p>
+        <p>A special thank you to Heidi Woehrer at the Medical University of Innsbruck for inviting and hosting.</p>
+      img: 2025-01-30-Innsbruck_visit.jpg
+      img_alt: The entrance of the Department of Anatomy at the Medical University of Innsbruck with the words "Mors auxilium vitae"
     2025-01-27:
       title: "Our lab manual is now open source!"
       description: |

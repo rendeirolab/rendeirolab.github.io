@@ -27,14 +27,14 @@ def build_all_pages():
     content = yaml.safe_load(content_file.open().read())
 
     # Make sure an entry in the YAML file exists for each page to be rendered
-    # assert all(page.stem in content for page in pages), "Missing entry in content.yaml"
+    assert all(page.stem in content for page in pages), "Missing entry in content.yaml"
 
     environment = Environment(loader=FileSystemLoader(template_dir))
 
     additionals = {"index": ["news"]}
 
     for page in pages:
-        if page.stem == "lab-manual":
+        if page.stem == config["manual_name"]:
             build_lab_manual()
             continue
         page_name = page.stem
@@ -62,22 +62,25 @@ def build_all_pages():
 
     # if local, copy assets folder to build
     if not os.getenv("GITHUB_ACTIONS"):
+        if (build_dir / "assets").exists():
+            shutil.rmtree(build_dir / "assets")
         shutil.copytree("assets", build_dir / "assets")
 
 
-def build_lab_manual(name: str = "lab-manual", repo: str = "rendeirolab/lab-manual"):
+def build_lab_manual():
     import tempfile
     from copy import deepcopy as copy
     import requests
     from bs4 import BeautifulSoup
     from yamper import to_html
 
+    name = config["manual_name"]
     environment = Environment(loader=FileSystemLoader(template_dir))
     template = environment.from_string((template_dir / f"{name}.html").open().read())
 
-    manual_root_url = config["deploy_url"] + f"{name}/"
+    manual_root_url = f"/{name}/"
     req = requests.get(
-        f"https://raw.githubusercontent.com/{repo}/refs/heads/main/Makefile"
+        f"https://raw.githubusercontent.com/{config['manual_repo']}/refs/heads/main/Makefile"
     )
     page_order = [
         p.split(".md")[0]
@@ -97,7 +100,7 @@ def build_lab_manual(name: str = "lab-manual", repo: str = "rendeirolab/lab-manu
             page_url = f"/{name}/{page_slug}/"
         page_file.parent.mkdir(exist_ok=True, parents=True)
         req = requests.get(
-            f"https://raw.githubusercontent.com/{repo}/refs/heads/main/{page}.md"
+            f"https://raw.githubusercontent.com/{config['manual_repo']}/refs/heads/main/{page}.md"
         )
 
         with tempfile.NamedTemporaryFile() as f:

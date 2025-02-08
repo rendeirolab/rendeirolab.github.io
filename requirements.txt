@@ -2,4 +2,5 @@ pyaml
 jinja2
 requests
 beautifulsoup4
-yamper
+markdown2[all]
+pygments

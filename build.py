@@ -65,11 +65,10 @@ def build_all_pages():
 
 
 def build_lab_manual():
-    import tempfile
     from copy import deepcopy as copy
     import requests
     from bs4 import BeautifulSoup
-    from yamper import to_html
+    from markdown2 import Markdown
 
     name = config["pages"]["manual"]["url"][1:-1]
     environment = Environment(loader=FileSystemLoader(template_dir))
@@ -101,16 +100,25 @@ def build_lab_manual():
         req = requests.get(
             f"https://raw.githubusercontent.com/{config['manual_repo']}/refs/heads/main/{page}.md"
         )
-
-        with tempfile.NamedTemporaryFile() as f:
-            f.write(req.content)
-            f.seek(0)
-            html = to_html(f.name)
-        soup = BeautifulSoup(html, "html.parser")
-        body = soup.find("body").div
+        html = Markdown(
+            extras=[
+                "fenced-code-blocks",
+                "highlightjs-lang",
+                "task_list",
+                "admonitions",
+            ]
+        ).convert(req.content.decode())
+        body = BeautifulSoup(html, "html.parser")
         page_title = body.find("h1").text
         if page_slug == "index":
             body.find("h1").decompose()
+
+        link = (
+            f"https://github.com/{config['manual_repo']}/edit/refs/heads/main/{page}.md"
+        )
+        msg = f"<hr><p><small>Edit this page on <a href='{link}'>GitHub</a></small></p>"
+        snippet = BeautifulSoup(msg, "html.parser").extract()
+        body.append(snippet)
         pages[page_slug] = dict(
             page_url=page_url,
             page_slug=page_slug,

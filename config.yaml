@@ -2,5 +2,50 @@ deploy_url: https://rendeiro.group/
 static_url: https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets/
 template_dir: templates
 build_dir: docs
-manual_name: manual
+pages:
+  index:
+    name: Homepage
+    url: /
+    template: index.html
+    file: index.html
+  team:
+    name: Team
+    url: /team/
+    template: team.html
+    file: team/index.html
+  research:
+    name: Research
+    url: /research/
+    template: research.html
+    file: research/index.html
+  news:
+    name: News
+    url: /news/
+    template: news.html
+    file: news/index.html
+  publications:
+    name: Publications
+    url: /publications/
+    template: publications.html
+    file: publications/index.html
+  software:
+    name: Software
+    url: /software/
+    template: software.html
+    file: software/index.html
+  press:
+    name: Press
+    url: /press/
+    template: press.html
+    file: press/index.html
+  manual:
+    name: Manual
+    url: /lab-manual/
+    template: manual.html
+    file: lab-manual/index.html
+  contact:
+    name: Contact
+    url: /contact/
+    template: contact.html
+    file: contact/index.html
 manual_repo: rendeirolab/lab-manual

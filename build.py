@@ -19,41 +19,38 @@ def main():
 
 
 def build_all_pages():
-    # Get templates to be filled
-    pages = sorted(filter(lambda x: x.stem != "template", template_dir.glob("*.html")))
-
     # Get content
     content_file = Path("content.yaml")
     content = yaml.safe_load(content_file.open().read())
 
     # Make sure an entry in the YAML file exists for each page to be rendered
-    assert all(page.stem in content for page in pages), "Missing entry in content.yaml"
+    assert all(
+        page in content for page in config["pages"]
+    ), "Missing entry in content.yaml"
 
     environment = Environment(loader=FileSystemLoader(template_dir))
 
     additionals = {"index": ["news"]}
 
-    for page in pages:
-        if page.stem == config["manual_name"]:
+    for page in config["pages"]:
+        if page == "manual":
             build_lab_manual()
             continue
-        page_name = page.stem
-        if page_name != "index":
-            page_file = build_dir / page_name / "index.html"
-        else:
-            page_file = build_dir / "index.html"
+        page_file = build_dir / config["pages"][page]["file"]
         page_file.parent.mkdir(exist_ok=True, parents=True)
 
-        page_template = environment.from_string(page.open().read())
+        page_template = environment.from_string(
+            (template_dir / config["pages"][page]["template"]).open().read()
+        )
 
         add = {}
-        if page_name in additionals:
-            add = {k: content[k][k] for k in additionals[page_name]}
+        if page in additionals:
+            add = {k: content[k][k] for k in additionals[page]}
 
         html = page_template.render(
-            page_url=config["deploy_url"] + page_name,
+            page_url=config["deploy_url"] + config["pages"][page]["url"],
             **config,
-            **content[page_name],
+            **content[page],
             **add,
         )
 
@@ -74,11 +71,13 @@ def build_lab_manual():
     from bs4 import BeautifulSoup
     from yamper import to_html
 
-    name = config["manual_name"]
+    name = config["pages"]["manual"]["url"][1:-1]
     environment = Environment(loader=FileSystemLoader(template_dir))
-    template = environment.from_string((template_dir / f"{name}.html").open().read())
+    template = environment.from_string(
+        (template_dir / config["pages"]["manual"]["template"]).open().read()
+    )
 
-    manual_root_url = f"/{name}/"
+    manual_root_url = config["pages"]["manual"]["url"]
     req = requests.get(
         f"https://raw.githubusercontent.com/{config['manual_repo']}/refs/heads/main/Makefile"
     )

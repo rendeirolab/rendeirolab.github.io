@@ -1,0 +1,29 @@
+{# templates/manual.html #}
+
+{% extends "template.html" %}
+
+{% block title %}Lab manual{% endblock title %} - {{ page_title }}
+
+{% block content %}
+              <h1 class="page-title">Lab manual</h1>
+              <br>
+              <hr>
+              <br>
+              <ul class="nav nav-tabs">
+                {% for idx, page in manual_pages.items() %}
+                <li class="nav-item active">
+                  {% if page.active %}
+                  <a class="nav-link active" aria-current="page" href="{{ page.page_url }}">{{ page.page_title }}</a>
+                  {% else %}
+                  <a class="nav-link" href="{{ page.page_url }}">{{ page.page_title }}</a>
+                  {% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+              <br>
+              <hr>
+              <br>
+              <div class="row">
+                  {{ page_content }}
+              </div>
+{% endblock content %}

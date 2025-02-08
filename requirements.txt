@@ -1,2 +1,5 @@
 pyaml
 jinja2
+requests
+beautifulsoup4
+yamper

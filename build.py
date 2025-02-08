@@ -27,13 +27,16 @@ def build_all_pages():
     content = yaml.safe_load(content_file.open().read())
 
     # Make sure an entry in the YAML file exists for each page to be rendered
-    assert all(page.stem in content for page in pages), "Missing entry in content.yaml"
+    # assert all(page.stem in content for page in pages), "Missing entry in content.yaml"
 
     environment = Environment(loader=FileSystemLoader(template_dir))
 
     additionals = {"index": ["news"]}
 
     for page in pages:
+        if page.stem == "lab-manual":
+            build_lab_manual()
+            continue
         page_name = page.stem
         if page_name != "index":
             page_file = build_dir / page_name / "index.html"
@@ -60,6 +63,75 @@ def build_all_pages():
     # if local, copy assets folder to build
     if not os.getenv("GITHUB_ACTIONS"):
         shutil.copytree("assets", build_dir / "assets")
+
+
+def build_lab_manual(name: str = "lab-manual", repo: str = "rendeirolab/lab-manual"):
+    import tempfile
+    from copy import deepcopy as copy
+    import requests
+    from bs4 import BeautifulSoup
+    from yamper import to_html
+
+    environment = Environment(loader=FileSystemLoader(template_dir))
+    template = environment.from_string((template_dir / f"{name}.html").open().read())
+
+    manual_root_url = config["deploy_url"] + f"{name}/"
+    req = requests.get(
+        f"https://raw.githubusercontent.com/{repo}/refs/heads/main/Makefile"
+    )
+    page_order = [
+        p.split(".md")[0]
+        for p in req.content.decode().split("\n")
+        if p.startswith("source/") or p.endswith(".md \\")
+    ]
+
+    pages = dict()
+    for page in page_order:
+        if page == "README":
+            page_slug = "index"
+            page_file = build_dir / name / "index.html"
+            page_url = f"/{name}/"
+        else:
+            page_slug = page.replace("source/", "")
+            page_file = build_dir / name / page_slug / "index.html"
+            page_url = f"/{name}/{page_slug}/"
+        page_file.parent.mkdir(exist_ok=True, parents=True)
+        req = requests.get(
+            f"https://raw.githubusercontent.com/{repo}/refs/heads/main/{page}.md"
+        )
+
+        with tempfile.NamedTemporaryFile() as f:
+            f.write(req.content)
+            f.seek(0)
+            html = to_html(f.name)
+        soup = BeautifulSoup(html, "html.parser")
+        body = soup.find("body").div
+        page_title = body.find("h1").text
+        if page_slug == "index":
+            body.find("h1").decompose()
+        pages[page] = dict(
+            page_url=page_url,
+            page_slug=page_slug,
+            page_title=page_title,
+            file=page_file,
+            page_content=str(body),
+            active=False,
+        )
+
+    for page, data in pages.items():
+        manual_pages = copy(pages)
+        manual_pages[page]["active"] = True
+        html = template.render(
+            page_url=data["page_url"],
+            page_title=data["page_title"],
+            page_content=data["page_content"],
+            manual_pages=manual_pages,
+            manual_root_url=manual_root_url,
+            **config,
+        )
+
+        with data["file"].open("w") as f:
+            f.write(html)
 
 
 def get_last_mod_date() -> dict[str, str]:

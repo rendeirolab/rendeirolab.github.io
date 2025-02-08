@@ -3,10 +3,10 @@ clean:
 	-rm templates/papers.html
 
 build: clean
-	python build.py
+	uv run build.py
 
 serve: build
-	xdg-open http://0.0.0.0:8000/ & python -m http.server -d docs/
+	xdg-open http://0.0.0.0:8000/ & uv run python -m http.server -d docs/
 
 deploy: clean
 	git add assets/**/*

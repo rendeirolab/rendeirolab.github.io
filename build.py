@@ -95,7 +95,7 @@ def build_lab_manual():
             page_file = build_dir / name / "index.html"
             page_url = f"/{name}/"
         else:
-            page_slug = page.replace("source/", "")
+            page_slug = page.replace("source/", "").lower()
             page_file = build_dir / name / page_slug / "index.html"
             page_url = f"/{name}/{page_slug}/"
         page_file.parent.mkdir(exist_ok=True, parents=True)
@@ -112,7 +112,7 @@ def build_lab_manual():
         page_title = body.find("h1").text
         if page_slug == "index":
             body.find("h1").decompose()
-        pages[page] = dict(
+        pages[page_slug] = dict(
             page_url=page_url,
             page_slug=page_slug,
             page_title=page_title,
@@ -121,9 +121,9 @@ def build_lab_manual():
             active=False,
         )
 
-    for page, data in pages.items():
+    for page_slug, data in pages.items():
         manual_pages = copy(pages)
-        manual_pages[page]["active"] = True
+        manual_pages[page_slug]["active"] = True
         html = template.render(
             page_url=data["page_url"],
             page_title=data["page_title"],

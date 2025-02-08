@@ -5,7 +5,6 @@
 <html lang="en" data-bs-theme="dark">
     <head>
         
-        
         <meta charset="utf-8" />
         <title>Lab manual - Rendeiro lab</title>
         <meta name="description" content="" />
@@ -91,23 +90,8 @@
                 padding-left: 1em;
                 font-style: italic;
             }
-            .task-list {
-                list-style-type: none;
-                padding-left: 0;
-            }
-            .task-list-item {
-                display: flex;
-                align-items: center;
-                margin-bottom: 0.5em;
-            }
-            .task-list-item input[type="checkbox"] {
-                margin-right: 0.5em;
-            }
         </style>
         
-        <!-- Prism code highlighting -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism.min.css" integrity="sha512-/mZ1FHPkg6EKcxo0fKXF51ak6Cr2ocgDi5ytaTBjsQZIH/RNs6GF6+oId/vPe3eJB836T36nXwVh/WBl/cWT4w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     </head>
 
     <body>
@@ -297,28 +281,66 @@
               <hr>
               <br>
               <div class="row">
-                  <div><h1>Getting started</h1><p>
-Welcome to the Rendeiro lab at CeMM!</p><p>
-You are at the start of an adventure, don’t forget to enjoy the journey.</p><h2>Get informed</h2><p>
-The first step is to get informed about the lab's <a href="mission&lt;em&gt;statement.md">mission and philosophy</a>, the <a href="code&lt;/em&gt;of_conduct.md">code of conduct</a> and how we operate (rest of the manual).</p><p>
-Feel free to go ahead and read the <a href="mission&lt;em&gt;statement.md">mission statement</a> and <a href="code&lt;/em&gt;of_conduct.md">code of conduct</a> to get started.</p><p>
-The rest of the content here are pointers for newcomers on practical aspects on how to get started in the lab.</p><h2>Get started</h2><h3>Lab-specific</h3><p>
-Onboarding to-dos (responsability of the PI):</p><ol><li>Ask the new team member for their contact information (optional, but recommended for safety reasons) - <a href="https://cemmat.sharepoint.com/❌/s/rendeirolab/ETVfBUPmJYpIgl-yDccPCGkBZRMFtOTE9ExejqyvMq6msA?e=lxEuzO">add your own information here</a>;</li><li>Add the new team member to lab Microsoft team and mailing list;</li><li>Share the lab's resources with the new team member:
-   - the lab manual (this)
-   - the lab code of conduct (see <a href="code&lt;em&gt;of&lt;/em&gt;conduct.md">code of conduct</a>)
-   - the Github account (<a href="https://github.com/rendeirolab">here</a>)
-   - lab infrastructure (such as Cytomine, VMs, etc: <a href="infrastructure.md">infrastructure</a>)</li><li>Make sure the new team member follow up with the remaining of CeMM onboarding (IT, safety, etc)</li></ol><h3>CeMM-specific</h3><h4>IT services</h4><p>
-Please read <a href="https://cemmat.sharepoint.com/sites/IT-Resources">https://cemmat.sharepoint.com/sites/IT-Resources</a> for updated information.</p><h5>Intranet</h5><p>
-Consult the intranet for updated information on everything CeMM: <a href="https://cemmat.sharepoint.com/sites/Intranet">https://cemmat.sharepoint.com/sites/Intranet</a></p><h5>Mail</h5><p>
-The default email addressess have the form <code><user>@cemm.oeaw.ac.at</user></code> due to our relationship with the Austrian Academy of Sciences.
-The short form <code><user>@cemm.at</user></code> can also receive emails and is mandatory to access/register Microsoft Office 365 cloud resources: OneDrive, Teams, Word, Excel, PowerPoint, etc.</p><ul><li>Web portal: <code>portal.office.com</code></li><li>Webmail: <code>outlook.com/cemm.at</code></li></ul><p>
-Forwarding CeMM emails to external services is not allowed.</p><h5>Shared drives and directories</h5><p>
-Windows shares:</p><ul><li>Groupdata: <code>smb://int.cemm.at/files/groupdata/</code></li><li>Labs: <code>smb://int.cemm.at/files/labs/</code></li><li>Home Folder: <code>smb://int.cemm.at/files/home/<username></username></code>
-  Cluster shares: <code>smb://hpctransfer</code></li></ul><p>
-Login with your CeMM credentials and the domain name (if asked) is "cemmint".</p><h5>VPN</h5><ol><li>Get a MUW ID by submitting a form to the CeMM IT team (<a href="https://cemmat.sharepoint.com/sites/IT-Resources">https://cemmat.sharepoint.com/sites/IT-Resources</a>).</li><li>Get authorization from MUW to access VPN, submit the form to the CeMM IT team.</li><li>Connect:
-   - On Linux:
-     1. Get Cisco AnyConnect
-     1. Connect using <a href="https://vpn.meduniwien.ac.at/">https://vpn.meduniwien.ac.at/</a>, username and password</li></ol></div>
+                  <h1>Getting started</h1>
+<p>Welcome to the Rendeiro lab at CeMM!</p>
+<p>You are at the start of an adventure, don’t forget to enjoy the journey.</p>
+<h2>Get informed</h2>
+<p>The first step is to get informed about the lab's <a href="mission_statement.md">mission and philosophy</a>, the <a href="code_of_conduct.md">code of conduct</a> and how we operate (rest of the manual).</p>
+<p>Feel free to go ahead and read the <a href="mission_statement.md">mission statement</a> and <a href="code_of_conduct.md">code of conduct</a> to get started.</p>
+<p>The rest of the content here are pointers for newcomers on practical aspects on how to get started in the lab.</p>
+<h2>Get started</h2>
+<h3>Lab-specific</h3>
+<p>Onboarding to-dos (responsability of the PI):</p>
+<ol>
+<li>Ask the new team member for their contact information (optional, but recommended for safety reasons) - <a href="https://cemmat.sharepoint.com/:x:/s/rendeirolab/ETVfBUPmJYpIgl-yDccPCGkBZRMFtOTE9ExejqyvMq6msA?e=lxEuzO">add your own information here</a>;</li>
+<li>Add the new team member to lab Microsoft team and mailing list;</li>
+<li>Share and introduce the lab's resources to the new team member:
+<ul>
+<li>the lab manual (this)</li>
+<li>the lab code of conduct (see <a href="code_of_conduct.md">code of conduct</a>)</li>
+<li>lab infrastructure (such as Cytomine, VMs, etc: <a href="infrastructure.md">infrastructure</a>)</li>
+<li>Github team (<a href="https://github.com/rendeirolab">https://github.com/rendeirolab</a>)</li>
+<li>Weights and Biases team (<a href="https://wandb.ai/rendeiro-group">https://wandb.ai/rendeiro-group</a>)</li>
+<li>HuggingFace team (<a href="https://huggingface.co/RendeiroLab">https://huggingface.co/RendeiroLab</a>)</li>
+</ul></li>
+<li>Make sure the new team member follows up with the remaining of CeMM onboarding (IT, safety, etc)</li>
+</ol>
+<h3>CeMM-specific</h3>
+<h4>IT services</h4>
+<p>Please read <a href="https://cemmat.sharepoint.com/sites/IT-Resources">https://cemmat.sharepoint.com/sites/IT-Resources</a> for updated information.</p>
+<h5>Intranet</h5>
+<p>Consult the intranet for updated information on everything CeMM: <a href="https://cemmat.sharepoint.com/sites/Intranet">https://cemmat.sharepoint.com/sites/Intranet</a></p>
+<h5>Mail</h5>
+<p>The default email addressess have the form <code>&lt;user&gt;@cemm.oeaw.ac.at</code> due to our relationship with the Austrian Academy of Sciences.
+The short form <code>&lt;user&gt;@cemm.at</code> can also receive emails and is mandatory to access/register Microsoft Office 365 cloud resources: OneDrive, Teams, Word, Excel, PowerPoint, etc.</p>
+<ul>
+<li>Web portal: <code>portal.office.com</code></li>
+<li>Webmail: <code>outlook.com/cemm.at</code></li>
+</ul>
+<p>Forwarding CeMM emails to external services is not allowed.</p>
+<h5>Shared drives and directories</h5>
+<p>Windows shares:</p>
+<ul>
+<li>Groupdata: <code>smb://int.cemm.at/files/groupdata/</code></li>
+<li>Labs: <code>smb://int.cemm.at/files/labs/</code></li>
+<li>Home Folder: <code>smb://int.cemm.at/files/home/&lt;username&gt;</code>
+Cluster shares: <code>smb://hpctransfer</code></li>
+</ul>
+<p>Login with your CeMM credentials and the domain name (if asked) is "cemmint".</p>
+<h5>VPN</h5>
+<ol>
+<li>Get a MUW ID by submitting a form to the CeMM IT team (<a href="https://cemmat.sharepoint.com/sites/IT-Resources">https://cemmat.sharepoint.com/sites/IT-Resources</a>).</li>
+<li>Get authorization from MUW to access VPN, submit the form to the CeMM IT team.</li>
+<li>Connect:
+<ul>
+<li>On Linux:
+<ol>
+<li>Get Cisco AnyConnect</li>
+<li>Connect using <a href="https://vpn.meduniwien.ac.at/">https://vpn.meduniwien.ac.at/</a>, username and password</li>
+</ol></li>
+</ul></li>
+</ol>
+<hr/><p><small>Edit this page on <a href="https://github.com/rendeirolab/lab-manual/edit/refs/heads/main/source/getting_started.md">GitHub</a></small></p>
               </div>
 
                 <br />
@@ -343,7 +365,6 @@ Login with your CeMM credentials and the domain name (if asked) is "cemmint".</p
         </nav>
         
 
-        
         
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -430,10 +451,5 @@ Login with your CeMM credentials and the domain name (if asked) is "cemmint".</p
             })();
         </script>
         
-        <!-- Prism JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-core.min.js" integrity="sha512-x0aNx8s5fNTSk7iaTiSuUtz6vbT7gtGjk+Dotp17u4TmUEbJUwNMUFKxMBlnMQ1+N8E5exPHvRcF1yoxJ8b/iA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-python.min.js" integrity="sha512-3qtI9+9JXi658yli19POddU1RouYtkTEhTHo6X5ilOvMiDfNvo6GIS6k2Ukrsx8MyaKSXeVrnIWeyH8G5EOyIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/components/prism-bash.min.js" integrity="sha512-CILPDr/8BlkkElCeI+f2yMu0fzgwWqpQ0Cdr0busFfySJJ4SoCRivbT6+Z+SWPkjWwBil9NO0tHd6NSfpwiQaA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
     </body>
 </html>

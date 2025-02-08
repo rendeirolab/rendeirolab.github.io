@@ -5,7 +5,6 @@
 <html lang="en" data-bs-theme="dark">
     <head>
         
-        
         <meta charset="utf-8" />
         <title>Lab manual - Rendeiro lab</title>
         <meta name="description" content="" />
@@ -91,23 +90,8 @@
                 padding-left: 1em;
                 font-style: italic;
             }
-            .task-list {
-                list-style-type: none;
-                padding-left: 0;
-            }
-            .task-list-item {
-                display: flex;
-                align-items: center;
-                margin-bottom: 0.5em;
-            }
-            .task-list-item input[type="checkbox"] {
-                margin-right: 0.5em;
-            }
         </style>
         
-        <!-- Prism code highlighting -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism.min.css" integrity="sha512-/mZ1FHPkg6EKcxo0fKXF51ak6Cr2ocgDi5ytaTBjsQZIH/RNs6GF6+oId/vPe3eJB836T36nXwVh/WBl/cWT4w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     </head>
 
     <body>
@@ -297,46 +281,181 @@
               <hr>
               <br>
               <div class="row">
-                  <div><h1>Project planning</h1><p>
-This guide can serve as a <strong>standalone reference</strong> for project planning and fellowship writing.
-Each section builds on conceptual, strategic, and practical aspects separately, but they should be taken into consideration together for best results.</p><h2>Background and concepts</h2><h3>Ideal vs reality of designing a project for public funding</h3><ul><li><strong>Basic vs applied science</strong>: Funding often requires navigating the balance between fundamental discovery and real-world application.</li><li><strong>Funding agencies as...</strong>
-  - <strong>Investors (ideal)</strong>: They take on risk to enable novel, groundbreaking ideas.
-  - <strong>Consumers (reality)</strong>: They seek 'safe bets' by prioritizing projects with a track record of feasibility and evidence.</li></ul><h3>Triangle of knowledge</h3><ul><li><strong>Hierarchy</strong>: Data → Information → Knowledge → Wisdom</li><li><strong>Flow between layers</strong>:
-  - Data is raw input (e.g., measurements, numbers).
-  - Information is data contextualized with meaning.
-  - Knowledge is synthesized information with clear insight.
-  - Wisdom incorporates experience, values, and context beyond natural science (includes personal experience, philosophy, and metaphysics).</li></ul><h2>Strategies</h2><h3>Project design</h3><h4>Balancing feasibility and novelty</h4><ul><li><strong>Aim 1</strong>: Incremental research (low risk, highly feasible).</li><li><strong>Aim 2</strong>: Novel, higher-risk research (potential for greater impact but riskier).</li><li><strong>Aim 3</strong>: Hybrid approach, combining incremental and novel aspects (not always necessary).</li></ul><h4>Balancing profiling and perturbing</h4><ul><li><strong>Profiling aim</strong>: Descriptive/observational, e.g., understanding how mutation X is linked to pathway A, or observing population-level traits.</li><li><strong>Perturbing aim</strong>: Functional/causal, e.g., testing if gene X causes phenotype Y, or clinical trials.</li></ul><p>
-The two strategies can be linked. For instance: Aim 1 is slightly incremental with profiling only; Aim 2: more ambitious/novel based on perturbations.</p><h3>Shallow-pass strategy for project execution</h3><p>
-The <strong>Shallow-pass strategy</strong> is a systematic approach to project execution that emphasizes early, rapid, and minimally viable progress through a project’s full timeline, followed by iterative deepening of depth (both conceptually and technically) as needed. It draws on established principles from <strong>Agile development</strong>, <strong>Rapid prototyping</strong>, <strong>Incremental research</strong>, and <strong>Lean startup</strong> approaches.</p><h3>Core concept</h3><p>
-The strategy envisions a 2D space where:</p><ul><li><strong>Horizontal axis</strong>: Timeline from start to finish (milestones, objectives, deliverables).</li><li><strong>Vertical axis</strong>: Depth of conceptual understanding, technical precision, or experimental thoroughness.</li></ul><p>
-Instead of moving <strong>deeply</strong> through each individual task in sequence (e.g., perfecting each aim before moving to the next), the Shallow-pass strategy encourages a <strong>shallow, complete pass</strong> over all key components of the project first.</p><p>
-This approach creates a “minimum viable version” of the entire project, akin to a <strong>minimum viable product (MVP)</strong>, and allows for early identification of bottlenecks, feasibility issues, and unknowns.</p><p>
-Once this shallow layer is complete, <strong>depth is added step-by-step</strong> to specific areas where gains are most needed or most valuable. This "depth-first" progression occurs only when justified by clear metrics or emerging insights.</p><h3>Execution</h3><ol><li><strong>Initial pass (shallow path)</strong>: The goal is to complete a simple, end-to-end version of the project with minimal depth. This quick, rough pass identifies critical barriers, risks, and time-sinks. For example, instead of training a deep learning model on a large dataset, you might start with a simple logistic regression on a small subset, or run a pilot experiment to validate feasibility.</li><li><strong>Iterative deepening (vertical progression)</strong>: Revisit earlier steps and selectively add depth to areas that yield the most benefit. If an aspect works well at shallow depth, further refinement may be unnecessary. For example, after a successful logistic regression, you might increase depth by training a neural network, scaling up the dataset, or adding multi-modal inputs.</li><li><strong>When to stop (completion)</strong>: Avoid the "infinite perfection" trap by setting <strong>success metrics</strong> (e.g., 90% model accuracy) at the outset. Once these criteria are met, stop. If your classifier achieves 95% accuracy when the goal was 90%, additional work may have little value. Completion is defined by sufficiency, not perfection.</li></ol><h3>Common pitfalls and how to avoid them</h3><p>
-| <strong>Pitfall</strong> | <strong>How to avoid</strong> |
+                  <h1>Project planning</h1>
+<p>This guide can serve as a <strong>standalone reference</strong> for project planning and fellowship writing.
+Each section builds on conceptual, strategic, and practical aspects separately, but they should be taken into consideration together for best results.</p>
+<h2>Background and concepts</h2>
+<h3>Ideal vs reality of designing a project for public funding</h3>
+<ul>
+<li><strong>Basic vs applied science</strong>: Funding often requires navigating the balance between fundamental discovery and real-world application.</li>
+<li><strong>Funding agencies as...</strong>
+<ul>
+<li><strong>Investors (ideal)</strong>: They take on risk to enable novel, groundbreaking ideas.</li>
+<li><strong>Consumers (reality)</strong>: They seek 'safe bets' by prioritizing projects with a track record of feasibility and evidence.</li>
+</ul></li>
+</ul>
+<h3>Triangle of knowledge</h3>
+<ul>
+<li><strong>Hierarchy</strong>: Data → Information → Knowledge → Wisdom</li>
+<li><strong>Flow between layers</strong>:
+<ul>
+<li>Data is raw input (e.g., measurements, numbers).</li>
+<li>Information is data contextualized with meaning.</li>
+<li>Knowledge is synthesized information with clear insight.</li>
+<li>Wisdom incorporates experience, values, and context beyond natural science (includes personal experience, philosophy, and metaphysics).</li>
+</ul></li>
+</ul>
+<h2>Strategies</h2>
+<h3>Project design</h3>
+<h4>Balancing feasibility and novelty</h4>
+<ul>
+<li><strong>Aim 1</strong>: Incremental research (low risk, highly feasible).</li>
+<li><strong>Aim 2</strong>: Novel, higher-risk research (potential for greater impact but riskier).</li>
+<li><strong>Aim 3</strong>: Hybrid approach, combining incremental and novel aspects (not always necessary).</li>
+</ul>
+<h4>Balancing profiling and perturbing</h4>
+<ul>
+<li><strong>Profiling aim</strong>: Descriptive/observational, e.g., understanding how mutation X is linked to pathway A, or observing population-level traits.</li>
+<li><strong>Perturbing aim</strong>: Functional/causal, e.g., testing if gene X causes phenotype Y, or clinical trials.</li>
+</ul>
+<p>The two strategies can be linked. For instance: Aim 1 is slightly incremental with profiling only; Aim 2: more ambitious/novel based on perturbations.</p>
+<h3>Shallow-pass strategy for project execution</h3>
+<p>The <strong>Shallow-pass strategy</strong> is a systematic approach to project execution that emphasizes early, rapid, and minimally viable progress through a project’s full timeline, followed by iterative deepening of depth (both conceptually and technically) as needed. It draws on established principles from <strong>Agile development</strong>, <strong>Rapid prototyping</strong>, <strong>Incremental research</strong>, and <strong>Lean startup</strong> approaches.</p>
+<h3>Core concept</h3>
+<p>The strategy envisions a 2D space where:</p>
+<ul>
+<li><strong>Horizontal axis</strong>: Timeline from start to finish (milestones, objectives, deliverables).</li>
+<li><strong>Vertical axis</strong>: Depth of conceptual understanding, technical precision, or experimental thoroughness.</li>
+</ul>
+<p>Instead of moving <strong>deeply</strong> through each individual task in sequence (e.g., perfecting each aim before moving to the next), the Shallow-pass strategy encourages a <strong>shallow, complete pass</strong> over all key components of the project first.</p>
+<p>This approach creates a “minimum viable version” of the entire project, akin to a <strong>minimum viable product (MVP)</strong>, and allows for early identification of bottlenecks, feasibility issues, and unknowns.</p>
+<p>Once this shallow layer is complete, <strong>depth is added step-by-step</strong> to specific areas where gains are most needed or most valuable. This "depth-first" progression occurs only when justified by clear metrics or emerging insights.</p>
+<h3>Execution</h3>
+<ol>
+<li><strong>Initial pass (shallow path)</strong>: The goal is to complete a simple, end-to-end version of the project with minimal depth. This quick, rough pass identifies critical barriers, risks, and time-sinks. For example, instead of training a deep learning model on a large dataset, you might start with a simple logistic regression on a small subset, or run a pilot experiment to validate feasibility.</li>
+<li><strong>Iterative deepening (vertical progression)</strong>: Revisit earlier steps and selectively add depth to areas that yield the most benefit. If an aspect works well at shallow depth, further refinement may be unnecessary. For example, after a successful logistic regression, you might increase depth by training a neural network, scaling up the dataset, or adding multi-modal inputs.</li>
+<li><strong>When to stop (completion)</strong>: Avoid the "infinite perfection" trap by setting <strong>success metrics</strong> (e.g., 90% model accuracy) at the outset. Once these criteria are met, stop. If your classifier achieves 95% accuracy when the goal was 90%, additional work may have little value. Completion is defined by sufficiency, not perfection.</li>
+</ol>
+<h3>Common pitfalls and how to avoid them</h3>
+<p>| <strong>Pitfall</strong> | <strong>How to avoid</strong> |
 | ---------------------------- | ---------------------------------------------------------------------------- |
 | <strong>Going too deep, too soon</strong> | Focus on the shallow pass first. Move on even if the result isn’t “perfect.” |
 | <strong>Perfectionism</strong> | Set "success metrics" early. If you meet them, stop! |
 | <strong>Sunk cost fallacy</strong> | Shallow-pass shows which paths are dead ends. Pivot early. |
 | <strong>Failure to prioritize</strong> | Invest time in paths that provide the most "return on depth". |
-| <strong>Getting stuck at step 1</strong> | Even if step 1 is imperfect, keep moving to step 2. |</p><h2>Writing process</h2><h3>1. Planning and supervisor coordination</h3><ul><li><strong>Agree on timeline</strong>: Clarify deadlines for draft and final versions.</li><li><strong>Clarify expectations</strong>: What level of polish should the draft have?</li><li><strong>Define the review process</strong>: Involve other stakeholders if needed (e.g., senior lab members).</li><li><strong>Co-design the project</strong>: Discuss aims and approaches early with the supervisor.</li><li><strong>Accept constraints</strong>: Some projects are pre-defined due to funding calls, and flexibility is limited.</li><li><strong>Maintain perspective</strong>: The fellowship is often an "academic exercise" — flexibility in practice is often possible once funding is secured.</li></ul><h3>2. Content development</h3><h4>Start with the big picture</h4><ul><li>Identify the central question or goal.</li><li><strong>"Walk back" from the goal</strong> to define specific aims, objectives, and the path to achieving them.</li></ul><h4><strong>Clarity is everything</strong></h4><ul><li>Be simple, clear, and precise. Over-complication weakens the proposal.</li><li>Make abstract concepts <strong>tangible</strong> by showing concrete outputs, metrics, and practical outcomes.</li></ul><h4>Is a hypothesis necessary?</h4><ul><li>Hypotheses are not always required, but without one, the proposal may require stronger justification for the work.</li></ul><h3>3. Proposal structure</h3><h4>Top-down approach</h4><ol><li><strong>Hypothesis/Objectives/Goals</strong></li><li><strong>Impact</strong>:
-   - Why should this be addressed?
-   - What impact will success have (on science, society, policy, etc.)?
-   - What will we learn even if the project fails?</li><li><strong>Aims</strong>: Typically 2-3 aims.</li><li><strong>Tasks for each aim</strong> (1-2 per aim):
-   - Goal of the task
-   - Why it matters
-   - Required resources, data, or inputs
-   - Methods, experiments, and tools required</li><li><strong>Introduction</strong> (3-4 points):
-   1. The problem being addressed.
-   1. What has been tried previously.
-   1. Key technologies, datasets, or resources now available to address the problem.
-   1. A hint of the specific approach you will take.</li><li>Challenges and mitigation
-   - Think of the top challenges in the proposal design.
-   - Separate them by conceptual and technical
-   - Try to preemptively address them at design stage</li></ol><h3>4. Proposal writing process</h3><h4>Gradual, hierarchical writing</h4><ul><li>Expand each bullet point into 1-2 sentences in the order that you designed them:
-  - Hypothesis/objectives/goals
-  - Impact
-  - Aims/tasks (very shallowly)
-  - Introduction</li><li>Build each section gradually.</li></ul><h4>Figures &amp; visual aids</h4><ul><li><strong>Sketch first</strong>: Draw rough concepts on paper or whiteboard.</li><li><strong>Collaborate</strong>: Co-sketch ideas with a supervisor or team member.</li><li><strong>Repurpose existing visuals</strong>: Use (but adapt) figures from previous grants/papers.</li><li><strong>Preliminary data</strong>: Include early evidence or preliminary results where relevant.</li></ul><h3>5. Use of AI/LLMs (Large Language Models)</h3><h4>Dos and Don'ts</h4><ul><li><strong>Don’t outsource the thinking</strong>: AI works best after you've defined a clear structure with bullet points and key ideas.</li><li><strong>Provide context</strong>: Add as much detail as possible for the AI (including PDFs of previous work).</li><li><strong>Emphasize priorities</strong>: Explicitly state which points are most important.</li><li><strong>LLMs are tools, not authors</strong>: You are in control of the ideas, while the AI is a writing assistant.</li></ul><h4>Why use LLMs?</h4><ul><li><strong>Overcome writer's block</strong>: It’s easier to edit text than to create it from scratch.</li><li><strong>Improve language quality</strong>: English polish can match the top-tier writing of competitive grant applications.</li><li><strong>Use parallel sessions</strong>: Write in one session and criticize/review in another.</li></ul><h3>6. Feedback process</h3><ul><li><strong>Be open to feedback</strong>: Supervisors may have different perspectives, and their feedback often reflects reviewers' likely reactions.</li><li><strong>Ask for clarification</strong>: If something feels unfair or unclear, discuss it with the supervisor.</li><li><strong>Learn from changes</strong>: Understand why edits were made — this is where the learning happens.</li></ul><h2>Summary of key takeaways</h2><ol><li><strong>Designing a project</strong>: Balance feasibility and novelty. Balance profiling (description) and perturbation (causation).</li><li><strong>Executing a project</strong>: Use the "square triangle" approach — shallow, fast progress first; deeper, slower progress later.</li><li><strong>Writing a proposal</strong>: Work step-by-step, define key objectives first, and address the big picture.</li><li><strong>Clarity and structure</strong> are essential for success.</li><li><strong>Involve supervisors early</strong> in project design, figure development, and editing.</li><li><strong>Leverage LLMs for support</strong>, but control the process.</li><li><strong>Learn from feedback</strong> — it's one of the most valuable aspects of the process.</li></ol><h2>Additional Resources</h2><blockquote>[!CAUTION]</blockquote><blockquote>TODO</blockquote></div>
+| <strong>Getting stuck at step 1</strong> | Even if step 1 is imperfect, keep moving to step 2. |</p>
+<h2>Writing process</h2>
+<h3>1. Planning and supervisor coordination</h3>
+<ul>
+<li><strong>Agree on timeline</strong>: Clarify deadlines for draft and final versions.</li>
+<li><strong>Clarify expectations</strong>: What level of polish should the draft have?</li>
+<li><strong>Define the review process</strong>: Involve other stakeholders if needed (e.g., senior lab members).</li>
+<li><strong>Co-design the project</strong>: Discuss aims and approaches early with the supervisor.</li>
+<li><strong>Accept constraints</strong>: Some projects are pre-defined due to funding calls, and flexibility is limited.</li>
+<li><strong>Maintain perspective</strong>: The fellowship is often an "academic exercise" — flexibility in practice is often possible once funding is secured.</li>
+</ul>
+<h3>2. Content development</h3>
+<h4>Start with the big picture</h4>
+<ul>
+<li>Identify the central question or goal.</li>
+<li><strong>"Walk back" from the goal</strong> to define specific aims, objectives, and the path to achieving them.</li>
+</ul>
+<h4><strong>Clarity is everything</strong></h4>
+<ul>
+<li>Be simple, clear, and precise. Over-complication weakens the proposal.</li>
+<li>Make abstract concepts <strong>tangible</strong> by showing concrete outputs, metrics, and practical outcomes.</li>
+</ul>
+<h4>Is a hypothesis necessary?</h4>
+<ul>
+<li>Hypotheses are not always required, but without one, the proposal may require stronger justification for the work.</li>
+</ul>
+<h3>3. Proposal structure</h3>
+<h4>Top-down approach</h4>
+<ol>
+<li><strong>Hypothesis/Objectives/Goals</strong></li>
+<li><strong>Impact</strong>:
+<ul>
+<li>Why should this be addressed?</li>
+<li>What impact will success have (on science, society, policy, etc.)?</li>
+<li>What will we learn even if the project fails?</li>
+</ul></li>
+<li><strong>Aims</strong>: Typically 2-3 aims.</li>
+<li><strong>Tasks for each aim</strong> (1-2 per aim):
+<ul>
+<li>Goal of the task</li>
+<li>Why it matters</li>
+<li>Required resources, data, or inputs</li>
+<li>Methods, experiments, and tools required</li>
+</ul></li>
+<li><strong>Introduction</strong> (3-4 points):
+<ol>
+<li>The problem being addressed.</li>
+<li>What has been tried previously.</li>
+<li>Key technologies, datasets, or resources now available to address the problem.</li>
+<li>A hint of the specific approach you will take.</li>
+</ol></li>
+<li>Challenges and mitigation
+<ul>
+<li>Think of the top challenges in the proposal design.</li>
+<li>Separate them by conceptual and technical</li>
+<li>Try to preemptively address them at design stage</li>
+</ul></li>
+</ol>
+<h3>4. Proposal writing process</h3>
+<h4>Gradual, hierarchical writing</h4>
+<ul>
+<li>Expand each bullet point into 1-2 sentences in the order that you designed them:
+<ul>
+<li>Hypothesis/objectives/goals</li>
+<li>Impact</li>
+<li>Aims/tasks (very shallowly)</li>
+<li>Introduction</li>
+</ul></li>
+<li>Build each section gradually.</li>
+</ul>
+<h4>Figures &amp; visual aids</h4>
+<ul>
+<li><strong>Sketch first</strong>: Draw rough concepts on paper or whiteboard.</li>
+<li><strong>Collaborate</strong>: Co-sketch ideas with a supervisor or team member.</li>
+<li><strong>Repurpose existing visuals</strong>: Use (but adapt) figures from previous grants/papers.</li>
+<li><strong>Preliminary data</strong>: Include early evidence or preliminary results where relevant.</li>
+</ul>
+<h3>5. Use of AI/LLMs (Large Language Models)</h3>
+<h4>Dos and Don'ts</h4>
+<ul>
+<li><strong>Don’t outsource the thinking</strong>: AI works best after you've defined a clear structure with bullet points and key ideas.</li>
+<li><strong>Provide context</strong>: Add as much detail as possible for the AI (including PDFs of previous work).</li>
+<li><strong>Emphasize priorities</strong>: Explicitly state which points are most important.</li>
+<li><strong>LLMs are tools, not authors</strong>: You are in control of the ideas, while the AI is a writing assistant.</li>
+</ul>
+<h4>Why use LLMs?</h4>
+<ul>
+<li><strong>Overcome writer's block</strong>: It’s easier to edit text than to create it from scratch.</li>
+<li><strong>Improve language quality</strong>: English polish can match the top-tier writing of competitive grant applications.</li>
+<li><strong>Use parallel sessions</strong>: Write in one session and criticize/review in another.</li>
+</ul>
+<h3>6. Feedback process</h3>
+<ul>
+<li><strong>Be open to feedback</strong>: Supervisors may have different perspectives, and their feedback often reflects reviewers' likely reactions.</li>
+<li><strong>Ask for clarification</strong>: If something feels unfair or unclear, discuss it with the supervisor.</li>
+<li><strong>Learn from changes</strong>: Understand why edits were made — this is where the learning happens.</li>
+</ul>
+<h2>Summary of key takeaways</h2>
+<ol>
+<li><strong>Designing a project</strong>: Balance feasibility and novelty. Balance profiling (description) and perturbation (causation).</li>
+<li><strong>Executing a project</strong>: Use the "square triangle" approach — shallow, fast progress first; deeper, slower progress later.</li>
+<li><strong>Writing a proposal</strong>: Work step-by-step, define key objectives first, and address the big picture.</li>
+<li><strong>Clarity and structure</strong> are essential for success.</li>
+<li><strong>Involve supervisors early</strong> in project design, figure development, and editing.</li>
+<li><strong>Leverage LLMs for support</strong>, but control the process.</li>
+<li><strong>Learn from feedback</strong> — it's one of the most valuable aspects of the process.</li>
+</ol>
+<h2>Additional Resources</h2>
+<blockquote>
+<p>[!CAUTION]
+  TODO</p>
+</blockquote>
+<hr/><p><small>Edit this page on <a href="https://github.com/rendeirolab/lab-manual/edit/refs/heads/main/source/project_planning.md">GitHub</a></small></p>
               </div>
 
                 <br />
@@ -361,7 +480,6 @@ Once this shallow layer is complete, <strong>depth is added step-by-step</strong
         </nav>
         
 
-        
         
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -448,10 +566,5 @@ Once this shallow layer is complete, <strong>depth is added step-by-step</strong
             })();
         </script>
         
-        <!-- Prism JS -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-core.min.js" integrity="sha512-x0aNx8s5fNTSk7iaTiSuUtz6vbT7gtGjk+Dotp17u4TmUEbJUwNMUFKxMBlnMQ1+N8E5exPHvRcF1yoxJ8b/iA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-python.min.js" integrity="sha512-3qtI9+9JXi658yli19POddU1RouYtkTEhTHo6X5ilOvMiDfNvo6GIS6k2Ukrsx8MyaKSXeVrnIWeyH8G5EOyIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/components/prism-bash.min.js" integrity="sha512-CILPDr/8BlkkElCeI+f2yMu0fzgwWqpQ0Cdr0busFfySJJ4SoCRivbT6+Z+SWPkjWwBil9NO0tHd6NSfpwiQaA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
     </body>
 </html>

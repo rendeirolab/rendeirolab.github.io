@@ -1,7 +1,6 @@
 
 
 
-
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
     <head>
@@ -52,7 +51,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism.min.css" integrity="sha512-/mZ1FHPkg6EKcxo0fKXF51ak6Cr2ocgDi5ytaTBjsQZIH/RNs6GF6+oId/vPe3eJB836T36nXwVh/WBl/cWT4w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <!-- SEO -->
-        <link rel="canonical" href="/lab-manual/" />
+        <link rel="canonical" href="/manual/offboarding/" />
 
         <!-- Other head content like title, meta tags, etc. -->
         <style>
@@ -232,79 +231,79 @@
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link active" aria-current="page" href="/lab-manual/">Lab manual</a>
+                  <a class="nav-link" href="/manual/">Lab manual</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/getting_started/">Getting started</a>
+                  <a class="nav-link" href="/manual/getting_started/">Getting started</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/mission_statement/">Mission and philosophy</a>
+                  <a class="nav-link" href="/manual/mission_statement/">Mission and philosophy</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/code_of_conduct/">Code of conduct</a>
+                  <a class="nav-link" href="/manual/code_of_conduct/">Code of conduct</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/communication_and_meetings/">Lab communication</a>
+                  <a class="nav-link" href="/manual/communication_and_meetings/">Lab communication</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/infrastructure/">Lab infrastructure</a>
+                  <a class="nav-link" href="/manual/infrastructure/">Lab infrastructure</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/project_planning/">Project planning</a>
+                  <a class="nav-link" href="/manual/project_planning/">Project planning</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/research/">Research</a>
+                  <a class="nav-link" href="/manual/research/">Research</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/record_keeping/">Record keeping guidelines</a>
+                  <a class="nav-link" href="/manual/record_keeping/">Record keeping guidelines</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/learning/">Learning</a>
+                  <a class="nav-link" href="/manual/learning/">Learning</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/manuscript_writing/">Manuscript writing</a>
+                  <a class="nav-link" href="/manual/manuscript_writing/">Manuscript writing</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/offboarding/">Offboarding</a>
+                  <a class="nav-link active" aria-current="page" href="/manual/offboarding/">Offboarding</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/CHANGELOG/">Version changes</a>
+                  <a class="nav-link" href="/manual/changelog/">Version changes</a>
                   
                   </li>
                 
@@ -313,17 +312,29 @@
               <hr>
               <br>
               <div class="row">
-                  <div><p>
-<div style="page-break-after: always;"></div></p><p>
-Welcome to the Rendeiro Lab Manual. This manual provides comprehensive information about the lab's culture, procedures, and workflows to ensure a collaborative and efficient research environment.</p><p>
-The manual is hosted in the <a href="https://github.com/rendeirolab/lab-manual/tree/main/manual"><code>lab-manual</code></a> repository on GitHub. It is written in <a href="https://daringfireball.net/projects/markdown/">Markdown</a> and can be converted to HTML and PDF using <a href="https://pandoc.org/">Pandoc</a>.</p><p>
-This manual is open source and maintained collaboratively. Anyone on GitHub can propose changes.</p><h2>Building the manual</h2><p>
-The project includes a <a href="https://github.com/rendeirolab/lab-manual/blob/main/Makefile">Makefile</a> to streamline the development process.</p><p>
-Key targets include:</p><ul><li><strong><code>format</code></strong>: Formats Markdown files consistently using <code>mdformat</code>.</li><li><strong><code>build</code></strong>: Converts the manual into a single HTML file using <code>pandoc</code> and generates a PDF file using <code>wkhtmltopdf</code>.</li><li><strong><code>clean</code></strong>: Removes generated files to ensure a fresh build.</li></ul><p>
-Styling for the manual is controlled by a custom <a href="assets/style.css">CSS file</a>, which ensures a nice appearance in both HTML and PDF formats.</p><h2>Editing content</h2><p>
-To contribute:</p><ol><li>Edit or create files directly on GitHub or locally on your system.</li><li>Submit a pull request with a clear, one-line description of the changes made.</li><li>Follow best practices by adding reviewers and referencing related issues, if applicable.</li></ol><p>
-For adding a table of contents to any document, use <a href="https://github.com/hukkin/mdformat-toc">mdformat-toc</a>. Insert `<code> where the table of contents should appear, and run </code>mdformat <file.md><code> on the edited file, or </code>make format` to format all.</file.md></p><h2>Acknowledgements</h2><p>
-We thank the following labs for sharing their open-source lab manuals, which inspired this project:</p><ul><li><a href="https://github.com/alylab/labmanual">Aly Lab Manual</a></li><li><a href="https://github.com/getzlab/getzlab.github.io">Getz Lab Manual</a></li></ul><h2>TODO</h2><div><input disabled="true" type="checkbox"/><label>Improve and include <a href="source/public_data.md">public data page</a></label></div><div><input disabled="true" type="checkbox"/><label>Add additional resources on project planning</label></div><div><input disabled="true" type="checkbox"/><label>Add section on 'Developing a project'</label></div><div><input disabled="true" type="checkbox"/><label>Add section on 'Publications'</label></div><div><input disabled="true" type="checkbox"/><label>Add section on 'Authorship'</label></div><div><input disabled="true" type="checkbox"/><label>Add section on 'Engaging in new projects'</label></div></div>
+                  <div><h1>Offboarding</h1><p>
+It is important to be aware well in advance of the procedure for offboarding and to communicate the expectations and requirements involved in it.</p><h2>Procedure</h2><p>
+It is the responsability of the PI to communicate, initiate, and verify the following steps:</p><ol><li>Review all lab-specific records (see the <a href="record_keeping.md">record keeping section</a>:
+   - Lab notebook
+   - OneDrive folder
+   - Github account</li><li>Review Data archiving and cleanup:
+   - HPC cluster
+   - Hilde workstation
+   - Windows shares:
+     - Groupdata: <code>smb://int.cemm.at/files/groupdata/</code>
+     - Labs: <code>smb://int.cemm.at/files/labs/</code>
+     - Home Folder: <code>smb://int.cemm.at/files/home/<username></username></code></li><li>Review all CeMM-specifc requirements in coordination with HR:
+   - Data management requirements (if points above are well executed, then it should be taken care of)
+   - E-mail
+   - VPN access</li><li>Ask the new team member for their CeMM-independent contact information</li><li>Ask the new team member whether they consent to be listed in the lab website as alumni</li><li>Remove team member from external organizations:
+   - Github
+   - Weights and Biases
+   - HuggingFace
+   - the lab code of conduct (see <a href="code&lt;em&gt;of&lt;/em&gt;conduct.md">code of conduct</a>)
+   - the Github account (<a href="https://github.com/rendeirolab">here</a>)
+   - lab infrastructure (such as Cytomine, VMs, etc: <a href="infrastructure.md">infrastructure</a>)</li><li>Remove team member accounts from lab-specific infrastructure:
+   - Cytomine
+   - Hilde workstation</li><li>Remove team member from Microsoft team and mailing list</li></ol></div>
               </div>
 
                 <br />

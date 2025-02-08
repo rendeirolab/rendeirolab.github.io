@@ -1,7 +1,6 @@
 
 
 
-
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
     <head>
@@ -52,7 +51,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism.min.css" integrity="sha512-/mZ1FHPkg6EKcxo0fKXF51ak6Cr2ocgDi5ytaTBjsQZIH/RNs6GF6+oId/vPe3eJB836T36nXwVh/WBl/cWT4w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <!-- SEO -->
-        <link rel="canonical" href="/lab-manual/infrastructure/" />
+        <link rel="canonical" href="/manual/changelog/" />
 
         <!-- Other head content like title, meta tags, etc. -->
         <style>
@@ -232,79 +231,79 @@
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/">Lab manual</a>
+                  <a class="nav-link" href="/manual/">Lab manual</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/getting_started/">Getting started</a>
+                  <a class="nav-link" href="/manual/getting_started/">Getting started</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/mission_statement/">Mission and philosophy</a>
+                  <a class="nav-link" href="/manual/mission_statement/">Mission and philosophy</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/code_of_conduct/">Code of conduct</a>
+                  <a class="nav-link" href="/manual/code_of_conduct/">Code of conduct</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/communication_and_meetings/">Lab communication</a>
+                  <a class="nav-link" href="/manual/communication_and_meetings/">Lab communication</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link active" aria-current="page" href="/lab-manual/infrastructure/">Lab infrastructure</a>
+                  <a class="nav-link" href="/manual/infrastructure/">Lab infrastructure</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/project_planning/">Project planning</a>
+                  <a class="nav-link" href="/manual/project_planning/">Project planning</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/research/">Research</a>
+                  <a class="nav-link" href="/manual/research/">Research</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/record_keeping/">Record keeping guidelines</a>
+                  <a class="nav-link" href="/manual/record_keeping/">Record keeping guidelines</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/learning/">Learning</a>
+                  <a class="nav-link" href="/manual/learning/">Learning</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/manuscript_writing/">Manuscript writing</a>
+                  <a class="nav-link" href="/manual/manuscript_writing/">Manuscript writing</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/offboarding/">Offboarding</a>
+                  <a class="nav-link" href="/manual/offboarding/">Offboarding</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/CHANGELOG/">Version changes</a>
+                  <a class="nav-link active" aria-current="page" href="/manual/changelog/">Version changes</a>
                   
                   </li>
                 
@@ -313,22 +312,7 @@
               <hr>
               <br>
               <div class="row">
-                  <div><h1>Lab infrastructure</h1><p>
-This document describes the infrastructure used in the lab, including CeMM-provided or our own infrastructure.
-So far it details only computational infrastructure.</p><h2>Lab infrastructure</h2><h3>Hardware</h3><ul><li>Hilde workstation: <a href="https://github.com/rendeirolab/labdocs/blob/main/hilde&lt;/em&gt;workstation.md">setting up and maintaining the hilde workstation: hilde<em>workstation.md</em></a></li></ul><h3>VMs</h3><ul><li>Cytomine: <a href="https://github.com/rendeirolab/labdocs/blob/main/cytomine.md">setting up and maintaining the cytomine VM: cytomine.md</a></li></ul><h3>Cloud resources</h3><p>
-<a href="https://github.com/rendeirolab/labdocs/blob/main/azure.md">Read the documentation on using Azure web services here: azure.md</a></p><h2>CeMM infrastructure</h2><p>
-Refer to the <a href="https://cemmat.sharepoint.com/sites/Intranet">CeMM Intranet documentation</a> for updated information.
-Below are a few notes on things which are not covered there:</p><h3>Printing from Linux</h3><p>
-CeMM has Canon iR-ADV C5735/5740 printers. They support IPP printing through CUPS.</p><p>
-Install CUPS:</p><pre><code class="language-bash">sudo apt-get install cups
-</code></pre><p>
-Add printers:</p><pre><code class="language-bash">sudo lpadmin -p CeMM_level_2 -E -v ipp://193.171.185.37/ipp -m everywhere
-sudo lpadmin -p CeMM_level_3 -E -v ipp://193.171.185.212/ipp -m everywhere
-sudo lpadmin -p CeMM_level_4 -E -v ipp://193.171.185.39/ipp -m everywhere
-sudo lpadmin -p CeMM_level_5 -E -v ipp://193.171.185.40/ipp -m everywhere
-sudo lpadmin -p CeMM_level_6 -E -v ipp://193.171.185.38/ipp -m everywhere
-sudo lpadmin -p CeMM_level_7 -E -v ipp://193.171.185.41/ipp -m everywhere
-</code></pre></div>
+                  <div><h1>Version changes</h1><h2>Unreleased</h2><ul><li>Add TODO sections to README</li></ul><h2>2025-01-27</h2><ul><li>Add todo section to the README.md</li><li>Add page on offboarding</li><li>Decouple manual from how to-style documents, or incorporate them in manual</li><li>Build with github actions</li><li>Improve README</li></ul><h2>2025-01-07</h2><ul><li>First release.</li></ul></div>
               </div>
 
                 <br />

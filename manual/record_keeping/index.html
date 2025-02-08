@@ -1,7 +1,6 @@
 
 
 
-
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
     <head>
@@ -52,7 +51,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism.min.css" integrity="sha512-/mZ1FHPkg6EKcxo0fKXF51ak6Cr2ocgDi5ytaTBjsQZIH/RNs6GF6+oId/vPe3eJB836T36nXwVh/WBl/cWT4w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <!-- SEO -->
-        <link rel="canonical" href="/lab-manual/manuscript_writing/" />
+        <link rel="canonical" href="/manual/record_keeping/" />
 
         <!-- Other head content like title, meta tags, etc. -->
         <style>
@@ -232,79 +231,79 @@
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/">Lab manual</a>
+                  <a class="nav-link" href="/manual/">Lab manual</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/getting_started/">Getting started</a>
+                  <a class="nav-link" href="/manual/getting_started/">Getting started</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/mission_statement/">Mission and philosophy</a>
+                  <a class="nav-link" href="/manual/mission_statement/">Mission and philosophy</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/code_of_conduct/">Code of conduct</a>
+                  <a class="nav-link" href="/manual/code_of_conduct/">Code of conduct</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/communication_and_meetings/">Lab communication</a>
+                  <a class="nav-link" href="/manual/communication_and_meetings/">Lab communication</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/infrastructure/">Lab infrastructure</a>
+                  <a class="nav-link" href="/manual/infrastructure/">Lab infrastructure</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/project_planning/">Project planning</a>
+                  <a class="nav-link" href="/manual/project_planning/">Project planning</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/research/">Research</a>
+                  <a class="nav-link" href="/manual/research/">Research</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/record_keeping/">Record keeping guidelines</a>
+                  <a class="nav-link active" aria-current="page" href="/manual/record_keeping/">Record keeping guidelines</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/learning/">Learning</a>
+                  <a class="nav-link" href="/manual/learning/">Learning</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link active" aria-current="page" href="/lab-manual/manuscript_writing/">Manuscript writing</a>
+                  <a class="nav-link" href="/manual/manuscript_writing/">Manuscript writing</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/offboarding/">Offboarding</a>
+                  <a class="nav-link" href="/manual/offboarding/">Offboarding</a>
                   
                   </li>
                 
                 <li class="nav-item active">
                   
-                  <a class="nav-link" href="/lab-manual/CHANGELOG/">Version changes</a>
+                  <a class="nav-link" href="/manual/changelog/">Version changes</a>
                   
                   </li>
                 
@@ -313,59 +312,16 @@
               <hr>
               <br>
               <div class="row">
-                  <div><h1>Manuscript writing</h1><p>
-This document provides practical guidelines for writing a manuscript.
-For insights on planning a project please see the <a href="project_planning.md">project planning guide</a> instead.</p><p>
-Manuscript writing should really be called "manuscript crafting" as it involves a lot more than text writing and formatting or figure making as it takes a lot of time, effort and skill to craft a good manuscript.</p><h2>Figures</h2><p>
-A crucial part of crafting a great manuscript is good communication of ideas through visual elements (figures), and their alignment with the text.</p><p>
-Here are Andre's tips for figure making based on practice.
-This has changed a little over the time, but mostly coalesced on a fairly simple system.</p><h3>Making plots (Python, matplotlib, seaborn):</h3><ul><li>Try to compartmentalize data processing from visualization (not just the early 'pipeline'-like processing, but also the analytical analysis) - but that does not mean that</li><li>Each script produces a set of plots into a <code>results</code> directory, with subdirectories matching the script or analysis name (more hierarchical if needed, e.g. different datasets).</li><li>Each plot file name should be self explanatory and contain enough information to track down its origin.</li><li>Except for obvious groupings or interrelations, avoid making figures with many subplots.</li><li>Create figures in matplotlib/seaborn always explicitly: <code>fig, ax = plt.subplots(figsize=(3, 3)</code></li><li>For the most part aim for each subplot to have a square shape with about 3 by 3 inches. If creating a figure with multiple subplots, scale the figure size accordingly: <code>fig, axes = plt.subplots(4, 2, figsize=(2 <em> 3, 4 </em> 3)</code></li><li>Always label the axes, and make use of a single statement to set many properties at once: <code>ax.set(xlabel="Time", ylabel="Expression (log)", yscale="log")</code></li><li>For plot elements with many objects (e.g. scatter), rasterize that specific single element in order to reduce the size of the figure: <code>g = sns.clustermap(...); g.ax_heatmap.set(rasterized=True)</code>. Do not rasterized the whole axes as that will make e.g. text element uneditable.</li><li>Choose consistent colors across a project. Consider thinking of all factors being highlighted in the paper before starting the project. See colormaps here: <a href="https://matplotlib.org/stable/gallery/color/colormap&lt;/em&gt;reference.html">https://matplotlib.org/stable/gallery/color/colormap<em>reference.html</em></a></li><li>Choose continuous colormaps for continuous variables (magma, viridis). Use divergent colormaps (coolwarm, RdBu<em>r, PuOr</em>r) only when a central value has meaning (e.g. a Z-score).</li></ul><h3>Recommend settings for matplotlib</h3><h4>Inkscape: Export to SVG</h4><pre><code class="language-python">import matplotlib.pyplot as plt
-
-plt.rcParams['savefig.bbox'] = 'tight'  # To ensure that legends and elements outside the axes are included
-plt.rcParams['savefig.dpi'] = 300  # To make sure any rasterized elements have good quality
-plt.rcParams['savefig.transparent'] = True  # To remove the white background
-plt.rcParams['svg.fonttype'] = 'none'  # To allow font to be editable in Inkscape
-plt.rcParams['font.family'] = 'Arial'  # Use Arial as the font
-</code></pre><h4>Adobe Illustrator: Export to PDF</h4><p>
-This is similar as above, except that we change the font settings,</p><pre><code class="language-python">import matplotlib.pyplot as plt
-
-plt.rcParams['savefig.bbox'] = 'tight'
-plt.rcParams['savefig.dpi'] = 300
-plt.rcParams['savefig.transparent'] = True
-plt.rcParams['pdf.fonttype'] = 42
-plt.rcParams['ps.fonttype'] = 42
-plt.rcParams['font.family'] = 'Arial'
-</code></pre><h3>Assemble plots manually into a figure:</h3><h4>Inkscape</h4><ul><li>Check the journal requirements and limitations for figures and their dimensions. Use A4 by default, not letter.</li><li>Here is a template figure: <a href="https://gist.github.com/afrendeiro/2d9975793629774ad73ea9d18bd7abf3">https://gist.github.com/afrendeiro/2d9975793629774ad73ea9d18bd7abf3</a></li><li>Add a plot to the canvas, resize it to an approximate desired size, remove all groupings, remove redundant objects, possibly despine plot (i.e. remove top right, top axes). Make whole plot into a group (or layer).</li><li>Be wary of resize operations that change aspect ratio. Be sure not to create artifacts. Here's some help: <a href="https://github.com/burghoff/Scientific-Inkscape">https://github.com/burghoff/Scientific-Inkscape</a> (hasn't worked recently for me).</li><li>Use a consistent font family (Arial) for all text elements and only one or two font sizes (12 and 10). You can use the Find/Replace tool with <code>Object types = 'text'</code> to do this.</li><li>Add a lowercase letter label to each panel (font 16).</li><li>Add a label to the top of the Figure (i.e. Figure 1)</li><li>Name the figure files consistently Figure1.svg, SupplementaryFigure1.svg</li></ul><p>
-Post assembly, automatic assembly and conversion of file types (bash, inkscape, minify, pdfunite):</p><ul><li>Use script here: <a href="https://gist.github.com/afrendeiro/a656eca139381eec55da6357e33173ce">https://gist.github.com/afrendeiro/a656eca139381eec55da6357e33173ce</a></li><li>Use generated individual PDFs to embed in a manuscript tex file.</li><li>Use generated individual PNGs to embed in a manuscript file like docx.</li><li>Use the joint PDFs to print, share or submit to journal.</li></ul><p>
-Only in very rare cases it is worth it to have a full final figure generated as a whole.</p><h4>Adobe Illustrator:</h4><p>
-Open PDF in Adobe Illustrator</p><ul><li>Select everything:
-  - Mac: <kbd>⌘ Command</kbd> + <kbd>A</kbd>
-  - Windows: <kbd>Ctrl</kbd> + <kbd>A</kbd></li><li>Go to <code>Object</code> -&gt; <code>Clipping Mask</code> -&gt; <code>Release</code>, press until it can't be pressed anymore:
-  - Mac: <kbd>⌥ Option</kbd> + <kbd>⌘ Command</kbd> + <kbd>7</kbd>
-  - Windows: <kbd>Alt</kbd> + <kbd>Ctrl</kbd> + <kbd>7</kbd></li></ul><p>
-Congratulations! Now you have a clean plot ready for editing.</p><blockquote>[!CAUTION]</blockquote><blockquote>Removing clipping masks may affect elements, such as bars that extend offscreen.</blockquote><h2>Text</h2><p>
-Manuscript text is usually written in Microsoft Word (docx) or LibreOffice Writer (odt).
-Latex is also supported, talk with Andre about starting with a LaTeX template.</p><h3>Formatting</h3><p>
-Use styles to format your text. Do not use whitespace (e.g. newlines and spaces) in the text to format the document.</p><ul><li>Page:
-  - Page size: A4
-  - Page margins: 2 cm on all sides</li><li>Styles:
-  - Default text style:
-    - Font: Arial
-    - Font size: 11
-    - Line spacing: 1.15 lines
-    - Paragraph spacing: 0.2cm below paragraph, 0.0cm above paragraph
-    - Alignment: Justified
-    - Color: Black
-  - Headings (all inherit the above default style):
-    - Title: Font size: 14, bold
-    - Heading 1: Font size: 12, bold, paragraph spacing: 0.4cm above
-    - Heading 2: Font size: 11, italic, paragraph spacing: 0.3cm above
-    - Heading 3: possible but not recommended
-  - Figure legends (inherit from default style except for settings below):
-    - Legend below figure.
-    - Font size: 10
-    - Figure number and title: bold.</li></ul><h3>Structure</h3><ul><li>Title</li><li>Authors</li><li>Author affiliations</li><li>Abstract</li><li>Introduction</li><li>Results</li><li>Discussion</li><li>Methods</li><li>Data availability</li><li>Code availability</li><li>Acknowledgements</li><li>Conflicts of interest</li><li>References</li></ul><h2>File formats</h2><p>
-Refer to <a href="research.md">research page</a> for more details.</p></div>
+                  <div><h1>Record keeping guidelines</h1><p>
+This document serves as a comprehensive guide for maintaining and organizing records within the lab.
+It covers the management of source code, lab notebooks, shared files, and other key resources to ensure efficient and consistent documentation of lab activities.
+Effective record keeping is not only essential for scientific research by facilitating reproducibility, collaboration, and project management, but also to comply with requirements from funders and CeMM.</p><h2>Source Code</h2><p>
+The creation, updating, and maintenance of source code are conducted on GitHub: <a href="https://github.com/rendeirolab/">Rendeiro Lab GitHub</a>. Each project is assigned its own GitHub repository, with its name registered in the <a href="https://cemmat.sharepoint.com/❌/r/sites/rendeirolab/_layouts/15/Doc.aspx?sourcedoc=%7B4C72F84B-F33B-4162-A5E8-F05556FDF66B%7D">Lab Project Registry</a>.</p><h3>Structuring Projects</h3><ul><li>Follow the guidelines outlined in the <a href="https://github.com/rendeirolab/&lt;em&gt;project&lt;/em&gt;template">Lab Project Template</a> to structure and maintain repositories effectively.</li><li>Ensure that source code is kept up-to-date in the respective repository for each project.</li></ul><h2>Lab Notebooks</h2><p>
+It is essential to maintain detailed, up-to-date records of daily activities. This includes:</p><ul><li>Notes and sketches on ongoing projects.</li><li>Progress on analyses.</li><li>Logs of seminars attended, papers read, or other relevant activities.</li></ul><h3>Digital and Physical Notes</h3><ul><li>Use markdown-based notes in <a href="https://github.com/rendeirolab/daily_notes">Obsidian</a> for digital documentation.</li><li>Optionally, concatenate markdown notes and print them on sticky paper for inclusion in physical lab notebooks.</li></ul><h2>Shared OneDrive Folder</h2><p>
+The official platform for file sharing is the CeMM-provided OneDrive, accessible here: <a href="https://cemmat.sharepoint.com/sites/rendeirolab/Shared%20Documents">Shared Documents</a>.</p><h3>Best Practices</h3><ul><li>Update the folder regularly, especially when reaching milestones such as paper submissions, talk presentations, or poster creations.</li><li>Organize files in a compartmentalized manner by subject (e.g., figures, presentations, documents, notes).</li><li>Prefix all file names with the format <code>YYYY-MM-DD-</code> to ensure chronological order.</li><li>Create subfolders per lab member if necessary.</li></ul><h3>Presentations</h3><ul><li>Save all internal and external presentations in both <code>.pptx</code> and <code>.pdf</code> formats.</li><li>Deposit them in the <a href="https://cemmat.sharepoint.com/:f:/s/rendeirolab/EkOwi_NgHaNOiFNiEjqhnjUBV7Um-qZl9LnPp1Gpd2QoWQ?e=Cg0M96">Presentations Folder</a>.</li></ul><h3>Figures</h3><ul><li>Include all figures used in fellowship proposals, preliminary data, seminar concepts, and work-in-progress for papers.</li><li>Save figures in <code>.ai</code>/<code>.svg</code> and <code>.pdf</code> formats.</li><li>Deposit them in the <a href="https://cemmat.sharepoint.com/:f:/s/rendeirolab/ErzzI7QcpCtMvkQySI7qQWIBtDX13yyhBcGuiRoqS19lkQ?e=A3Rdo2">Figures Folder</a>.</li></ul><h3>Fellowship Proposals</h3><ul><li>Include only final versions of fellowship proposals.</li><li>Save proposals in <code>.docx</code>, <code>.odt</code>, or <code>.tex</code> formats alongside <code>.pdf</code> versions.</li><li>If multiple files are submitted, use a <code>.zip</code> file for consolidation.</li><li>Deposit proposals in the <a href="https://cemmat.sharepoint.com/:f:/s/rendeirolab/EsANXGptzYZAhulDjOy5X1YBiNLbMT7ieYZFfFQw_Ex86g?e=wsRHzm">Grants and Fellowships Folder</a>.</li></ul><h2>CeMM-specific requirements for projects</h2><p>
+CeMM has specific guidelines for data management, in particular for projects that exist on the HPC cluster. Read more about it on <a href="https://cemmat.sharepoint.com/sites/data-management">the intranet</a>.</p><p>
+In particular, each project should have a <code>cemm_metadata.json</code> file.</p><p>
+The <a href="research.md">research</a> page also provides information on this.</p></div>
               </div>
 
                 <br />

@@ -2,34 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://rendeiro.group/index.html</loc>
-		<lastmod>2025-02-06</lastmod>
+		<lastmod>2025-02-08</lastmod>
 	</url>
 	<url>
 		<loc>https://rendeiro.group/news/index.html</loc>
-		<lastmod>2025-02-06</lastmod>
+		<lastmod>2025-02-08</lastmod>
 	</url>
 	<url>
 		<loc>https://rendeiro.group/contact/index.html</loc>
-		<lastmod>2025-02-06</lastmod>
+		<lastmod>2025-02-08</lastmod>
 	</url>
 	<url>
 		<loc>https://rendeiro.group/publications/index.html</loc>
-		<lastmod>2025-02-06</lastmod>
+		<lastmod>2025-02-08</lastmod>
+	</url>
+	<url>
+		<loc>https://rendeiro.group/lab-manual/index.html</loc>
+		<lastmod>2025-02-08</lastmod>
+	</url>
+	<url>
+		<loc>https://rendeiro.group/lab-manual/code_of_conduct/index.html</loc>
+		<lastmod>2025-02-08</lastmod>
+	</url>
+	<url>
+		<loc>https://rendeiro.group/lab-manual/record_keeping/index.html</loc>
+		<lastmod>2025-02-08</lastmod>
+	</url>
+	<url>
+		<loc>https://rendeiro.group/lab-manual/project_planning/index.html</loc>
+		<lastmod>2025-02-08</lastmod>
+	</url>
+	<url>
+		<loc>https://rendeiro.group/lab-manual/offboarding/index.html</loc>
+		<lastmod>2025-02-08</lastmod>
+	</url>
+	<url>
+		<loc>https://rendeiro.group/lab-manual/CHANGELOG/index.html</loc>
+		<lastmod>2025-02-08</lastmod>
+	</url>
+	<url>
+		<loc>https://rendeiro.group/lab-manual/infrastructure/index.html</loc>
+		<lastmod>2025-02-08</lastmod>
+	</url>
+	<url>
+		<loc>https://rendeiro.group/lab-manual/communication_and_meetings/index.html</loc>
+		<lastmod>2025-02-08</lastmod>
+	</url>
+	<url>
+		<loc>https://rendeiro.group/lab-manual/mission_statement/index.html</loc>
+		<lastmod>2025-02-08</lastmod>
+	</url>
+	<url>
+		<loc>https://rendeiro.group/lab-manual/getting_started/index.html</loc>
+		<lastmod>2025-02-08</lastmod>
+	</url>
+	<url>
+		<loc>https://rendeiro.group/lab-manual/research/index.html</loc>
+		<lastmod>2025-02-08</lastmod>
+	</url>
+	<url>
+		<loc>https://rendeiro.group/lab-manual/learning/index.html</loc>
+		<lastmod>2025-02-08</lastmod>
+	</url>
+	<url>
+		<loc>https://rendeiro.group/lab-manual/manuscript_writing/index.html</loc>
+		<lastmod>2025-02-08</lastmod>
 	</url>
 	<url>
 		<loc>https://rendeiro.group/research/index.html</loc>
-		<lastmod>2025-02-06</lastmod>
+		<lastmod>2025-02-08</lastmod>
 	</url>
 	<url>
 		<loc>https://rendeiro.group/team/index.html</loc>
-		<lastmod>2025-02-06</lastmod>
+		<lastmod>2025-02-08</lastmod>
 	</url>
 	<url>
 		<loc>https://rendeiro.group/software/index.html</loc>
-		<lastmod>2025-02-06</lastmod>
+		<lastmod>2025-02-08</lastmod>
 	</url>
 	<url>
 		<loc>https://rendeiro.group/press/index.html</loc>
-		<lastmod>2025-02-06</lastmod>
+		<lastmod>2025-02-08</lastmod>
 	</url>
 </urlset>

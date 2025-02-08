@@ -49,6 +49,9 @@
             referrerpolicy="no-referrer"
         />
 
+        <!-- Prism code highlighting -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism.min.css" integrity="sha512-/mZ1FHPkg6EKcxo0fKXF51ak6Cr2ocgDi5ytaTBjsQZIH/RNs6GF6+oId/vPe3eJB836T36nXwVh/WBl/cWT4w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
         <!-- SEO -->
         <link rel="canonical" href="https://rendeiro.group/publications" />
 
@@ -76,6 +79,33 @@
             .unstyled-link {
                 text-decoration: none !important;
                 color: inherit !important;
+            }
+            code {
+                padding: 2px 4px;
+            }
+            pre {
+                /* background-color: #ccc; */
+                padding: 1em;
+                border-radius: 4px;
+                overflow-x: auto;
+            }
+            blockquote {
+                border-left: 4px solid #ccc;
+                margin: 1em 0;
+                padding-left: 1em;
+                font-style: italic;
+            }
+            .task-list {
+                list-style-type: none;
+                padding-left: 0;
+            }
+            .task-list-item {
+                display: flex;
+                align-items: center;
+                margin-bottom: 0.5em;
+            }
+            .task-list-item input[type="checkbox"] {
+                margin-right: 0.5em;
             }
         </style>
         
@@ -2574,5 +2604,10 @@
                 });
             })();
         </script>
+
+        <!-- Prism JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-core.min.js" integrity="sha512-x0aNx8s5fNTSk7iaTiSuUtz6vbT7gtGjk+Dotp17u4TmUEbJUwNMUFKxMBlnMQ1+N8E5exPHvRcF1yoxJ8b/iA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-python.min.js" integrity="sha512-3qtI9+9JXi658yli19POddU1RouYtkTEhTHo6X5ilOvMiDfNvo6GIS6k2Ukrsx8MyaKSXeVrnIWeyH8G5EOyIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/components/prism-bash.min.js" integrity="sha512-CILPDr/8BlkkElCeI+f2yMu0fzgwWqpQ0Cdr0busFfySJJ4SoCRivbT6+Z+SWPkjWwBil9NO0tHd6NSfpwiQaA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </body>
 </html>

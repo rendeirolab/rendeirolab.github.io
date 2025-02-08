@@ -1,0 +1,524 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+    <head>
+        
+        <meta charset="utf-8" />
+        <title>Lab manual - Rendeiro lab</title>
+        <meta name="description" content="" />
+        <meta name="author" content="André Rendeiro" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+        <!-- Favicons -->
+        <link rel="shortcut icon" href="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/favicon.ico" />
+
+        <!-- Font awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <!-- Bootstrap-social -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.9.2/bootstrap-social.min.css"
+            integrity="sha512-3CYhYJnb7/677SX8kzxL2+gW6vVzXiVEC6ZhK0S4tGVp7dTlMjSZPVvA79aH8YMU0xuKn2tLZIFaBctUi4Cb/w=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <!-- Bootstrap-icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+        <!-- Academic icons (ORCID, Google Scholar) -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css"
+            integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <!-- Prism code highlighting -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism.min.css" integrity="sha512-/mZ1FHPkg6EKcxo0fKXF51ak6Cr2ocgDi5ytaTBjsQZIH/RNs6GF6+oId/vPe3eJB836T36nXwVh/WBl/cWT4w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- SEO -->
+        <link rel="canonical" href="/lab-manual/learning/" />
+
+        <!-- Other head content like title, meta tags, etc. -->
+        <style>
+            .fixed-bottom {
+                height: 2.5vh;
+            }
+
+            a {
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                white-space: normal;
+            }
+
+            .btn-outline-success {
+                --bs-btn-color: #0d6efd !important;
+                --bs-btn-border-color: #0d6efd !important;
+                --bs-btn-hover-bg: #0d6efd !important;
+                --bs-btn-hover-border-color: #0d6efd !important;
+            }
+            .navbar-btn {
+                color: #0d6efd;
+            }
+            .unstyled-link {
+                text-decoration: none !important;
+                color: inherit !important;
+            }
+            code {
+                padding: 2px 4px;
+            }
+            pre {
+                /* background-color: #ccc; */
+                padding: 1em;
+                border-radius: 4px;
+                overflow-x: auto;
+            }
+            blockquote {
+                border-left: 4px solid #ccc;
+                margin: 1em 0;
+                padding-left: 1em;
+                font-style: italic;
+            }
+            .task-list {
+                list-style-type: none;
+                padding-left: 0;
+            }
+            .task-list-item {
+                display: flex;
+                align-items: center;
+                margin-bottom: 0.5em;
+            }
+            .task-list-item input[type="checkbox"] {
+                margin-right: 0.5em;
+            }
+        </style>
+        
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/rendeirolab.icon.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-center" />
+                    Rendeiro group
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/team/">Team</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/research/">Research</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/news/">News</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/publications/">Publications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/software/">Software</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/press/">Press</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/lab-manual/">Manual</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contact/">Contact</a>
+                        </li>
+                    </ul>
+
+                    <div class="navbar-header navbar-right">
+                        <a class="btn navbar-btn btn-social-icon" href="https://www.twitter.com/afrendeiro" target="_blank">
+                            <i class="bi bi-twitter-x me-2" aria-hidden="true"></i>
+                        </a>
+                        <a class="btn navbar-btn btn-social-icon" href="https://bsky.app/profile/afrendeiro.bsky.social" target="_blank">
+                            <i class="fab fa-brands fa-bluesky" aria-hidden="true"></i>
+                        </a>
+                        <a class="btn navbar-btn btn-social-icon" href="https://sciencemastodon.com/@afrendeiro" target="_blank">
+                            <i class="bi bi-mastodon me-2" aria-hidden="true"></i>
+                        </a>
+                        <!-- <a class="btn navbar-btn btn-social-icon" href="https://wandb.ai/rendeiro-group" target="_blank">
+                            <i class="fab fa-wandb" aria-hidden="true"></i>
+                        </a>-->
+                        <a class="btn navbar-btn btn-social-icon" href="https://github.com/rendeirolab" target="_blank">
+                            <i class="bi bi-github me-2" aria-hidden="true"></i>
+                        </a>
+                        <!-- <a class="btn navbar-btn btn-social-icon" href="https://huggingface.co/RendeiroLab" target="_blank">
+                            <i class="fab fa-huggingface" aria-hidden="true"></i>
+                        </a>-->
+                        <a class="btn navbar-btn btn-social-icon" href="javascript:window.location.href=atob('bWFpbHRvOmFyZW5kZWlyb0BjZW1tLmF0')">
+                            <i class="bi bi-envelope-fill me-2" aria-hidden="true"></i>
+                        </a>
+                    </div>
+
+                    <form class="d-flex" role="search" method="get" action="https://google.com/search">
+                        <input type="hidden" name="q" value="site:https://rendeiro.group/" />
+                        <input class="form-control me-2 bs-primary" type="search" name="q" aria-label="Search" />
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <i class="bi bi-highlights me-2 navbar-btn"></i>Theme </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+                                        <i class="bi bi-brightness-high-fill me-2 navbar-btn"></i>
+                                        Light
+                                    </button>
+                                </li>
+                                <li>
+                                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+                                        <i class="bi bi-brightness-alt-high me-2 navbar-btn"></i>
+                                        Dark
+                                    </button>
+                                </li>
+                                <li>
+                                    <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+                                        <i class="bi bi-gear-fill me-2 navbar-btn"></i>
+                                        Auto
+                                    </button>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <br />
+        <br />
+
+        <div class="container-lg">
+            <!-- Page header -->
+            <div class="row">
+                <div class="col-xs-12 col-md-12">
+                    <div class="page-header">
+                        <br />
+                        <h1><a href="/">Rendeiro group</a></h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main content -->
+            <div class="row" id="content">
+                
+              <h1 class="page-title">Lab manual</h1>
+              <br>
+              <hr>
+              <br>
+              <ul class="nav nav-tabs">
+                
+                <li class="nav-item active">
+                  
+                  <a class="nav-link" href="/lab-manual/">Lab manual</a>
+                  
+                  </li>
+                
+                <li class="nav-item active">
+                  
+                  <a class="nav-link" href="/lab-manual/getting_started/">Getting started</a>
+                  
+                  </li>
+                
+                <li class="nav-item active">
+                  
+                  <a class="nav-link" href="/lab-manual/mission_statement/">Mission and philosophy</a>
+                  
+                  </li>
+                
+                <li class="nav-item active">
+                  
+                  <a class="nav-link" href="/lab-manual/code_of_conduct/">Code of conduct</a>
+                  
+                  </li>
+                
+                <li class="nav-item active">
+                  
+                  <a class="nav-link" href="/lab-manual/communication_and_meetings/">Lab communication</a>
+                  
+                  </li>
+                
+                <li class="nav-item active">
+                  
+                  <a class="nav-link" href="/lab-manual/infrastructure/">Lab infrastructure</a>
+                  
+                  </li>
+                
+                <li class="nav-item active">
+                  
+                  <a class="nav-link" href="/lab-manual/project_planning/">Project planning</a>
+                  
+                  </li>
+                
+                <li class="nav-item active">
+                  
+                  <a class="nav-link" href="/lab-manual/research/">Research</a>
+                  
+                  </li>
+                
+                <li class="nav-item active">
+                  
+                  <a class="nav-link" href="/lab-manual/record_keeping/">Record keeping guidelines</a>
+                  
+                  </li>
+                
+                <li class="nav-item active">
+                  
+                  <a class="nav-link active" aria-current="page" href="/lab-manual/learning/">Learning</a>
+                  
+                  </li>
+                
+                <li class="nav-item active">
+                  
+                  <a class="nav-link" href="/lab-manual/manuscript_writing/">Manuscript writing</a>
+                  
+                  </li>
+                
+                <li class="nav-item active">
+                  
+                  <a class="nav-link" href="/lab-manual/offboarding/">Offboarding</a>
+                  
+                  </li>
+                
+                <li class="nav-item active">
+                  
+                  <a class="nav-link" href="/lab-manual/CHANGELOG/">Version changes</a>
+                  
+                  </li>
+                
+              </ul>
+              <br>
+              <hr>
+              <br>
+              <div class="row">
+                  <div><h1>Learning</h1><h2>Asking questions</h2><p>
+It is important to have independent learning skills, for example finding information on your own.
+However, it is also important to engage others and ask questions when you are stuck.
+While not knowing something is okay, being unwilling to learn or asking questions without minimally trying to find the answer yourself is not acceptable.</p><p>
+When asking questions, be sure to:</p><ul><li><strong>Show you've tried</strong>: Before asking, try to find the answer yourself. This can be by searching the internet, reading the documentation, or trying different things. If you've tried and failed, then ask for help.</li><li><strong>Be clear and specific</strong>: The more specific you are, the more likely you are to get a specific answer. For example, if you are asking about a specific error message, include the error message in your question.</li><li><strong>Be polite and patient</strong>: People are more likely to help you if you are polite and patient. Remember that people are volunteering their time to help you.</li><li><strong>Be ready to give details</strong>: If someone asks you a question to understand your problem better, be ready to answer it with details and don't second guess the reason for the questions asked.</li><li><strong>Be ready to help</strong>: Be ready to help someone else in the future. No matter how much you (think you) know, there is always someone who knows less than you and who could benefit from your help.</li></ul><h2>Topics to learn</h2><p>
+As a member of the lab you are responsible to be aware, understand, and eventually master the following topics:</p><ul><li>Data Science / statistics:
+  - Mean / variance relationship
+  - Homo/heteroskedastic variables
+  - Common data transformations: log, normalize by total, centering and scaling
+  - Unsupervised analysis:
+    - Correlation analysis
+    - Dimensionality reduction: SVD, NMF, PCA, Isomap, Diffmap, UMAP
+  - Supervised analysis:
+    - Regression
+    - Classification
+    - Cross-validation
+    - Performance metrics
+  - Regularization
+  - Causality</li><li>Machine learning / deep learning:
+  - (see above basics regarding supervised learning)
+  - Components and steps to train a model:
+    - Model architecture
+    - Model parameters / weights
+    - Optimizer and learning rates
+    - Loss function
+  - Vision models
+  - Feature extraction
+  - Graph neural networks
+  - Self-supervised learning
+  - Federated learning (https://federated.withgoogle.com/)</li><li>Image analysis:
+  - Common data formats
+  - Storing and manipulating images in a computer
+  - Transformations (registration, normalization, augmentation techniques)
+  - Segmentation (computer vision- and deep learning-based)</li><li>Anatomy, histology, and physiology:
+  - Position and basic function of all major organs in the human body
+  - Basic histology</li><li>Aging:
+  - Theories of aging
+    - Reproductive fitness / repair trade-off
+    - Inter-species comparative insights (body size - longevity - metabolism)
+    - Damage accumulation
+  - Hallmarks of aging
+  - Altered pathways with age
+  - Relationship of age and disease incidence
+  - Classical experimental models and interventions</li></ul><p>
+Note that learning is a iterative and continuous process. You will need to revise and revise your knowledge in each topic over the time, each time getting a deeper understanding or a new perspective on it.</p><h2>Literature to know</h2><h3>Reviews</h3><ul><li>"Deep learning in histopathology: the path to the clinic", Jeroen van der Laak, Geert Litjens &amp; Francesco Ciompi, Nature Medicine (2021), https://doi.org/10.1038/s41591-021-01343-4</li><li>"The emerging landscape of spatial profiling technologies", Jeffrey R. Moffitt, Emma Lundberg &amp; Holger Heyn, Nature Reviews Genetics (2022), https://doi.org/10.1038/s41576-022-00515-3</li><li>"Graph representation learning in biomedicine and healthcare", Li, M.M., Huang, K. &amp; Zitnik, M. Nature Biomedicine (2022), https://doi.org/10.1038/s41551-022-00942-x</li></ul><h3>Data types</h3><ul><li>H&amp;E whole slide images (WSI):
+  - Coudray et al. Classification and mutation prediction from non–small cell lung cancer histopathology images using deep learning, Nat. Medicine (2018), https://doi.org/10.1038/s41591-018-0177-5
+  - Amgad et al. Structured crowdsourcing enables convolutional segmentation of histology images, Bioinformatics (2019), https://doi.org/10.1093/bioinformatics/btz083</li><li>IF (immunofluorescence)</li><li>IHC/ISH (immunohistochemistry)</li><li>Multiplex imaging methods:
+  - <strong>mIF:</strong> Gerdes, M. J. et al. Highly multiplexed single-cell analysis of formalin-fixed, paraffin-embedded cancer tissue. Proc. Natl. Acad. Sci. U. S. A. 110, 11982–11987 (2013). https://doi.org/10.1073/pnas.1300136110
+  - <strong>4i:</strong> Multiplexed protein maps link subcellular organization to cellular states Gut et al. Science (2018), https://doi.org/10.1126/science.aar7042
+  - <strong>IMC:</strong> Giesen, C. et al. Highly multiplexed imaging of tumor tissues with subcellular resolution by mass cytometry. Nat. Methods 11, 417–422 (2014), https://doi.org/10.1038/nmeth.2869
+  - <strong>MIBI:</strong> Angelo, M. et al. Multiplexed ion beam imaging of human breast tumors. Nat. Med. 20, 436–442 (2014), https://doi.org/10.1038/nm.3488
+  - <strong>CyCIF:</strong> Lin, J.-R., Fallahi-Sichani, M. &amp; Sorger, P. K. Highly multiplexed imaging of single cells using a high-throughput cyclic immunofluorescence method. Nat. Commun. 6, 8390 (2015), https://doi.org/10.1038/ncomms9390
+  - <strong>CODEX:</strong> Goltsev, Y. et al. Deep profiling of mouse splenic architecture with CODEX multiplexed imaging. Cell (2018) https://doi.org/10.1016/j.cell.2018.07.010</li><li>Single-molecule fluorescent in-situ hibridization (<strong>smFISH</strong>):
+  - Chen, K. H., Boettiger, A. N., Moffitt, J. R., Wang, S. &amp; Zhuang, X. RNA imaging. Spatially resolved, highly multiplexed RNA profiling in single cells. Science 348, aaa6090 (2015), https://doi.org/10.1126/science.aaa6090
+  - Eng, C.-H. L. et al. Transcriptome-scale super-resolved imaging in tissues by RNA seqFISH. Nature 568, 235–239 (2019), https://doi.org/10.1038/s41586-019-1049-y</li><li>Spatial transcriptomics (umbrella term):
+  - Stickels, R. R. et al. Highly sensitive spatial transcriptomics at near-cellular resolution with SlideseqV2. Nat. Biotechnol. (2020), https://10.1038/s41587-020-0739-1
+  - Merritt, C. R. et al. Multiplex digital spatial profiling of proteins and RNA in fixed tissue. Nat. Biotechnol. 38, 586–599 (5/2020), https://doi.org/10.1038/s41587-020-0472-9
+  - Salmén, F. et al. Barcoded solid-phase RNA capture for Spatial Transcriptomics profiling in mammalian tissue sections. Nat. Protoc. 13, 2501–2534 (2018), https://doi.org/10.1038/s41596-018-0045-2</li></ul><h3>Digital pathology</h3><ul><li>Towards a general-purpose foundation model for computational pathology (2024), https://www.nature.com/articles/s41591-024-02857-3</li><li>A whole-slide foundation model for digital pathology from real-world data (2024), https://www.nature.com/articles/s41586-024-07441-w</li><li>A Multimodal Generative AI Copilot for Human Pathology (2024), https://www.nature.com/articles/s41586-024-07618-3</li><li>A visual-language foundation model for computational pathology (2024), https://www.nature.com/articles/s41591-024-02856-4</li><li>A visual–language foundation model for pathology image analysis using medical Twitter (2024), https://www.nature.com/articles/s41591-023-02504-3</li><li>Chen et al. Pan-cancer integrative histology-genomic analysis via multimodal deep learning Cancer Cell (2022), https://10.1016/j.ccell.2022.07.004</li><li>Chen et al. Scaling Vision Transformers to Gigapixel Images via Hierarchical Self-Supervised Learning (2022), https://arxiv.org/abs/2206.02647</li><li>Lu et al. CLAM: Data-efficient and weakly supervised computational pathology on whole-slide images (2021), https://doi.org/10.1038/s41551-020-00682-w</li><li>Pati et al. HACT-Net: A Hierarchical Cell-to-Tissue Graph Neural Network for Histopathological Image Classification (2020), https://arxiv.org/abs/2007.00584</li></ul><h3>Specific literature</h3><h4>Genetics of tissue and organ shape</h4><ul><li>Genetic and functional insights into the fractal structure of the heart (2020), https:doi.org/10.1038/s41586-020-2635-8</li><li>Self-supervised learning for characterising histomorphological diversity and spatial RNA expression prediction across 23 human tissue types (2023), https://doi.org/10.1101/2023.08.22.554251</li><li>The sex of organ geometry (2024), https://www.nature.com/articles/s41586-024-07463-4</li></ul><h3>Target discovery, prioritization and drugs</h3><ul><li>"A guide to drug discovery", collection at Nature Reviews Drug Discovery: https://www.nature.com/collections/hkgvrspwtn
+  - "Target selection in drug discovery", https://www.nature.com/articles/nrd986
+  - "Multi-parameter phenotypic profiling: using cellular effects to characterize small-molecule compounds", https://www.nature.com/articles/nrd2876</li><li>"Applications of single-cell RNA sequencing in drug discovery and development", https://www.nature.com/articles/s41573-023-00688-4</li><li>"Computational approaches in target identification and drug discovery", https://www.sciencedirect.com/science/article/pii/S2001037016300058</li><li>"Moving targets in drug discovery", https://www.nature.com/articles/s41598-020-77033-x</li><li>"Drug target prediction through deep learning functional representation of gene signatures", https://www.nature.com/articles/s41467-024-46089-y</li><li>Integrative multi-omics and drug response profiling of childhood acute lymphoblastic leukemia cell lines, https://www.nature.com/articles/s41467-022-29224-5 \&lt;- prototypical study of "let's throw all the omics at cell lines and pray"</li><li>Two-step multi-omics modelling of drug sensitivity in cancer cell lines to identify driving mechanisms, https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0238961 \&lt;- prototypical study of "let's take a bunch of data, train classifiers and find anecdotal evidence"</li><li>"Network medicine for disease module identification and drug repurposing with the NeDRex platform", https://www.nature.com/articles/s41467-021-27138-2 \&lt;- prototypical study of "network of disease module will eventually find something"</li><li>"Genome-wide investigation of gene-cancer associations for the prediction of novel therapeutic targets in oncology", https://www.nature.com/articles/s41598-020-67846-1 \&lt;- prototypical study of "let's put all the data together and pray"</li><li>"Multi-omics reveals clinically relevant proliferative drive associated with mTOR-MYC-OXPHOS activity in chronic lymphocytic leukemia", https://www.nature.com/articles/s43018-021-00216-6 \&lt;- example of great study on primary human samples (leukemia) combining omics with functional readouts (drug sensitivity). Even if it is a great study, it may miss the mark by focusing on a disease for which there are already very good treatment options</li><li>"Systems immunology-based drug repurposing framework to target inflammation in atherosclerosis", https://www.nature.com/articles/s44161-023-00278-y \&lt;- nice example of a study wtih great readouts focused on atherosclerosis that goes straight to drug discovery</li></ul><h2>Courses</h2><h3>Programming, Computer Science</h3><ul><li>UNIX, git, security (MIT) (https://www.youtube.com/playlist?list=PLyzOVJj3bHQuloKGG59rS43e29ro7I57J)</li><li>Introduction to Computer Science and Programming Using Python https://www.edx.org/course/introduction-to-computer-science-and-programming-7</li><li>Hypermodern Python (CLAUDIO JOLOWICZ) (https://cjolowicz.github.io/posts/hypermodern-python-01-setup/)</li></ul><h3>Machine Learning / Deep Learning</h3><ul><li>Deep learning for image analysis, https://www.embl.org/about/info/course-and-conference-office/events/mac23-01/</li><li>Practical deep learning for coders (Fast.ai), https://course.fast.ai/, https://www.youtube.com/watch?v=\_QUEXsHfsA0&amp;list=PLfYUBJiXbdtRL3FMB3GoWHRI8ieU6FhfM</li><li>Deep learning in life sciences (MIT), https://www.youtube.com/playlist?list=PLypiXJdtIca5sxV7aE3-PS9fYX3vUdIOX</li><li>Introduction to Deep Learning - 170 Video Lectures from Adaptive Linear Neurons to Zero-shot Classification with Transformers (Sebastian Raschka), https://sebastianraschka.com/blog/2021/dl-course.html</li><li>Introduction to Coding Neural Networks with PyTorch and Lightning: https://www.youtube.com/watch?app=desktop&amp;v=khMzi6xPbuM&amp;feature=youtu.be&amp;s=09</li><li>Deep learning course (François Fleuret, University of Geneva) (https://fleuret.org/dlc/?s=09)</li><li>The Ancient Secrets of Computer Vision (Univ. Washington) (https://pjreddie.com/courses/computer-vision/, https://www.youtube.com/playlist?list=PLjMXczUzEYcHvw5YYSU92WrY8IwhTuq7p)</li></ul><h3>Statistics</h3><ul><li>Statistical Rethinking (2022 Edition), https://github.com/rmcelreath/stat<em>rethinking</em>2022, https://github.com/pymc-devs/pymc-resources/tree/main/Rethinking_2</li></ul><h3>Bioinformatics</h3><ul><li>Bioinformatics training materials (Swiss Bioinformatics Institute), https://github.com/sib-swiss/training-collection</li></ul><h3>Genomics</h3><ul><li>Applied Computational Genomics (University of Utah), https://www.youtube.com/playlist?list=PLCbXw1opqIQeNfF26-wWegdGoCC1aut0P</li></ul><h3>Medicine / Anatomy / Histology</h3><ul><li>Anatomy and histology:
+  - https://www.kenhub.com/
+  - https://medicine.nus.edu.sg/pathweb/normal-histology/
+  - https://digitalhistology.org/
+  - https://histologyguide.com/</li><li>Medicine (Lecturio), https://www.youtube.com/c/Lecturio-Medical-Education-Videos</li><li>Anatomy (Lecturio), https://www.youtube.com/playlist?list=PLVnjTkEwv-uNRNX3D_FAt3ZGvWFvJgKmG</li><li>Pathology:
+  - https://pathologia.ed.ac.uk/ (University of Edinburgh MBChB)
+  - https://virtualpathology.leeds.ac.uk/slides/library (University of Leeds)
+  - https://www.webpathology.com
+  - https://www.pathelective.com</li></ul><h3>Aging</h3><ul><li>The ageing genome: from mechanisms to disease, https://www.embl.org/about/info/course-and-conference-office/events/ees23-04/</li></ul><h3>Other courses (paid):</h3><ul><li>https://carpentries.org/workshops/</li><li>https://www.biocode.ltd/courses</li></ul><h2>Books</h2><ul><li>"Deep Medicine", Eric Topol</li></ul><h2>Tutorials</h2><ul><li>Gradient descent and backpropagation: https://www.youtube.com/watch?v=VMj-3S1tku0</li><li>Transformers from scratch: https://e2eml.school/transformers.html</li><li>Data visualization / figure making with Python: https://github.com/frankligy/python<em>visualization</em>tutorial</li><li>Histology @ Yale: http://medcell.org/histology/histology.php</li><li>Systems Cell Biology @ Yale: http://medcell.med.yale.edu/systems<em>cell</em>biology/systems<em>cell</em>biology.php</li><li>Immunology: https://www.youtube.com/watch?v=iwB8kKdNgdQ</li><li>Software development: many paths to learning: https://www.youtube.com/watch?v=66tfvFeALBQ</li></ul><h2>Software packages</h2><p>
+These are some of the software packages we use often in the lab. You can more easily be aware of the direction of their development and new versions by subscribing to their releases on Github (bell sign -&gt; custom -&gt; releases).</p><h3>Data science</h3><ul><li>Numpy (https://numpy.org/)</li><li>Pandas (https://pandas.pydata.org/)</li><li>Scipy (https://scipy.org/)</li><li>Scanpy (https://scanpy.readthedocs.io/en/stable/)</li><li>Squidpy (https://squidpy.readthedocs.io/en/stable/)</li><li>Networkx (https://networkx.org/)</li><li>Scikit-networks (https://scikit-network.readthedocs.io/)</li></ul><h3>Statistics / machine learning</h3><ul><li>pingouin (https://pingouin-stats.org/)</li><li>statsmodels (https://www.statsmodels.org/stable/index.html)</li><li>sklearn (https://scikit-learn.org/stable/)</li><li>imbalanced-learn (https://imbalanced-learn.org/)</li><li>pymer4 (https://eshinjolly.com/pymer4/)</li><li>PyMC (https://www.pymc.io/welcome.html, https://www.pymc.io/projects/docs/en/stable/learn.html)</li></ul><h3>Tensor-specific</h3><ul><li>einops (https://github.com/arogozhnikov/einops)</li><li>tensorly (https://tensorly.org/)</li></ul><h3>Deep learning</h3><ul><li>weightsandbiases (https://wandb.ai/site) \&lt;- join the lab's team at https://wandb.ai/rendeiro-group</li><li>pytorch (https://pytorch.org/)</li><li>pytorch-lightning (https://www.pytorchlightning.ai/)</li><li>pytorch-geometric (https://pytorch-geometric.readthedocs.io/en/latest/)</li><li>captum (https://captum.ai/)</li><li>fastai (https://docs.fast.ai/)</li><li>timm, pytorch-image-models (https://github.com/rwightman/pytorch-image-models)</li><li>TabPFN (https://github.com/automl/TabPFN)</li><li>fiftyone (https://voxel51.com/docs/fiftyone/)</li><li>transformers (https://github.com/huggingface/transformers)</li></ul><h3>Visualization</h3><ul><li>matplotlib (https://matplotlib.org/)</li><li>seaborn (https://seaborn.pydata.org/)</li><li>scikit-yb (https://www.scikit-yb.org/en/latest)</li><li>inkscape (https://inkscape.org/):
+  - https://www.inkscapeforstem.com/Inkscape-For-STEM-ee6dacb7a2e543218f87a29f69177fee
+  - https://bioicons.com/</li><li>napari (https://napari.org/)</li><li>bokeh (https://docs.bokeh.org/en/latest/)</li><li>plotly (https://plotly.com/)</li><li>D3.js (https://d3js.org/)</li></ul><h3>Data-specific</h3><h4>Imaging:</h4><ul><li>skimage (https://scikit-image.org/)</li><li>Deformetrica (https://gitlab.com/icm-institute/aramislab/deformetrica, http://www.deformetrica.org/)</li></ul><h4>Survival data:</h4><ul><li>Lifelines (https://lifelines.readthedocs.io/en/latest/)</li><li>Auton-survival (https://github.com/autonlab/auton-survival)</li></ul><h4>Computational Pathology:</h4><ul><li>QuPath (https://qupath.github.io/)</li><li>Cytomine (https://doc.cytomine.org/, https://cytomine.com/)</li><li>PathML (https://github.com/Dana-Farber-AIOS/pathml)</li><li>HistomicsTK (https://digitalslidearchive.github.io/HistomicsTK)</li><li>CLAM (https://github.com/mahmoodlab/CLAM)</li><li>ASAP (https://github.com/GeertLitjens/ASAP)</li></ul><h3>Web</h3><ul><li>Flask (https://flask.palletsprojects.com/en/2.1.x/)</li><li>fastapi (https://fastapi.tiangolo.com/)</li><li>nativefier (https://github.com/nativefier/nativefier)</li></ul><h3>Productivity and logistics</h3><ul><li>Note taking:
+  - obsidian (https://obsidian.md/, https://github.com/obsidianmd)</li><li>Integrated development environment (IDE):
+  - sublimetext (https://www.sublimetext.com/)
+  - vscode (https://code.visualstudio.com/)</li><li>Figure editing:
+  - inkscape (https://inkscape.org/)</li><li>Software management:
+  - pip (https://pip.pypa.io/en/stable/)
+  - poetry (https://python-poetry.org/)
+  - uv (https://github.com/astral-sh/uv)
+  - conda (https://docs.conda.io/en/latest/)
+  - docker (https://www.docker.com/)</li><li>Code improvement:
+  - ruff (https://github.com/astral-sh/ruff)
+  - mypy (https://mypy-lang.org/)
+  - pre-commit (https://pre-commit.com/)
+  - sublimemerge (https://www.sublimemerge.com/)</li><li>Documentation:
+  - sphinx (https://www.sphinx-doc.org/en/master/)
+  - pandoc (https://pandoc.org/)</li><li>Interactive and environment management:
+  - IPython (https://ipython.org/)
+  - virtualenv (https://virtualenv.pypa.io/en/latest/)
+  - jupyter-notebook (https://jupyter.org/)</li></ul><h3>Data repositories</h3><ul><li>Generic:
+  - Zenodo (https://zenodo.org/)
+  - GigaDB (http://gigadb.org/)
+  - Synapse (https://www.synapse.org/)</li><li>Transcriptomics:
+  - GEO
+  - ArrayExpress</li><li>Sensitive data:
+  - EGA
+  - dbGAP</li></ul></div>
+              </div>
+
+                <br />
+            </div>
+            <br />
+        </div>
+        <br />
+
+        <!-- Footer -->
+        <nav class="navbar fixed-bottom bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/"></a>
+                <!-- Important to keep credits right align -->
+                <p style="font-size: 0.85rem;">
+                    <small>
+                        <a href="https://github.com/rendeirolab/rendeirolab.github.io" target="_blank">Open source</a>, built with <a href="https://jinja.palletsprojects.com/en/stable/" target="_blank">Jinja</a>,
+                        <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> and hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+                    </small>
+                </p>
+            </div>
+        </nav>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            /*!
+             * Color mode toggler for Bootstrap's docs (https://getbootstrap.com/)
+             * Copyright 2011-2024 The Bootstrap Authors
+             * Licensed under the Creative Commons Attribution 3.0 Unported License.
+             */
+
+            (() => {
+                "use strict";
+
+                const getStoredTheme = () => localStorage.getItem("theme");
+                const setStoredTheme = (theme) => localStorage.setItem("theme", theme);
+
+                const getPreferredTheme = () => {
+                    const storedTheme = getStoredTheme();
+                    if (storedTheme) {
+                        return storedTheme;
+                    }
+
+                    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+                };
+
+                const setTheme = (theme) => {
+                    if (theme === "auto") {
+                        document.documentElement.setAttribute("data-bs-theme", window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+                    } else {
+                        document.documentElement.setAttribute("data-bs-theme", theme);
+                    }
+                };
+
+                setTheme(getPreferredTheme());
+
+                const showActiveTheme = (theme, focus = false) => {
+                    const themeSwitcher = document.querySelector("#bd-theme");
+
+                    if (!themeSwitcher) {
+                        return;
+                    }
+
+                    const themeSwitcherText = document.querySelector("#bd-theme-text");
+                    const activeThemeIcon = document.querySelector(".theme-icon-active use");
+                    const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`);
+                    const svgOfActiveBtn = btnToActive.querySelector("svg use").getAttribute("href");
+
+                    document.querySelectorAll("[data-bs-theme-value]").forEach((element) => {
+                        element.classList.remove("active");
+                        element.setAttribute("aria-pressed", "false");
+                    });
+
+                    btnToActive.classList.add("active");
+                    btnToActive.setAttribute("aria-pressed", "true");
+                    activeThemeIcon.setAttribute("href", svgOfActiveBtn);
+                    const themeSwitcherLabel = `${themeSwitcherText.textContent} (${btnToActive.dataset.bsThemeValue})`;
+                    themeSwitcher.setAttribute("aria-label", themeSwitcherLabel);
+
+                    if (focus) {
+                        themeSwitcher.focus();
+                    }
+                };
+
+                window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+                    const storedTheme = getStoredTheme();
+                    if (storedTheme !== "light" && storedTheme !== "dark") {
+                        setTheme(getPreferredTheme());
+                    }
+                });
+
+                window.addEventListener("DOMContentLoaded", () => {
+                    showActiveTheme(getPreferredTheme());
+
+                    document.querySelectorAll("[data-bs-theme-value]").forEach((toggle) => {
+                        toggle.addEventListener("click", () => {
+                            const theme = toggle.getAttribute("data-bs-theme-value");
+                            setStoredTheme(theme);
+                            setTheme(theme);
+                            showActiveTheme(theme, true);
+                        });
+                    });
+                });
+            })();
+        </script>
+
+        <!-- Prism JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-core.min.js" integrity="sha512-x0aNx8s5fNTSk7iaTiSuUtz6vbT7gtGjk+Dotp17u4TmUEbJUwNMUFKxMBlnMQ1+N8E5exPHvRcF1yoxJ8b/iA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-python.min.js" integrity="sha512-3qtI9+9JXi658yli19POddU1RouYtkTEhTHo6X5ilOvMiDfNvo6GIS6k2Ukrsx8MyaKSXeVrnIWeyH8G5EOyIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/components/prism-bash.min.js" integrity="sha512-CILPDr/8BlkkElCeI+f2yMu0fzgwWqpQ0Cdr0busFfySJJ4SoCRivbT6+Z+SWPkjWwBil9NO0tHd6NSfpwiQaA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </body>
+</html>

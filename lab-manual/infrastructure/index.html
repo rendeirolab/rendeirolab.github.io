@@ -49,7 +49,7 @@
         />
 
         <!-- SEO -->
-        <link rel="canonical" href="/manual/" />
+        <link rel="canonical" href="/lab-manual/infrastructure/" />
 
         <!-- Other head content like title, meta tags, etc. -->
         <style>
@@ -122,30 +122,39 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="/team/">Team</a>
                         </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="/research/">Research</a>
                         </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="/news/">News</a>
                         </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="/publications/">Publications</a>
                         </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="/software/">Software</a>
                         </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="/press/">Press</a>
                         </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="/lab-manual/">Manual</a>
                         </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="/contact/">Contact</a>
                         </li>
+                        
                     </ul>
 
                     <div class="navbar-header navbar-right">
@@ -231,99 +240,79 @@
               <ul class="nav nav-tabs">
                 
                 <li class="nav-item active">
-                  
-                  <a class="nav-link active" aria-current="page" href="/manual/">Lab manual</a>
-                  
-                  </li>
+                  <a class="nav-link" href="/lab-manual/">Lab manual</a>
+                </li>
                 
                 <li class="nav-item active">
-                  
-                  <a class="nav-link" href="/manual/getting_started/">Getting started</a>
-                  
-                  </li>
+                  <a class="nav-link" href="/lab-manual/getting_started/">Getting started</a>
+                </li>
                 
                 <li class="nav-item active">
-                  
-                  <a class="nav-link" href="/manual/mission_statement/">Mission and philosophy</a>
-                  
-                  </li>
+                  <a class="nav-link" href="/lab-manual/mission_statement/">Mission and philosophy</a>
+                </li>
                 
                 <li class="nav-item active">
-                  
-                  <a class="nav-link" href="/manual/code_of_conduct/">Code of conduct</a>
-                  
-                  </li>
+                  <a class="nav-link" href="/lab-manual/code_of_conduct/">Code of conduct</a>
+                </li>
                 
                 <li class="nav-item active">
-                  
-                  <a class="nav-link" href="/manual/communication_and_meetings/">Lab communication</a>
-                  
-                  </li>
+                  <a class="nav-link" href="/lab-manual/communication_and_meetings/">Lab communication</a>
+                </li>
                 
                 <li class="nav-item active">
+                  <a class="nav-link active" aria-current="page" href="/lab-manual/infrastructure/">Lab infrastructure</a>
                   
-                  <a class="nav-link" href="/manual/infrastructure/">Lab infrastructure</a>
-                  
-                  </li>
+                </li>
                 
                 <li class="nav-item active">
-                  
-                  <a class="nav-link" href="/manual/project_planning/">Project planning</a>
-                  
-                  </li>
+                  <a class="nav-link" href="/lab-manual/project_planning/">Project planning</a>
+                </li>
                 
                 <li class="nav-item active">
-                  
-                  <a class="nav-link" href="/manual/research/">Research</a>
-                  
-                  </li>
+                  <a class="nav-link" href="/lab-manual/research/">Research</a>
+                </li>
                 
                 <li class="nav-item active">
-                  
-                  <a class="nav-link" href="/manual/record_keeping/">Record keeping guidelines</a>
-                  
-                  </li>
+                  <a class="nav-link" href="/lab-manual/record_keeping/">Record keeping guidelines</a>
+                </li>
                 
                 <li class="nav-item active">
-                  
-                  <a class="nav-link" href="/manual/learning/">Learning</a>
-                  
-                  </li>
+                  <a class="nav-link" href="/lab-manual/learning/">Learning</a>
+                </li>
                 
                 <li class="nav-item active">
-                  
-                  <a class="nav-link" href="/manual/manuscript_writing/">Manuscript writing</a>
-                  
-                  </li>
+                  <a class="nav-link" href="/lab-manual/manuscript_writing/">Manuscript writing</a>
+                </li>
                 
                 <li class="nav-item active">
-                  
-                  <a class="nav-link" href="/manual/offboarding/">Offboarding</a>
-                  
-                  </li>
+                  <a class="nav-link" href="/lab-manual/offboarding/">Offboarding</a>
+                </li>
                 
                 <li class="nav-item active">
-                  
-                  <a class="nav-link" href="/manual/changelog/">Version changes</a>
-                  
-                  </li>
+                  <a class="nav-link" href="/lab-manual/changelog/">Version changes</a>
+                </li>
                 
               </ul>
               <br>
               <hr>
               <br>
               <div class="row">
-                  <div><p>
-<div style="page-break-after: always;"></div></p><p>
-Welcome to the Rendeiro Lab Manual. This manual provides comprehensive information about the lab's culture, procedures, and workflows to ensure a collaborative and efficient research environment.</p><p>
-The manual is hosted in the <a href="https://github.com/rendeirolab/lab-manual/tree/main/manual"><code>lab-manual</code></a> repository on GitHub. It is written in <a href="https://daringfireball.net/projects/markdown/">Markdown</a> and can be converted to HTML and PDF using <a href="https://pandoc.org/">Pandoc</a>.</p><p>
-This manual is open source and maintained collaboratively. Anyone on GitHub can propose changes.</p><h2>Building the manual</h2><p>
-The project includes a <a href="https://github.com/rendeirolab/lab-manual/blob/main/Makefile">Makefile</a> to streamline the development process.</p><p>
-Key targets include:</p><ul><li><strong><code>format</code></strong>: Formats Markdown files consistently using <code>mdformat</code>.</li><li><strong><code>build</code></strong>: Converts the manual into a single HTML file using <code>pandoc</code> and generates a PDF file using <code>wkhtmltopdf</code>.</li><li><strong><code>clean</code></strong>: Removes generated files to ensure a fresh build.</li></ul><p>
-Styling for the manual is controlled by a custom <a href="assets/style.css">CSS file</a>, which ensures a nice appearance in both HTML and PDF formats.</p><h2>Editing content</h2><p>
-To contribute:</p><ol><li>Edit or create files directly on GitHub or locally on your system.</li><li>Submit a pull request with a clear, one-line description of the changes made.</li><li>Follow best practices by adding reviewers and referencing related issues, if applicable.</li></ol><p>
-For adding a table of contents to any document, use <a href="https://github.com/hukkin/mdformat-toc">mdformat-toc</a>. Insert `<code> where the table of contents should appear, and run </code>mdformat <file.md><code> on the edited file, or </code>make format` to format all.</file.md></p><h2>Acknowledgements</h2><p>
-We thank the following labs for sharing their open-source lab manuals, which inspired this project:</p><ul><li><a href="https://github.com/alylab/labmanual">Aly Lab Manual</a></li><li><a href="https://github.com/getzlab/getzlab.github.io">Getz Lab Manual</a></li></ul><h2>TODO</h2><div><input disabled="true" type="checkbox"/><label>Improve and include <a href="source/public_data.md">public data page</a></label></div><div><input disabled="true" type="checkbox"/><label>Add additional resources on project planning</label></div><div><input disabled="true" type="checkbox"/><label>Add section on 'Developing a project'</label></div><div><input disabled="true" type="checkbox"/><label>Add section on 'Publications'</label></div><div><input disabled="true" type="checkbox"/><label>Add section on 'Authorship'</label></div><div><input disabled="true" type="checkbox"/><label>Add section on 'Engaging in new projects'</label></div></div>
+                  <div><h1>Lab infrastructure</h1><p>
+This document describes the infrastructure used in the lab, including CeMM-provided or our own infrastructure.
+So far it details only computational infrastructure.</p><h2>Lab infrastructure</h2><h3>Hardware</h3><ul><li>Hilde workstation: <a href="https://github.com/rendeirolab/labdocs/blob/main/hilde&lt;/em&gt;workstation.md">setting up and maintaining the hilde workstation: hilde<em>workstation.md</em></a></li></ul><h3>VMs</h3><ul><li>Cytomine: <a href="https://github.com/rendeirolab/labdocs/blob/main/cytomine.md">setting up and maintaining the cytomine VM: cytomine.md</a></li></ul><h3>Cloud resources</h3><p>
+<a href="https://github.com/rendeirolab/labdocs/blob/main/azure.md">Read the documentation on using Azure web services here: azure.md</a></p><h2>CeMM infrastructure</h2><p>
+Refer to the <a href="https://cemmat.sharepoint.com/sites/Intranet">CeMM Intranet documentation</a> for updated information.
+Below are a few notes on things which are not covered there:</p><h3>Printing from Linux</h3><p>
+CeMM has Canon iR-ADV C5735/5740 printers. They support IPP printing through CUPS.</p><p>
+Install CUPS:</p><pre><code class="language-bash">sudo apt-get install cups
+</code></pre><p>
+Add printers:</p><pre><code class="language-bash">sudo lpadmin -p CeMM_level_2 -E -v ipp://193.171.185.37/ipp -m everywhere
+sudo lpadmin -p CeMM_level_3 -E -v ipp://193.171.185.212/ipp -m everywhere
+sudo lpadmin -p CeMM_level_4 -E -v ipp://193.171.185.39/ipp -m everywhere
+sudo lpadmin -p CeMM_level_5 -E -v ipp://193.171.185.40/ipp -m everywhere
+sudo lpadmin -p CeMM_level_6 -E -v ipp://193.171.185.38/ipp -m everywhere
+sudo lpadmin -p CeMM_level_7 -E -v ipp://193.171.185.41/ipp -m everywhere
+</code></pre></div>
               </div>
 
                 <br />

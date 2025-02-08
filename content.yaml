@@ -317,13 +317,20 @@ press:
   content: "Press covereage of our our lab's work:"
   outro: ""
   press:
-    2025-03-01:
-      title: "We're featured in 'Epsiloon'"
-      description: |
-        <p><a href="https://www.epsiloon.com/"><strong>"Title"</strong> - Epsiloon</a></p>
-        <p>Coverage of our work on tissue-based prediction of biological age with 'tissue-clocks'</p>
-      img: https://www.epsiloon.com/
-      img_alt: null
+    # 2025-03-01:
+    #   title: "We're featured as a snippet by 'Life Science Editors'"
+    #   description: |
+    #     <p><a href="https://www.lifescienceeditors.com/2025/02/07/bat-genomes-illuminate-adaptations-to-viral-tolerance-and-disease-resistance/"><strong>"Title"</strong> - Epsiloon</a></p>
+    #     <p>Coverage of our work on tissue-based prediction of biological age with 'tissue-clocks'</p>
+    #   img: https://www.lifescienceeditors.com/2025/02/07/bat-genomes-illuminate-adaptations-to-viral-tolerance-and-disease-resistance/
+    #   img_alt: null
+    # 2025-03-01:
+    #   title: "We're featured in 'Epsiloon'"
+    #   description: |
+    #     <p><a href="https://www.epsiloon.com/"><strong>"Title"</strong> - Epsiloon</a></p>
+    #     <p>Coverage of our work on tissue-based prediction of biological age with 'tissue-clocks'</p>
+    #   img: https://www.epsiloon.com/
+    #   img_alt: null
     2024-12-27:
       title: "We're featured in 'Focus.it'"
       description: |
@@ -337,14 +344,14 @@ press:
         <p><a href="https://www.newscientist.com/article/2458249-most-comprehensive-picture-yet-of-how-organs-age-at-different-rates/"><strong>"Most comprehensive picture yet of how organs age at different rates"</strong> - New Scientist</a></p>
         <p>Coverage of our work on tissue-based prediction of biological age with 'tissue-clocks'</p>
       img: https://images.newscientist.com/wp-content/uploads/2024/11/29142724/SEI_231329747.jpg?width=837
-      img_alt: "Giulio Superti-Furga (Scientific Director, CeMM), André Rendeiro (Principal Investigator, CeMM), Elia Stupka (Managing Director, Angelini Ventures), Paolo Di Giorgio (CEO, Angelini Ventures), Laura de Rooij (Principal Investigator, CeMM)."
+      img_alt: "An illustration of the organs inside the human body with some organs highlighted in red color indicated accelerated aging."
     2023-03-23:
       title: "Press release of our collaboration with Angelini Ventures"
       description: |
         <p><a href="https://www.eurekalert.org/news-releases/983740"><strong>"The CeMM & Angelini Ventures Healthy Lifespan Expansion Initiative"</strong> - EurekAlert!</a></p>
         <p>Press release of our collaboration with Angelini Ventures.</p>
-      img: https://earimediaprodweb.azurewebsites.net/Api/v1/Multimedia/af80a713-db26-483b-a4a7-09ed0f395f37/Rendition/low-res/Content/Public
-      img_alt: "An illustration of the organs inside the human body with some organs highlighted in red color indicated accelerated aging."
+      img: https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2023-03-23-Angelini.png
+      img_alt: "Giulio Superti-Furga (Scientific Director, CeMM), André Rendeiro (Principal Investigator, CeMM), Elia Stupka (Managing Director, Angelini Ventures), Paolo Di Giorgio (CEO, Angelini Ventures), Laura de Rooij (Principal Investigator, CeMM)."
     2022-11-01:
       title: "We're featured on 'Genetic Engineering & Biotechnology News'"
       description: |

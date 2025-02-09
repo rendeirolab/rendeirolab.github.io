@@ -106,6 +106,7 @@ def build_lab_manual():
                 "highlightjs-lang",
                 "task_list",
                 "admonitions",
+                "tables",
             ]
         ).convert(req.content.decode())
         body = BeautifulSoup(html, "html.parser")

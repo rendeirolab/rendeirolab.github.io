@@ -1,6 +1,0 @@
-pyaml
-jinja2
-requests
-beautifulsoup4
-markdown2[all]
-pygments

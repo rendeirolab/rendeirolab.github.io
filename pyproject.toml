@@ -1,0 +1,39 @@
+[project]
+name = "rendeirolab-github-io"
+version = "0.1.0"
+description = "A simple, templated website for the Rendeiro Lab."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "beautifulsoup4>=4.13.3",
+    "jinja2>=3.1.5",
+    "markdown2[all]>=2.5.3",
+    "pyaml>=25.1.0",
+    "pygments>=2.19.1",
+    "requests>=2.32.3",
+    "taskipy>=1.14.1",
+]
+keywords = ["website", "jinja", "yaml", "bootstrap"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+urls = { Homepage = "https://rendeiro.group/" }
+authors = [
+    { name = "Andre Rendeiro", email = "arendeiro@cemm.oeaw.ac.at" },
+]
+
+[tool.taskipy.tasks]
+clean = { cmd = "rm -r docs || true", help = "Remove the 'docs' directory" }
+
+pre_build = "task clean"
+build = { cmd = "python build.py", help = "Run the build script" }
+
+pre_serve = "task build"
+serve = { cmd = "(xdg-open http://0.0.0.0:8000/ &) && python -m http.server -d docs/", help = "Open browser and serve 'docs' directory" }
+
+pre_deploy = "task clean"
+deploy = { cmd = "git add assets/**/* && git add -u && git commit -m 'update' && git push origin main", help = "Commit and push changes to the main branch" }
+
+check = { cmd = "gh run list -L 4", help = "List the last 4 GitHub actions" }

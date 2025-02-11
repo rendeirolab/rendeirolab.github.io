@@ -195,7 +195,9 @@ def make_sitemap():
 
     for page in build_dir.glob("**/*.html"):
         page_name = page.parent.name if page.parent != build_dir else page.stem
-        url = config["deploy_url"] + str(page.relative_to(build_dir))
+        url = config["deploy_url"] + str(page.relative_to(build_dir)).replace(
+            "index.html", ""
+        )
         url_element = ET.SubElement(sitemap, "url")
         ET.SubElement(url_element, "loc").text = url
         try:

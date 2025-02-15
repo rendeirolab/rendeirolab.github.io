@@ -325,38 +325,38 @@ press:
     #   img: https://www.epsiloon.com/
     #   img_alt: null
     2025-02-15:
-      title: "We're featured as a snippet by 'Life Science Editors'"
-      description: |
-        <p><a href="https://www.lifescienceeditors.com/2025/02/13/tissue-clocks-derived-from-histological-signatures-of-biological-aging-enable-tissue-specific-aging-predictions-from-blood/"><strong>"Tissue clocks"</strong> - Life Science Editors</a></p>
-        <p>Coverage of our work on tissue-based prediction of biological age with 'tissue-clocks'</p>
+      title: "'Tissue clocks' derived from histological signatures of biological aging enable tissue-specific aging predictions from blood"
+      publisher: "Life Science Editors"
+      url: https://www.lifescienceeditors.com/2025/02/13/tissue-clocks-derived-from-histological-signatures-of-biological-aging-enable-tissue-specific-aging-predictions-from-blood/
+      description: Coverage of our work on tissue-based prediction of biological age with 'tissue-clocks'
       img: https://www.lifescienceeditors.com/wp-content/uploads/2025/02/tissueclock-300x300.jpg
       img_alt: Artwork by Gloria Fuentes representing the 'tissue-clocks' project
     2024-12-27:
-      title: "We're featured in 'Focus.it'"
-      description: |
-        <p><a href="https://www.newscientist.com/article/2458249-most-comprehensive-picture-yet-of-how-organs-age-at-different-rates/"><strong>"Gli organi del corpo umano non invecchiano tutti alla stessa velocità"</strong> - Focus.it</a></p>
-        <p>Coverage of our work on tissue-based prediction of biological age with 'tissue-clocks'</p>
+      title: "Gli organi del corpo umano non invecchiano tutti alla stessa velocità"
+      publisher: "Focus.it"
+      url: https://www.focus.it/scienza/salute/gli-organi-del-corpo-umano-non-invecchiano-tutti-alla-stessa-velocita
+      description: Coverage of our work on tissue-based prediction of biological age with 'tissue-clocks'
       img: https://www.focus.it/images/2024/12/04/organi-del-corpo-umano_1020x680.jpg
       img_alt: "A photo of a child's hands playing with a toy anatomical model of the human body."
     2024-11-29:
-      title: "We're featured in the 'New Scientist'"
-      description: |
-        <p><a href="https://www.newscientist.com/article/2458249-most-comprehensive-picture-yet-of-how-organs-age-at-different-rates/"><strong>"Most comprehensive picture yet of how organs age at different rates"</strong> - New Scientist</a></p>
-        <p>Coverage of our work on tissue-based prediction of biological age with 'tissue-clocks'</p>
+      title: "Most comprehensive picture yet of how organs age at different rates"
+      publisher: "New Scientist"
+      url: https://www.newscientist.com/article/2458249-most-comprehensive-picture-yet-of-how-organs-age-at-different-rates/
+      description: Coverage of our work on tissue-based prediction of biological age with 'tissue-clocks'
       img: https://images.newscientist.com/wp-content/uploads/2024/11/29142724/SEI_231329747.jpg?width=837
       img_alt: "An illustration of the organs inside the human body with some organs highlighted in red color indicated accelerated aging."
     2023-03-23:
-      title: "Press release of our collaboration with Angelini Ventures"
-      description: |
-        <p><a href="https://www.eurekalert.org/news-releases/983740"><strong>"The CeMM & Angelini Ventures Healthy Lifespan Expansion Initiative"</strong> - EurekAlert!</a></p>
-        <p>Press release of our collaboration with Angelini Ventures.</p>
+      title: "The CeMM & Angelini Ventures Healthy Lifespan Expansion Initiative"
+      publisher: "EurekAlert"
+      url: https://www.eurekalert.org/news-releases/983740
+      description: Press release of our collaboration with Angelini Ventures.
       img: https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2023-03-23-Angelini.png
       img_alt: "Giulio Superti-Furga (Scientific Director, CeMM), André Rendeiro (Principal Investigator, CeMM), Elia Stupka (Managing Director, Angelini Ventures), Paolo Di Giorgio (CEO, Angelini Ventures), Laura de Rooij (Principal Investigator, CeMM)."
     2022-11-01:
-      title: "We're featured on 'Genetic Engineering & Biotechnology News'"
-      description: |
-        <p><a href="https://www.genengnews.com/news/computational-approach-gives-detailed-map-of-human-tissues/"><strong>"Computational Approach Gives Detailed Map of Human Tissues"</strong> - Genetic Engineering & Biotechnology News</a></p>
-        <p>Coverage of our work on a method for the detection and quantification of tissue microanatomical domains.</p>
+      title: "Computational Approach Gives Detailed Map of Human Tissues"
+      publisher: "Genetic Engineering & Biotechnology News"
+      url: https://www.genengnews.com/news/computational-approach-gives-detailed-map-of-human-tissues/
+      description: Coverage of our work on a method for the detection and quantification of tissue microanatomical domains.
       img: https://www.genengnews.com/wp-content/uploads/2022/10/Oct31_Elemento_Kim_Nmeth-copy.jpg
       img_alt: "A multiplexed image of human lung tissue."
 

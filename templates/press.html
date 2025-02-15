@@ -11,16 +11,18 @@
                     <p>{{ content }}</p>
                     {% for id, item in press.items()|sort(reverse=True) %}
                     <div class="col-12">
-                        <h5 tabindex="0"><strong>{{ id }}</strong> - {{ item.title }}</h5>
+                        <h5 tabindex="0"><strong>{{ id }}</strong> - <a href={{ item.url }}>We're featured in '{{ item.publisher }}'</a></h5>
                         <div class="row">
                             {% if item.img is not none %}
                             <div class="col-6 col-md-3">
-                                <img class="img-responsive rounded" src="{{ item.img }}"
-                                {% if item.description is not none %}
-                                alt="{{ item.img_alt }}"
-                                {% endif %}
-                                tabindex="0"
-                                style="width: 95%; height: auto; display: block">
+                                <a href="{{ item.url }}" target="_blank">
+                                    <img class="img-responsive rounded" src="{{ item.img }}"
+                                    {% if item.description is not none %}
+                                    alt="{{ item.img_alt }}"
+                                    {% endif %}
+                                    tabindex="0"
+                                    style="width: 95%; height: auto; display: block">
+                                </a>
                             </div>
                             {% endif %}
                             {% if item.description is not none %}
@@ -30,6 +32,7 @@
                             <div class="col-12">
                             {% endif %}
                                 <p class="mb-0">{{ item.description }}</p>
+                                <p class="mb-0"><a href="{{ item.url }}" target="_blank">Read more here</a>.</p>
                             </div>
                             {% endif %}
                         </div>

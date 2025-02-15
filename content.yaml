@@ -318,19 +318,19 @@ press:
   outro: ""
   press:
     # 2025-03-01:
-    #   title: "We're featured as a snippet by 'Life Science Editors'"
-    #   description: |
-    #     <p><a href="https://www.lifescienceeditors.com/2025/02/07/bat-genomes-illuminate-adaptations-to-viral-tolerance-and-disease-resistance/"><strong>"Title"</strong> - Epsiloon</a></p>
-    #     <p>Coverage of our work on tissue-based prediction of biological age with 'tissue-clocks'</p>
-    #   img: https://www.lifescienceeditors.com/2025/02/07/bat-genomes-illuminate-adaptations-to-viral-tolerance-and-disease-resistance/
-    #   img_alt: null
-    # 2025-03-01:
     #   title: "We're featured in 'Epsiloon'"
     #   description: |
     #     <p><a href="https://www.epsiloon.com/"><strong>"Title"</strong> - Epsiloon</a></p>
     #     <p>Coverage of our work on tissue-based prediction of biological age with 'tissue-clocks'</p>
     #   img: https://www.epsiloon.com/
     #   img_alt: null
+    2025-02-15:
+      title: "We're featured as a snippet by 'Life Science Editors'"
+      description: |
+        <p><a href="https://www.lifescienceeditors.com/2025/02/13/tissue-clocks-derived-from-histological-signatures-of-biological-aging-enable-tissue-specific-aging-predictions-from-blood/"><strong>"Tissue clocks"</strong> - Life Science Editors</a></p>
+        <p>Coverage of our work on tissue-based prediction of biological age with 'tissue-clocks'</p>
+      img: https://www.lifescienceeditors.com/wp-content/uploads/2025/02/tissueclock-300x300.jpg
+      img_alt: Artwork by Gloria Fuentes representing the 'tissue-clocks' project
     2024-12-27:
       title: "We're featured in 'Focus.it'"
       description: |

@@ -10,11 +10,11 @@
                     <p>{{ intro }}</p>
                     <p>{{ content }}</p>
                     {% for id, item in press.items()|sort(reverse=True) %}
-                    <div class="col-12">
+                    <div class="col-6">
                         <h5 tabindex="0"><strong>{{ id }}</strong> - <a href={{ item.url }}>We're featured in '{{ item.publisher }}'</a></h5>
                         <div class="row">
                             {% if item.img is not none %}
-                            <div class="col-6 col-md-3">
+                            <div class="col-6">
                                 <a href="{{ item.url }}" target="_blank">
                                     <img class="img-responsive rounded" src="{{ item.img }}"
                                     {% if item.description is not none %}
@@ -27,7 +27,7 @@
                             {% endif %}
                             {% if item.description is not none %}
                             {% if item.img is not none %}
-                            <div class="col-6 col-md-9">
+                            <div class="col-6">
                             {% else %}
                             <div class="col-12">
                             {% endif %}

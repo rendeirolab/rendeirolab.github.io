@@ -317,13 +317,13 @@ press:
   content: "Press covereage of our our lab's work:"
   outro: ""
   press:
-    # 2025-03-01:
-    #   title: "We're featured in 'Epsiloon'"
-    #   description: |
-    #     <p><a href="https://www.epsiloon.com/"><strong>"Title"</strong> - Epsiloon</a></p>
-    #     <p>Coverage of our work on tissue-based prediction of biological age with 'tissue-clocks'</p>
-    #   img: https://www.epsiloon.com/
-    #   img_alt: null
+    2025-02-24:
+      title: "Chaque organe vieillit à son rhythme"
+      publisher: "Epsiloon"
+      url: https://www.epsiloon.com/
+      description: Coverage of our work on tissue-based prediction of biological age with 'tissue-clocks'
+      img: https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main/assets/img/2025-02-24-epsiloon.jpg
+      img_alt: A scientific illustration of how different organs age at different rates
     2025-02-15:
       title: "'Tissue clocks' derived from histological signatures of biological aging enable tissue-specific aging predictions from blood"
       publisher: "Life Science Editors"
@@ -350,7 +350,7 @@ press:
       publisher: "EurekAlert"
       url: https://www.eurekalert.org/news-releases/983740
       description: Press release of our collaboration with Angelini Ventures.
-      img: https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/2023-03-23-Angelini.png
+      img: https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main/assets/img/2023-03-23-Angelini.png
       img_alt: "Giulio Superti-Furga (Scientific Director, CeMM), André Rendeiro (Principal Investigator, CeMM), Elia Stupka (Managing Director, Angelini Ventures), Paolo Di Giorgio (CEO, Angelini Ventures), Laura de Rooij (Principal Investigator, CeMM)."
     2022-11-01:
       title: "Computational Approach Gives Detailed Map of Human Tissues"

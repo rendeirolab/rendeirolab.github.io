@@ -24,6 +24,15 @@ news:
   content: "Some news from our lab:"
   outro: ""
   news:
+    2025-03-12:
+      title: "LazySlide and WSIData are now part of the scverse ecosystem!"
+      description: |
+        <p>LazySlide and WSIData are now part of the scverse ecosystem, and are being integrated into the scientific workflow.</p>
+        <p>WSIData is a Python package for working with whole slide images (WSI) using scverse-compatible interfaces, and LazySlide provides the tools and operations needed to analyze WSIs.</p>
+        <p>The official acceptance into the <a href="https://scverse.org">scverse</a> ecosystem will enable scientists from all backgrounds but in particular from the single-cell and genomics fields which are already using scverse tools to seemlessly work with WSIs as if it were any other single-cell type of data.</p>
+        <p>We are looking forward to upcoming stable releases and manuscript which will present the scverse software stack for WSI analysis.</p>
+      img: 2024-10-02-Lazyslide.png
+      img_alt: The LazySlide logo with a sloth lying belly down on a moon, all inside a glass slide with a barcode.
     2025-02-06:
       title: "Our lab's project template is now open source!"
       description: |

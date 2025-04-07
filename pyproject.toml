@@ -37,3 +37,5 @@ pre_deploy = "task clean"
 deploy = { cmd = "git add assets/**/* && git add -u && git commit -m 'update' && git push origin main", help = "Commit and push changes to the main branch" }
 
 check = { cmd = "gh run list -L 4", help = "List the last 4 GitHub actions" }
+
+develop = { cmd = "uv run --with ipython ipython", help = "Run a IPython shell" }

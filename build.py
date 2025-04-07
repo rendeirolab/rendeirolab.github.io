@@ -114,6 +114,13 @@ def build_lab_manual():
         if page_slug == "index":
             body.find("h1").decompose()
 
+        # Replace internal markdown links
+        links = body.find_all("a")
+        for link in links:
+            href = link.get("href")
+            if href.endswith(".md"):
+                link["href"] = f"{manual_root_url}{href.replace('.md', '')}"
+
         link = (
             f"https://github.com/{config['manual_repo']}/edit/refs/heads/main/{page}.md"
         )

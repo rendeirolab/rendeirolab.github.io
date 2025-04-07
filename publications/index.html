@@ -89,6 +89,22 @@
                 padding-left: 1em;
                 font-style: italic;
             }
+            /* Ensure padding and bullet styling are applied */
+            /* Only apply list styles within the Markdown-rendered content area */
+            .markdown-body ul,
+            #content ul,
+            .markdown-body ol,
+            #content ol {
+              padding-left: 2rem;
+              margin-left: 0;
+            }
+            table {
+                border-collapse: separate;
+                margin-left: 1rem;
+                margin-right: 1rem;
+                margin-bottom: 1rem;
+                border: 1px solid #dee2e6;
+            }
         </style>
         
     <!-- Altmetrics -->

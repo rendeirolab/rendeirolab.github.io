@@ -88,6 +88,22 @@
                 padding-left: 1em;
                 font-style: italic;
             }
+            /* Ensure padding and bullet styling are applied */
+            /* Only apply list styles within the Markdown-rendered content area */
+            .markdown-body ul,
+            #content ul,
+            .markdown-body ol,
+            #content ol {
+              padding-left: 2rem;
+              margin-left: 0;
+            }
+            table {
+                border-collapse: separate;
+                margin-left: 1rem;
+                margin-right: 1rem;
+                margin-bottom: 1rem;
+                border: 1px solid #dee2e6;
+            }
         </style>
         
     </head>
@@ -322,8 +338,8 @@
 <li><input class="task-list-item-checkbox" disabled="" type="checkbox"/> Website deployment
 <ul>
 <li><input checked="" class="task-list-item-checkbox" disabled="" type="checkbox"/> Set up</li>
-<li><input class="task-list-item-checkbox" disabled="" type="checkbox"/> Fix <code>ul</code>, <code>ol</code> and <code>table</code> styling</li>
-<li><input class="task-list-item-checkbox" disabled="" type="checkbox"/> Fix intra-manual links (ending .md)</li>
+<li><input checked="" class="task-list-item-checkbox" disabled="" type="checkbox"/> Fix <code>ul</code>, <code>ol</code> and <code>table</code> styling</li>
+<li><input checked="" class="task-list-item-checkbox" disabled="" type="checkbox"/> Fix intra-manual links (ending .md)</li>
 <li><input class="task-list-item-checkbox" disabled="" type="checkbox"/> Fix Python code blocks highlighting</li>
 <li><input class="task-list-item-checkbox" disabled="" type="checkbox"/> Build only on tagged versions, not on <code>main</code></li>
 </ul></li>

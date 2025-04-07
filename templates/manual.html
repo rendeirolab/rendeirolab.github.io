@@ -2,6 +2,12 @@
 
 {% extends "template.html" %}
 
+{% block head %}
+{{ super() }}
+<!-- Code block highlighting -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+{% endblock head %}
+
 {% block title %}Lab manual{% endblock title %} - {{ page_title }}
 
 {% block content %}
@@ -24,3 +30,11 @@
                   {{ page_content }}
               </div>
 {% endblock content %}
+
+{% block js %}
+{{ super() }}
+    <!-- Code block highlighting -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+{% endblock js %}

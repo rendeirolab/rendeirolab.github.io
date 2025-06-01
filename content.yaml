@@ -24,6 +24,13 @@ news:
   content: "Some news from our lab:"
   outro: ""
   news:
+    2025-06-01:
+      title: "LazySlide: accessible and interoperable whole slide image analysis - preprint now available!"
+      description: |
+        <p>A preprint on LazySlide - our framework for accessible and interoperable whole slide image analysis - is now <a href="https://www.biorxiv.org/content/10.1101/2025.05.28.656548">available at BioRxiv</a>.</p>
+        <p>Check out the documentation <a href="https://lazyslide.readthedocs.io">https://lazyslide.readthedocs.io</a> and the code <a href="https://github.com/RendeiroLab/LazySlide">https://github.com/RendeiroLab/LazySlide</a>.</p>
+      img: 2025-06-01-LazySlide_figure1.png
+      img_alt: "Overview of the LazySlide framework for scverse-compatible whole slide image analysis. Illustration of the capabilities of LazySlide enabled by its interoperable data structure WSIData: pre-processing of WSI data, quantification of cellular, morphological and microanatomical features of tissue, and learning by integration with other data types, interfacing with deep learning frameworks and advanced, multimodal capabilities."
     2025-03-12:
       title: "LazySlide and WSIData are now part of the scverse ecosystem!"
       description: |
@@ -376,6 +383,19 @@ publications:
   content: ""
   outro: ""
   publications:
+    10.1101/2025.05.23.656548:
+      authors: "Yimin Zheng, Ernesto Abila, Eva Chrenková, Juliane Winkler, André F. Rendeiro<sup>+</sup>"
+      title: "LazySlide: accessible and interoperable whole slide image analysis"
+      publisher: "BioRxiv"
+      year: 2025
+      type: journal
+      description: null
+      resources:
+        - Code: https://github.com/RendeiroLab/WSIData
+        - Code: https://github.com/RendeiroLab/LazySlide
+        - Notebook: https://wsidata.readthedocs.io
+        - Notebook: https://lazyslide.readthedocs.io
+        - Data: https://doi.org/10.5281/zenodo.15497224
     10.1186/s13059-024-03469-3:
       authors: "Yimin Zheng, Zhihang Zheng, André F. Rendeiro<sup>+</sup>, Edwin Cheung<sup>+</sup>"
       title: "Marsilea: An intuitive generalized visualization paradigm for complex datasets"

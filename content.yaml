@@ -383,7 +383,7 @@ publications:
   content: ""
   outro: ""
   publications:
-    10.1101/2025.05.23.656548:
+    10.1101/2025.05.28.656548:
       authors: "Yimin Zheng, Ernesto Abila, Eva Chrenková, Juliane Winkler, André F. Rendeiro<sup>+</sup>"
       title: "LazySlide: accessible and interoperable whole slide image analysis"
       publisher: "BioRxiv"
@@ -407,6 +407,14 @@ publications:
         - Code: https://marsilea.readthedocs.io/
         - Code: https://github.com/Marsilea-viz/marsilea
         - Preprint: https://doi.org/10.1101/2024.02.14.580236
+    10.1101/2025.06.16.658716:
+      authors: "Jiwoon Park, Roberto De Gregorio, Erika Hissong, Elif Ozcelik, Nicholas Bartelo, Felipe Segato Dezem, Luke Zhang, Maycon Marção, Hannah DuBose, Yimin Zheng, Ernesto Abila, Junbum Kim, Jacqueline Proszynski, Akua A Agyemang, Mohith Reddy Arikatla, Evelyn Metzger, Stefan Rogers, Prajan Divakar, Parambir S Dulai, Jason W Reeves, Yan Liang, Liuliu Pan, Sayani Bhattacharjee, Kimberly Young, Ashley Heck, Mithra Korukonda, Dan McGuire, Lidan Wu, Aster Wardhani, Joseph Beechem, George Church, Steven M Lipkin, Sanjay Patel, Fabio Socciarelli, Sebastien Monette, Brian Robinson, Massimo Loda, Olivier Elemento, Luciano Martelotto, Jasmine T Plummer, André F. Rendeiro, Alicia Alonso, Robert E Schwartz, Shauna L Houlihan, Christopher E Mason"
+      title: "The Spatial Atlas of Human Anatomy (SAHA): A Multimodal Subcellular-Resolution Reference Across Human Organs"
+      publisher: "BioRxiv"
+      year: 2025
+      type: preprint
+      description: null
+      resources: null
     10.1101/2024.11.14.618081:
       authors: "Ernesto Abila<sup>*</sup>, Iva Buljan<sup>*</sup>, Yimin Zheng<sup>*</sup>, Tamas Veres, Zhilong Weng, Maja C Nackenhorst, Wolfgang Hulla, Yuri Tolkach, Adelheid Woehrer, André F. Rendeiro<sup>+</sup>"
       title: "Tissue clocks derived from histological signatures of biological aging enable tissue-specific aging predictions from blood"

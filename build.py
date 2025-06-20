@@ -181,7 +181,11 @@ def get_last_mod_date() -> dict[str, str]:
             date_str = result.stdout.strip()
             if not date_str:
                 continue
-            date_obj = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
+            date_obj = datetime.fromisoformat(
+                date_str.replace("Z", "+00:00")
+                .replace(" +0100", " +01:00")
+                .replace(" +0200", " +02:00")
+            )
             formatted_date = date_obj.strftime("%Y-%m-%d")
             last_mod_dates[page_name] = formatted_date
         except subprocess.CalledProcessError as e:

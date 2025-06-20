@@ -24,6 +24,15 @@ news:
   content: "Some news from our lab:"
   outro: ""
   news:
+    2025-06-20:
+      title: Yimin gave a talk at Zhejiang University
+      description: |
+        <p>Yimin gave an invited talk at the BioLinkX Workshop hosted by Zhejiang University.</p>
+        <p>In the talk, he introduced LazySlide, our lab’s Python-based framework for scalable, programmable pathology image analysis.</p>
+        <p>The session highlighted how large models and multimodal datasets are transforming tissue-level phenotyping and aging research.</p>
+        <p>Great to see LazySlide reaching new communities!</p>
+      img: 2025-06-20-Lazyslide_talk_poster.png
+      img_alt: "Poster for Yimin Zheng's invited talk at the BioLinkX Workshop (Zhejiang University, June 21, 2025)"
     2025-06-01:
       title: "LazySlide: accessible and interoperable whole slide image analysis - preprint now available!"
       description: |

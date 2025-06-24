@@ -31,14 +31,14 @@ news:
         <p>In the talk, he introduced LazySlide, our lab’s Python-based framework for scalable, programmable pathology image analysis.</p>
         <p>The session highlighted how large models and multimodal datasets are transforming tissue-level phenotyping and aging research.</p>
         <p>Great to see LazySlide reaching new communities!</p>
-      img: 2025-06-20-Lazyslide_talk_poster.png
+      img: 2025-06-20-Lazyslide_talk_poster.webp
       img_alt: "Poster for Yimin Zheng's invited talk at the BioLinkX Workshop (Zhejiang University, June 21, 2025)"
     2025-06-01:
       title: "LazySlide: accessible and interoperable whole slide image analysis - preprint now available!"
       description: |
         <p>A preprint on LazySlide - our framework for accessible and interoperable whole slide image analysis - is now <a href="https://www.biorxiv.org/content/10.1101/2025.05.28.656548">available at BioRxiv</a>.</p>
         <p>Check out the documentation <a href="https://lazyslide.readthedocs.io">https://lazyslide.readthedocs.io</a> and the code <a href="https://github.com/RendeiroLab/LazySlide">https://github.com/RendeiroLab/LazySlide</a>.</p>
-      img: 2025-06-01-LazySlide_figure1.png
+      img: 2025-06-01-LazySlide_figure1.webp
       img_alt: "Overview of the LazySlide framework for scverse-compatible whole slide image analysis. Illustration of the capabilities of LazySlide enabled by its interoperable data structure WSIData: pre-processing of WSI data, quantification of cellular, morphological and microanatomical features of tissue, and learning by integration with other data types, interfacing with deep learning frameworks and advanced, multimodal capabilities."
     2025-03-12:
       title: "LazySlide and WSIData are now part of the scverse ecosystem!"
@@ -47,7 +47,7 @@ news:
         <p>WSIData is a Python package for working with whole slide images (WSI) using scverse-compatible interfaces, and LazySlide provides the tools and operations needed to analyze WSIs.</p>
         <p>The official acceptance into the <a href="https://scverse.org">scverse</a> ecosystem will enable scientists from all backgrounds but in particular from the single-cell and genomics fields which are already using scverse tools to seemlessly work with WSIs as if it were any other single-cell type of data.</p>
         <p>We are looking forward to upcoming stable releases and manuscript which will present the scverse software stack for WSI analysis.</p>
-      img: 2024-10-02-Lazyslide.png
+      img: 2024-10-02-Lazyslide.webp
       img_alt: The LazySlide logo with a sloth lying belly down on a moon, all inside a glass slide with a barcode.
     2025-02-06:
       title: "Our lab's project template is now open source!"
@@ -57,7 +57,7 @@ news:
         <p>Our template is flexible, letting you choose options like project type (research or software), package management (<a href='https://docs.astral.sh/uv/'>uv</a>, pip, conda), and your preferred code editors we most use (Sublime Text or VSCode).</p>
         <p>By sharing we hope to help others in the scientific community organize their projects effectively and also motivate others to share their ways of structuring research and software projects.</p>
         <p>Check it out and suggest improvements on GitHub: <a href="https://github.com/rendeirolab/_project_template">https://github.com/rendeirolab/_project_template</a></p>
-      img: 2025-02-06-project-template.png
+      img: 2025-02-06-project-template.webp
       img_alt: A screenshot from GitHub showing the rendeirolab/_project_template repository.
     2025-01-30:
       title: "Andre visited Innsbruck"
@@ -65,7 +65,7 @@ news:
         <p>Andre had the opportunity to visit Innsbruck and connect with the scientific community there.</p>
         <p>Thank you to everyone who attended the talk for the interest in our work, and for the great discussions.</p>
         <p>A special thank you to Heidi Woehrer at the Medical University of Innsbruck for inviting and hosting.</p>
-      img: 2025-01-30-Innsbruck_visit.jpg
+      img: 2025-01-30-Innsbruck_visit.webp
       img_alt: The entrance of the Department of Anatomy at the Medical University of Innsbruck with the words "Mors auxilium vitae"
     2025-01-27:
       title: "Our lab manual is now open source!"
@@ -76,7 +76,7 @@ news:
         <p>We envision this manual as a living document, evolving with contributions from the broader scientific community. By sharing our practices and protocols, we hope to promote transparency and collaboration in research. We invite you to explore, utilize, and contribute to the manual, ensuring it remains a dynamic and valuable resource for all.</p>
         <p>The manual is hosted on GitHub, where you can access the source code and even propose changes:  <a href="https://github.com/rendeirolab/lab-manual">https://github.com/rendeirolab/lab-manual</a></p>
         <p>We are curious on the reaction and feedback from the research community, please reach out to us.</p>
-      img: 2025-01-27-lab-manual.png
+      img: 2025-01-27-lab-manual.webp
       img_alt: A screenshot from Github showing the rendeirolab/lab-manual repository.
     2025-01-07:
       title: "Marsilea is now published at Genome Biology"
@@ -98,7 +98,7 @@ news:
         <p> Check out the full paper at
         <a href='https://genomebiology.biomedcentral.com/articles/10.1186/s13059-024-03469-3'>https://genomebiology.biomedcentral.com/articles/10.1186/s13059-024-03469-3</a>.
         </p>
-      img: 2024-03-30-Marsilea.jpg
+      img: 2024-03-30-Marsilea.webp
       img_alt: The marsilea logo with a cross layout in the center and gray background saying "Transform your data landscape".
     2024-12-27:
       title: "Our lab has a new promotion video"
@@ -126,17 +126,17 @@ news:
           <li><a href='https://www.nature.com/naturecareers/job/12833967/interdisciplinary-phd-positions-at-the-ludwig-boltzmann-institute-for-network-medicine/'>Nature careers</a></li>
           <li><a href='https://tally.so/r/31GXQg'>Application portal</a></li>
         </ul>
-      img: 2024-12-06.lbi-netmed.banner.jpg
+      img: 2024-12-06.lbi-netmed.banner.webp
       img_alt: The logo of the LBI-NetMed institute.
     2024-12-03:
       title: "Andre gave a talk at the annual conference of the Austrian Platform for Personalized Medicine in Vienna, Austria"
       description: "Thank you for the invitation to speak and congratulations on the organization of a conference on such a relevant topic!"
-      img: 2024-12-03-oeppm.jpg
+      img: 2024-12-03-oeppm.webp
       img_alt: Andre presenting a talk at the annual conference of the Austrian Platform for Personalized Medicine in Vienna, Austria.
     2024-11-27:
       title: "We had a fun night escaping!"
       description: We had a lot of fun doing an escape room adventure and trying out new food at a spanish tapas restaurant.
-      img: 2024-11-27-lab_dinner.jpg
+      img: 2024-11-27-lab_dinner.webp
       img_alt: Six lab members sitting around a restaurant table.
     2024-11-18:
       title: "The LBI-NetMed inaugural party was a blast!"
@@ -150,7 +150,7 @@ news:
         <p>
         A big congratulations and thank you to the organizer team, in particular Christiane Hütter and Annette Tesarek - and Jörg Mensche for putting together this bold idea!
         </p>
-      img: 2024-11-18-LBI_inauguration_horn.jpg
+      img: 2024-11-18-LBI_inauguration_horn.webp
       img_alt: An Austrian mail post horn given as present from CeMM for the LBI-NetMed.
     2024-11-16:
       title: "Our manuscript on the prediction of biological age from histopathological insights is now online!"
@@ -165,7 +165,7 @@ news:
         </p>
         <p>This study highlights the intricate relationship between tissue health and biological aging, and could revolutionize the way we assess and understand the biological processes leading to aging-related diseases.</p>
         <p><a href='https://doi.org/10.1101/2024.11.16.48333'>Read the full work here: https://doi.org/10.1101/2024.11.14.618081</a></p>
-      img: 2024-11-16-Tissue-clocks.png
+      img: 2024-11-16-Tissue-clocks.webp
       img_alt: A scientific illustration of the process to derive rich numerical descriptions from histopathological images, which are then used as predictors of biological age and age gaps. In the bottom a concept of how data from blood can be used to predict tissue-specific biological aging insights previously derived from histopathological images.
     2024-11-13:
       title: "Ernesto presented a poster at the 2024 Frontiers in Single Cell Genomics meeting, in Awaji, Japan"
@@ -180,7 +180,7 @@ news:
     2024-11-10:
       title: "Yimin presented a poster at the 2024 Cell Symposia on Hallmarks of Cancer, Guangzhou, China"
       description: "Yimin presented a poster on the microanatomical decoding of breast cancer metastasis, part of our ongoing work funded by the WWTF. Thank you for the support!"
-      img: 2024-11-10-Yimin_conference.jpg
+      img: 2024-11-10-Yimin_conference.webp
       img_alt: Yimin next to his poster at the 2024 Cell Symposia on Hallmarks of Cancer in China.
     2024-11-06:
       title: "Congratulations to Iva and Tamas on organizing a successfull bioinformatics course at CeMM!"
@@ -200,7 +200,7 @@ news:
     2024-10-02:
       title: "'LazySlide' and 'WSIData' open sourced!"
       description: "The two packages form a new, modular and scalable framework for whole slide image analysis, bringing the interoperability, efficiency, and familiarity of single-cell analysis in scverse: <a href='https://github.com/RendeiroLab/LazySlide'>gh.com/RendeiroLab/LazySlide</a>, <a href='https://github.com/RendeiroLab/WSIData'>gh.com/RendeiroLab/WSIData</a>."
-      img: 2024-10-02-Lazyslide.png
+      img: 2024-10-02-Lazyslide.webp
       img_alt: The LazySlide logo with a sloth lying belly down on a moon, all inside a glass slide with a barcode.
     2024-10-04:
       title: "Andre gave a talk at the IX Siena Immunooncology Think Tank in Siena, Italy"
@@ -250,7 +250,7 @@ news:
     2024-03-30:
       title: "Our 'Marsilea' pre-print is now online!"
       description: "Yimin led a work on a framework and tool for an intuitive generalized visualization paradigm for complex datasets. <a href='https://www.biorxiv.org/content/10.1101/2024.02.14.580236v2'>Check if out at BioRxiv</a>!"
-      img: 2024-03-30-Marsilea.jpg
+      img: 2024-03-30-Marsilea.webp
       img_alt: The marsilea logo with a cross layout in the center and gray background saying "Transform your data landscape".
     2024-03-01:
       title: "We are now also part of the Ludwig Boltzmann Institute for Network Medicine at the University of Vienna!"
@@ -260,7 +260,7 @@ news:
     2024-03-02:
       title: "Thank you to the Vienna Science and Technology foundation (WWTF) for the awarded grant."
       description: "We have been awarded a grant by the Vienna Science and Technology foundation (WWTF) for a project led by Julianne Winkler and together with Zsuzsanna Bago-Horvath to work on the multiscale discovery of cellular and microanatomical determinants of metastasis. Our great appreciation to the WWTF for supporting us!"
-      img: 2024-03-02-WWTF_group_picture.png
+      img: 2024-03-02-WWTF_group_picture.webp
       img_alt: "A photo of the three principal investigators: Zsuzsanna Bago-Horvath, Julianne Winkler and Andre Rendeiro."
     2024-02-01:
       title: "Welcome to Lisa!"
@@ -280,7 +280,7 @@ news:
     2023-10-30:
       title: "Our lab joined the CeMM Halloween party"
       description: "A highlight of the year at CeMM, the halloween party is organized by the first-year PhD students and is always a lot of fun!"
-      img: 2023-10-30-Halloween.jpg
+      img: 2023-10-30-Halloween.webp
       img_alt: The Rendeiro group dressed in Halloween costumes.
     2023-10-01:
       title: "Andre gave a talk at the 33rd Annual Conference of the German Society for Cytometry in Berlin, Germany"
@@ -347,42 +347,42 @@ press:
       publisher: "Epsiloon"
       url: https://www.epsiloon.com/
       description: Coverage of our work on tissue-based prediction of biological age with 'tissue-clocks' (<a href='https://bsky.app/profile/epsiloon.com/post/3li22m2mlfc2f'>also here</a>).
-      img: https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main/assets/img/2025-02-24-epsiloon.jpg
+      img: https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main/assets/img/2025-02-24-epsiloon.webp
       img_alt: A scientific illustration of how different organs age at different rates
     2025-02-15:
       title: "'Tissue clocks' derived from histological signatures of biological aging enable tissue-specific aging predictions from blood"
       publisher: "Life Science Editors"
       url: https://www.lifescienceeditors.com/2025/02/13/tissue-clocks-derived-from-histological-signatures-of-biological-aging-enable-tissue-specific-aging-predictions-from-blood/
       description: Coverage of our work on tissue-based prediction of biological age with 'tissue-clocks'
-      img: https://www.lifescienceeditors.com/wp-content/uploads/2025/02/tissueclock-300x300.jpg
+      img: https://www.lifescienceeditors.com/wp-content/uploads/2025/02/tissueclock-300x300.webp
       img_alt: Artwork by Gloria Fuentes representing the 'tissue-clocks' project
     2024-12-27:
       title: "Gli organi del corpo umano non invecchiano tutti alla stessa velocità"
       publisher: "Focus.it"
       url: https://www.focus.it/scienza/salute/gli-organi-del-corpo-umano-non-invecchiano-tutti-alla-stessa-velocita
       description: Coverage of our work on tissue-based prediction of biological age with 'tissue-clocks'
-      img: https://www.focus.it/images/2024/12/04/organi-del-corpo-umano_1020x680.jpg
+      img: https://www.focus.it/images/2024/12/04/organi-del-corpo-umano_1020x680.webp
       img_alt: "A photo of a child's hands playing with a toy anatomical model of the human body."
     2024-11-29:
       title: "Most comprehensive picture yet of how organs age at different rates"
       publisher: "New Scientist"
       url: https://www.newscientist.com/article/2458249-most-comprehensive-picture-yet-of-how-organs-age-at-different-rates/
       description: Coverage of our work on tissue-based prediction of biological age with 'tissue-clocks'
-      img: https://images.newscientist.com/wp-content/uploads/2024/11/29142724/SEI_231329747.jpg?width=837
+      img: https://images.newscientist.com/wp-content/uploads/2024/11/29142724/SEI_231329747.webp?width=837
       img_alt: "An illustration of the organs inside the human body with some organs highlighted in red color indicated accelerated aging."
     2023-03-23:
       title: "The CeMM & Angelini Ventures Healthy Lifespan Expansion Initiative"
       publisher: "EurekAlert"
       url: https://www.eurekalert.org/news-releases/983740
       description: Press release of our collaboration with Angelini Ventures.
-      img: https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main/assets/img/2023-03-23-Angelini.png
+      img: https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main/assets/img/2023-03-23-Angelini.webp
       img_alt: "Giulio Superti-Furga (Scientific Director, CeMM), André Rendeiro (Principal Investigator, CeMM), Elia Stupka (Managing Director, Angelini Ventures), Paolo Di Giorgio (CEO, Angelini Ventures), Laura de Rooij (Principal Investigator, CeMM)."
     2022-11-01:
       title: "Computational Approach Gives Detailed Map of Human Tissues"
       publisher: "Genetic Engineering & Biotechnology News"
       url: https://www.genengnews.com/news/computational-approach-gives-detailed-map-of-human-tissues/
       description: Coverage of our work on a method for the detection and quantification of tissue microanatomical domains.
-      img: https://www.genengnews.com/wp-content/uploads/2022/10/Oct31_Elemento_Kim_Nmeth-copy.jpg
+      img: https://www.genengnews.com/wp-content/uploads/2022/10/Oct31_Elemento_Kim_Nmeth-copy.webp
       img_alt: "A multiplexed image of human lung tissue."
 
 publications:
@@ -884,7 +884,7 @@ software:
       description: |
         Marsilea is a Python library for creating composable visualizations in a declarative way.
         It is built on top of Matplotlib and provides a high-level API for you to assemble a visualization based on composable parts.
-      img: https://raw.githubusercontent.com/Marsilea-viz/marsilea/main/img/banner-blue.jpg
+      img: https://raw.githubusercontent.com/Marsilea-viz/marsilea/main/img/banner-blue.webp
       img_alt: The Marsilea logo with a cross-layout at the center and gray background with the words "Transform your data landscape."
       url_gh: https://github.com/Marsilea-viz/marsilea
       url_docs: https://marsilea.readthedocs.io/
@@ -894,7 +894,7 @@ software:
       description: |
         LasySlide is a Python library for processing whole slide images (WSI) analysis.
         It provides a simple interface to perform robust preprocessing and advanced analysis for WSIs.
-      img: https://raw.githubusercontent.com/rendeirolab/LazySlide/main/assets/logo%403x.png
+      img: https://raw.githubusercontent.com/rendeirolab/LazySlide/main/assets/logo%403x.webp
       img_alt: The LazySlide logo with a sloth lying belly down on a moon, all inside a glass slide with a barcode.
       url_gh: https://github.com/RendeiroLab/LazySlide
       url_docs: https://lazyslide.readthedocs.io/
@@ -905,7 +905,7 @@ software:
         WSIData is a data structure for manipulating whole slide images (WSI) and storing its analysis results in Python.
         It can read a variety of WSI formats and it inherits directly from <a href='https://spatialdata.scverse.org/'>SpatialData</a>, making it interoperable with <a href='https://scverse.org/'>the scverse ecosystem</a>.
         wsidata is designed to used with LazySlide.
-      img: https://raw.githubusercontent.com/rendeirolab/WSIData/main/assets/logo%403x.png
+      img: https://raw.githubusercontent.com/rendeirolab/WSIData/main/assets/logo%403x.webp
       img_alt: The WSIData logo with a stack of icons representing whole slide images and their transformations.
       url_gh: https://github.com/RendeiroLab/WSIData
       url_docs: https://wsidata.readthedocs.io/
@@ -942,8 +942,8 @@ team:
     </p>
     <p>Read more about it <a href='/contact/'>here</a>.</p>
   members:
-    # photo: assets/img/empty_bubble_photo_1.png
-    # photo: assets/img/empty_bubble_photo_2.png
+    # photo: assets/img/empty_bubble_photo_1.webp
+    # photo: assets/img/empty_bubble_photo_2.webp
     arendeiro:
       name: Andre Rendeiro
       role: Principal Investigator
@@ -951,8 +951,8 @@ team:
       email: arendeiro@cemm.oeaw.ac.at
       interests:
 
-      # photo: assets/img/arendeiro.png
-      photo: https://cemm.at/fileadmin/_processed_/b/8/csm_Rendeiro_Andre_Bubble_d6dba164e5.png
+      # photo: assets/img/arendeiro.webp
+      photo: https://cemm.at/fileadmin/_processed_/b/8/csm_Rendeiro_Andre_Bubble_d6dba164e5.webp
     avillanuevamarijuan:
       name: Ariadna Villanueva Marijuan
       role: PhD Student
@@ -960,8 +960,8 @@ team:
       email: avillanuevamarijuan@cemm.oeaw.ac.at
       interests:
 
-      # photo: assets/img/avillanuevamarijuan.png
-      photo: https://cemm.at/fileadmin/_processed_/a/b/csm_Villanueava_Marijuan_Ariadna_bubble_9c1eda1c3a.png
+      # photo: assets/img/avillanuevamarijuan.webp
+      photo: https://cemm.at/fileadmin/_processed_/a/b/csm_Villanueava_Marijuan_Ariadna_bubble_9c1eda1c3a.webp
     eabila:
       name: Ernesto Abila
       role: PhD Student
@@ -969,8 +969,8 @@ team:
       email: eabila@cemm.oeaw.ac.at
       interests:
 
-      # photo: assets/img/eabila.png
-      photo: https://cemm.at/fileadmin/_processed_/f/c/csm_Abila_Ernesto_Bubble_3216d6745c.png
+      # photo: assets/img/eabila.webp
+      photo: https://cemm.at/fileadmin/_processed_/f/c/csm_Abila_Ernesto_Bubble_3216d6745c.webp
     ibuljan:
       name: Iva Buljan
       role: PhD Student
@@ -978,8 +978,8 @@ team:
       email: ibuljan@cemm.oeaw.ac.at
       interests:
 
-      # photo: assets/img/ibuljan.png
-      photo: https://cemm.at/fileadmin/_processed_/3/2/csm_Buljan_Iva_Bubble_726f981332.png
+      # photo: assets/img/ibuljan.webp
+      photo: https://cemm.at/fileadmin/_processed_/3/2/csm_Buljan_Iva_Bubble_726f981332.webp
     lkleissl:
       name: Lisa Kleissl
       role: Postdoc
@@ -987,8 +987,8 @@ team:
       email: lkleissl@cemm.oeaw.ac.at
       interests:
 
-      # photo: assets/img/lkleissl.png
-      photo: https://cemm.at/fileadmin/img/people/Bubble_pictures/Klei%C3%9Fel_Lisa_Bubble.png
+      # photo: assets/img/lkleissl.webp
+      photo: https://cemm.at/fileadmin/img/people/Bubble_pictures/Klei%C3%9Fel_Lisa_Bubble.webp
     tveres:
       name: Tamas Veres
       role: PhD Student
@@ -996,8 +996,8 @@ team:
       email: tveres@cemm.oeaw.ac.at
       interests:
 
-      # photo: assets/img/tveres.png
-      photo: https://cemm.at/fileadmin/img/people/Bubble_pictures/Tamas_Veres_Bubble.png
+      # photo: assets/img/tveres.webp
+      photo: https://cemm.at/fileadmin/img/people/Bubble_pictures/Tamas_Veres_Bubble.webp
     yzheng:
       name: Yimin Zheng
       role: Postdoc
@@ -1005,6 +1005,6 @@ team:
       email: yzheng@cemm.oeaw.ac.at
       interests:
 
-      # photo: assets/img/yzheng.png
-      photo: https://cemm.at/fileadmin/img/people/Bubble_pictures/Zheng_Yimin_Bubble.png
+      # photo: assets/img/yzheng.webp
+      photo: https://cemm.at/fileadmin/img/people/Bubble_pictures/Zheng_Yimin_Bubble.webp
   alumni:

@@ -884,7 +884,7 @@ software:
       description: |
         Marsilea is a Python library for creating composable visualizations in a declarative way.
         It is built on top of Matplotlib and provides a high-level API for you to assemble a visualization based on composable parts.
-      img: https://raw.githubusercontent.com/Marsilea-viz/marsilea/main/img/banner-blue.webp
+      img: https://raw.githubusercontent.com/Marsilea-viz/marsilea/main/img/banner-blue.jpg
       img_alt: The Marsilea logo with a cross-layout at the center and gray background with the words "Transform your data landscape."
       url_gh: https://github.com/Marsilea-viz/marsilea
       url_docs: https://marsilea.readthedocs.io/
@@ -894,7 +894,7 @@ software:
       description: |
         LasySlide is a Python library for processing whole slide images (WSI) analysis.
         It provides a simple interface to perform robust preprocessing and advanced analysis for WSIs.
-      img: https://raw.githubusercontent.com/rendeirolab/LazySlide/main/assets/logo%403x.webp
+      img: https://raw.githubusercontent.com/rendeirolab/LazySlide/main/assets/logo%403x.png
       img_alt: The LazySlide logo with a sloth lying belly down on a moon, all inside a glass slide with a barcode.
       url_gh: https://github.com/RendeiroLab/LazySlide
       url_docs: https://lazyslide.readthedocs.io/
@@ -905,7 +905,7 @@ software:
         WSIData is a data structure for manipulating whole slide images (WSI) and storing its analysis results in Python.
         It can read a variety of WSI formats and it inherits directly from <a href='https://spatialdata.scverse.org/'>SpatialData</a>, making it interoperable with <a href='https://scverse.org/'>the scverse ecosystem</a>.
         wsidata is designed to used with LazySlide.
-      img: https://raw.githubusercontent.com/rendeirolab/WSIData/main/assets/logo%403x.webp
+      img: https://raw.githubusercontent.com/rendeirolab/WSIData/main/assets/logo%403x.png
       img_alt: The WSIData logo with a stack of icons representing whole slide images and their transformations.
       url_gh: https://github.com/RendeiroLab/WSIData
       url_docs: https://wsidata.readthedocs.io/
@@ -942,8 +942,8 @@ team:
     </p>
     <p>Read more about it <a href='/contact/'>here</a>.</p>
   members:
-    # photo: assets/img/empty_bubble_photo_1.webp
-    # photo: assets/img/empty_bubble_photo_2.webp
+    # photo: assets/img/empty_bubble_photo_1.png
+    # photo: assets/img/empty_bubble_photo_2.png
     arendeiro:
       name: Andre Rendeiro
       role: Principal Investigator
@@ -951,8 +951,8 @@ team:
       email: arendeiro@cemm.oeaw.ac.at
       interests:
 
-      # photo: assets/img/arendeiro.webp
-      photo: https://cemm.at/fileadmin/_processed_/b/8/csm_Rendeiro_Andre_Bubble_d6dba164e5.webp
+      # photo: assets/img/arendeiro.png
+      photo: https://cemm.at/fileadmin/_processed_/b/8/csm_Rendeiro_Andre_Bubble_d6dba164e5.png
     avillanuevamarijuan:
       name: Ariadna Villanueva Marijuan
       role: PhD Student
@@ -960,8 +960,8 @@ team:
       email: avillanuevamarijuan@cemm.oeaw.ac.at
       interests:
 
-      # photo: assets/img/avillanuevamarijuan.webp
-      photo: https://cemm.at/fileadmin/_processed_/a/b/csm_Villanueava_Marijuan_Ariadna_bubble_9c1eda1c3a.webp
+      # photo: assets/img/avillanuevamarijuan.png
+      photo: https://cemm.at/fileadmin/_processed_/a/b/csm_Villanueava_Marijuan_Ariadna_bubble_9c1eda1c3a.png
     eabila:
       name: Ernesto Abila
       role: PhD Student
@@ -969,8 +969,8 @@ team:
       email: eabila@cemm.oeaw.ac.at
       interests:
 
-      # photo: assets/img/eabila.webp
-      photo: https://cemm.at/fileadmin/_processed_/f/c/csm_Abila_Ernesto_Bubble_3216d6745c.webp
+      # photo: assets/img/eabila.png
+      photo: https://cemm.at/fileadmin/_processed_/f/c/csm_Abila_Ernesto_Bubble_3216d6745c.png
     ibuljan:
       name: Iva Buljan
       role: PhD Student
@@ -978,8 +978,8 @@ team:
       email: ibuljan@cemm.oeaw.ac.at
       interests:
 
-      # photo: assets/img/ibuljan.webp
-      photo: https://cemm.at/fileadmin/_processed_/3/2/csm_Buljan_Iva_Bubble_726f981332.webp
+      # photo: assets/img/ibuljan.png
+      photo: https://cemm.at/fileadmin/_processed_/3/2/csm_Buljan_Iva_Bubble_726f981332.png
     lkleissl:
       name: Lisa Kleissl
       role: Postdoc
@@ -987,8 +987,8 @@ team:
       email: lkleissl@cemm.oeaw.ac.at
       interests:
 
-      # photo: assets/img/lkleissl.webp
-      photo: https://cemm.at/fileadmin/img/people/Bubble_pictures/Klei%C3%9Fel_Lisa_Bubble.webp
+      # photo: assets/img/lkleissl.png
+      photo: https://cemm.at/fileadmin/img/people/Bubble_pictures/Klei%C3%9Fel_Lisa_Bubble.png
     tveres:
       name: Tamas Veres
       role: PhD Student
@@ -996,8 +996,8 @@ team:
       email: tveres@cemm.oeaw.ac.at
       interests:
 
-      # photo: assets/img/tveres.webp
-      photo: https://cemm.at/fileadmin/img/people/Bubble_pictures/Tamas_Veres_Bubble.webp
+      # photo: assets/img/tveres.png
+      photo: https://cemm.at/fileadmin/img/people/Bubble_pictures/Tamas_Veres_Bubble.png
     yzheng:
       name: Yimin Zheng
       role: Postdoc
@@ -1005,6 +1005,6 @@ team:
       email: yzheng@cemm.oeaw.ac.at
       interests:
 
-      # photo: assets/img/yzheng.webp
-      photo: https://cemm.at/fileadmin/img/people/Bubble_pictures/Zheng_Yimin_Bubble.webp
+      # photo: assets/img/yzheng.png
+      photo: https://cemm.at/fileadmin/img/people/Bubble_pictures/Zheng_Yimin_Bubble.png
   alumni:

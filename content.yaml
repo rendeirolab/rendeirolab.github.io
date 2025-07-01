@@ -24,6 +24,14 @@ news:
   content: "Some news from our lab:"
   outro: ""
   news:
+    2025-06-25:
+      title: Congratulations to Tamas on the xbio course
+      description: |
+        <p>Tamas Veres successfully completed the xbio entrepeneurship course organized by XISTA.</p>
+        <p>The course is designed for scientists who want to learn how to translate their research into entrepreneurial ventures.</p>
+        <p>Congratulations Tamas!</p>
+      img: 2025-06-25-Tamas_xbio.jpeg
+      img_alt: The 2025 xbio course participants, including Tamas Veres.
     2025-06-20:
       title: Yimin gave a talk at Zhejiang University
       description: |

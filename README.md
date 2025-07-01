@@ -1,3 +1,5 @@
+[![Deploy Website](https://github.com/rendeirolab/rendeirolab.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/rendeirolab/rendeirolab.github.io/actions/workflows/deploy.yml)
+
 Rendeiro lab website
 ====================
 

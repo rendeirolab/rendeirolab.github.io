@@ -893,16 +893,6 @@ software:
   content: ""
   outro: ""
   software:
-    Marsilea:
-      title: "Marsilea"
-      subtitle: "Declarative creation of composable visualizations"
-      description: |
-        Marsilea is a Python library for creating composable visualizations in a declarative way.
-        It is built on top of Matplotlib and provides a high-level API for you to assemble a visualization based on composable parts.
-      img: https://raw.githubusercontent.com/Marsilea-viz/marsilea/main/img/banner-blue.jpg
-      img_alt: The Marsilea logo with a cross-layout at the center and gray background with the words "Transform your data landscape."
-      url_gh: https://github.com/Marsilea-viz/marsilea
-      url_docs: https://marsilea.readthedocs.io/
     LazySlide:
       title: "LazySlide"
       subtitle: "Modular and scalable whole slide image analysis"
@@ -924,6 +914,16 @@ software:
       img_alt: The WSIData logo with a stack of icons representing whole slide images and their transformations.
       url_gh: https://github.com/RendeiroLab/WSIData
       url_docs: https://wsidata.readthedocs.io/
+    Marsilea:
+      title: "Marsilea"
+      subtitle: "Declarative creation of composable visualizations"
+      description: |
+        Marsilea is a Python library for creating composable visualizations in a declarative way.
+        It is built on top of Matplotlib and provides a high-level API for you to assemble a visualization based on composable parts.
+      img: https://raw.githubusercontent.com/Marsilea-viz/marsilea/main/img/banner-blue.jpg
+      img_alt: The Marsilea logo with a cross-layout at the center and gray background with the words "Transform your data landscape."
+      url_gh: https://github.com/Marsilea-viz/marsilea
+      url_docs: https://marsilea.readthedocs.io/
     wsi:
       title: "wsi"
       subtitle: "Python library for processing whole slide images (WSI)"

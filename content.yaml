@@ -24,6 +24,22 @@ news:
   content: "Some news from our lab:"
   outro: ""
   news:
+    2025-07-16:
+      title: LazySlide hits 100 Github stars! 🎉
+      description: |
+        <p>LazySlide 🦥 just hit 100 GitHub stars! 🎉 Our free, open-source framework is making whole slide analysis easier than ever.</p>
+        <p>Built on scverse 🐍, it handles everything from tissue segmentation to multi-omics workflows 🤹 & deep learning 🏋️.</p>
+        <p>Big thanks to the community!</p>
+      img: 2025-06-01-LazySlide_figure1.webp
+      img_alt: "Overview of the LazySlide framework for scverse-compatible whole slide image analysis. Illustration of the capabilities of LazySlide enabled by its interoperable data structure WSIData: pre-processing of WSI data, quantification of cellular, morphological and microanatomical features of tissue, and learning by integration with other data types, interfacing with deep learning frameworks and advanced, multimodal capabilities."
+    2025-07-11:
+      title: Ariadna took part in the ELLIS summer school in Machine Learning for AI in Lausanne
+      description: |
+        <p>Ariadna Villanueva Marijuan participated in the ELLIS - European Laboratory for Learning and Intelligent Systems summer school in Machine Learning for AI at EPFL in Lausanne.</p>
+        <p>The summer school was a great opportunity to learn from experts in the field and network.</p>
+        <p>Thank you to the organizers for this nice summer school!</p>
+      img: 2025-07-11-Ariadna_ELLIS_summer_school.jpeg
+      img_alt: The participants of the ELLIS summer school in Machine Learning for AI at EPFL in Lausanne, Switzerland.
     2025-07-07:
       title: Congratulations to Yimin on a nice chalk talk at the CeMM 2025 retreat!
       description: |

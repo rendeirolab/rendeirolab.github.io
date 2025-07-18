@@ -64,6 +64,13 @@ news:
         <p>Great to see LazySlide reaching new communities!</p>
       img: 2025-06-20-Lazyslide_talk_poster.webp
       img_alt: "Poster for Yimin Zheng's invited talk at the BioLinkX Workshop (Zhejiang University, June 21, 2025)"
+    2025-06-08:
+      title: "Andre gave a lecture at the 'Single-Molecule & Spatial Sequencing: Methods & Applications' course of Weill Cornell Medical College"
+      description: |
+        <p>The lecture is available on YouTube: <a href="https://www.youtube.com/watch?v=N9dhy05ryL8">https://www.youtube.com/watch?v=N9dhy05ryL8</a>.</p>
+        <p>Thank you to Christopher Mason, Jiwoon Park, and Theodore M. Nelson for the invitation!</p>
+      img: https://1000logos.net/wp-content/uploads/2017/05/Youtube-Logo.png
+      img_alt: "YouTube logo."
     2025-06-01:
       title: "LazySlide: accessible and interoperable whole slide image analysis - preprint now available!"
       description: |

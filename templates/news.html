@@ -10,64 +10,62 @@
                     <p>{{ intro }}</p>
                     <p>{{ content }}</p>
                     {% for id, new in news.items()|sort(reverse=True) %}
-                    <div class="col-12">
-                        <h5 tabindex="0"><strong>{{ id }}</strong> - {{ new.title }}</h5>
+                        <div class="col-12">
+                            <h5 tabindex="0"><strong>{{ id }}</strong> - {{ new.title }}</h5>
 
-                        <div class="d-md-none"> <!-- small screens -->
-                            <div class="row">
-                                {% if new.img is not none %}
-                                <div class="col-12">
-                                    <a href="{{ static_url }}/img/{{ new.img }}">
-                                        <img class="img-responsive rounded mx-auto d-block" src="{{ static_url }}/img/{{ new.img }}"
-                                        {% if new.description is not none %}
-                                        alt="{{ new.img_alt }}"
-                                        {% endif %}
-                                        tabindex="0"
-                                        style="width: auto; display: block; max-width: 600px; max-height: 600px">
-                                    </a>
+                            <div class="d-md-none"> <!-- small screens -->
+                                <div class="row">
+                                    {% if new.img is not none %}
+                                    <div class="col-12">
+                                        <a href="{% if new.img.startswith('http') %}{{ new.img }}{% else %}{{ static_url }}/img/{{ new.img }}{% endif %}">
+                                            <img class="img-responsive rounded mx-auto d-block"
+                                                 src="{% if new.img.startswith('http') %}{{ new.img }}{% else %}{{ static_url }}/img/{{ new.img }}{% endif %}"
+                                                 {% if new.description is not none %}
+                                                 alt="{{ new.img_alt }}"
+                                                 {% endif %}
+                                                 tabindex="0"
+                                                 style="width: auto; display: block; max-width: 600px; max-height: 600px">
+                                        </a>
+                                    </div>
+                                    {% endif %}
+                                    {% if new.description is not none %}
+                                    <div class="col-12">
+                                        <p class="mb-0">{{ new.description }}</p>
+                                    </div>
+                                    {% endif %}
                                 </div>
-                                {% endif %}
-                                {% if new.description is not none %}
-                                {% if new.img is not none %}
-                                <div class="col-12">
-                                {% else %}
-                                <div class="col-12">
-                                {% endif %}
-                                    <p class="mb-0">{{ new.description }}</p>
-                                </div>
-                                {% endif %}
                             </div>
-                        </div>
 
-                        <div class="col-12 d-none d-md-block"> <!-- larger screens -->
-                            <div class="row">
-                                {% if new.img is not none %}
-                                <div class="col-6 col-md-3">
-                                    <a href="{{ static_url }}/img/{{ new.img }}">
-                                        <img class="img-responsive rounded" src="{{ static_url }}/img/{{ new.img }}"
-                                        {% if new.description is not none %}
-                                        alt="{{ new.img_alt }}"
-                                        {% endif %}
-                                        tabindex="0"
-                                        style="width: 95%; height: auto; display: block">
-                                    </a>
+                            <div class="col-12 d-none d-md-block"> <!-- larger screens -->
+                                <div class="row">
+                                    {% if new.img is not none %}
+                                    <div class="col-6 col-md-3">
+                                        <a href="{% if new.img.startswith('http') %}{{ new.img }}{% else %}{{ static_url }}/img/{{ new.img }}{% endif %}">
+                                            <img class="img-responsive rounded"
+                                                 src="{% if new.img.startswith('http') %}{{ new.img }}{% else %}{{ static_url }}/img/{{ new.img }}{% endif %}"
+                                                 {% if new.description is not none %}
+                                                 alt="{{ new.img_alt }}"
+                                                 {% endif %}
+                                                 tabindex="0"
+                                                 style="width: 95%; height: auto; display: block">
+                                        </a>
+                                    </div>
+                                    {% endif %}
+                                    {% if new.description is not none %}
+                                    {% if new.img is not none %}
+                                    <div class="col-6 col-md-9">
+                                    {% else %}
+                                    <div class="col-12">
+                                    {% endif %}
+                                        <p class="mb-0">{{ new.description }}</p>
+                                    </div>
+                                    {% endif %}
                                 </div>
-                                {% endif %}
-                                {% if new.description is not none %}
-                                {% if new.img is not none %}
-                                <div class="col-6 col-md-9">
-                                {% else %}
-                                <div class="col-12">
-                                {% endif %}
-                                    <p class="mb-0">{{ new.description }}</p>
-                                </div>
-                                {% endif %}
                             </div>
-                        </div>
 
-                        <br>
-                    </div>
-                    {% endfor %}
+                            <br>
+                        </div>
+                        {% endfor %}
                     <p>{{ outro }}</p>
                 </div>
 {% endblock content %}

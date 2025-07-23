@@ -14,7 +14,7 @@
                             <h5 tabindex="0"><strong>{{ id }}</strong> - {{ new.title }}</h5>
 
                             <div class="d-md-none"> <!-- small screens -->
-                                <div class="row">
+                                <div class="row overflow-x-auto">
                                     {% if new.img is not none %}
                                     <div class="col-12">
                                         <a href="{% if new.img.startswith('http') %}{{ new.img }}{% else %}{{ static_url }}/img/{{ new.img }}{% endif %}">
@@ -24,7 +24,7 @@
                                                  alt="{{ new.img_alt }}"
                                                  {% endif %}
                                                  tabindex="0"
-                                                 style="width: auto; display: block; max-width: 600px; max-height: 600px">
+                                                 style="display: block; max-width: 100%; height: auto">
                                         </a>
                                     </div>
                                     {% endif %}
@@ -37,7 +37,7 @@
                             </div>
 
                             <div class="col-12 d-none d-md-block"> <!-- larger screens -->
-                                <div class="row">
+                                <div class="row overflow-x-auto">
                                     {% if new.img is not none %}
                                     <div class="col-6 col-md-3">
                                         <a href="{% if new.img.startswith('http') %}{{ new.img }}{% else %}{{ static_url }}/img/{{ new.img }}{% endif %}">
@@ -47,7 +47,7 @@
                                                  alt="{{ new.img_alt }}"
                                                  {% endif %}
                                                  tabindex="0"
-                                                 style="width: 95%; height: auto; display: block">
+                                                 style="display: block; max-width: 100%; height: auto">
                                         </a>
                                     </div>
                                     {% endif %}

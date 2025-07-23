@@ -50,7 +50,7 @@
                             <br>
                             {% endif %}
                             {% if publication.resources is not none %}
-                            <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
+                            <div class="d-flex flex-wrap align-items-center gap-2">
                             {% for resource in publication.resources %}
                             {% for resource_type, url in resource.items() %}
                                 <a href="{{ url }}">
@@ -99,7 +99,7 @@
                             <i>{{ publication.publisher }}</i> ({{ publication.year }}). <a rel="datacite:doi" href="https://doi.org/{{ doi }}">doi:{{ doi }}</a>
                             <br>
                             {% if publication.resources is not none %}
-                            <div class="btn-group btn-group-sm d-flex align-items-center" role="group" aria-label="Small button group" style="gap: 0.5rem;">
+                            <div class="d-flex flex-wrap align-items-center gap-2">
                             {% for resource in publication.resources %}
                             {% for resource_type, url in resource.items() %}
                                 <a href="{{ url }}">

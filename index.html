@@ -107,6 +107,19 @@
                 justify-content: flex-end;
                 align-items: center;
             }
+            [data-bs-theme="light"] .logo-light {
+              display: inline-block;
+            }
+            [data-bs-theme="light"] .logo-dark {
+              display: none;
+            }
+            [data-bs-theme="dark"] .logo-light {
+              display: none;
+            }
+            [data-bs-theme="dark"] .logo-dark {
+              display: inline-block;
+            }
+
         </style>
         
     </head>
@@ -385,6 +398,43 @@
                     </p>
 
                 </div>
+
+                <!-- Funding -->
+                <div class="col-md-9 col-12 blog-main" id="funding">
+                  <h4>Funding</h4>
+                  <p>We are grateful for support from:</p>
+                  <div class="d-flex flex-wrap justify-content-center align-items-center gap-4">
+                    <img
+                        src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/WWTF_Sponsor_E_RGB.svg"
+                        alt="WWTF logo"
+                        class="img-fluid logo-light"
+                        style="width: 250px; margin: 5px auto;"
+                        title="WWTF logo" tabindex="0">
+                    
+                    <img
+                        src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/WWTF_Sponsor_E_Schwarz.svg"
+                        alt="WWTF logo"
+                        class="img-fluid logo-dark"
+                        style="width: 250px; margin: 5px auto;"
+                        title="WWTF logo" tabindex="0">
+                    
+                    <img
+                        src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/AV_logo_blue.svg"
+                        alt="Angelini Venture logo"
+                        class="img-fluid logo-light"
+                        style="width: 250px; margin: 5px auto;"
+                        title="Angelini Venture logo" tabindex="0">
+                    
+                    <img
+                        src="https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main//assets//img/AV_logo_white.svg"
+                        alt="Angelini Venture logo"
+                        class="img-fluid logo-dark"
+                        style="width: 250px; margin: 5px auto;"
+                        title="Angelini Venture logo" tabindex="0">
+                    
+                  </div>
+                </div>
+
 
 
 

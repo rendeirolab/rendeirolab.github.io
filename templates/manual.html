@@ -13,20 +13,19 @@
 {% block content %}
               <h1 class="page-title">Lab manual</h1>
 
-              {# Sidebar Column #}
-              <div class="col-md-2 col-lg-2 sidebar-nav-column">
-                <ul class="nav nav-pills flex-column">
-                  {% for idx, page in manual_pages.items() %}
-                    {% set current_page = manual_pages[idx] %}
-                    <li class="nav-item">
-                      <a class="nav-link {% if current_page.active %}active{% endif %}"
-                         {% if current_page.active %}aria-current="page"{% endif %}
-                         href="{{ current_page.page_url }}">{{ current_page.page_title }}</a>
-                    </li>
-                  {% endfor %}
-                </ul>
-
-              </div>
+                    {# Sidebar Column #}
+                    <div class="col-md-2 sidebar-nav-column">
+                      <ul class="nav nav-pills flex-column" style="list-style: none; padding-left: 0; margin-left: 0;">
+                        {% for idx, page in manual_pages.items() %}
+                          {% set current_page = manual_pages[idx] %}
+                          <li class="nav-item">
+                            <a class="nav-link {% if current_page.active %}active{% endif %}"
+                               {% if current_page.active %}aria-current="page"{% endif %}
+                               href="{{ current_page.page_url }}">{{ current_page.page_title }}</a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
 
               {# Content Column #}
               <main class="col-md-10 col-lg-10 content-column">

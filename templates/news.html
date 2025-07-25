@@ -9,63 +9,79 @@
                     <h3>{{ title }}</h3>
                     <p>{{ intro }}</p>
                     <p>{{ content }}</p>
-                    {% for id, new in news.items()|sort(reverse=True) %}
-                        <div class="col-12">
+                    {% for year, items in news.items()|sort(attribute='0.year', reverse=True)|groupby('0.year')|sort(reverse=True) %}
+                      <div class="mb-3">
+                        <!-- Year toggle -->
+                        <button class="btn btn-primary w-100 text-start"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapse-{{ year }}"
+                            aria-expanded="{% if loop.first %}true{% else %}false{% endif %}"
+                            aria-controls="collapse-{{ year }}">
+                          {{ year }}
+                        </button>
+
+                        <!-- News block for this year -->
+                        <div class="collapse mt-2 {% if loop.first %}show{% endif %}" id="collapse-{{ year }}">
+                          {% for id, new in items %}
+                          <div class="col-12 mb-3">
                             <h5 tabindex="0"><strong>{{ id }}</strong> - {{ new.title }}</h5>
 
-                            <div class="d-md-none"> <!-- small screens -->
-                                <div class="row overflow-x-auto">
-                                    {% if new.img is not none %}
-                                    <div class="col-12">
-                                        <a href="{% if new.img.startswith('http') %}{{ new.img }}{% else %}{{ static_url }}/img/{{ new.img }}{% endif %}">
-                                            <img class="img-responsive rounded mx-auto d-block"
-                                                 src="{% if new.img.startswith('http') %}{{ new.img }}{% else %}{{ static_url }}/img/{{ new.img }}{% endif %}"
-                                                 {% if new.description is not none %}
-                                                 alt="{{ new.img_alt }}"
-                                                 {% endif %}
-                                                 tabindex="0"
-                                                 style="display: block; max-width: 100%; height: auto">
-                                        </a>
-                                    </div>
-                                    {% endif %}
-                                    {% if new.description is not none %}
-                                    <div class="col-12">
-                                        <p class="mb-0">{{ new.description }}</p>
-                                    </div>
-                                    {% endif %}
+                            <!-- Small screens -->
+                            <div class="d-md-none">
+                              <div class="row overflow-x-auto">
+                                {% if new.img is not none %}
+                                <div class="col-12 text-center">
+                                  <a href="{% if new.img.startswith('http') %}{{ new.img }}{% else %}{{ static_url }}/img/{{ new.img }}{% endif %}">
+                                    <img class="img-responsive rounded mx-auto d-block"
+                                         src="{% if new.img.startswith('http') %}{{ new.img }}{% else %}{{ static_url }}/img/{{ new.img }}{% endif %}"
+                                         alt="{{ new.img_alt }}"
+                                         tabindex="0"
+                                         style="max-width: 100%; height: auto;">
+                                  </a>
                                 </div>
+                                {% endif %}
+
+                                {% if new.description is not none %}
+                                <div class="col-12">
+                                  <p class="mb-0">{{ new.description }}</p>
+                                </div>
+                                {% endif %}
+                              </div>
                             </div>
 
-                            <div class="col-12 d-none d-md-block"> <!-- larger screens -->
-                                <div class="row overflow-x-auto">
-                                    {% if new.img is not none %}
-                                    <div class="col-6 col-md-3">
-                                        <a href="{% if new.img.startswith('http') %}{{ new.img }}{% else %}{{ static_url }}/img/{{ new.img }}{% endif %}">
-                                            <img class="img-responsive rounded"
-                                                 src="{% if new.img.startswith('http') %}{{ new.img }}{% else %}{{ static_url }}/img/{{ new.img }}{% endif %}"
-                                                 {% if new.description is not none %}
-                                                 alt="{{ new.img_alt }}"
-                                                 {% endif %}
-                                                 tabindex="0"
-                                                 style="display: block; max-width: 100%; height: auto">
-                                        </a>
-                                    </div>
-                                    {% endif %}
-                                    {% if new.description is not none %}
-                                    {% if new.img is not none %}
-                                    <div class="col-6 col-md-9">
-                                    {% else %}
-                                    <div class="col-12">
-                                    {% endif %}
-                                        <p class="mb-0">{{ new.description }}</p>
-                                    </div>
-                                    {% endif %}
+                            <!-- Larger screens -->
+                            <div class="col-12 d-none d-md-block">
+                              <div class="row overflow-x-auto">
+                                {% if new.img is not none %}
+                                <div class="col-6 col-md-3 text-center">
+                                  <a href="{% if new.img.startswith('http') %}{{ new.img }}{% else %}{{ static_url }}/img/{{ new.img }}{% endif %}">
+                                    <img class="img-responsive rounded"
+                                         src="{% if new.img.startswith('http') %}{{ new.img }}{% else %}{{ static_url }}/img/{{ new.img }}{% endif %}"
+                                         alt="{{ new.img_alt }}"
+                                         tabindex="0"
+                                         style="max-width: 100%; height: auto;">
+                                  </a>
                                 </div>
+                                {% endif %}
+
+                                {% if new.description is not none %}
+                                {% if new.img is not none %}
+                                <div class="col-6 col-md-9">
+                                {% else %}
+                                <div class="col-12">
+                                {% endif %}
+                                  <p class="mb-0">{{ new.description }}</p>
+                                </div>
+                                {% endif %}
+                              </div>
                             </div>
 
-                            <br>
+                          </div>
+                          {% endfor %}
                         </div>
-                        {% endfor %}
+                      </div>
+                    {% endfor %}
                     <p>{{ outro }}</p>
                 </div>
 {% endblock content %}

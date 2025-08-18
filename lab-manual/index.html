@@ -368,30 +368,26 @@
 <p>This manual provides comprehensive information about the lab's culture, procedures, and workflows to ensure a collaborative and efficient research environment.</p>
 <p>The manual is hosted in the <a href="https://github.com/rendeirolab/lab-manual/"><code>lab-manual</code></a> repository on GitHub. It is written in <a href="https://daringfireball.net/projects/markdown/">Markdown</a> and can be converted to HTML and PDF using <a href="https://pandoc.org/">Pandoc</a>.</p>
 <p>This manual is open source and maintained collaboratively. Anyone on GitHub can propose changes.</p>
-<h2>Building the manual</h2>
-<p>The project includes a <a href="https://github.com/rendeirolab/lab-manual/blob/main/Makefile">Makefile</a> to streamline the development process.</p>
-<p>Key targets include:</p>
+<h2>Editing the manual</h2>
+<p>To contribute an adition or change to the manual:</p>
+<ol>
+<li>Edit or create files directly <a href="https://github.com/rendeirolab/lab-manual">on GitHub</a>, or locally on your computer.</li>
+<li>Submit a pull request with a clear, one-line description of the changes made.</li>
+<li>Follow best practices by adding reviewers and referencing related issues, if applicable.</li>
+</ol>
+<p>Tip: to add a table of contents to a new file document, use <a href="https://github.com/hukkin/mdformat-toc">mdformat-toc</a>. Insert <code>&lt;!-- mdformat-toc start --&gt;</code> where the table of contents should appear, and run <code>mdformat &lt;file.md&gt;</code> on the edited file, or <code>make format</code> to format all.</p>
+<h3>Building the manual locally</h3>
+<p>To preview changes locally before committing to Github and deploying on the lab website, you can build the manual locally using the provided tools. Ensure you have the necessary dependencies installed:
+- <a href="https://pandoc.org/installing.html">Pandoc</a>
+- <a href="https://wkhtmltopdf.org/downloads.html">wkhtmltopdf</a></p>
+<p>To streamline the development process the project includes a <a href="https://github.com/rendeirolab/lab-manual/blob/main/Makefile">Makefile</a>. Key targets include:</p>
 <ul>
 <li><strong><code>format</code></strong>: Formats Markdown files consistently using <code>mdformat</code>.</li>
 <li><strong><code>build</code></strong>: Converts the manual into a single HTML file using <code>pandoc</code> and generates a PDF file using <code>wkhtmltopdf</code>.</li>
 <li><strong><code>clean</code></strong>: Removes generated files to ensure a fresh build.</li>
 </ul>
 <p>Styling for the manual is controlled by a custom <a href="assets/style.css">CSS file</a>, which ensures a nice appearance in both HTML and PDF formats.</p>
-<h2>Editing content</h2>
-<p>To contribute to the manual:</p>
-<ol>
-<li>Edit or create files directly on GitHub, or locally on your system.</li>
-<li>Submit a pull request with a clear, one-line description of the changes made.</li>
-<li>Follow best practices by adding reviewers and referencing related issues, if applicable.</li>
-</ol>
-<p>For adding a table of contents to any document, use <a href="https://github.com/hukkin/mdformat-toc">mdformat-toc</a>. Insert <code>&lt;!-- mdformat-toc start --&gt;</code> where the table of contents should appear, and run <code>mdformat &lt;file.md&gt;</code> on the edited file, or <code>make format</code> to format all.</p>
-<h2>Acknowledgements</h2>
-<p>We thank the following labs for sharing their open-source lab manuals, which inspired this project:</p>
-<ul>
-<li><a href="https://github.com/alylab/labmanual">Aly Lab Manual</a></li>
-<li><a href="https://github.com/getzlab/getzlab.github.io">Getz Lab Manual</a></li>
-</ul>
-<h2>TODO</h2>
+<h3>Future improvements</h3>
 <p>Some outstanding tasks to improve the manual's content, style and accessibility:</p>
 <ul>
 <li><input checked="" class="task-list-item-checkbox" disabled="" type="checkbox"/> Improve and include <a href="/lab-manual/source/public_data">public data page</a></li>
@@ -412,6 +408,12 @@
 <li><input checked="" class="task-list-item-checkbox" disabled="" type="checkbox"/> Fix Python code blocks highlighting</li>
 <li><input class="task-list-item-checkbox" disabled="" type="checkbox"/> Build only on tagged versions, not on <code>main</code></li>
 </ul></li>
+</ul>
+<h2>Acknowledgements</h2>
+<p>We thank the following labs for sharing their open-source lab manuals, which inspired this project:</p>
+<ul>
+<li><a href="https://github.com/alylab/labmanual">Aly Lab Manual</a></li>
+<li><a href="https://github.com/getzlab/getzlab.github.io">Getz Lab Manual</a></li>
 </ul>
 <hr/><p><small>Edit this page on <a href="https://github.com/rendeirolab/lab-manual/edit/refs/heads/main/README.md">GitHub</a></small></p>
               </main>

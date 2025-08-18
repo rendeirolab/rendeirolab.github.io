@@ -25,6 +25,15 @@ news:
   content: "Some news from our lab:"
   outro: ""
   news:
+    2025-08-18:
+      title: "Yimin gave a talk at Sydney Statistical Bioinformatics Seminar Series"
+      description:
+        <p>Yimin gave a talk on LazySlide, our lab's framework for whole slide image analysis, at the Sydney Statistical Bioinformatics Seminar Series organized by the Precision Data Science Centre at the University of Sydney.</p>
+        <p>The talk, titled <a href="https://www.youtube.com/watch?v=PZApPewJn0k">"The lazy way of pathological image analysis in the era of large models" is available on YouTube</a>.<p>
+        <a href="https://www.youtube.com/@SydneyDataScience">Check out the whole amazing seminar series on YouTube</a>.</p>
+        <p>Thank you to the organizers for the invitation!</p>
+      img: https://1000logos.net/wp-content/uploads/2017/05/Youtube-Logo.png
+      img_alt: "YouTube logo."
     2025-08-05:
       title: "We are hiring a data scientist / software engineer!"
       description:

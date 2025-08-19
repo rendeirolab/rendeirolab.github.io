@@ -456,6 +456,14 @@ publications:
   content: ""
   outro: ""
   publications:
+    10.1101/2025.08.18.669055:
+      authors: "Sarah Dobner, Lisa Kleissl, Fanni Tóth, Robert Paxton, Irena Yordanova, Cedric Vanluyten, Hanna Toth, Aglaja Kopf, Jake Burton, Dunja Al-Nuaimi, Vera Belyaeva, André F. Rendeiro, Christoph Bock, Selma Osmanagic-Myers, Joanna Kalucka, Laurens Ceulemans4, Georg Stary, Abdel Rahman Abdel Fattah, Laura P.M.H. de Rooij"
+      title: "Uncovering the transcriptional hallmarks of endothelial cell aging via integrated single-cell analysis"
+      publisher: "BioRxiv"
+      year: 2025
+      type: preprint
+      description: null
+      resources: null
     10.1101/2025.05.28.656548:
       authors: "Yimin Zheng, Ernesto Abila, Eva Chrenková, Juliane Winkler, André F. Rendeiro<sup>+</sup>"
       title: "LazySlide: accessible and interoperable whole slide image analysis"
@@ -469,6 +477,14 @@ publications:
         - Notebook: https://wsidata.readthedocs.io
         - Notebook: https://lazyslide.readthedocs.io
         - Data: https://doi.org/10.5281/zenodo.15497224
+    10.1101/2025.05.02.651926:
+      authors: "Salvo Danilo Lombardo, André F. Rendeiro, Jörg Menche"
+      title: "A multilayer network approach elucidates time- and tissue-specific developmental and aging processes"
+      publisher: BioRxiv
+      year: 2025
+      type: preprint
+      description: null
+      resources: null
     10.1186/s13059-024-03469-3:
       authors: "Yimin Zheng, Zhihang Zheng, André F. Rendeiro<sup>+</sup>, Edwin Cheung<sup>+</sup>"
       title: "Marsilea: An intuitive generalized visualization paradigm for complex datasets"
@@ -535,6 +551,30 @@ publications:
       description: null
       resources: null
   previous_publications:
+    10.1016/j.cels.2025.101346:
+      authors: "Peter Traxler, Stephan Reichl, Lukas Folkman, Lisa Shaw, Victoria Fife, Amelie Nemc, Djurdja Pasajlic, Anna Kusienicka, Daniele Barreca, Nikolaus Fortelny, André F. Rendeiro, Florian Halbritter, Wolfgang Weninger, Thomas Decker, Matthias Farlik, Christoph Bock"
+      title: Integrated time series analysis and high-content CRISPR screening delineates the dynamics of macrophage immune regulation"
+      publisher: "Cell Systems"
+      year: 2025
+      type: journal
+      description: null
+      resources: null
+    10.1016/j.prp.2025.156150:
+      authors: "Erika Hissong, Bhavneet Bhinder, Junbum Kim, Kentaro Ohara, Hiranmayi Ravichandran, Majd Al Assaad, Sarah Elsoukkary, Michael Shusterman, Uqba Khan, Kenneth Wha Eng, Rohan Bareja, Jyothi Manohar, Michael Sigouros, André F. Rendeiro, Jose Jessurun, Allyson J. Ocean, Andrea Sboner, Olivier Elemento, Juan Miguel Mosquera, Manish A. Shah"
+      title: Integrative transcriptomic and single-cell protein characterization of colorectal carcinoma delineates distinct tumor immune microenvironments associated with overall survival"
+      publisher: "Pathology - Research and Practice"
+      year: 2025
+      type: journal
+      description: null
+      resources: null
+    10.1101/2025.05.28.656689:
+      authors: "Adrien Grimont, David J Falvo, Whitney J Sisso, Paul Zumbo, Christopher W Chan, Francisco Santos, Grace Pan, Megan Cleveland, Tomer Yaron, Alexa S Osterhoudt, Yinuo Meng, Maria Paz Zafra, William B Fall, André F. Rendeiro, Erika Hissong, Rhonda K Yantiss, Doron Betel, Mark A Magnuson, Steven D Leach, Anil K Rustgi, Lukas E Dow, Rohit Chandwani"
+      title: Molecular dynamics driving phenotypic divergence among KRAS mutants in pancreatic tumorigenesis"
+      publisher: "BioRxiv"
+      year: 2025
+      type: preprint
+      description: null
+      resources: null
     10.1038/s41467-024-46320-w:
       authors: "Kentaro Ohara, André F. Rendeiro, Bhavneet Bhinder, Kenneth Wha Eng, Hiranmayi Ravichandran, David Pisapia, Aram Vosoughi, Evan Fernandez, Kyrillus Shohdy, Jyothi Manohar, Shaham Beg, David Wilkes, Brian Robinson, Francesca Khani, Rohan Bareja, Scott Tagawa, Andrea Sboner, Olivier Elemento, Bishoy Morris Faltas, Juan Miguel Mosquera"
       title: "The evolution of genomic, transcriptomic, and single-cell protein markers of metastatic upper tract urothelial carcinoma"

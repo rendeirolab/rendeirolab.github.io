@@ -25,6 +25,15 @@ news:
   content: "Some news from our lab:"
   outro: ""
   news:
+    2025-08-20:
+      title: "Parijat joins the lab for an internship"
+      description:
+        <p>Parijat Chakraborty joined the lab for a 6-month internship.</p>
+        <p>With extensive experience in DNA damage repair mechanisms, whole genome sequencing and flow cytometry assays, she is a recent convert to computational biology but has a long-standing interest in reproductive biology and aging.</p>
+        <p>She will be working on the cross-scale integration of cellular and microanatomical constituents of tissue in female reproductive health.</p>
+        <p>Welcome to the lab, Parijat!</p>
+      img: null
+      img_alt: null
     2025-08-18:
       title: "Yimin gave a talk at Sydney Statistical Bioinformatics Seminar Series"
       description:
@@ -1053,62 +1062,71 @@ team:
       role: Principal Investigator
       description: null
       email: arendeiro@cemm.oeaw.ac.at
-      interests:
-
+      interests: null
       # photo: assets/img/arendeiro.png
       photo: https://cemm.at/fileadmin/_processed_/b/8/csm_Rendeiro_Andre_Bubble_d6dba164e5.png
+      photo_alt: "A photo of Andre inside the CeMM bubble."
     avillanuevamarijuan:
       name: Ariadna Villanueva Marijuan
       role: PhD Student
       description: null
       email: avillanuevamarijuan@cemm.oeaw.ac.at
-      interests:
-
+      interests: null
       # photo: assets/img/avillanuevamarijuan.png
       photo: https://cemm.at/fileadmin/_processed_/a/b/csm_Villanueava_Marijuan_Ariadna_bubble_9c1eda1c3a.png
+      photo_alt: "A photo of Ariadna inside the CeMM bubble."
     eabila:
       name: Ernesto Abila
       role: PhD Student
       description: null
       email: eabila@cemm.oeaw.ac.at
-      interests:
-
+      interests: null
       # photo: assets/img/eabila.png
       photo: https://cemm.at/fileadmin/_processed_/f/c/csm_Abila_Ernesto_Bubble_3216d6745c.png
+      photo_alt: "A photo of Ernesto inside the CeMM bubble."
     ibuljan:
       name: Iva Buljan
       role: PhD Student
       description: null
       email: ibuljan@cemm.oeaw.ac.at
-      interests:
-
+      interests: null
       # photo: assets/img/ibuljan.png
       photo: https://cemm.at/fileadmin/_processed_/3/2/csm_Buljan_Iva_Bubble_726f981332.png
+      photo_alt: "A photo of Iva inside the CeMM bubble."
     lkleissl:
       name: Lisa Kleissl
       role: Postdoc
       description: null
       email: lkleissl@cemm.oeaw.ac.at
-      interests:
-
+      interests: null
       # photo: assets/img/lkleissl.png
       photo: https://cemm.at/fileadmin/img/people/Bubble_pictures/Klei%C3%9Fel_Lisa_Bubble.png
+      photo_alt: "A photo of Lisa inside the CeMM bubble."
+    pcharkraborty:
+      name: Parijat Chakraborty
+      role: Intern
+      description: null
+      email: parijat@lbi-netmed.com
+      interests: null
+      # photo: assets/img/pcharkraborty.png
+      photo: https://placehold.co/300x300/aaa/ffffff?text=Parijat+Chakraborty\nplaceholder&font=open-sans
+      photo_alt: "A placeholder picture"
     tveres:
       name: Tamas Veres
       role: PhD Student
       description: null
       email: tveres@cemm.oeaw.ac.at
-      interests:
-
+      interests: null
       # photo: assets/img/tveres.png
       photo: https://cemm.at/fileadmin/img/people/Bubble_pictures/Tamas_Veres_Bubble.png
+      photo_alt: "A photo of Tamas inside the CeMM bubble."
     yzheng:
       name: Yimin Zheng
       role: Postdoc
       description: null
       email: yzheng@cemm.oeaw.ac.at
-      interests:
-
+      interests: null
       # photo: assets/img/yzheng.png
       photo: https://cemm.at/fileadmin/img/people/Bubble_pictures/Zheng_Yimin_Bubble.png
+      photo_alt: "A photo of Yimin inside the CeMM bubble."
   alumni:

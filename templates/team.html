@@ -18,7 +18,7 @@
                                         class="card-img-top"
                                         tabindex="0"
                                         src="{{ member.photo }}"
-                                        alt="A photo of {{ member.name }} inside a CeMM bubble."
+                                        alt="{{ member.photo_alt }}"
                                         style="width: 90%">
                                     <!-- <img src="{{ member.photo }}" alt="{{ member.name }}" > -->
                                     <p class="card-text">{{ member.role }}
@@ -64,7 +64,7 @@
                                     class="card-img-top"
                                     tabindex="0"
                                     src="{{ alumnus.photo }}"
-                                    alt="A photo of {{ alumnus.name }} inside a CeMM bubble."
+                                    alt="{{ alumnus.photo_alt }}"
                                     style="width: 90%">
                                 <!-- <img src="{{ alumnus.photo }}" alt="{{ alumnus.name }}" > -->
                                 <p class="card-text">{{ alumnus.description }}</p>

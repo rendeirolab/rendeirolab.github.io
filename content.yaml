@@ -481,6 +481,7 @@ publications:
       type: preprint
       description: null
       resources: null
+      highlight: false
     10.1101/2025.05.28.656548:
       authors: "Yimin Zheng, Ernesto Abila, Eva Chrenková, Juliane Winkler, André F. Rendeiro<sup>+</sup>"
       title: "LazySlide: accessible and interoperable whole slide image analysis"
@@ -494,6 +495,7 @@ publications:
         - Notebook: https://wsidata.readthedocs.io
         - Notebook: https://lazyslide.readthedocs.io
         - Data: https://doi.org/10.5281/zenodo.15497224
+      highlight: true
     10.1101/2025.05.02.651926:
       authors: "Salvo Danilo Lombardo, André F. Rendeiro, Jörg Menche"
       title: "A multilayer network approach elucidates time- and tissue-specific developmental and aging processes"
@@ -502,6 +504,7 @@ publications:
       type: preprint
       description: null
       resources: null
+      highlight: false
     10.1186/s13059-024-03469-3:
       authors: "Yimin Zheng, Zhihang Zheng, André F. Rendeiro<sup>+</sup>, Edwin Cheung<sup>+</sup>"
       title: "Marsilea: An intuitive generalized visualization paradigm for complex datasets"
@@ -513,6 +516,7 @@ publications:
         - Code: https://marsilea.readthedocs.io/
         - Code: https://github.com/Marsilea-viz/marsilea
         - Preprint: https://doi.org/10.1101/2024.02.14.580236
+      highlight: false
     10.1101/2025.06.16.658716:
       authors: "Jiwoon Park, Roberto De Gregorio, Erika Hissong, Elif Ozcelik, Nicholas Bartelo, Felipe Segato Dezem, Luke Zhang, Maycon Marção, Hannah DuBose, Yimin Zheng, Ernesto Abila, Junbum Kim, Jacqueline Proszynski, Akua A Agyemang, Mohith Reddy Arikatla, Evelyn Metzger, Stefan Rogers, Prajan Divakar, Parambir S Dulai, Jason W Reeves, Yan Liang, Liuliu Pan, Sayani Bhattacharjee, Kimberly Young, Ashley Heck, Mithra Korukonda, Dan McGuire, Lidan Wu, Aster Wardhani, Joseph Beechem, George Church, Steven M Lipkin, Sanjay Patel, Fabio Socciarelli, Sebastien Monette, Brian Robinson, Massimo Loda, Olivier Elemento, Luciano Martelotto, Jasmine T Plummer, André F. Rendeiro, Alicia Alonso, Robert E Schwartz, Shauna L Houlihan, Christopher E Mason"
       title: "The Spatial Atlas of Human Anatomy (SAHA): A Multimodal Subcellular-Resolution Reference Across Human Organs"
@@ -521,6 +525,7 @@ publications:
       type: preprint
       description: null
       resources: null
+      highlight: false
     10.1101/2024.11.14.618081:
       authors: "Ernesto Abila<sup>*</sup>, Iva Buljan<sup>*</sup>, Yimin Zheng<sup>*</sup>, Tamas Veres, Zhilong Weng, Maja C Nackenhorst, Wolfgang Hulla, Yuri Tolkach, Adelheid Woehrer, André F. Rendeiro<sup>+</sup>"
       title: "Tissue clocks derived from histological signatures of biological aging enable tissue-specific aging predictions from blood"
@@ -533,6 +538,7 @@ publications:
         - Press: https://www.newscientist.com/article/2458249-most-comprehensive-picture-yet-of-how-organs-age-at-different-rates/
         - Data: https://zenodo.org/doi/10.5281/zenodo.13330658
         - Code: https://github.com/rendeirolab/agingpath
+      highlight: true
     10.1038/s41556-024-01407-w:
       authors: "Andreas Reicher, Jiří Reiniš, Maria Ciobanu, Pavel Rūžícka, Monika Malik, Marton Szellós, Viktoriia Kartysh, Tatjana Tomek, Anna Koren, André F. Rendeiro, Stefan Kubicek"
       title: "Pooled multicolor tagging for visualizing subcellular protein dynamics"
@@ -542,6 +548,7 @@ publications:
       description: null
       resources:
         - Code: https://github.com/reinisj/intron_tagging
+      highlight: false
     10.1016/j.isci.2024.109301:
       authors: "Oleksandr Petrenko, Philipp Königshofer, Ksenia Brusilovskaya, Benedikt S. Hofer, Katharina Bareiner, Benedikt Simbrunner, Frank Jühling, Thomas F. Baumert, Joachim Lupberger, Michael Trauner, Stefan G. Kauschke, Larissa Pfisterer, Eric Simon, André F. Rendeiro, Laura P.M. H. de Rooij, Philipp Schwabl, Thomas Reiberger"
       title: "Transcriptomic signatures of progressive and regressive liver fibrosis and portal hypertension"
@@ -551,6 +558,7 @@ publications:
       description: null
       resources:
         - Preprint: https://doi.org/10.1101/2023.07.22.550133
+      highlight: false
     10.1038/s41435-024-00257-8:
       authors: "Dörte Symmank, Felix Clemens Richter, André F. Rendeiro"
       title: "Navigating the thymic landscape through development: from cellular atlas to tissue cartography"
@@ -559,6 +567,7 @@ publications:
       type: opinion
       description: null
       resources: null
+      highlight: false
     10.1016/j.cels.2023.05.009:
       authors: "Fabian J. Theis, Daniel Dar, Roser Vento-Tormo, Sanja Vicković, Linghua Wang, Luciane T. Kagohara, André F. Rendeiro, Johanna A. Joyce"
       title: "What do you most hope spatial molecular profiling will help us understand? Part 1"
@@ -567,6 +576,7 @@ publications:
       type: opinion
       description: null
       resources: null
+      highlight: false
   previous_publications:
     10.1016/j.cels.2025.101346:
       authors: "Peter Traxler, Stephan Reichl, Lukas Folkman, Lisa Shaw, Victoria Fife, Amelie Nemc, Djurdja Pasajlic, Anna Kusienicka, Daniele Barreca, Nikolaus Fortelny, André F. Rendeiro, Florian Halbritter, Wolfgang Weninger, Thomas Decker, Matthias Farlik, Christoph Bock"

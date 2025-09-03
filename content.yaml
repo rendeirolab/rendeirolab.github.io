@@ -25,6 +25,13 @@ news:
   content: "Some news from our lab:"
   outro: ""
   news:
+    2025-09-03:
+      title: "Our lab had its first retreat"
+      description:
+        <p>We had a great time at our lab retreat in Gumpoldskirchen, Austria, where we discussed our research projects, shared ideas, and enjoyed some team-building activities in a relaxed environment.</p>
+        <p>Thank you to everyone who participated and made it a success!</p>
+      img: 2025-09-03-lab_retreat.webp
+      img_alt: "The lab members around a coffee table in Gumpoldskirchen, Lower Austria."
     2025-09-01:
       title: "Yimin takes part in the NVIDIA accelerate omics hackathon"
       description:

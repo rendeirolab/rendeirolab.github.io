@@ -442,6 +442,13 @@ press:
   content: "Press covereage of our our lab's work:"
   outro: ""
   press:
+    2025-09-06:
+      title: "Vier neue ERC Starting Grants für ÖAW-Forschende"
+      publisher: OeAW
+      url: https://www.oeaw.ac.at/news/vier-neue-erc-starting-grants-fuer-oeaw-forschende-1
+      description: Coverage of our ERC Starting Grant award by the Austrian Academy of Sciences.
+      img: https://www.oeaw.ac.at/typo3conf/ext/oeaw_theme24/Resources/Public/Icons/logo-lang-de.png
+      img_alt: The logo of the Austrian Academy of Sciences
     2025-09-05:
       title: "Há mais dez cientistas portugueses premiados com bolsas milionárias da Europa"
       publisher: Publico.pt

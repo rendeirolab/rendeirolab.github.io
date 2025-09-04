@@ -25,6 +25,18 @@ news:
   content: "Some news from our lab:"
   outro: ""
   news:
+    2025-09-04:
+      title: "Our lab has received a European Research Council (ERC) Starting Grant!"
+      description:
+        <p>We are thrilled to announce that our lab has been awarded a European Research Council (ERC) Starting Grant for the project titled "QUANTAGE - A quantitative tissue architecture framework to understand human aging and disease".</p>
+        <p>The project will focus on developing a comprehensive framework for analyzing tissue architecture, with the goal of understanding the complex processes of human aging and disease.</p>
+        <p>We are grateful for the support from the ERC and excited about the opportunities this grant will bring to our research.</p>
+        <p><a href="https://cemm.at/news/detail/aging-studied-at-multiple-scales-cemm-pi-andre-rendeiro-awarded-erc-starting-grant">Read here the CeMM press release on the grant</a>.</p>
+        <p><a href="https://erc.europa.eu/news-events/news/starting-grants-2025-examples-projects">Read here the project highlight on the ERC website</a>.</p>
+        <p>Below is a video about our project:</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/watch?v=NDi6-_4p8dQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      img: https://erc.europa.eu/sites/default/files/inline-images/Logo-ERC-black_0.png
+      img_alt: "European Research Council (ERC) logo."
     2025-09-03:
       title: "Our lab had its first retreat"
       description:
@@ -430,6 +442,27 @@ press:
   content: "Press covereage of our our lab's work:"
   outro: ""
   press:
+    2025-09-05:
+      title: "Há mais dez cientistas portugueses premiados com bolsas milionárias da Europa"
+      publisher: Publico.pt
+      url: https://www.publico.pt/2025/09/04/ciencia/noticia/ha-dez-cientistas-portugueses-premiados-bolsas-milionarias-europa-2145971
+      description: Coverage of our ERC Starting Grant award in the Portuguese press.
+      img: https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Logo_publico.svg/1920px-Logo_publico.svg.png
+      img_alt: The logo of the Publico newspaper
+    2025-09-04:
+      title: "ERC Starting Grants 2025: Examples of Projects"
+      publisher: ERC news website
+      url: https://erc.europa.eu/news-events/news/starting-grants-2025-examples-projects
+      description: Coverage of our ERC Starting Grant award.
+      img: https://erc.europa.eu/sites/default/files/inline-images/Logo-ERC-black_0.png
+      img_alt: ERC logo
+    2025-09-03:
+      title: "ERC Starting Grants 2025 CeMM press release"
+      publisher: CeMM website
+      url: https://cemm.at/news/detail/aging-studied-at-multiple-scales-cemm-pi-andre-rendeiro-awarded-erc-starting-grant
+      description: Coverage of our ERC Starting Grant award.
+      img: https://cemm.at/_assets/23c048c4e278024490c6ac1b855e5de4/img/logo/site-logo.svg
+      img_alt: CeMM and OeAW logo
     2025-02-24:
       title: "Chaque organe vieillit à son rhythme"
       publisher: "Epsiloon"

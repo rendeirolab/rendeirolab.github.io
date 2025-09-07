@@ -9,9 +9,9 @@
                     <h3>{{ title }}</h3>
                     <p>{{ intro }}</p>
                     <p>{{ content }}</p>
-                    {% for id, item in press.items()|sort(reverse=True) %}
+                    {% for item in press|sort(attribute="date", reverse=True) %}
                     <div class="col-12 col-md-6">
-                        <h5 tabindex="0"><strong>{{ id }}</strong> - <a href={{ item.url }}>We're featured in '{{ item.publisher }}'</a></h5>
+                        <h5 tabindex="0"><strong>{{ item.date }}</strong> - <a href={{ item.url }}>We're featured in '{{ item.publisher }}'</a></h5>
                         <div class="row">
                             {% if item.img is not none %}
                             <div class="col-6 text-center">

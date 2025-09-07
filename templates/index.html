@@ -51,8 +51,8 @@
                     </ol>
 
                     <h4>Latest news</h4>
-                    {% for id, new in (news.items()|sort(reverse=True))[:6] %}
-                        <p><strong>{{ id }}</strong> - {{ new.title }}</p>
+                    {% for item in (news|sort(attribute="date", reverse=True))[:6] %}
+                        <p><strong>{{ item.date }}</strong> - {{ item.title }}</p>
                     {% endfor %}
                     <a href="/news/">More news here.</a>
                 </div>

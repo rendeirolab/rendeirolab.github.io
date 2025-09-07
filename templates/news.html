@@ -9,7 +9,10 @@
                     <h3>{{ title }}</h3>
                     <p>{{ intro }}</p>
                     <p>{{ content }}</p>
-                    {% for year, items in news.items()|sort(attribute='0.year', reverse=True)|groupby('0.year')|sort(reverse=True) %}
+                    {% for year, items in news
+                      |sort(attribute="date", reverse=True)
+                      |groupby("date.year")
+                      |sort(attribute="grouper", reverse=True) %}
                       <div class="mb-3">
                         <!-- Year toggle -->
                         <button class="btn btn-primary w-100 text-start"
@@ -23,28 +26,28 @@
 
                         <!-- News block for this year -->
                         <div class="collapse mt-2 {% if loop.first %}show{% endif %}" id="collapse-{{ year }}">
-                          {% for id, new in items %}
+                          {% for item in items %}
                           <div class="col-12 mb-3">
-                            <h5 tabindex="0"><strong>{{ id }}</strong> - {{ new.title }}</h5>
+                            <h5 tabindex="0"><strong>{{ item.date }}</strong> - {{ item.title }}</h5>
 
                             <!-- Small screens -->
                             <div class="d-md-none">
                               <div class="row overflow-x-auto">
-                                {% if new.img is not none %}
+                                {% if item.img is not none %}
                                 <div class="col-12 text-center">
-                                  <a href="{% if new.img.startswith('http') %}{{ new.img }}{% else %}{{ static_url }}/img/{{ new.img }}{% endif %}">
+                                  <a href="{% if item.img.startswith('http') %}{{ item.img }}{% else %}{{ static_url }}/img/{{ item.img }}{% endif %}">
                                     <img class="img-responsive rounded mx-auto d-block"
-                                         src="{% if new.img.startswith('http') %}{{ new.img }}{% else %}{{ static_url }}/img/{{ new.img }}{% endif %}"
-                                         alt="{{ new.img_alt }}"
+                                         src="{% if item.img.startswith('http') %}{{ item.img }}{% else %}{{ static_url }}/img/{{ item.img }}{% endif %}"
+                                         alt="{{ item.img_alt }}"
                                          tabindex="0"
                                          style="max-width: 100%; height: auto;">
                                   </a>
                                 </div>
                                 {% endif %}
 
-                                {% if new.description is not none %}
+                                {% if item.description is not none %}
                                 <div class="col-12">
-                                  <p class="mb-0">{{ new.description }}</p>
+                                  <p class="mb-0">{{ item.description }}</p>
                                 </div>
                                 {% endif %}
                               </div>
@@ -53,25 +56,25 @@
                             <!-- Larger screens -->
                             <div class="col-12 d-none d-md-block">
                               <div class="row overflow-x-auto">
-                                {% if new.img is not none %}
+                                {% if item.img is not none %}
                                 <div class="col-6 col-md-3 text-center">
-                                  <a href="{% if new.img.startswith('http') %}{{ new.img }}{% else %}{{ static_url }}/img/{{ new.img }}{% endif %}">
+                                  <a href="{% if item.img.startswith('http') %}{{ item.img }}{% else %}{{ static_url }}/img/{{ item.img }}{% endif %}">
                                     <img class="img-responsive rounded"
-                                         src="{% if new.img.startswith('http') %}{{ new.img }}{% else %}{{ static_url }}/img/{{ new.img }}{% endif %}"
-                                         alt="{{ new.img_alt }}"
+                                         src="{% if item.img.startswith('http') %}{{ item.img }}{% else %}{{ static_url }}/img/{{ item.img }}{% endif %}"
+                                         alt="{{ item.img_alt }}"
                                          tabindex="0"
                                          style="max-width: 100%; height: auto;">
                                   </a>
                                 </div>
                                 {% endif %}
 
-                                {% if new.description is not none %}
-                                {% if new.img is not none %}
+                                {% if item.description is not none %}
+                                {% if item.img is not none %}
                                 <div class="col-6 col-md-9">
                                 {% else %}
                                 <div class="col-12">
                                 {% endif %}
-                                  <p class="mb-0">{{ new.description }}</p>
+                                  <p class="mb-0">{{ item.description }}</p>
                                 </div>
                                 {% endif %}
                               </div>

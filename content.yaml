@@ -25,6 +25,13 @@ news:
   content: "Some news from our lab:"
   outro: ""
   news:
+    - date: 2025-09-10
+      title: "Welcome to Shrestha!"
+      description: |
+        <p>Shrestha Srivastava joined the lab for a PhD at the LBI-NetMed.</p>
+        <p>He has a background in Data Science and Engineering using deep learning and will work on novel models and methods to study tissue organization in health and disease.</p>
+      img: null
+      img_alt: null
     - date: 2025-09-09
       title: "Yimin presented two posters at the European Society of Pathology meeting in Vienna"
       description: |
@@ -1208,6 +1215,15 @@ team:
       interests: null
       # photo: assets/img/pcharkraborty.png
       photo: https://placehold.co/300x300/aaa/ffffff?text=Parijat+Chakraborty\nplaceholder&font=open-sans
+      photo_alt: "A placeholder picture"
+    ssrivastava:
+      name: Shrestha Srivastava
+      role: PhD Student
+      description: null
+      email: shrestha@lbi-netmed.com
+      interests: null
+      # photo: assets/img/ssrivastava.png
+      photo: https://placehold.co/300x300/aaa/ffffff?text=Shrestha+Srivastava\nplaceholder&font=open-sans
       photo_alt: "A placeholder picture"
     tveres:
       name: Tamas Veres

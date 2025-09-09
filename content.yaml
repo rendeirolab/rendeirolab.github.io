@@ -25,6 +25,14 @@ news:
   content: "Some news from our lab:"
   outro: ""
   news:
+    - date: 2025-09-09
+      title: "Yimin presented two posters at the European Society of Pathology meeting in Vienna"
+      description: |
+        <p>Yimin had an e-poster on LazySlide, our lab's framework for whole slide image analysis, at the European Society of Pathology meeting in Vienna.</p>
+        <p>He also presented a poster on our lab's collaboration with Juliane Winkler funded by the by the Vienna Science and Technology foundation (WWTF) on breast cancer metastasis.</p>
+        <p>Congratulations to Yimin and thank you to the organizers for selecting our work!</p>
+      img: null
+      img_alt: null
     - date: 2025-09-04
       title: "Our lab has received a European Research Council (ERC) Starting Grant!"
       description: |
@@ -546,7 +554,7 @@ publications:
   outro: ""
   publications:
     10.1101/2025.08.18.669055:
-      authors: "Sarah Dobner, Lisa Kleissl, Fanni Tóth, Robert Paxton, Irena Yordanova, Cedric Vanluyten, Hanna Toth, Aglaja Kopf, Jake Burton, Dunja Al-Nuaimi, Vera Belyaeva, André F. Rendeiro, Christoph Bock, Selma Osmanagic-Myers, Joanna Kalucka, Laurens Ceulemans4, Georg Stary, Abdel Rahman Abdel Fattah, Laura P.M.H. de Rooij"
+      authors: "Sarah Dobner, Lisa Kleissl, Fanni Tóth, Robert Paxton, Irena Yordanova, Cedric Vanluyten, Hanna Toth, Aglaja Kopf, Jake Burton, Dunja Al-Nuaimi, Vera Belyaeva, André F. Rendeiro, Christoph Bock, Selma Osmanagic-Myers, Joanna Kalucka, Laurens Ceulemans, Georg Stary, Abdel Rahman Abdel Fattah, Laura P.M.H. de Rooij"
       title: "Uncovering the transcriptional hallmarks of endothelial cell aging via integrated single-cell analysis"
       publisher: "BioRxiv"
       year: 2025
@@ -555,7 +563,7 @@ publications:
       resources: null
       highlight: false
     10.1101/2025.05.28.656548:
-      authors: "Yimin Zheng, Ernesto Abila, Eva Chrenková, Juliane Winkler, André F. Rendeiro<sup>+</sup>"
+      authors: "Yimin Zheng, Ernesto Abila, Eva Chrenková, Juliane Winkler, André F. Rendeiro"
       title: "LazySlide: accessible and interoperable whole slide image analysis"
       publisher: "BioRxiv"
       year: 2025
@@ -599,7 +607,7 @@ publications:
       resources: null
       highlight: false
     10.1101/2024.11.14.618081:
-      authors: "Ernesto Abila<sup>*</sup>, Iva Buljan<sup>*</sup>, Yimin Zheng<sup>*</sup>, Tamas Veres, Zhilong Weng, Maja C Nackenhorst, Wolfgang Hulla, Yuri Tolkach, Adelheid Woehrer, André F. Rendeiro<sup>+</sup>"
+      authors: "Ernesto Abila<sup>*</sup>, Iva Buljan<sup>*</sup>, Yimin Zheng<sup>*</sup>, Tamas Veres, Zhilong Weng, Maja C Nackenhorst, Wolfgang Hulla, Yuri Tolkach, Adelheid Woehrer, André F. Rendeiro"
       title: "Tissue clocks derived from histological signatures of biological aging enable tissue-specific aging predictions from blood"
       publisher: "BioRxiv"
       year: 2024

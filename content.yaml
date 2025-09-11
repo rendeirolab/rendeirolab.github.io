@@ -26,6 +26,13 @@ news:
   outro: ""
   news:
     - date: 2025-09-10
+      title: "Lisa won the best short talk award at the FEBS Advanced Course on Immunology, metabolism and ageing"
+      description: |
+        <p>Lisa Kleissl won the best short talk award at the FEBS Advanced Course on Immunology, metabolism and ageing in Matrei am Brenner, Austria.</p>
+        <p>Congratulations Lisa!</p>
+      img: 2025-09-10-Lisa_FEBS_award.webp
+      img_alt: A photo of the certificate for the best short talk award
+    - date: 2025-09-10
       title: "Welcome to Shrestha!"
       description: |
         <p>Shrestha Srivastava joined the lab for a PhD at the LBI-NetMed.</p>

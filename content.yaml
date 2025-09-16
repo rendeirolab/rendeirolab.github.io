@@ -464,6 +464,13 @@ press:
   content: "Press covereage of our our lab's work:"
   outro: ""
   press:
+      - date: 2025-09-15
+        title: "LBG-Forscher André Rendeiro erhält ERC Starting Grant im Bereich Altersforschung"
+        publisher: "LBG"
+        url: "https://lbg.ac.at/news/lbg-forscher-andre-rendeiro-erhaelt-erc-starting-grant-im-bereich-altersforschung/"
+        description: Coverage of our ERC Starting Grant by the Ludwig Boltzmann Gesellschaft.
+        img: "https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main/assets/logos/LBG.svg"
+        img_alt: The logo of the Ludwig Boltzmann Gesellschaft
       - date: 2025-09-04
         title: "21 renommierte ERC-Starting-Grants gehen nach Österreich"
         publisher: Der Standard

@@ -25,6 +25,14 @@ news:
   content: "Some news from our lab:"
   outro: ""
   news:
+    - date: 2025-09-16
+      title: "We took part in the 2025 LBI-NetMed retreat"
+      description: |
+        <p>The LBI-NetMed had its yearly retreat in Horn, Austria.</p>
+        <p>Andre, Parijat and Shrestha represented our lab and had a great time discussing science, networking, and thinking on the future of the institute.</p>
+        <p>Thank you to the organizers for a great retreat!</p>
+      img: 2025-09-16-LBI_retreat.webp
+      img_alt: The LBI-NetMed in front of the lake in Campus Horn
     - date: 2025-09-10
       title: "Lisa won the best short talk award at the FEBS Advanced Course on Immunology, metabolism and ageing"
       description: |

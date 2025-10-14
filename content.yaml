@@ -633,6 +633,15 @@ publications:
   content: ""
   outro: ""
   publications:
+    10.1016/j.medj.2025.100881:
+      authors: "Barbara Katharina Geist, Julia Guthrie, Hunor Kertesz, Oana Kulterer, Thomas Nakuz, Lukas Nics, Eva-Maria Patronas, André F. Rendeiro, Chrysoula Vraka, Josef Yu, Stefan Grünert, Marcus Hacker"
+      title: "Metabolic organ networks derived from PET scans are a novel biomarker for overall health status and identify white adipose tissue as key organ in homeostasis"
+      journal: Med
+      year: 2025
+      type: journal
+      description: null
+      resources: null
+      highlight: false
     10.1101/2025.08.18.669055:
       authors: "Sarah Dobner, Lisa Kleissl, Fanni Tóth, Robert Paxton, Irena Yordanova, Cedric Vanluyten, Hanna Toth, Aglaja Kopf, Jake Burton, Dunja Al-Nuaimi, Vera Belyaeva, André F. Rendeiro, Christoph Bock, Selma Osmanagic-Myers, Joanna Kalucka, Laurens Ceulemans, Georg Stary, Abdel Rahman Abdel Fattah, Laura P.M.H. de Rooij"
       title: "Uncovering the transcriptional hallmarks of endothelial cell aging via integrated single-cell analysis"
@@ -676,6 +685,15 @@ publications:
         - Code: https://marsilea.readthedocs.io/
         - Code: https://github.com/Marsilea-viz/marsilea
         - Preprint: https://doi.org/10.1101/2024.02.14.580236
+      highlight: false
+    2025,10.1101/2025.06.23.660994:
+      authors: "Felix Eichin, Valentina C Sladky, Matthäus A. Reiner, Marina Leone, Ernesto Abila, André F. Rendeiro, Ralph Böttcher4, Maik Dahlhoff, Thomas Kolbe, Andreas Villunger"
+      title: "Sequential PIDD1 auto-processing is essential for ploidy control in the liver and heart"
+      publisher: "BioRxiv"
+      year: 2025
+      type: preprint
+      description: null
+      resources: null
       highlight: false
     10.1101/2025.06.16.658716:
       authors: "Jiwoon Park, Roberto De Gregorio, Erika Hissong, Elif Ozcelik, Nicholas Bartelo, Felipe Segato Dezem, Luke Zhang, Maycon Marção, Hannah DuBose, Yimin Zheng, Ernesto Abila, Junbum Kim, Jacqueline Proszynski, Akua A Agyemang, Mohith Reddy Arikatla, Evelyn Metzger, Stefan Rogers, Prajan Divakar, Parambir S Dulai, Jason W Reeves, Yan Liang, Liuliu Pan, Sayani Bhattacharjee, Kimberly Young, Ashley Heck, Mithra Korukonda, Dan McGuire, Lidan Wu, Aster Wardhani, Joseph Beechem, George Church, Steven M Lipkin, Sanjay Patel, Fabio Socciarelli, Sebastien Monette, Brian Robinson, Massimo Loda, Olivier Elemento, Luciano Martelotto, Jasmine T Plummer, André F. Rendeiro, Alicia Alonso, Robert E Schwartz, Shauna L Houlihan, Christopher E Mason"

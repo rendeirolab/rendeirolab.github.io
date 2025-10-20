@@ -1,0 +1,482 @@
+news:
+  description: "Recent news from our lab"
+  title: "News"
+  intro: ""
+  content: "Some news from our lab:"
+  outro: ""
+  news:
+    - date: 2025-10-17
+      title: "Andre attended ESSB 2025"
+      description: |
+        <p>Andre attended the 2nd meeting of the European Society for Spatial Biology in Heidelberg, Germany.</p>
+        <p>It was great to see the rapid advances in spatial biology and meet friends and colleagues in the field.</p>
+        <p>The field is full of exciting research and we are looking forward to contributing to it!</p>
+        <p>Thank you to the organizers for a great meeting!</p>
+      img: null
+      img_alt: null
+    - date: 2025-10-07
+      title: "The LBI-NetMed had its first SAB meeting"
+      description: |
+        <p>The first meeting of the LBI-NetMed scientific advisory board took place on October 7th at the institute.</p>
+        <p>The SAB is composed by Joseph Loscalzo, Katy Börner, Marc van Kempen, and Marinka Zitnik - all very accomplished researchers and leaders in their fields. We are very happy to have them provide advice on our research and institute organization.</p>
+        <p>Thank you also to the Rendeiro lab members who presented, Ernesto Abila, Parijat Chakraborty and Shrestha Srivastava. Especially Parijat and Shrestha who presented just a few weeks after starting in the lab!</p>
+      img: 2025-10-07-LBI_SAB.webp
+      img_alt: The LBI-NetMed team and the SAB posing with the Vienna skyline in the background
+    - date: 2025-10-05
+      title: "Andre participated in a panel discussion at FotoWien"
+      description: |
+        <p>Andre participated in a panel discussion on the intersection of art and science as part of FotoWien, Vienna's international photography festival.</p>
+        <p>The discussion was entitled "Medical Gaze and In/visibility" and was moderated by Monika Pietrzak-Franger, professor at the University of Vienna, head of the department of English and American Studies, and specializing in historical illness iconography, knowledge production and injustice.</p>
+        <p>The panel also included artist and researcher Fiona Tang, who brought an very interesting historical and contemporary perspective on how photography has been used to portrait illnesses.</p>
+        <p>Thank you to Monika and Fiona for the invitation and the discussions!</p>
+      img: 2025-10-05-FotoWien_panel.webp
+      img_alt: Monika Pietrzak-Franger, Fiona Tang, and Andre Rendeiro discussing in a panel
+    - date: 2025-10-04
+      title: "We participated in the 20th run for cancer research"
+      description: |
+        <p>We took part in the run for cancer research in which altogether a combined distance of 46,239 laps were run, each with a donation to support cancer research.</p>
+        <p>With this we hope to not only raise funds for cancer research in Austria, but also awareness about cancer, and promote its prevention.</p>
+      img: 2025-10-04-Cancer_research_run.webp
+      img_alt: The team of runners from CeMM
+    - date: 2025-10-03
+      title: "We took part in the 2025 CeMM outing"
+      description: |
+        <p>The CeMM outing is a day where the science meets society in the physical space.</p>
+        <p>This year, we visited the historic and just renovated Theater an der Wien - the perfect setting for the 2025 theme of "changing the scenery".</p>
+      img: 2025-10-03-CeMM_outing.webp
+      img_alt: CeMM members in a heuriger in Vienna
+    - date: 2025-09-24
+      title: "Andre gave a talk at the 2025 OeGMBT meeting"
+      description: |
+        <p>Andre gave a talk at the 2025 annual meeting of the Austrian Society for Molecular Biology and Biotechnology (OeGMBT) in Innsbruck, Austria.</p>
+        <p>It was great to see the diverse research made by the local community, in particular by the young researchers who presented their work.</p>
+        <p>Thank you to the organizers and in particular to Markus Mandl for the invitation!</p>
+      img: null
+      img_alt: null
+    - date: 2025-09-16
+      title: "We took part in the 2025 LBI-NetMed retreat"
+      description: |
+        <p>The LBI-NetMed had its yearly retreat in Horn, Austria.</p>
+        <p>Andre, Parijat and Shrestha represented our lab and had a great time discussing science, networking, and thinking on the future of the institute.</p>
+        <p>Thank you to the organizers for a great retreat!</p>
+      img: 2025-09-16-LBI_retreat.webp
+      img_alt: The LBI-NetMed in front of the lake in Campus Horn
+    - date: 2025-09-10
+      title: "Lisa won the best short talk award at the FEBS Advanced Course on Immunology, metabolism and ageing"
+      description: |
+        <p>Lisa Kleissl won the best short talk award at the FEBS Advanced Course on Immunology, metabolism and ageing in Matrei am Brenner, Austria.</p>
+        <p>Congratulations Lisa!</p>
+      img: 2025-09-10-Lisa_FEBS_award.webp
+      img_alt: A photo of the certificate for the best short talk award
+    - date: 2025-09-10
+      title: "Welcome to Shrestha!"
+      description: |
+        <p>Shrestha Srivastava joined the lab for a PhD at the LBI-NetMed.</p>
+        <p>He has a background in Data Science and Engineering using deep learning and will work on novel models and methods to study tissue organization in health and disease.</p>
+      img: null
+      img_alt: null
+    - date: 2025-09-09
+      title: "Yimin presented two posters at the European Society of Pathology meeting in Vienna"
+      description: |
+        <p>Yimin had an e-poster on LazySlide, our lab's framework for whole slide image analysis, at the European Society of Pathology meeting in Vienna.</p>
+        <p>He also presented a poster on our lab's collaboration with Juliane Winkler funded by the by the Vienna Science and Technology foundation (WWTF) on breast cancer metastasis.</p>
+        <p>Congratulations to Yimin and thank you to the organizers for selecting our work!</p>
+      img: null
+      img_alt: null
+    - date: 2025-09-04
+      title: "Our lab has received a European Research Council (ERC) Starting Grant!"
+      description: |
+        <p>We are thrilled to announce that our lab has been awarded a European Research Council (ERC) Starting Grant for the project titled "QUANTAGE - A quantitative tissue architecture framework to understand human aging and disease".</p>
+        <p>The project will focus on developing a comprehensive framework for analyzing tissue architecture, with the goal of understanding the complex processes of human aging and disease.</p>
+        <p>We are grateful for the support from the ERC and excited about the opportunities this grant will bring to our research.</p>
+        <p><a href="https://cemm.at/news/detail/aging-studied-at-multiple-scales-cemm-pi-andre-rendeiro-awarded-erc-starting-grant">Read here the CeMM press release on the grant</a>.</p>
+        <p><a href="https://erc.europa.eu/news-events/news/starting-grants-2025-examples-projects">Read here the project highlight on the ERC website</a>.</p>
+        <p>Below is a video with Andre talking about the project:</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/NDi6-_4p8dQ?si=51nszI7X2Iy7dFdV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      img: https://erc.europa.eu/sites/default/files/inline-images/Logo-ERC-black_0.png
+      img_alt: "European Research Council (ERC) logo."
+    - date: 2025-09-03
+      title: "Our lab had its first retreat"
+      description: |
+        <p>We had a great time at our lab retreat in Gumpoldskirchen, Austria, where we discussed our research projects, shared ideas, and enjoyed some team-building activities in a relaxed environment.</p>
+        <p>Thank you to everyone who participated and made it a success!</p>
+      img: 2025-09-03-lab_retreat.webp
+      img_alt: "The lab members around a coffee table in Gumpoldskirchen, Lower Austria."
+    - date: 2025-09-01
+      title: "Yimin takes part in the NVIDIA accelerate omics hackathon"
+      description:
+        <p>Yimin Zheng has been accepted to the <a href="https://developer.nvidia.com/accelerate-omics-hackathon">accelerate omics hackathon</a>, a virtual event from Sept 8-25 sponsored by NVIDIA in collaboration with scverse.</p>
+        <p>Yimin will be leading a team together with Sunag Parasu Nagesh from the University of Saarland in Germany and Arkajyoti Sarkar from Vrije Universiteit Brussel in Belgium.</p>
+        <p>Together, they will develop GPU-accelerated stain normalization method for histology image processing - good luck and have fun!</p>
+      img: https://developer-blogs.nvidia.com/wp-content/uploads/2024/03/hc-press-gtc24-parabricks-4.3-tech-blog-1920x1080-1-1024x576.jpg
+      img_alt: Decorative image of stained cells in light green on dark blue background.
+    - date: 2025-08-20
+      title: "Parijat joins the lab for an internship"
+      description: |
+        <p>Parijat Chakraborty joined the lab for a 6-month internship.</p>
+        <p>With extensive experience in DNA damage repair mechanisms, whole genome sequencing and flow cytometry assays, she is a recent convert to computational biology but has a long-standing interest in reproductive biology and aging.</p>
+        <p>She will be working on the cross-scale integration of cellular and microanatomical constituents of tissue in female reproductive health.</p>
+        <p>Welcome to the lab, Parijat!</p>
+      img: null
+      img_alt: null
+    - date: 2025-08-18
+      title: "Yimin gave a talk at Sydney Statistical Bioinformatics Seminar Series"
+      description: |
+        <p>Yimin gave a talk on LazySlide, our lab's framework for whole slide image analysis, at the Sydney Statistical Bioinformatics Seminar Series organized by the Precision Data Science Centre at the University of Sydney.</p>
+        <p>The talk, titled <a href="https://www.youtube.com/watch?v=PZApPewJn0k">"The lazy way of pathological image analysis in the era of large models" is available on YouTube</a>.<p>
+        <a href="https://www.youtube.com/@SydneyDataScience">Check out the whole amazing seminar series on YouTube</a>.</p>
+        <p>Thank you to the organizers for the invitation!</p>
+      img: https://1000logos.net/wp-content/uploads/2017/05/Youtube-Logo.png
+      img_alt: "YouTube logo."
+    - date: 2025-08-05
+      title: "We are hiring a data scientist / software engineer!"
+      description: |
+        <p>We are looking for a data scientist or software engineer to join our team at CeMM and LBI-NetMed in Vienna, Austria.</p>
+        <p>The position is focused on developing and maintaining software tools for analyzing biomedical data with an emphasis on spatial biology and whole slide image analysis.</p>
+        <p><a href="https://cemm.at/join-cemm/open-positions/dbbgv3o002s15n2f0kuxawdcijr8pqe">Check out the job posting here</a>.</p>
+      img: null
+      img_alt: null
+    - date: 2025-07-21
+      title: "Lisa contributed a video to KinderUni 2025!"
+      description: |
+        <p>Lisa Kleissl from our group supported the initiative to teach children about the immune system and wound healing by contributing a video to KinderUni 2025.</p>
+        <p><a href="https://kinderuni.online/kurs/die-blutbaustelle-helfer-im-einsatz/">See the fun activity here, and the video below (in German language).</a></p>
+        <iframe allow="fullscreen" frameborder="0" src="https://player.vimeo.com/video/1101211108?byline=0&amp;title=0&amp;dnt=0&amp;color=f47e3c"></iframe>
+      img: 2025-07-21-kinderuni2025.webp
+      img_alt: Illustration of the immune system closing a wound.
+    - date: 2025-07-16
+      title: LazySlide hits 100 Github stars! 🎉
+      description: |
+        <p>LazySlide 🦥 just hit 100 GitHub stars! 🎉 Our free, open-source framework is making whole slide analysis easier than ever.</p>
+        <p>Built on scverse 🐍, it handles everything from tissue segmentation to multi-omics workflows 🤹 & deep learning 🏋️.</p>
+        <p>Big thanks to the community!</p>
+      img: 2025-06-01-LazySlide_figure1.webp
+      img_alt: "Overview of the LazySlide framework for scverse-compatible whole slide image analysis. Illustration of the capabilities of LazySlide enabled by its interoperable data structure WSIData: pre-processing of WSI data, quantification of cellular, morphological and microanatomical features of tissue, and learning by integration with other data types, interfacing with deep learning frameworks and advanced, multimodal capabilities."
+    - date: 2025-07-11
+      title: Ariadna took part in the ELLIS summer school in Machine Learning and AI for Health in Lausanne
+      description: |
+        <p>Ariadna Villanueva Marijuan participated in the ELLIS - European Laboratory for Learning and Intelligent Systems summer school in Machine Learning and AI for Health at EPFL in Lausanne.</p>
+        <p>The summer school was a great opportunity to learn from experts in the field and network.</p>
+        <p>Thank you to the organizers for this nice summer school!</p>
+      img: 2025-07-11-Ariadna_ELLIS_summer_school.webp
+      img_alt: The participants of the ELLIS summer school in Machine Learning and AI for Health at EPFL in Lausanne, Switzerland.
+    - date: 2025-07-07
+      title: Congratulations to Yimin on a nice chalk talk at the CeMM 2025 retreat!
+      description: |
+        <p>Yimin gave a chalk (marker) talk on his plans for his future research at the CeMM 2025 retreat.</p>
+        <p>Congratulations on the great talk and the courage to present ambitious ideas!</p>
+      img: 2025-07-07-CeMM_retreat_Yimin.blur.webp
+      img_alt: Yimin giving a chalk talk in front of the audience at the CeMM 2025 retreat.
+    - date: 2025-06-25
+      title: Congratulations to Tamas on the xbio course
+      description: |
+        <p>Tamas Veres successfully completed the xbio entrepeneurship course organized by XISTA.</p>
+        <p>The course is designed for scientists who want to learn how to translate their research into entrepreneurial ventures.</p>
+        <p>Congratulations Tamas!</p>
+      img: 2025-06-25-Tamas_xbio.webp
+      img_alt: The 2025 xbio course participants, including Tamas Veres.
+    - date: 2025-06-20
+      title: Yimin gave a talk at Zhejiang University
+      description: |
+        <p>Yimin gave an invited talk at the BioLinkX Workshop hosted by Zhejiang University.</p>
+        <p>In the talk, he introduced LazySlide, our lab’s Python-based framework for scalable, programmable pathology image analysis.</p>
+        <p>The session highlighted how large models and multimodal datasets are transforming tissue-level phenotyping and aging research.</p>
+        <p>Great to see LazySlide reaching new communities!</p>
+      img: 2025-06-20-Lazyslide_talk_poster.webp
+      img_alt: "Poster for Yimin Zheng's invited talk at the BioLinkX Workshop (Zhejiang University, June 21, 2025)"
+    - date: 2025-06-08
+      title: "Andre gave a lecture at the 'Single-Molecule & Spatial Sequencing: Methods & Applications' course of Weill Cornell Medical College"
+      description: |
+        <p>The lecture is available on YouTube: <a href="https://www.youtube.com/watch?v=N9dhy05ryL8">https://www.youtube.com/watch?v=N9dhy05ryL8</a>.</p>
+        <p>Thank you to Christopher Mason, Jiwoon Park, and Theodore M. Nelson for the invitation!</p>
+      img: https://1000logos.net/wp-content/uploads/2017/05/Youtube-Logo.png
+      img_alt: "YouTube logo."
+    - date: 2025-06-01
+      title: "LazySlide: accessible and interoperable whole slide image analysis - preprint now available!"
+      description: |
+        <p>A preprint on LazySlide - our framework for accessible and interoperable whole slide image analysis - is now <a href="https://www.biorxiv.org/content/10.1101/2025.05.28.656548">available at BioRxiv</a>.</p>
+        <p>Check out the documentation <a href="https://lazyslide.readthedocs.io">https://lazyslide.readthedocs.io</a> and the code <a href="https://github.com/RendeiroLab/LazySlide">https://github.com/RendeiroLab/LazySlide</a>.</p>
+      img: 2025-06-01-LazySlide_figure1.webp
+      img_alt: "Overview of the LazySlide framework for scverse-compatible whole slide image analysis. Illustration of the capabilities of LazySlide enabled by its interoperable data structure WSIData: pre-processing of WSI data, quantification of cellular, morphological and microanatomical features of tissue, and learning by integration with other data types, interfacing with deep learning frameworks and advanced, multimodal capabilities."
+    - date: 2025-03-12
+      title: "LazySlide and WSIData are now part of the scverse ecosystem!"
+      description: |
+        <p>LazySlide and WSIData are now part of the scverse ecosystem, and are being integrated into the scientific workflow.</p>
+        <p>WSIData is a Python package for working with whole slide images (WSI) using scverse-compatible interfaces, and LazySlide provides the tools and operations needed to analyze WSIs.</p>
+        <p>The official acceptance into the <a href="https://scverse.org">scverse</a> ecosystem will enable scientists from all backgrounds but in particular from the single-cell and genomics fields which are already using scverse tools to seemlessly work with WSIs as if it were any other single-cell type of data.</p>
+        <p>We are looking forward to upcoming stable releases and manuscript which will present the scverse software stack for WSI analysis.</p>
+      img: 2024-10-02-Lazyslide.webp
+      img_alt: The LazySlide logo with a sloth lying belly down on a moon, all inside a glass slide with a barcode.
+    - date: 2025-02-06
+      title: "Our lab's project template is now open source!"
+      description: |
+        <p>We're excited to share that we've open-sourced our project template, designed to make starting new projects a breeze and homogeneous across all our projects.</p>
+        <p>This template uses <a href="https://www.cookiecutter.io/">Cookiecutter</a>, a widely-used tool that helps create projects from templates.</p>
+        <p>Our template is flexible, letting you choose options like project type (research or software), package management (<a href='https://docs.astral.sh/uv/'>uv</a>, pip, conda), and your preferred code editors we most use (Sublime Text or VSCode).</p>
+        <p>By sharing we hope to help others in the scientific community organize their projects effectively and also motivate others to share their ways of structuring research and software projects.</p>
+        <p>Check it out and suggest improvements on GitHub: <a href="https://github.com/rendeirolab/_project_template">https://github.com/rendeirolab/_project_template</a></p>
+      img: 2025-02-06-project-template.webp
+      img_alt: A screenshot from GitHub showing the rendeirolab/_project_template repository.
+    - date: 2025-01-30
+      title: "Andre visited Innsbruck"
+      description: |
+        <p>Andre had the opportunity to visit Innsbruck and connect with the scientific community there.</p>
+        <p>Thank you to everyone who attended the talk for the interest in our work, and for the great discussions.</p>
+        <p>A special thank you to Heidi Woehrer at the Medical University of Innsbruck for inviting and hosting.</p>
+      img: 2025-01-30-Innsbruck_visit.webp
+      img_alt: The entrance of the Department of Anatomy at the Medical University of Innsbruck with the words "Mors auxilium vitae"
+    - date: 2025-01-27
+      title: "Our lab manual is now open source!"
+      description: |
+        <p>We are excited to announce that the Rendeiro Lab Manual is now open source and accessible to all.</p>
+        <p>This comprehensive guide details our lab's culture, procedures, and workflows, aiming to foster a collaborative and efficient research environment. You can explore the manual on our website: <a href="https://rendeiro.group/lab-manual">https://rendeiro.group/lab-manual</a></p>
+        <p>Our decision to make this manual open source was inspired by the generosity of other labs that have shared their resources. In particular, we acknowledge the Aly Lab and the Getz Lab for their open-source manuals, which served as valuable references in developing our own.</p>
+        <p>We envision this manual as a living document, evolving with contributions from the broader scientific community. By sharing our practices and protocols, we hope to promote transparency and collaboration in research. We invite you to explore, utilize, and contribute to the manual, ensuring it remains a dynamic and valuable resource for all.</p>
+        <p>The manual is hosted on GitHub, where you can access the source code and even propose changes:  <a href="https://github.com/rendeirolab/lab-manual">https://github.com/rendeirolab/lab-manual</a></p>
+        <p>We are curious on the reaction and feedback from the research community, please reach out to us.</p>
+      img: 2025-01-27-lab-manual.webp
+      img_alt: A screenshot from Github showing the rendeirolab/lab-manual repository.
+    - date: 2025-01-07
+      title: "Marsilea is now published at Genome Biology"
+      description: |
+        <p>Yimin's paper on a a novel visualization paradigm and implementation of cross-layout visualizations
+        is now published in the journal
+        <a href='https://genomebiology.biomedcentral.com/articles/10.1186/s13059-024-03469-3'>Genome Biology (doi:10.1186/s13059-024-03469-3)</a>.
+        </p>
+      
+        <p>First
+        <a href='https://doi.org/10.1186/s13059-024-03469-3'>published as a preprint in 2024</a>,
+        and <a href="https://github.com/Marsilea-viz/marsilea">open sourced on GitHub</a>
+        it gained some traction in the biology community.</p>
+
+        <p>
+        In great part this was due to Yimin's talk and workshop on declarative creation of composable visualization for omics data at the
+        <a href='https://scverse.org/conference2024'>scverse conference in 2024</a> - thank you to the whole community for the support and encouragement.
+        </p>
+        <p> Check out the full paper at
+        <a href='https://genomebiology.biomedcentral.com/articles/10.1186/s13059-024-03469-3'>https://genomebiology.biomedcentral.com/articles/10.1186/s13059-024-03469-3</a>.
+        </p>
+      img: 2024-03-30-Marsilea.webp
+      img_alt: The marsilea logo with a cross layout in the center and gray background saying "Transform your data landscape".
+    - date: 2024-12-27
+      title: "Our lab has a new promotional video"
+      description: |
+        <iframe src="https://player.vimeo.com/video/1041050660?h=3c808089eb" height="500em" width="70%" title="CeMM_Andre_Rendeiro"></iframe>
+      img: null
+      img_alt: null
+    - date: 2024-12-12
+      title: "Iva and Tamas attended the inaugural meeting of the European Society for Spatial Biology in Berlin, Germany"
+      description: |
+        Thank you to the organizers for selecting an abstract from our team for an oral presentation and for starting a Society on such a timely and exciting field.
+        Check out their website at <a href='https://spatialbiologysociety.eu/'>https://spatialbiologysociety.eu/</a>
+      img: 2024-12-12-ESSB2024.webp
+      img_alt: Iva and Tamas next to their poster at the meeting of the European Society for Spatial Biology in Berlin.
+    - date: 2024-12-06
+      title: "Exciting opportunity: PhD positions at the LBI-NetMed! "
+      description: |
+        <p>The Ludwig Boltzmann Institute for Network Medicine in Vienna is offering interdisciplinary PhD positions.
+        Join our innovative team to advance network medicine research 🧬🚀🎓.
+        Applications open until January 12th 2025.</p>
+
+        <p>More information in the following links:</p>
+        <ul>
+          <li><a href='https://netmed.lbg.ac.at/'>Institute website</a></li>
+          <li><a href='https://www.nature.com/naturecareers/job/12833967/interdisciplinary-phd-positions-at-the-ludwig-boltzmann-institute-for-network-medicine/'>Nature careers</a></li>
+          <li><a href='https://tally.so/r/31GXQg'>Application portal</a></li>
+        </ul>
+      img: 2024-12-06.lbi-netmed.banner.webp
+      img_alt: The logo of the LBI-NetMed institute.
+    - date: 2024-12-03
+      title: "Andre gave a talk at the annual conference of the Austrian Platform for Personalized Medicine in Vienna, Austria"
+      description: "Thank you for the invitation to speak and congratulations on the organization of a conference on such a relevant topic!"
+      img: 2024-12-03-oeppm.webp
+      img_alt: Andre presenting a talk at the annual conference of the Austrian Platform for Personalized Medicine in Vienna, Austria.
+    - date: 2024-11-27
+      title: "We had a fun night escaping!"
+      description: We had a lot of fun doing an escape room adventure and trying out new food at a spanish tapas restaurant.
+      img: 2024-11-27-lab_dinner.webp
+      img_alt: Six lab members sitting around a restaurant table.
+    - date: 2024-11-18
+      title: "The LBI-NetMed inaugural party was a blast!"
+      description: |
+        <p>
+          To celebrate the start of the LBI-NetMed institute and its new installations we had a huge party!
+        </p>
+        <p>
+        Thank you to all that attended and became part of the LBI-NetMed family!
+        </p>
+        <p>
+        A big congratulations and thank you to the organizer team, in particular Christiane Hütter and Annette Tesarek - and Jörg Mensche for putting together this bold idea!
+        </p>
+      img: 2024-11-18-LBI_inauguration_horn.webp
+      img_alt: An Austrian mail post horn given as present from CeMM for the LBI-NetMed.
+    - date: 2024-11-16
+      title: "Our manuscript on the prediction of biological age from histopathological insights is now online!"
+      description: |
+        <p>
+          Our study reveals focuses on the structural changes human tissues undergo during aging and how they reflect its physiological state.
+        </p>
+        <p>
+        By analyzing over 25,000 histopathological images across various tissues from nearly 1,000 individuals, we developed 'tissue clocks' that can estimate biological age based on tissue morphological characteristics.
+        We found that aging manifests differently in various organs, some showing accelerated changes early in life. Conversely, some individuals show markedly more accceleated aging than others, sometimes in a organ-specific manner.
+        Leveraging these tissue-specific and highly physiological readouts of aging, we demonstrate how we can derive the a proxy for tissue-specific, morphologically driven biological age from blood samples and validate them in diseased samples.
+        </p>
+        <p>This study highlights the intricate relationship between tissue health and biological aging, and could revolutionize the way we assess and understand the biological processes leading to aging-related diseases.</p>
+        <p><a href='https://doi.org/10.1101/2024.11.16.48333'>Read the full work here: https://doi.org/10.1101/2024.11.14.618081</a></p>
+      img: 2024-11-16-Tissue-clocks.webp
+      img_alt: A scientific illustration of the process to derive rich numerical descriptions from histopathological images, which are then used as predictors of biological age and age gaps. In the bottom a concept of how data from blood can be used to predict tissue-specific biological aging insights previously derived from histopathological images.
+    - date: 2024-11-13
+      title: "Ernesto presented a poster at the 2024 Frontiers in Single Cell Genomics meeting, in Awaji, Japan"
+      description: "Ernesto presented a poster on deep learning profiling of aging cells using histopathological images at the meeting organized by Cold Spring Harbour Asia."
+      img: 2024-11-13-Ernesto_conference.webp
+      img_alt: Ernesto next to his poster at the 2024 Frontiers in Single Cell Genomics meeting, in Japan.
+    - date: 2024-11-11
+      title: "Dinah joins the lab for a rotation project"
+      description: "Dinah Dollack joined the lab for 4 weeks to work on a tissue biology perspective of metabolic and immune cross-talk."
+      img: null
+      img_alt: null
+    - date: 2024-11-10
+      title: "Yimin presented a poster at the 2024 Cell Symposia on Hallmarks of Cancer, Guangzhou, China"
+      description: "Yimin presented a poster on the microanatomical decoding of breast cancer metastasis, part of our ongoing work funded by the WWTF. Thank you for the support!"
+      img: 2024-11-10-Yimin_conference.webp
+      img_alt: Yimin next to his poster at the 2024 Cell Symposia on Hallmarks of Cancer in China.
+    - date: 2024-11-06
+      title: "Congratulations to Iva and Tamas on organizing a successfull bioinformatics course at CeMM!"
+      description: "The annual 2-week course at CeMM is essential to train all CeMM PhD program students and this year Iva and Tamas were centrally involved in the organization, planning and teaching of the course."
+      img: null
+      img_alt: null
+    - date: 2024-10-11
+      title: "Iva was at the Spatial Biology Symposium in Milan, Italy"
+      description:
+      img: null
+      img_alt: null
+    - date: 2024-10-28
+      title: "'cytomine_utils' software package open sourced!"
+      description: "A package with utilities to interact with Cytomine APIs: <a href='https://github.com/RendeiroLab/cytomine_utils'>gh.com/RendeiroLab/cytomine_utils</a>."
+      img: null
+      img_alt: null
+    - date: 2024-10-02
+      title: "'LazySlide' and 'WSIData' open sourced!"
+      description: "The two packages form a new, modular and scalable framework for whole slide image analysis, bringing the interoperability, efficiency, and familiarity of single-cell analysis in scverse: <a href='https://github.com/RendeiroLab/LazySlide'>gh.com/RendeiroLab/LazySlide</a>, <a href='https://github.com/RendeiroLab/WSIData'>gh.com/RendeiroLab/WSIData</a>."
+      img: 2024-10-02-Lazyslide.webp
+      img_alt: The LazySlide logo with a sloth lying belly down on a moon, all inside a glass slide with a barcode.
+    - date: 2024-10-04
+      title: "Andre gave a talk at the IX Siena Immunooncology Think Tank in Siena, Italy"
+      description: "Thank you so much for the invitation to this small and tight community, in particular to Zlatko Trajanoski!"
+      img: null
+      img_alt: null
+    - date: 2024-10-01
+      title: "'wsi' open sourced!"
+      description: "A Python package for the processing of whole slide histopathological images is now open sourced <a href='https://github.com/RendeiroLab/wsi'>here</a>!"
+      img: null
+      img_alt: null
+    - date: 2024-09-23
+      title: "Welcome to Ariadna!"
+      description: "Ariadna Villanueva Marijuan will join the CeMM PhD Program and work on the intersection of tissue organization and genetics."
+      img: null
+      img_alt: null
+    - date: 2024-09-13
+      title: "Congratulations to Lisa on the lab's first NGS samples!"
+      description: "We are super excited our first wet lab experiment was a success!"
+      img: null
+      img_alt: null
+    - date: 2024-09-10
+      title: "Yimin gave a workshop at the scverse conference 2024!"
+      description: "Yimin's talk and workshop on declarative creation of composable visualization for omics data at the <a href='https://scverse.org/conference2024'>scverse conference 2024</a> was a success."
+      img: null
+      img_alt: null
+    - date: 2024-08-16
+      title: "We released a balanced dataset of healthy tissue for deep learning model training."
+      description: "The dataset of histological slides from the GTEx project that has been balanced for 3 major factors (organ, sex, and age bracket) that may be useful to train models in supervised or self-supervised modes. <a href='https://zenodo.org/doi/10.5281/zenodo.13330658'>https://zenodo.org/doi/10.5281/zenodo.13330658</a>"
+      img: null
+      img_alt: null
+    - date: 2024-06-29
+      title: "Andre gave a talk at the VitaDAO minisymposium: 'Aging across scales and systems' in Vienna, Austria"
+      description: "Thank you to Mikolaj Ogrodnik and Alexis Lomakin for organizing!"
+      img: null
+      img_alt: null
+    - date: 2024-05-31
+      title: "Andre gave a talk at the Department of Mathematics of the University of Oxford, UK"
+      description: "Thank you for the invitation!"
+      img: null
+      img_alt: null
+    - date: 2024-04-27
+      title: "Congratulations to the team for organizing the 2024 EU-LIFE community meeting in Vienna, Austria!"
+      description: "It was challenging, but a very worthy experience to organize the 2024 EU-LIFE community meeting which had the theme of artificial intelligence."
+      img: 2024-04-27-EULIFE_conference.webp
+      img_alt: A photograph with all conference participants in the festival hall of the Austrian House of Industry.
+    - date: 2024-03-30
+      title: "Our 'Marsilea' pre-print is now online!"
+      description: "Yimin led a work on a framework and tool for an intuitive generalized visualization paradigm for complex datasets. <a href='https://www.biorxiv.org/content/10.1101/2024.02.14.580236v2'>Check if out at BioRxiv</a>!"
+      img: 2024-03-30-Marsilea.webp
+      img_alt: The marsilea logo with a cross layout in the center and gray background saying "Transform your data landscape".
+    - date: 2024-03-01
+      title: "We are now also part of the Ludwig Boltzmann Institute for Network Medicine at the University of Vienna!"
+      description: "We are super excited to have been awarded a grant by the Ludwig Boltzmann association to participate in the newly formed Institute for Network Medicine, headed by Jörg Mensche."
+      img: null
+      img_alt: null
+    - date: 2024-03-02
+      title: "Thank you to the Vienna Science and Technology foundation (WWTF) for the awarded grant."
+      description: "We have been awarded a grant by the Vienna Science and Technology foundation (WWTF) for a project led by Julianne Winkler and together with Zsuzsanna Bago-Horvath to work on the multiscale discovery of cellular and microanatomical determinants of metastasis. Our great appreciation to the WWTF for supporting us!"
+      img: 2024-03-02-WWTF_group_picture.webp
+      img_alt: "A photo of the three principal investigators: Zsuzsanna Bago-Horvath, Julianne Winkler and Andre Rendeiro."
+    - date: 2024-02-01
+      title: "Welcome to Lisa!"
+      description: "Lisa Kleissl, a former PhD student of Georg Stary at the Medical University of Vienna will work on skin aging."
+      img: null
+      img_alt: null
+    - date: 2024-01-21
+      title: "Andre gave a talk at the Keystone Symposia on Single-Cell Biology: Tissue Genomics, Technologies and Disease, Whistler, Canada"
+      description: "It was an amazing conference!"
+      img: null
+      img_alt: null
+    - date: 2023-11-20
+      title: "Adrija joins the lab for a rotation project"
+      description: "Adrija Chakrabarty joined the lab for 4 weeks to work on cross-histological and transcriptional analysis of chronic gastritis."
+      img: null
+      img_alt: null
+    - date: 2023-10-30
+      title: "Our lab joined the CeMM Halloween party"
+      description: "A highlight of the year at CeMM, the halloween party is organized by the first-year PhD students and is always a lot of fun!"
+      img: 2023-10-30-Halloween.webp
+      img_alt: The Rendeiro group dressed in Halloween costumes.
+    - date: 2023-10-01
+      title: "Andre gave a talk at the 33rd Annual Conference of the German Society for Cytometry in Berlin, Germany"
+      description: "Thank you to the organizers, in particular to Bertram Bengsch!"
+      img: null
+      img_alt: null
+    - date: 2023-09-01
+      title: "Andre gave a talk at the 3rd International Danube Symposium on Whole Person Research in Vienna, Austria"
+      description: "Thank you to the Department of Nuclear Medicine at the Medical University of Vienna, in particular Markus Hacker and Thomas Beyer for organizing!"
+      img: null
+      img_alt: null
+    - date: 2023-09-20
+      title: "Welcome to Yimin!"
+      description: "Yimin Zheng has a background on computational biology and software engineering and will work on cancer biology."
+      img: null
+      img_alt: null
+    - date: 2023-09-18
+      title: "Welcome to Tamas!"
+      description: "Tamas Veres will join the CeMM PhD Program and work on the intersection of morphological and molecular changes to tissue in health and disease."
+      img: null
+      img_alt: null
+    - date: 2022-11-06
+      title: "Jagoda joins the lab for a rotation project"
+      description: "Jagoda Pokryszka joined the lab for 4 weeks to work on a metabolomics project."
+      img: null
+      img_alt: null
+    - date: 2022-10-01
+      title: "Andre gave a talk at the Biological Data Science Meeting at the Cold Spring Harbour Laboratory, NY, USA"
+      description: null
+      img: null
+      img_alt: null
+    - date: 2022-10-01
+      title: "Andre gave a talk at the VBC PhD Symposium 'Pushing Boundaries' in Vienna, Austria"
+      description: null
+      img: null
+      img_alt: null
+    - date: 2022-09-19
+      title: "Welcome to Ernesto and Iva!"
+      description: "Our first two PhD students will be participating in the CeMM PhD Program and work on the principles of tissue organization in health an disease."
+      img: null
+      img_alt: null

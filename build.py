@@ -8,6 +8,7 @@ from jinja2 import Environment, FileSystemLoader
 
 config = yaml.safe_load(Path("config.yaml").open().read())
 template_dir = Path(config["template_dir"])
+content_dir = Path(config["content_dir"])
 build_dir = Path(config["build_dir"])
 build_dir.mkdir(exist_ok=True, parents=True)
 
@@ -19,15 +20,6 @@ def main():
 
 
 def build_all_pages():
-    # Get content
-    content_file = Path("content.yaml")
-    content = yaml.safe_load(content_file.open().read())
-
-    # Make sure an entry in the YAML file exists for each page to be rendered
-    assert all(
-        page in content for page in config["pages"]
-    ), "Missing entry in content.yaml"
-
     environment = Environment(loader=FileSystemLoader(template_dir))
 
     additionals = {"index": ["news"]}
@@ -36,6 +28,10 @@ def build_all_pages():
         if page == "manual":
             build_lab_manual()
             continue
+
+        content_file = content_dir / f"{page}.yaml"
+        content = yaml.safe_load(content_file.open().read())[page]
+
         page_file = build_dir / config["pages"][page]["file"]
         page_file.parent.mkdir(exist_ok=True, parents=True)
 
@@ -45,12 +41,15 @@ def build_all_pages():
 
         add = {}
         if page in additionals:
-            add = {k: content[k][k] for k in additionals[page]}
+            add = {
+                k: yaml.safe_load((content_dir / f"{k}.yaml").open().read())[k][k]
+                for k in additionals[page]
+            }
 
         html = page_template.render(
             page_url=config["deploy_url"] + config["pages"][page]["url"],
             **config,
-            **content[page],
+            **content,
             **add,
         )
 

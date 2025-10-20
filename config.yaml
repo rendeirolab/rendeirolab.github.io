@@ -1,6 +1,7 @@
 deploy_url: https://rendeiro.group/
 static_url: https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main/assets/
 template_dir: templates
+content_dir: content
 build_dir: docs
 pages:
   index:

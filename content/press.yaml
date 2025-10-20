@@ -1,0 +1,121 @@
+press:
+  description: "Press covereage of our our lab's work"
+  title: "Press"
+  intro: ""
+  content: "Press covereage of our our lab's work:"
+  outro: ""
+  press:
+      - date: 2025-10-04
+        title: "Jeder Mensch altert anders"
+        publisher: "Die Presse"
+        url: "https://www.diepresse.com/20164790/jeder-mensch-altert-anders"
+        description: |
+          <p>A profile of Andre on the 'Die Presse' Austrian newspaper, covering the recent ERC grant, his career, and research interests.</p>
+          <p>The interview was part of the <a href="https://diepresse.com/jungeforschung">'Junge Forschung' series</a> which highlights young scientists working in Austria.</p>
+          <p>It was a pleasure working with Veronika Schmidt from 'Die Presse' on this article - thank you for highlighting our work and Andre's career path!</p>
+        img: "https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main/assets/img/2025-10-05-Die_Presse_interview.webp"
+        img_alt: A screenshot of the article in Die Presse
+
+      - date: 2025-09-15
+        title: "LBG-Forscher André Rendeiro erhält ERC Starting Grant im Bereich Altersforschung"
+        publisher: "LBG"
+        url: "https://lbg.ac.at/news/lbg-forscher-andre-rendeiro-erhaelt-erc-starting-grant-im-bereich-altersforschung/"
+        description: Coverage of our ERC Starting Grant by the Ludwig Boltzmann Gesellschaft.
+        img: "https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main/assets/logos/LBG.svg"
+        img_alt: The logo of the Ludwig Boltzmann Gesellschaft
+
+      - date: 2025-09-04
+        title: "21 renommierte ERC-Starting-Grants gehen nach Österreich"
+        publisher: Der Standard
+        url: https://www.derstandard.at/story/3000000286325/21-renommierte-erc-starting-grants-gehen-nach-oesterreich
+        description: Coverage of our ERC Starting Grant award by the Der Standard newspaper.
+        img: https://at.staticfiles.at/img/meta/meta_image_1200x630-4d0796cf00.png
+        img_alt: The logo of the Der Standard newspaper
+
+      - date: 2025-09-04
+        title: "Förderpreise für 20 Forschende aus Österreich"
+        publisher: ORF
+        url: https://science.orf.at/stories/3231887/
+        description: Coverage of our ERC Starting Grant award by the Austrian broadcaster ORF.
+        img: https://tubestatic.orf.at/mojo/1_4_1/storyserver//tube/common/images/target.news-universal.svg
+        img_alt: The logo of the ORF
+
+      - date: 2025-09-04
+        title: "Vier neue ERC Starting Grants für ÖAW-Forschende"
+        publisher: OeAW
+        url: https://www.oeaw.ac.at/news/vier-neue-erc-starting-grants-fuer-oeaw-forschende-1
+        description: Coverage of our ERC Starting Grant award by the Austrian Academy of Sciences.
+        img: https://www.oeaw.ac.at/typo3conf/ext/oeaw_theme24/Resources/Public/Icons/logo-lang-de.png
+        img_alt: The logo of the Austrian Academy of Sciences
+
+      - date: 2025-09-04
+        title: "Há mais dez cientistas portugueses premiados com bolsas milionárias da Europa"
+        publisher: Publico.pt
+        url: https://www.publico.pt/2025/09/04/ciencia/noticia/ha-dez-cientistas-portugueses-premiados-bolsas-milionarias-europa-2145971
+        description: Coverage of our ERC Starting Grant award in the Portuguese press.
+        img: https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Logo_publico.svg/1920px-Logo_publico.svg.png
+        img_alt: The logo of the Publico newspaper
+
+      - date: 2025-09-04
+        title: "ERC Starting Grants 2025: Examples of Projects"
+        publisher: ERC news website
+        url: https://erc.europa.eu/news-events/news/starting-grants-2025-examples-projects
+        description: Coverage of our ERC Starting Grant award.
+        img: https://erc.europa.eu/sites/default/files/inline-images/Logo-ERC-black_0.png
+        img_alt: ERC logo
+
+      - date: 2025-09-04
+        title: "ERC Starting Grants 2025 CeMM press release"
+        publisher: CeMM website
+        url: https://cemm.at/news/detail/aging-studied-at-multiple-scales-cemm-pi-andre-rendeiro-awarded-erc-starting-grant
+        description: Coverage of our ERC Starting Grant award.
+        img: https://cemm.at/_assets/23c048c4e278024490c6ac1b855e5de4/img/logo/site-logo.svg
+        img_alt: CeMM and OeAW logo
+
+      - date: 2025-02-24
+        title: "Chaque organe vieillit à son rhythme"
+        publisher: "Epsiloon"
+        url: https://www.epsiloon.com/
+        description: Coverage of our work on tissue-based prediction of biological age with 'tissue-clocks' (<a href='https://bsky.app/profile/epsiloon.com/post/3li22m2mlfc2f'>also here</a>).
+        img: https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main/assets/img/2025-02-24-epsiloon.webp
+        img_alt: A scientific illustration of how different organs age at different rates
+
+      - date: 2025-02-15
+        title: "'Tissue clocks' derived from histological signatures of biological aging enable tissue-specific aging predictions from blood"
+        publisher: "Life Science Editors"
+        url: https://www.lifescienceeditors.com/2025/02/13/tissue-clocks-derived-from-histological-signatures-of-biological-aging-enable-tissue-specific-aging-predictions-from-blood/
+        description: Coverage of our work on tissue-based prediction of biological age with 'tissue-clocks'
+        img: https://www.lifescienceeditors.com/wp-content/uploads/2025/02/tissueclock-300x300.jpg
+        img_alt: Artwork by Gloria Fuentes representing the 'tissue-clocks' project
+
+      - date: 2024-12-27
+        title: "Gli organi del corpo umano non invecchiano tutti alla stessa velocità"
+        publisher: "Focus.it"
+        url: https://www.focus.it/scienza/salute/gli-organi-del-corpo-umano-non-invecchiano-tutti-alla-stessa-velocita
+        description: Coverage of our work on tissue-based prediction of biological age with 'tissue-clocks'
+        img: https://www.focus.it/images/2024/12/04/organi-del-corpo-umano_1020x680.jpg
+        img_alt: "A photo of a child's hands playing with a toy anatomical model of the human body."
+
+      - date: 2024-11-29
+        title: "Most comprehensive picture yet of how organs age at different rates"
+        publisher: "New Scientist"
+        url: https://www.newscientist.com/article/2458249-most-comprehensive-picture-yet-of-how-organs-age-at-different-rates/
+        description: Coverage of our work on tissue-based prediction of biological age with 'tissue-clocks'
+        img: https://images.newscientist.com/wp-content/uploads/2024/11/29142724/SEI_231329747.jpg?width=837
+        img_alt: "An illustration of the organs inside the human body with some organs highlighted in red color indicated accelerated aging."
+
+      - date: 2023-03-23
+        title: "The CeMM & Angelini Ventures Healthy Lifespan Expansion Initiative"
+        publisher: "EurekAlert"
+        url: https://www.eurekalert.org/news-releases/983740
+        description: Press release of our collaboration with Angelini Ventures.
+        img: https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/main/assets/img/2023-03-23-Angelini.webp
+        img_alt: "Giulio Superti-Furga (Scientific Director, CeMM), André Rendeiro (Principal Investigator, CeMM), Elia Stupka (Managing Director, Angelini Ventures), Paolo Di Giorgio (CEO, Angelini Ventures), Laura de Rooij (Principal Investigator, CeMM)."
+
+      - date: 2022-11-01
+        title: "Computational Approach Gives Detailed Map of Human Tissues"
+        publisher: "Genetic Engineering & Biotechnology News"
+        url: https://www.genengnews.com/news/computational-approach-gives-detailed-map-of-human-tissues/
+        description: Coverage of our work on a method for the detection and quantification of tissue microanatomical domains.
+        img: https://www.genengnews.com/wp-content/uploads/2022/10/Oct31_Elemento_Kim_Nmeth-copy.jpg
+        img_alt: "A multiplexed image of human lung tissue."

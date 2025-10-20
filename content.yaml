@@ -5,7 +5,6 @@ index:
   content: ""
   outro: ""
 
-
 contact:
   description: "Contact and applications to join the lab"
   title: "Contact and applications"
@@ -25,6 +24,15 @@ news:
   content: "Some news from our lab:"
   outro: ""
   news:
+    - date: 2025-10-17
+      title: "Andre attended ESSB 2025"
+      description: |
+        <p>Andre attended the 2nd meeting of the European Society for Spatial Biology in Heidelberg, Germany.</p>
+        <p>It was great to see the rapid advances in spatial biology and meet friends and colleagues in the field.</p>
+        <p>The field is full of exciting research and we are looking forward to contributing to it!</p>
+        <p>Thank you to the organizers for a great meeting!</p>
+      img: null
+      img_alt: null
     - date: 2025-10-07
       title: "The LBI-NetMed had its first SAB meeting"
       description: |
@@ -494,15 +502,6 @@ news:
 
 manual:
   null
-
-# positions:
-#   title: "Positions"
-#   intro: "We are always looking for talented and motivated people to join our team."
-#   content: "
-#   We primarily recruit through the <a href='https://cemm.at/phd-program'>CeMM PhD</a> and <a href='https://cemm.at/postdoc-program'>Postdoc</a> Programs.
-#   Other positions are advertised in commonly used platforms."
-#   outro: "<a href='mailto:arendeiro@cemm.oeaw.ac.at'>Feel free to reach out if you are interested in joining our team!</a>"
-
 
 press:
   description: "Press covereage of our our lab's work"
@@ -1180,7 +1179,6 @@ publications:
       resources:
         - PDF: https://genome.cshlp.org/content/24/4/639.full.pdf
         - Data: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE46488
-
 
 research:
   description: "An introduction to our scientific research"

@@ -5,19 +5,7 @@
 		<lastmod>2025-10-20</lastmod>
 	</url>
 	<url>
-		<loc>https://rendeiro.group/software/</loc>
-		<lastmod>2025-10-20</lastmod>
-	</url>
-	<url>
 		<loc>https://rendeiro.group/press/</loc>
-		<lastmod>2025-10-20</lastmod>
-	</url>
-	<url>
-		<loc>https://rendeiro.group/lab-manual/</loc>
-		<lastmod>2025-10-20</lastmod>
-	</url>
-	<url>
-		<loc>https://rendeiro.group/contact/</loc>
 		<lastmod>2025-10-20</lastmod>
 	</url>
 	<url>
@@ -25,11 +13,7 @@
 		<lastmod>2025-10-20</lastmod>
 	</url>
 	<url>
-		<loc>https://rendeiro.group/publications/</loc>
-		<lastmod>2025-10-20</lastmod>
-	</url>
-	<url>
-		<loc>https://rendeiro.group/research/</loc>
+		<loc>https://rendeiro.group/lab-manual/</loc>
 		<lastmod>2025-10-20</lastmod>
 	</url>
 	<url>
@@ -37,15 +21,19 @@
 		<lastmod>2025-10-20</lastmod>
 	</url>
 	<url>
-		<loc>https://rendeiro.group/lab-manual/changelog/</loc>
+		<loc>https://rendeiro.group/software/</loc>
 		<lastmod>2025-10-20</lastmod>
 	</url>
 	<url>
-		<loc>https://rendeiro.group/lab-manual/manuscript_writing/</loc>
+		<loc>https://rendeiro.group/research/</loc>
 		<lastmod>2025-10-20</lastmod>
 	</url>
 	<url>
-		<loc>https://rendeiro.group/lab-manual/project_planning/</loc>
+		<loc>https://rendeiro.group/publications/</loc>
+		<lastmod>2025-10-20</lastmod>
+	</url>
+	<url>
+		<loc>https://rendeiro.group/contact/</loc>
 		<lastmod>2025-10-20</lastmod>
 	</url>
 	<url>
@@ -53,15 +41,11 @@
 		<lastmod>2025-10-20</lastmod>
 	</url>
 	<url>
-		<loc>https://rendeiro.group/lab-manual/learning/</loc>
+		<loc>https://rendeiro.group/lab-manual/communication_and_meetings/</loc>
 		<lastmod>2025-10-20</lastmod>
 	</url>
 	<url>
-		<loc>https://rendeiro.group/lab-manual/offboarding/</loc>
-		<lastmod>2025-10-20</lastmod>
-	</url>
-	<url>
-		<loc>https://rendeiro.group/lab-manual/record_keeping/</loc>
+		<loc>https://rendeiro.group/lab-manual/manuscript_writing/</loc>
 		<lastmod>2025-10-20</lastmod>
 	</url>
 	<url>
@@ -73,15 +57,31 @@
 		<lastmod>2025-10-20</lastmod>
 	</url>
 	<url>
+		<loc>https://rendeiro.group/lab-manual/changelog/</loc>
+		<lastmod>2025-10-20</lastmod>
+	</url>
+	<url>
+		<loc>https://rendeiro.group/lab-manual/learning/</loc>
+		<lastmod>2025-10-20</lastmod>
+	</url>
+	<url>
 		<loc>https://rendeiro.group/lab-manual/research/</loc>
 		<lastmod>2025-10-20</lastmod>
 	</url>
 	<url>
-		<loc>https://rendeiro.group/lab-manual/communication_and_meetings/</loc>
+		<loc>https://rendeiro.group/lab-manual/infrastructure/</loc>
 		<lastmod>2025-10-20</lastmod>
 	</url>
 	<url>
-		<loc>https://rendeiro.group/lab-manual/infrastructure/</loc>
+		<loc>https://rendeiro.group/lab-manual/offboarding/</loc>
+		<lastmod>2025-10-20</lastmod>
+	</url>
+	<url>
+		<loc>https://rendeiro.group/lab-manual/record_keeping/</loc>
+		<lastmod>2025-10-20</lastmod>
+	</url>
+	<url>
+		<loc>https://rendeiro.group/lab-manual/project_planning/</loc>
 		<lastmod>2025-10-20</lastmod>
 	</url>
 </urlset>

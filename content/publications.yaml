@@ -67,7 +67,7 @@ publications:
         - Code: https://github.com/Marsilea-viz/marsilea
         - Preprint: https://doi.org/10.1101/2024.02.14.580236
       highlight: false
-    2025,10.1101/2025.06.23.660994:
+    10.1101/2025.06.23.660994:
       authors: "Felix Eichin, Valentina C Sladky, Matthäus A. Reiner, Marina Leone, Ernesto Abila, André F. Rendeiro, Ralph Böttcher4, Maik Dahlhoff, Thomas Kolbe, Andreas Villunger"
       title: "Sequential PIDD1 auto-processing is essential for ploidy control in the liver and heart"
       publisher: "BioRxiv"

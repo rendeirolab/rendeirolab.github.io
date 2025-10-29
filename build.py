@@ -1,10 +1,28 @@
+#!/usr/bin/env uv --script
+
+# /// script
+# dependencies = [
+#   "pyyaml",
+#   "jinja2",
+#   "requests",
+#   "beautifulsoup4",
+#   "markdown2",
+# ]
+# ///
+
 from pathlib import Path
 import os
 import shutil
+import xml.etree.cElementTree as ET
+from datetime import datetime
+import subprocess
+from copy import deepcopy as copy
 
 import yaml
 from jinja2 import Environment, FileSystemLoader
-
+import requests
+from bs4 import BeautifulSoup
+from markdown2 import Markdown
 
 config = yaml.safe_load(Path("config.yaml").open().read())
 template_dir = Path(config["template_dir"])
@@ -64,11 +82,6 @@ def build_all_pages():
 
 
 def build_lab_manual():
-    from copy import deepcopy as copy
-    import requests
-    from bs4 import BeautifulSoup
-    from markdown2 import Markdown
-
     name = config["pages"]["manual"]["url"][1:-1]
     environment = Environment(loader=FileSystemLoader(template_dir))
     template = environment.from_string(
@@ -152,9 +165,6 @@ def build_lab_manual():
 
 
 def get_last_mod_date() -> dict[str, str]:
-    import subprocess
-    from datetime import datetime
-
     now = datetime.now().strftime("%Y-%m-%d")
 
     try:
@@ -194,9 +204,6 @@ def get_last_mod_date() -> dict[str, str]:
 
 
 def make_sitemap():
-    import xml.etree.cElementTree as ET
-    from datetime import datetime
-
     now = datetime.now().strftime("%Y-%m-%d")
 
     mod_dates = get_last_mod_date()

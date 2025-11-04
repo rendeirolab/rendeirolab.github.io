@@ -5,6 +5,22 @@ news:
   content: "Some news from our lab:"
   outro: ""
   news:
+    - date: 2025-11-03
+      title: "Samir joins the lab!"
+      description: |
+        <p>Samir Moustafa joins the lab as a data scientist</p>
+        <p>With a strong background in graph neural networks and the development of efficient solutions in deep learning, the lab will gain major experience in the fast developing field.</p>
+        <p>We are happy Samir decided to join the team and wish him an exciting and successfull time in the lab - welcome!</p>
+      img: null
+      img_alt: null
+    - date: 2025-10-31
+      title: "We joined the 2025 CeMM halloween party!"
+      description: |
+        <p>Following a long-standing tradition at CeMM, we joined the 2025 CeMM halloween party which this year was themed "Dumb ways to die".</p>
+        <p>This year we performed a little theater play with a commentary on the current publication system, and we won the prize for best performance!</p>
+        <p>Thank you to the first year PhD students for organizing such a fun party and to all the staff for making this cool night possible!</p>
+      img: 2025-10-31-halloween_party.webp
+      img_alt: "The Rendeiro lab performing a theater play on halloween"
     - date: 2025-10-17
       title: "Andre attended ESSB 2025"
       description: |

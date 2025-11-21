@@ -2,9 +2,17 @@ news:
   description: "Recent news from our lab"
   title: "News"
   intro: ""
-  content: "Some news from our lab:"
+  content: "News from our lab:"
   outro: ""
   news:
+    - date: 2025-11-19
+      title: "LazySlide was showcased at the 2025 scverse conference"
+      description: |
+        <p>Yimin and Tamas presented a community showcase of LazySlide - our framework for accessible and interoperable whole slide image analysis in the 2025 scverse conference.</p>
+        <p>We are eager to support the scverse community in the analysis of histopathological images and to receive feedback on LazySlide.</p>
+        <p>Thank you to the organizers for selecting LazySlide for the showcase and thank you to Yimin and Tamas for giving the workshop at late night hours!</p>
+      img: null
+      img_alt: individuals
     - date: 2025-11-03
       title: "Samir joins the lab!"
       description: |
@@ -259,7 +267,7 @@ news:
         is now published in the journal
         <a href='https://genomebiology.biomedcentral.com/articles/10.1186/s13059-024-03469-3'>Genome Biology (doi:10.1186/s13059-024-03469-3)</a>.
         </p>
-      
+
         <p>First
         <a href='https://doi.org/10.1186/s13059-024-03469-3'>published as a preprint in 2024</a>,
         and <a href="https://github.com/Marsilea-viz/marsilea">open sourced on GitHub</a>

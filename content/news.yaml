@@ -5,6 +5,14 @@ news:
   content: "News from our lab:"
   outro: ""
   news:
+    - date: 2025-11-20
+      title: "Andre gave a talk at the 2nd European CyTOF conference"
+      description: |
+        <p>Andre gave a keynote talk on 'Leveraging spatial biology insights across anatomical scales' at the 2nd European CyTOF conference which took place in Vienna</p>
+        <p>It was a very nice conference full of exciting use cases of high-dimensional and spatial data as well as nice applications of it.</p>
+        <p>Thank you for the organizers, in particular Lena Mueller for the invitation.</p>
+      img: null
+      img_alt: null
     - date: 2025-11-19
       title: "LazySlide was showcased at the 2025 scverse conference"
       description: |

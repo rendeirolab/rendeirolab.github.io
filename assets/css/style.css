@@ -1,0 +1,68 @@
+a {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    white-space: normal;
+}
+.btn-outline-success {
+    --bs-btn-color: #0d6efd !important;
+    --bs-btn-border-color: #0d6efd !important;
+    --bs-btn-hover-bg: #0d6efd !important;
+    --bs-btn-hover-border-color: #0d6efd !important;
+}
+.navbar-btn {
+    color: #0d6efd;
+}
+.unstyled-link {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+code {
+    padding: 2px 4px;
+}
+pre {
+    /* background-color: #ccc; */
+    padding: 1em;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+blockquote {
+    border-left: 4px solid #ccc;
+    margin: 1em 0;
+    padding-left: 1em;
+    font-style: italic;
+}
+
+/* Ensure padding and bullet styling are applied */
+/* Only apply list styles within the Markdown-rendered content area */
+.markdown-body ul,
+#content ul,
+.markdown-body ol,
+#content ol {
+  padding-left: 2rem;
+  margin-left: 0;
+}
+table {
+    border-collapse: separate;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #dee2e6;
+}
+.navbar-header.navbar-right {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+[data-bs-theme="light"] .logo-light {
+  display: inline-block;
+}
+[data-bs-theme="light"] .logo-dark {
+  display: none;
+}
+[data-bs-theme="dark"] .logo-light {
+  display: none;
+}
+[data-bs-theme="dark"] .logo-dark {
+  display: inline-block;
+}

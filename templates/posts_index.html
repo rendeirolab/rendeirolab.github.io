@@ -1,0 +1,15 @@
+{% extends "_template.html" %}
+{% block content %}
+<div class="container py-5">
+  <h1>{{ title }}</h1>
+  <ul class="list-unstyled">
+    {% for post in posts %}
+    <li class="mb-3">
+      <a href="{{ post.url }}">{{ post.title }}</a>
+      {% if post.date %}<small class="text-muted ms-2">{{ post.date }}</small>{% endif %}
+      {% if post.subtitle %}<p class="text-muted mb-0"><small>{{ post.subtitle }}</small></p>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

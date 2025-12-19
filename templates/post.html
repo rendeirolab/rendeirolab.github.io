@@ -1,0 +1,33 @@
+{% extends "_template.html" %}
+
+{% block head %}
+{{ super() }}
+<!-- Code block highlighting -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+{% endblock head %}
+
+{% block title %}Post - {{ title }}{% endblock title %}
+
+{% block content %}
+<div class="container py-5">
+  <article>
+    <header class="mb-4">
+      <h1>{{ title }}</h1>
+      {% if date %}<p class="text-muted"><small>{{ date }}</small></p>{% endif %}
+      {% if subtitle %}<p class="lead">{{ subtitle }}</p>{% endif %}
+    </header>
+    <div class="post-content">
+      {{ content }}
+    </div>
+  </article>
+</div>
+{% endblock %}
+
+{% block js %}
+{{ super() }}
+    <!-- Code block highlighting -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+{% endblock js %}

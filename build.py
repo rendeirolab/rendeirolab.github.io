@@ -46,6 +46,9 @@ def build_all_pages():
         if page == "manual":
             build_lab_manual()
             continue
+        elif page == "posts":
+            build_posts()
+            continue
 
         content_file = content_dir / f"{page}.yaml"
         content = yaml.safe_load(content_file.open().read())[page]
@@ -79,6 +82,86 @@ def build_all_pages():
         if (build_dir / "assets").exists():
             shutil.rmtree(build_dir / "assets")
         shutil.copytree("assets", build_dir / "assets")
+
+
+def build_posts():
+    """Build blog-post-like pages from markdown files in content/posts/."""
+    posts_dir = content_dir / "posts"
+    if not posts_dir.exists():
+        return
+
+    environment = Environment(loader=FileSystemLoader(template_dir))
+    template = environment.from_string((template_dir / "post.html").open().read())
+    md = Markdown(
+        extras=[
+            "fenced-code-blocks",
+            "highlightjs-lang",
+            "metadata",
+            "tables",
+            "footnotes",
+        ]
+    )
+
+    posts_metadata = []  # Collect metadata for index
+
+    for post_file in posts_dir.glob("*.md"):
+        slug = post_file.stem
+        raw_content = post_file.read_text()
+
+        html_content = md.convert(raw_content)
+        metadata = getattr(md, "metadata", {}) or {}
+
+        page_dir = build_dir / "p" / slug
+        page_dir.mkdir(exist_ok=True, parents=True)
+        page_file = page_dir / "index.html"
+
+        page_url = f"/p/{slug}/"
+
+        # Collect for index
+        posts_metadata.append(
+            {
+                "slug": slug,
+                "url": page_url,
+                "title": metadata.get("title", slug.replace("-", " ").title()),
+                "subtitle": metadata.get("subtitle"),
+                "date": metadata.get("date"),
+            }
+        )
+
+        html = template.render(
+            page_url=config["deploy_url"] + page_url.lstrip("/"),
+            title=metadata.get("title", slug.replace("-", " ").title()),
+            subtitle=metadata.get("subtitle"),
+            date=metadata.get("date"),
+            content=html_content,
+            **config,
+        )
+
+        with page_file.open("w") as f:
+            f.write(html)
+
+    # Build index after all posts (even if none)
+    build_posts_index(posts_metadata, environment)
+
+
+def build_posts_index(posts_metadata: list[dict], environment: Environment):
+    """Build an index page listing all posts."""
+    template = environment.from_string(
+        (template_dir / "posts_index.html").open().read()
+    )
+
+    page_dir = build_dir / "p"
+    page_dir.mkdir(exist_ok=True, parents=True)
+
+    html = template.render(
+        page_url=config["deploy_url"] + "p/",
+        title="Posts",
+        posts=sorted(posts_metadata, key=lambda x: x.get("date") or "", reverse=True),
+        **config,
+    )
+
+    with (page_dir / "index.html").open("w") as f:
+        f.write(html)
 
 
 def build_lab_manual():

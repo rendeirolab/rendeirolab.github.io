@@ -44,6 +44,11 @@ pages:
     url: /lab-manual/
     template: manual.html
     file: lab-manual/index.html
+  posts:
+    name: Posts
+    url: /p/
+    template: posts_index.html
+    file: p/index.html
   contact:
     name: Contact
     url: /contact/

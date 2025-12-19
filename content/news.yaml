@@ -5,6 +5,15 @@ news:
   content: "News from our lab:"
   outro: ""
   news:
+    - date: 2025-12-06
+      title: "StainX: CUDA-optimized stain normalization is now open source!"
+      description: |
+        <p>We are excited to release <a href="https://github.com/rendeirolab/stainx">StainX</a>, a Python package for enhanced stain normalization of histopathology images with batch processing support.</p>
+        <p>StainX provides multiple algorithms (Reinhard, Macenko, Histogram Matching) with automatic backend selection for CPU, GPU (CUDA), and Apple Silicon (MPS) devices.</p>
+        <p>Our preliminary benchmarks show <strong>8-11x speedups</strong> compared to standard PyTorch implementations when using optimized CUDA kernels!</p>
+        <p>Install it with <code>pip install stainx</code> and check out the <a href="https://github.com/rendeirolab/stainx">GitHub repository</a>.</p>
+      img: https://raw.githubusercontent.com/rendeirolab/stainx/refs/heads/main/assets/staix-logo-256.png
+      img_alt: "StainX logo"
     - date: 2025-11-21
       title: "Ernesto presented his work at Cytodata 2025"
       description: |

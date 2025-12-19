@@ -39,3 +39,5 @@ deploy = { cmd = "git add assets/**/* && git add -u && git commit -m 'update' &&
 check = { cmd = "gh run list -L 4", help = "List the last 4 GitHub actions" }
 
 develop = { cmd = "uv run --with ipython ipython", help = "Run a IPython shell" }
+
+purge = { cmd = "curl -X POST https://purge.jsdelivr.net/gh/rendeirolab/rendeirolab.github.io@main/assets/js/color_toggler.js && curl -X POST https://purge.jsdelivr.net/gh/rendeirolab/rendeirolab.github.io@main/assets/css/style.css", help = "Purge jsDelivr cache for JS and CSS assets" }

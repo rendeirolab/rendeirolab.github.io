@@ -258,10 +258,12 @@ def get_last_mod_date() -> dict[str, str]:
         )
     except subprocess.CalledProcessError:
         print("Not a git repository. Using current date as last modification date.")
-        return {page.stem: now for page in template_dir.glob("*.html")}
+        return {page.stem: now for page in content_dir.glob("*.yaml")}
 
     last_mod_dates = {}
-    for page in template_dir.glob("*.html"):
+
+    # Content YAML files
+    for page in content_dir.glob("*.yaml"):
         page_name = page.stem
         try:
             result = subprocess.run(
@@ -278,32 +280,206 @@ def get_last_mod_date() -> dict[str, str]:
                 .replace(" +0100", " +01:00")
                 .replace(" +0200", " +02:00")
             )
-            formatted_date = date_obj.strftime("%Y-%m-%d")
-            last_mod_dates[page_name] = formatted_date
+            last_mod_dates[page_name] = date_obj.strftime("%Y-%m-%d")
         except subprocess.CalledProcessError as e:
             print(f"Error getting git log for {page}: {e}")
             last_mod_dates[page_name] = now
+
+    # Posts (markdown files)
+    posts_dir = content_dir / "posts"
+    if posts_dir.exists():
+        latest_post_date = None
+        for post in posts_dir.glob("*.md"):
+            post_key = f"post:{post.stem}"  # e.g., "post:my-first-post"
+            try:
+                result = subprocess.run(
+                    ["git", "log", "-n", "1", "--format=%ci", "--", post],
+                    check=True,
+                    capture_output=True,
+                    text=True,
+                )
+                date_str = result.stdout.strip()
+                if not date_str:
+                    continue
+                date_obj = datetime.fromisoformat(
+                    date_str.replace("Z", "+00:00")
+                    .replace(" +0100", " +01:00")
+                    .replace(" +0200", " +02:00")
+                )
+                formatted_date = date_obj.strftime("%Y-%m-%d")
+                last_mod_dates[post_key] = formatted_date
+
+                # Track latest post date for posts index
+                if latest_post_date is None or date_obj > latest_post_date:
+                    latest_post_date = date_obj
+            except subprocess.CalledProcessError as e:
+                print(f"Error getting git log for {post}: {e}")
+                last_mod_dates[post_key] = now
+
+        # Posts index uses the date of the most recently modified post
+        if latest_post_date:
+            last_mod_dates["posts"] = latest_post_date.strftime("%Y-%m-%d")
+
     return last_mod_dates
+
+
+# def get_manual_mod_dates() -> dict[str, str]:
+#     """Get last modification dates for lab-manual pages via GitHub API."""
+#     now = datetime.now().strftime("%Y-%m-%d")
+#     mod_dates = {}
+
+#     repo = config["manual_repo"]
+#     api_base = f"https://api.github.com/repos/{repo}/commits"
+
+#     req = requests.get(
+#         f"https://api.github.com/repos/{repo}/contents/source",
+#         headers={"Accept": "application/vnd.github.v3+json"},
+#     )
+#     if req.status_code != 200:
+#         return {}
+
+#     for file_info in req.json():
+#         if not file_info["name"].endswith(".md"):
+#             continue
+#         page_name = file_info["name"].replace(".md", "")
+
+#         # Get last commit for this file
+#         commits_req = requests.get(
+#             api_base,
+#             params={"path": f"source/{file_info['name']}", "per_page": 1},
+#             headers={"Accept": "application/vnd.github.v3+json"},
+#         )
+#         if commits_req.status_code == 200 and commits_req.json():
+#             commit_date = commits_req.json()[0]["commit"]["committer"]["date"]
+#             date_obj = datetime.fromisoformat(commit_date.replace("Z", "+00:00"))
+#             mod_dates[f"lab-manual:{page_name}"] = date_obj.strftime("%Y-%m-%d")
+#         else:
+#             mod_dates[f"lab-manual:{page_name}"] = now
+
+#     return mod_dates
+
+
+def get_manual_mod_dates() -> dict[str, str]:
+    """Clone manual repo shallowly and get git log dates."""
+    import tempfile
+
+    now = datetime.now().strftime("%Y-%m-%d")
+    mod_dates = {}
+    repo = config["manual_repo"]
+
+    with tempfile.TemporaryDirectory() as tmpdir:
+        # Shallow clone with enough history to get meaningful dates
+        subprocess.run(
+            ["git", "clone", "--depth", "50", f"https://github.com/{repo}.git", tmpdir],
+            check=True,
+            capture_output=True,
+        )
+
+        # Get page order from Makefile (same logic as build_manual)
+        makefile = Path(tmpdir) / "Makefile"
+        page_order = [
+            p.split(".md")[0]
+            for p in makefile.read_text().split("\n")
+            if p.startswith("source/") or p.endswith(".md \\")
+        ]
+
+        latest_manual_date = None
+
+        for page in page_order:
+            if page == "README":
+                page_slug = "index"
+                file_path = "README.md"
+            else:
+                page_slug = page.replace("source/", "").lower()
+                file_path = f"{page}.md"
+
+            try:
+                result = subprocess.run(
+                    [
+                        "git",
+                        "-C",
+                        tmpdir,
+                        "log",
+                        "-n",
+                        "1",
+                        "--format=%ci",
+                        "--",
+                        file_path,
+                    ],
+                    check=True,
+                    capture_output=True,
+                    text=True,
+                )
+                date_str = result.stdout.strip()
+                if not date_str:
+                    mod_dates[f"lab-manual:{page_slug}"] = now
+                    continue
+
+                date_obj = datetime.fromisoformat(
+                    date_str.replace("Z", "+00:00")
+                    .replace(" +0100", " +01:00")
+                    .replace(" +0200", " +02:00")
+                )
+                formatted_date = date_obj.strftime("%Y-%m-%d")
+                mod_dates[f"lab-manual:{page_slug}"] = formatted_date
+
+                # Track latest for manual index
+                if latest_manual_date is None or date_obj > latest_manual_date:
+                    latest_manual_date = date_obj
+
+            except subprocess.CalledProcessError as e:
+                print(f"Error getting git log for {file_path}: {e}")
+                mod_dates[f"lab-manual:{page_slug}"] = now
+
+        # Manual index uses the most recently modified page
+        if latest_manual_date:
+            mod_dates["lab-manual"] = latest_manual_date.strftime("%Y-%m-%d")
+
+    return mod_dates
 
 
 def make_sitemap():
     now = datetime.now().strftime("%Y-%m-%d")
+    mod_dates = get_last_mod_date() | get_manual_mod_dates()
 
-    mod_dates = get_last_mod_date()
+    # Build reverse mapping: build file path -> page key
+    file_to_page = {config["pages"][page]["file"]: page for page in config["pages"]}
 
     sitemap = ET.Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
 
     for page in build_dir.glob("**/*.html"):
-        page_name = page.parent.name if page.parent != build_dir else page.stem
-        url = config["deploy_url"] + str(page.relative_to(build_dir)).replace(
-            "index.html", ""
-        )
+        relative_path = str(page.relative_to(build_dir))
+        page_key = file_to_page.get(relative_path)
+
+        # Handle posts
+        if (
+            page_key is None
+            and relative_path.startswith("p/")
+            and relative_path.count("/") == 2
+        ):
+            post_slug = relative_path.split("/")[1]
+            page_key = f"post:{post_slug}"
+        # Handle manual pages
+        elif page_key is None and relative_path.startswith("lab-manual/"):
+            manual_page_slug = relative_path.replace("manual/", "").replace(
+                "/index.html", ""
+            )
+            if manual_page_slug == "index":
+                manual_page_slug = "index"
+            else:
+                manual_page_slug = manual_page_slug.replace("lab-", "")
+            page_key = f"lab-manual:{manual_page_slug}"
+
+        url = config["deploy_url"] + relative_path.replace("index.html", "")
         url_element = ET.SubElement(sitemap, "url")
         ET.SubElement(url_element, "loc").text = url
-        try:
-            ET.SubElement(url_element, "lastmod").text = mod_dates[page_name]
-        except KeyError:
-            # new page
+
+        if page_key and page_key in mod_dates:
+            ET.SubElement(url_element, "lastmod").text = mod_dates[page_key]
+        else:
+            print(
+                f"No last modification date found for {relative_path}. Using current date."
+            )
             ET.SubElement(url_element, "lastmod").text = now
 
     tree = ET.ElementTree(sitemap)

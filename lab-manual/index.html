@@ -295,6 +295,7 @@
               
               <main class="col-md-10 col-lg-10 content-column">
                 <div style="page-break-after: always;"></div>
+<p><img alt="Logo image" src="assets/img/splash.png"/></p>
 
 <p>Welcome to the Rendeiro Lab Manual.</p>
 <p>This manual provides comprehensive information about the lab's culture, procedures, and workflows to ensure a collaborative and efficient research environment.</p>
@@ -309,9 +310,11 @@
 </ol>
 <p>Tip: to add a table of contents to a new file document, use <a href="https://github.com/hukkin/mdformat-toc">mdformat-toc</a>. Insert <code>&lt;!-- mdformat-toc start --&gt;</code> where the table of contents should appear, and run <code>mdformat &lt;file.md&gt;</code> on the edited file, or <code>make format</code> to format all.</p>
 <h3>Building the manual locally</h3>
-<p>To preview changes locally before committing to Github and deploying on the lab website, you can build the manual locally using the provided tools. Ensure you have the necessary dependencies installed:
-- <a href="https://pandoc.org/installing.html">Pandoc</a>
-- <a href="https://wkhtmltopdf.org/downloads.html">wkhtmltopdf</a></p>
+<p>To preview changes locally before committing to Github and deploying on the lab website, you can build the manual locally using the provided tools. Ensure you have the necessary dependencies installed:</p>
+<ul>
+<li><a href="https://pandoc.org/installing.html">Pandoc</a></li>
+<li><a href="https://wkhtmltopdf.org/downloads.html">wkhtmltopdf</a></li>
+</ul>
 <p>To streamline the development process the project includes a <a href="https://github.com/rendeirolab/lab-manual/blob/main/Makefile">Makefile</a>. Key targets include:</p>
 <ul>
 <li><strong><code>format</code></strong>: Formats Markdown files consistently using <code>mdformat</code>.</li>

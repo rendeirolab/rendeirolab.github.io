@@ -14,12 +14,14 @@
                             <div class="card text-center col-sm-6 col-md-3 mb-3">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ member.name }}</h5>
-                                    <img
-                                        class="card-img-top"
-                                        tabindex="0"
+                                    <div class="avatar">
+                                        <img
                                         src="{{ member.photo }}"
                                         alt="{{ member.photo_alt }}"
-                                        style="width: 90%">
+                                        tabindex="0"
+                                        loading="lazy"
+                                        decoding="async">
+                                    </div>
                                     <!-- <img src="{{ member.photo }}" alt="{{ member.name }}" > -->
                                     <p class="card-text">{{ member.role }}
                                         <br>

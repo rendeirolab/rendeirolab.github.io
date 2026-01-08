@@ -66,3 +66,23 @@ table {
 [data-bs-theme="dark"] .logo-dark {
   display: inline-block;
 }
+
+/* Make sure the wrapper constrains the image */
+.avatar{
+  width: min(384px, 95%);
+  height: auto;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 0.75rem;
+}
+
+/* Force the image to fill the wrapper and crop */
+.avatar > img{
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;   /* prevents unexpected max-width constraints */
+  display: block;
+  object-fit: cover;
+  object-position: 50% 20%;     /* crop upwards */
+}

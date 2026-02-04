@@ -5,6 +5,23 @@ news:
   content: "News from our lab:"
   outro: ""
   news:
+    - date: 2026-01-19
+      title: "Clemens joins the lab!"
+      description: |
+        <p>Clemens Kohl joins the lab as a postdoctoral researcher.</p>
+        <p>After studying Food Science and Biotechnology in Vienna, he did a Master at ETH Zürich in Basel, Switzerland, and a PhD in Bioinformatics at the Max Planck Institute for Molecular Genetics in Berlin, Germany.
+        <p>With a strong background in single-cell analysis and clustering methods the lab will gain a major bridge to the genomics and single-cell field, as well as a close connection to the group of Georg Busslinger at the Medical University of Vienna which jointly hosts him.</p>
+        <p>We wish Clemens a happy and successful time in the lab - welcome!</p>
+      img: https://cemm.at/fileadmin/_processed_/5/0/csm_Kohl_Clemens_Bubble_de99fddd87.png
+      img_alt: "A photo of Clemens inside the CeMM bubble."
+    - date: 2026-01-12
+      title: "Congratulations to Lisa on securing a postdoctoral fellowship!"
+      description: |
+        <p>Lisa Kleissl has been awarded the prestigious APART-MINT fellowship from the Austrian Academy of Sciences (ÖAW).</p>
+        <p>This competitive fellowship supports outstanding early-career researchers in the natural sciences, technology, and medicine and will support her work for one year.</p>
+        <p>Congratulations Lisa on this well-deserved recognition of your ideas and research!</p>
+      img: https://cemm.at/fileadmin/img/people/Bubble_pictures/Klei%C3%9Fel_Lisa_Bubble.png
+      img_alt: "A photo of Lisa inside the CeMM bubble."
     - date: 2025-12-06
       title: "StainX: CUDA-optimized stain normalization is now open source!"
       description: |
@@ -37,7 +54,7 @@ news:
         <p>We are eager to support the scverse community in the analysis of histopathological images and to receive feedback on LazySlide.</p>
         <p>Thank you to the organizers for selecting LazySlide for the showcase and thank you to Yimin and Tamas for giving the workshop at late night hours!</p>
       img: null
-      img_alt: individuals
+      img_alt: null
     - date: 2025-11-03
       title: "Samir joins the lab!"
       description: |

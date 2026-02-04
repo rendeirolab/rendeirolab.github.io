@@ -31,6 +31,15 @@ team:
       # photo: assets/img/avillanuevamarijuan.png
       photo: https://cemm.at/fileadmin/_processed_/a/b/csm_Villanueava_Marijuan_Ariadna_bubble_9c1eda1c3a.png
       photo_alt: "A photo of Ariadna inside the CeMM bubble."
+    ckohl:
+      name: Clemens Kohl
+      role: Postdoc
+      description: null
+      email: ckohl@cemm.oeaw.ac.at
+      interests: null
+      # photo: assets/img/ckohl.png
+      photo: https://cemm.at/fileadmin/_processed_/5/0/csm_Kohl_Clemens_Bubble_de99fddd87.png
+      photo_alt: "A photo of Clemens inside the CeMM bubble."
     eabila:
       name: Ernesto Abila
       role: PhD Student

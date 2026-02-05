@@ -85,6 +85,15 @@ team:
       photo: https://cemm.at/fileadmin/_processed_/4/1/csm_Moustafa_Samir_Bubble_a635ae67ae.png
       # photo: https://placehold.co/300x300/aaa/ffffff?text=Samir+Moustafa\nplaceholder&font=open-sans
       photo_alt: "A photo of Samir inside the CeMM bubble."
+    sschindler:
+      name: Simon Schindler
+      role: PhD Student
+      description: null
+      email: sschindler@lbi-netmed.com
+      interests: null
+      photo: https://netmed.lbg.ac.at/wp-content/uploads/sites/33/2025/08/simoncjuliadragosits-.jpg
+      # photo: https://placehold.co/300x300/aaa/ffffff?text=Shrestha+Srivastava\nplaceholder&font=open-sans
+      photo_alt: "A portait photo of Simon."
     ssrivastava:
       name: Shrestha Srivastava
       role: PhD Student

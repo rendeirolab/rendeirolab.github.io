@@ -31,6 +31,13 @@ news:
         <p>Install it with <code>pip install stainx</code> and check out the <a href="https://github.com/rendeirolab/stainx">GitHub repository</a>.</p>
       img: https://raw.githubusercontent.com/rendeirolab/stainx/refs/heads/main/assets/staix-logo-256.png
       img_alt: "StainX logo"
+    - date: 2025-12-01
+      title: "Welcome to Simon!"
+      description: |
+        <p>Simon Schindler joined the lab as a joint PhD student between our lab and the lab of Joerg Menche at the LBI-NetMed.</p>
+        <p>He has a background in electrical engineering and machine learning and will work on geometric learning of cellular organization.</p>
+      img: https://netmed.lbg.ac.at/wp-content/uploads/sites/33/2025/08/simoncjuliadragosits-.jpg
+      img_alt: "A portrait photo of Simon."
     - date: 2025-11-21
       title: "Ernesto presented his work at Cytodata 2025"
       description: |

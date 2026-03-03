@@ -5,6 +5,14 @@ news:
   content: "News from our lab:"
   outro: ""
   news:
+    - date: 2026-02-26
+      title: "Our lab received the Beyond the Journal Award for Open Science!"
+      description: |
+        <p>We are honored to receive the <a href="https://experiment.com/">Experiment Foundation</a>'s Beyond the Journal Award, recognizing scientists pushing the boundaries of open science.</p>
+        <p>The award acknowledges our commitment to transparency through our <a href="https://rendeiro.group/lab-manual">publicly hosted</a>, <a href="https://github.com/rendeirolab/lab-manual">open-source</a> lab manual that makes internal workflows and computational practices reusable by the community.</p>
+        <p>We are grateful for this recognition and remain committed to embedding reproducibility into our daily research culture.</p>
+      img: null
+      img_alt: null
     - date: 2026-01-19
       title: "Clemens joins the lab!"
       description: |

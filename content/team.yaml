@@ -17,6 +17,7 @@ team:
       name: Andre Rendeiro
       role: Principal Investigator
       description: null
+      other_groups: null
       email: arendeiro@cemm.oeaw.ac.at
       interests: null
       # photo: assets/img/arendeiro.png
@@ -26,6 +27,7 @@ team:
       name: Ariadna Villanueva Marijuan
       role: PhD Student
       description: null
+      other_groups: null
       email: avillanuevamarijuan@cemm.oeaw.ac.at
       interests: null
       # photo: assets/img/avillanuevamarijuan.png
@@ -35,6 +37,8 @@ team:
       name: Clemens Kohl
       role: Postdoc
       description: null
+      other_groups:
+        - Busslinger lab (Medical University of Vienna and CeMM)
       email: ckohl@cemm.oeaw.ac.at
       interests: null
       # photo: assets/img/ckohl.png
@@ -44,6 +48,7 @@ team:
       name: Ernesto Abila
       role: PhD Student
       description: null
+      other_groups: null
       email: eabila@cemm.oeaw.ac.at
       interests: null
       # photo: assets/img/eabila.png
@@ -53,6 +58,7 @@ team:
       name: Iva Buljan
       role: PhD Student
       description: null
+      other_groups: null
       email: ibuljan@cemm.oeaw.ac.at
       interests: null
       # photo: assets/img/ibuljan.png
@@ -62,6 +68,9 @@ team:
       name: Lisa Kleissl
       role: Postdoc
       description: null
+      other_groups:
+        - De Rooij lab (CeMM)
+        - Stary lab (Medical University of Vienna and CeMM)
       email: lkleissl@cemm.oeaw.ac.at
       interests: null
       # photo: assets/img/lkleissl.png
@@ -71,6 +80,7 @@ team:
       name: Parijat Chakraborty
       role: Master student
       description: null
+      other_groups: null
       email: parijat@lbi-netmed.com
       interests: null
       photo: https://netmed.lbg.ac.at/wp-content/uploads/sites/33/2025/09/parijatcjuliadragosits-.jpg
@@ -80,6 +90,7 @@ team:
       name: Samir Moustafa
       role: Data scientist
       description: null
+      other_groups: null
       email: smoustafa@cemm.oeaw.ac.at
       interests: null
       photo: https://cemm.at/fileadmin/_processed_/4/1/csm_Moustafa_Samir_Bubble_a635ae67ae.png
@@ -89,6 +100,8 @@ team:
       name: Simon Schindler
       role: PhD Student
       description: null
+      other_groups:
+        - Menche lab (LBI-NetMed)
       email: sschindler@lbi-netmed.com
       interests: null
       photo: https://netmed.lbg.ac.at/wp-content/uploads/sites/33/2025/08/simoncjuliadragosits-.jpg
@@ -98,6 +111,7 @@ team:
       name: Shrestha Srivastava
       role: PhD Student
       description: null
+      other_groups: null
       email: shrestha@lbi-netmed.com
       interests: null
       photo: https://netmed.lbg.ac.at/wp-content/uploads/sites/33/2025/09/shresthacjuliadragosits-.jpg
@@ -107,6 +121,7 @@ team:
       name: Tamas Veres
       role: PhD Student
       description: null
+      other_groups: null
       email: tveres@cemm.oeaw.ac.at
       interests: null
       # photo: assets/img/tveres.png
@@ -116,6 +131,7 @@ team:
       name: Yimin Zheng
       role: Postdoc
       description: null
+      other_groups: null
       email: yzheng@cemm.oeaw.ac.at
       interests: null
       # photo: assets/img/yzheng.png

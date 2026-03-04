@@ -24,7 +24,6 @@
                                     </div>
                                     <!-- <img src="{{ member.photo }}" alt="{{ member.name }}" > -->
                                     <p class="card-text">{{ member.role }}
-                                        <br>
                                         {% if member.interests %}
                                         <ul>
                                             {% for interest in member.interests %}
@@ -32,6 +31,15 @@
                                             {% endfor %}
                                         </ul>
                                         {% endif %}
+                                        {% if member.other_groups %}
+                                        <small class="text-muted">
+                                        joint with
+                                        {% for group in member.other_groups %}
+                                            {% if loop.last and loop.length > 1 %}and {% endif %}
+                                            {{ group }}{% if not loop.last %}, {% endif %}{% if loop.last %}. {% endif %}
+                                        {% endfor %}
+                                        {% endif %}
+                                        </small>
                                     </p>
                                     <!-- <a href="#" class="btn btn-primary">{{ member.email }}</a> -->
                                 </div>

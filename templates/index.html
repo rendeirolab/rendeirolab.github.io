@@ -160,90 +160,24 @@
                   <p>We are grateful for the support from:</p>
                   <div class="d-flex flex-wrap justify-content-center align-items-center gap-4">
                     
-                    <a href="https://www.cemm.at/" target="_blank" rel="noopener" class="d-inline-block text-center">
-                      <img
-                        src="{{ static_url }}/logos/CeMM_WHITE_blue_bg.png"
-                        alt="CeMM logo"
-                        class="img-fluid logo-light"
-                        style="width: 200px"
-                        title="CeMM logo" tabindex="0">
-                    </a>
-                    <a href="https://www.cemm.at/" target="_blank" rel="noopener" class="d-inline-block text-center">
-                      <img
-                        src="{{ static_url }}/logos/CeMM_WHITE_transp_bg.png"
-                        alt="CeMM logo"
-                        class="img-fluid logo-dark"
-                        style="width: 200px"
-                        title="CeMM logo" tabindex="0">
-                    </a>
-                    
-                    <a href="https://www.lbg.ac.at/" target="_blank" rel="noopener" class="d-inline-block text-center">
-                      <img
-                        src="{{ static_url }}/logos/LBG.svg"
-                        alt="LBG logo"
-                        class="img-fluid logo-light"
-                        style="width: 200px"
-                        title="LBG logo" tabindex="0">
-                    </a>
-                    <a href="https://www.lbg.ac.at/" target="_blank" rel="noopener" class="d-inline-block text-center">
-                      <img
-                        src="{{ static_url }}/logos/LBG.svg"
-                        alt="LBG logo"
-                        class="img-fluid logo-dark"
-                        style="width: 200px"
-                        title="LBG logo" tabindex="0">
-                    </a>
-                    
-                    <a href="https://erc.europa.eu/" target="_blank" rel="noopener" class="d-inline-block text-center">
-                      <img
-                        src="https://erc.europa.eu/sites/default/files/inline-images/Logo-ERC-black_0.png"
-                        alt="ERC logo"
-                        class="img-fluid logo-light"
-                        style="width: 200px"
-                        title="ERC logo" tabindex="0">
-                    </a>
-                    <a href="https://erc.europa.eu/" target="_blank" rel="noopener" class="d-inline-block text-center">
-                      <img
-                        src="https://erc.europa.eu/sites/default/files/inline-images/Logo-ERC-transparent_0.png"
-                        alt="ERC logo"
-                        class="img-fluid logo-dark"
-                        style="width: 200px"
-                        title="ERC logo" tabindex="0">
-                    </a>
-
-                    <a href="https://www.wwtf.at/" target="_blank" rel="noopener" class="d-inline-block text-center">
-                      <img
-                        src="{{ static_url }}/logos/WWTF_Sponsor_E_RGB.svg"
-                        alt="WWTF logo"
-                        class="img-fluid logo-light"
-                        style="width: 200px"
-                        title="WWTF logo" tabindex="0">
-                    </a>
-                    <a href="https://www.wwtf.at/" target="_blank" rel="noopener" class="d-inline-block text-center">
-                      <img
-                        src="{{ static_url }}/logos/WWTF_Sponsor_E_Schwarz.svg"
-                        alt="WWTF logo"
-                        class="img-fluid logo-dark"
-                        style="width: 200px"
-                        title="WWTF logo" tabindex="0">
-                    </a>
-                    
-                    <a href="https://angeliniventures.com/" target="_blank" rel="noopener" class="d-inline-block text-center">
-                      <img
-                        src="{{ static_url }}/logos/AV_logo_blue.svg"
-                        alt="Angelini Ventures logo"
-                        class="img-fluid logo-light"
-                        style="width: 200px"
-                        title="Angelini Venture logo" tabindex="0">
-                    </a>
-                    <a href="https://angeliniventures.com/" target="_blank" rel="noopener" class="d-inline-block text-center">
-                      <img
-                        src="{{ static_url }}/logos/AV_logo_white.svg"
-                        alt="Angelini Ventures logo"
-                        class="img-fluid logo-dark"
-                        style="width: 200px"
-                        title="Angelini Venture logo" tabindex="0">
-                    </a>
+                    {% for fund in funding %}
+                      <a href="{{ fund.url }}" target="_blank" rel="noopener" class="d-inline-block text-center">
+                        <img
+                          src="{{ fund.logo_light }}"
+                          alt="{{ fund.name }} logo"
+                          class="img-fluid logo-light"
+                          style="width: 170px"
+                          title="{{ fund.name }} logo" tabindex="0">
+                      </a>
+                      <a href="{{ fund.url }}" target="_blank" rel="noopener" class="d-inline-block text-center">
+                        <img
+                          src="{{ fund.logo_dark }}"
+                          alt="{{ fund.name }} logo"
+                          class="img-fluid logo-dark"
+                          style="width: 170px"
+                          title="{{ fund.name }} logo" tabindex="0">
+                      </a>
+                    {% endfor %}
 
                   </div>
                 </div>

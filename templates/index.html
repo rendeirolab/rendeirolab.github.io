@@ -159,7 +159,6 @@
                   <h4>Funding</h4>
                   <p>We are grateful for the support from:</p>
                   <div class="d-flex flex-wrap justify-content-center align-items-center gap-4">
-                    
                     {% for fund in funding %}
                       <a href="{{ fund.url }}" target="_blank" rel="noopener" class="d-inline-block text-center">
                         <img
@@ -167,20 +166,18 @@
                           alt="{{ fund.name }} logo"
                           class="img-fluid logo-light"
                           style="width: 170px"
-                          title="{{ fund.name }} logo" tabindex="0">
-                      </a>
-                      <a href="{{ fund.url }}" target="_blank" rel="noopener" class="d-inline-block text-center">
+                          title="{{ fund.name }}" 
+                          tabindex="0">
                         <img
                           src="{{ fund.logo_dark }}"
                           alt="{{ fund.name }} logo"
                           class="img-fluid logo-dark"
                           style="width: 170px"
-                          title="{{ fund.name }} logo" tabindex="0">
+                          title="{{ fund.name }}" 
+                          tabindex="0">
                       </a>
                     {% endfor %}
-
                   </div>
                 </div>
-
 
 {% endblock content %}

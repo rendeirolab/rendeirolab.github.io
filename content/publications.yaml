@@ -5,6 +5,21 @@ publications:
   content: ""
   outro: ""
   publications:
+    10.1038/s41592-026-03044-7:
+      authors: "Yimin Zheng, Ernesto Abila, Eva Chrenková, Juliane Winkler, André F. Rendeiro"
+      title: "LazySlide: accessible and interoperable whole slide image analysis"
+      publisher: "Nature Methods"
+      year: 2026
+      type: journal
+      description: null
+      resources:
+        - Preprint: https://doi.org/10.1101/2025.05.28.656548
+        - Code: https://github.com/RendeiroLab/WSIData
+        - Code: https://github.com/RendeiroLab/LazySlide
+        - Notebook: https://wsidata.readthedocs.io
+        - Notebook: https://lazyslide.readthedocs.io
+        - Data: https://doi.org/10.5281/zenodo.15497224
+      highlight: true
     10.1101/2025.10.13.682110:
       authors: "Iva Buljan, Zsuzsanna Bagó-Horváth, André F. Rendeiro"
       title: "Systematic mapping of human tissue microanatomy reveals age-associated remodeling and resilience"
@@ -32,20 +47,6 @@ publications:
       description: null
       resources: null
       highlight: false
-    10.1101/2025.05.28.656548:
-      authors: "Yimin Zheng, Ernesto Abila, Eva Chrenková, Juliane Winkler, André F. Rendeiro"
-      title: "LazySlide: accessible and interoperable whole slide image analysis"
-      publisher: "BioRxiv"
-      year: 2025
-      type: journal
-      description: null
-      resources:
-        - Code: https://github.com/RendeiroLab/WSIData
-        - Code: https://github.com/RendeiroLab/LazySlide
-        - Notebook: https://wsidata.readthedocs.io
-        - Notebook: https://lazyslide.readthedocs.io
-        - Data: https://doi.org/10.5281/zenodo.15497224
-      highlight: true
     10.1101/2025.05.02.651926:
       authors: "Salvo Danilo Lombardo, André F. Rendeiro, Jörg Menche"
       title: "A multilayer network approach elucidates time- and tissue-specific developmental and aging processes"

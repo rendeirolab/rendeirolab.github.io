@@ -8,7 +8,7 @@ We're thrilled to announce that LazySlide has been published in [*Nature Methods
 
 <p align="center">
     <picture align="center">
-    <img src="https://raw.githubusercontent.com/rendeirolab/lazyslide/main/assets/png.png" width="224px">
+    <img src="https://raw.githubusercontent.com/rendeirolab/lazyslide/main/assets/logo.png" width="224px">
     </picture>
 </p>
 

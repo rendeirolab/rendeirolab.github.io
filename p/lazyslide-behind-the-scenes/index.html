@@ -1,0 +1,521 @@
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+    <head>
+        
+
+        <meta charset="utf-8" />
+        <title>Post - "LazySlide: behind the scenes" - Rendeiro lab</title>
+        <meta name="description" content="" />
+        <meta name="author" content="André Rendeiro" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+        <!-- Favicons -->
+        <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/rendeirolab/rendeirolab.github.io@main/assets/logos/favicon.ico" />
+
+        <!-- Font awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <!-- Bootstrap-social -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.9.2/bootstrap-social.min.css"
+            integrity="sha512-3CYhYJnb7/677SX8kzxL2+gW6vVzXiVEC6ZhK0S4tGVp7dTlMjSZPVvA79aH8YMU0xuKn2tLZIFaBctUi4Cb/w=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <!-- Bootstrap-icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+        <!-- Academic icons (ORCID, Google Scholar) -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css"
+            integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <!-- SEO -->
+        <link rel="canonical" href="https://rendeiro.group/p/lazyslide-behind-the-scenes/" />
+
+        <!-- Load assets/styles/style.css -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rendeirolab/rendeirolab.github.io@main/assets/css/style.css">
+        
+        
+<!-- Code block highlighting -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="https://cdn.jsdelivr.net/gh/rendeirolab/rendeirolab.github.io@main/assets/logos/rendeirolab.icon.webp" alt="Logo" width="30" height="30" class="d-inline-block align-text-center" />
+                    Rendeiro group
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/team/">Team</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/research/">Research</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/news/">News</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/publications/">Publications</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/software/">Software</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/press/">Press</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/lab-manual/">Manual</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/p/">Posts</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contact/">Contact</a>
+                        </li>
+                        
+                    </ul>
+
+                    <ul class="navbar-nav d-flex flex-column flex-sm-row ms-lg-auto gap-2">
+                        <li class="nav-item">
+                            <a class="btn navbar-btn btn-social-icon" href="https://bsky.app/profile/andre-rendeiro.com" target="_blank">
+                                <i class="fab fa-brands fa-bluesky" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn navbar-btn btn-social-icon" href="https://github.com/rendeirolab" target="_blank">
+                                <i class="bi bi-github me-2" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn navbar-btn btn-social-icon" href="https://huggingface.co/RendeiroLab" target="_blank">
+                                <img src="https://cdn.jsdelivr.net/gh/rendeirolab/rendeirolab.github.io@main/assets/logos/huggingface.svg" alt="Hugging Face logo" style="width: 1.2rem; height: auto;" />
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn navbar-btn btn-social-icon" href="https://wandb.ai/rendeiro-group" target="_blank">
+                                <i class="fa-brands fa-mintbit" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn navbar-btn btn-social-icon" href="javascript:window.location.href=atob('bWFpbHRvOmFyZW5kZWlyb0BjZW1tLmF0')">
+                                <i class="bi bi-envelope-fill me-2" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+
+                    <form class="d-flex" role="search" method="get" action="https://google.com/search">
+                        <input type="hidden" name="q" value="site:https://rendeiro.group/" />
+                        <input class="form-control me-2 bs-primary" type="search" name="q" aria-label="Search" />
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <i class="bi bi-highlights me-2 navbar-btn"></i>Theme </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+                                        <i class="bi bi-brightness-high-fill me-2 navbar-btn"></i>
+                                        Light
+                                    </button>
+                                </li>
+                                <li>
+                                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+                                        <i class="bi bi-brightness-alt-high me-2 navbar-btn"></i>
+                                        Dark
+                                    </button>
+                                </li>
+                                <li>
+                                    <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+                                        <i class="bi bi-gear-fill me-2 navbar-btn"></i>
+                                        Auto
+                                    </button>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <br />
+        <br />
+
+        <div class="container-lg">
+            <!-- Page header -->
+            <div class="row">
+                <div class="col-xs-12 col-md-12">
+                    <div class="page-header">
+                        <br />
+                        <h1><a href="/">Rendeiro group</a></h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main content -->
+            <div class="row" id="content">
+                
+<div class="container py-5">
+  <article>
+    <header class="mb-4">
+      <h1>"LazySlide: behind the scenes"</h1>
+      <p class="text-muted"><small>2026-02-29</small></p>
+      <p class="lead">How we built an accessible framework for AI-powered histopathology analysis</p>
+    </header>
+    <div class="post-content">
+      <p>We're thrilled to announce that LazySlide has been published in <a href="https://doi.org/10.1038/s41592-026-03044-7"><em>Nature Methods</em></a>! This milestone marks the culmination of years of development, community engagement, and a vision to make computational pathology accessible to everyone—from single-cell genomics researchers to clinical pathologists.</p>
+
+<p align="center">
+    <picture align="center">
+    <img src="https://raw.githubusercontent.com/rendeirolab/lazyslide/main/assets/png.png" width="224px">
+    </picture>
+</p>
+
+<p>In this post, we want to take you behind the scenes: the motivation that drove us, the technical decisions we made, and the exciting applications that LazySlide now enables. We hope this provides insight into our development philosophy and inspires others working at the intersection of AI and biology.</p>
+
+<p align="center">
+    <picture align="center">
+    <img src="https://raw.githubusercontent.com/rendeirolab/lazyslide/main/assets/Figure.png" alt="Lazyslide overview" width="80%">
+    </picture>
+</p>
+
+<h2>The problem we set out to solve</h2>
+
+<h3>A revolution in vision AI</h3>
+
+<p>The past few years have witnessed a remarkable transformation in computer vision. Self-supervised learning has enabled the training of powerful visual encoders on massive unlabeled datasets. In histopathology, this has led to an explosion of foundation models—CONCH, UNI/UNI2, Virchow/Virchow2, Prov-GigaPath, PRISM, TITAN, and dozens more—each promising to extract rich, biologically meaningful representations from tissue images.</p>
+
+<p>Yet this abundance created its own problem: <strong>fragmentation</strong>. Each model came with its own preprocessing requirements, input formats, and inference pipelines. Researchers wanting to compare models or integrate them into existing workflows faced a daunting task of writing custom glue code for each one.</p>
+
+<h3>The single-cell community 'looks at tissue'</h3>
+
+<p>Meanwhile, the genomics and single-cell community was increasingly interested in spatial biology. Spatial transcriptomics technologies were maturing rapidly, and researchers were asking deeper questions about how cells organize within tissues. But there was a curious gap: while spatial transcriptomics captured molecular profiles at specific locations, <strong>histopathology</strong>—the oldest and most widely available source of spatial tissue data—remained largely inaccessible to this community.</p>
+
+<p>Why? Histopathology analysis required specialized tools, different data structures, and expertise that most genomics researchers didn't have. The irony was stark: billions of H&amp;E-stained slides exist in pathology archives worldwide, representing an unparalleled resource for understanding tissue biology at scale. Yet the communities best equipped to analyze high-dimensional biological data were effectively locked out.</p>
+
+<h3>Our vision</h3>
+
+<p>We asked ourselves: <em>What if analyzing a whole slide image was as straightforward as analyzing a single-cell dataset?</em></p>
+
+<p>This meant building a framework that:</p>
+
+<ul>
+<li>Spoke the language of the genomics community (AnnData, scverse tools)</li>
+<li>Abstracted away the complexity of foundation models</li>
+<li>Scaled from a single slide to thousands</li>
+<li>Enabled both novices and experts to work productively</li>
+</ul>
+
+<p>LazySlide was born from this vision.</p>
+
+<h2>Building LazySlide: technical philosophy</h2>
+
+<h3>Modern Python, modern tooling</h3>
+
+<p>From the start, we committed to modern Python practices. We use <a href="https://docs.astral.sh/uv/"><code>uv</code></a> for fast, reproducible package management. Our CI/CD pipeline runs comprehensive tests on every commit. Type hints throughout the codebase catch errors early and improve IDE support.</p>
+
+<p>This isn't just about developer ergonomics—it's about <strong>sustainability</strong>. Foundation models evolve rapidly. New architectures appear monthly. A well-structured codebase lets us incorporate new models quickly without breaking existing functionality.</p>
+
+<h3>Separation of concerns</h3>
+
+<p>LazySlide is actually part of a broader ecosystem we've built:</p>
+
+<ul>
+<li><strong><a href="https://github.com/rendeirolab/wsidata">WSIData</a></strong>: The core data structure, extending AnnData for whole slide images</li>
+<li><strong><a href="https://github.com/rendeirolab/lazyslide">LazySlide</a></strong>: The analysis framework with all operations and model integrations</li>
+<li><strong><a href="https://github.com/rendeirolab/lazyslide-tutorials">LazySlide-tutorials</a></strong>: Comprehensive learning resources</li>
+<li><strong><a href="https://github.com/rendeirolab/lazyslide-benchmark">LazySlide-benchmark</a></strong>: Reproducible performance comparisons</li>
+</ul>
+
+<p>This separation means researchers can use just what they need. Want only the data structure for your own pipeline? Use WSIData. Need to run at scale on a cluster? The Nextflow pipeline has you covered.</p>
+
+<h3>44 foundation models and counting</h3>
+
+<p>Perhaps our most ambitious undertaking: LazySlide now supports <strong>44 foundation models</strong> across classification, segmentation, and multimodal tasks. You can see the full list in our <a href="https://lazyslide.readthedocs.io/en/stable/avail_models.html">documentation</a>.</p>
+
+<p>Each model required understanding its specific requirements—input normalization, patch sizes, embedding dimensions—and wrapping them in a consistent interface. The result is that switching between models is often a single parameter change:</p>
+
+<pre><code class="python language-python">## Extract features with the UNI model
+zs.tl.extract_features(wsi, model="uni")
+
+## Or try CONCH instead
+zs.tl.extract_features(wsi, model="conch")
+</code></pre>
+
+<p>This uniformity enables systematic comparisons that were previously impractical.</p>
+
+<blockquote>
+  <h4>A note on foundation models and licensing</h4>
+  
+  <p>LazySlide's power comes from integrating dozens of foundation models developed by research groups worldwide. We are deeply grateful to the authors of these models for making their work available to the community.</p>
+  
+  <p><strong>Important</strong>: The usage of any model in LazySlide is subject to the terms and conditions of the respective model's license. Please ensure you comply with the license terms before using any model. If you use a model in your research, please cite the original paper or repository as appropriate.</p>
+  
+  <p>LazySlide does not redistribute any source code that's not compatible with LazySlide's MIT license. We simply provide a unified interface to access these models—the responsibility for proper usage, citation, and license compliance rests with the user.</p>
+  
+  <p>You can find license information for each model in our <a href="https://lazyslide.readthedocs.io/en/stable/avail_models.html">model zoo documentation</a>.</p>
+</blockquote>
+
+<h2>Applications: what's now possible</h2>
+
+<p>LazySlide doesn't just make existing workflows easier—it enables entirely new analyses that bridge computational pathology with genomics and natural language understanding.</p>
+
+<h2>Simplicity first</h2>
+
+<p>Before diving into advanced capabilities, let's start with the basics. LazySlide was designed so that a complete preprocessing pipeline—tissue segmentation, tessellation, and feature extraction—can be run in just a few lines of code:</p>
+
+<pre><code class="python language-python">import lazyslide as zs
+
+wsi = zs.datasets.sample()
+
+# Pipeline
+zs.pp.find_tissues(wsi)
+zs.pp.tile_tissues(wsi, tile_px=256, mpp=0.5)
+zs.tl.feature_extraction(wsi, model='resnet50')
+
+# Access the features
+features = wsi['resnet50_tiles']
+
+# Visualize the 1st and 99th features
+zs.pl.tiles(wsi, feature_key="resnet50", color=["1", "99"])
+</code></pre>
+
+<p>This entire workflow runs in approximately 7 seconds on a MacBook Pro. No complex configuration, no boilerplate code—just intuitive, scanpy-style commands that feel familiar to anyone who has worked with single-cell data.</p>
+
+<p>This simplicity isn't accidental. Our benchmarking showed that LazySlide completes standard preprocessing workflows with fewer lines of code, lower token count, and a simpler API compared to established tools, facilitating rapid development and code maintenance [1]. The framework supports essential tasks such as tissue segmentation, cell classification, and morphological archetype analysis with minimal setup—essentially one command each—empowering researchers with little experience in digital pathology [2].</p>
+
+<p>But simplicity doesn't mean limited capability. LazySlide scales from quick exploratory analyses to production pipelines processing thousands of slides. Let's look at some of the more advanced applications this foundation enables.</p>
+
+<h3>Zero-shot learning</h3>
+
+<p>Traditional machine learning requires labeled training data. But what if you could classify tissue based on natural language descriptions alone?</p>
+
+<p>LazySlide supports zero-shot learning through multimodal vision-language foundation models such as PRISM and TITAN [1]. You can compare slide embeddings to arbitrary text prompts:</p>
+
+<pre><code class="python language-python">## Classify without any training data
+probabilities = zs.tl.zero_shot_score(
+    wsi,
+    prompts=["lung carcinoma", "breast carcinoma", "normal tissue"],
+    feature_key="virchow",
+)
+</code></pre>
+
+<p>This is transformative for rare diseases or novel phenotypes where labeled data simply doesn't exist.</p>
+
+<p align="center">
+    <picture align="center">
+        <img src="https://cdn.jsdelivr.net/gh/rendeirolab/rendeirolab.github.io@main/assets/img/2026-02-XX-zero-shot-result.png" alt="zero-shot-result" width="60%">
+    </picture>
+</p>
+
+<h3>Text-guided semantic segmentation</h3>
+
+<p>Taking zero-shot further, LazySlide enables segmentation guided by natural language. Want to find all regions matching "dense inflammatory infiltrate"? LazySlide uses text-image similarity metrics to produce binary masks, then refines them with SAM2 for precise boundaries.</p>
+
+<pre><code class="python language-python">## Segment tissue based on text description
+mask = zs.seg.zero_shot(
+    wsi,
+    prompt="dense inflammatory infiltrate",
+    table_key="conch_tiles_text_similarities",
+    threshold=0.5
+)
+</code></pre>
+
+<p>This bridges the gap between how pathologists describe tissue and how computers analyze it.</p>
+
+<h3>Natural language queries</h3>
+
+<p>One of the most powerful features leverages multimodal foundation models to enable content retrieval through text-based queries [1]. The framework employs pathology-specific models such as PLIP and CONCH to facilitate semantic search within whole slide images [2]. Users can search for specific histological patterns, cell types, or tissue structures using natural language descriptions.</p>
+
+<p>For example, in our analysis of human artery slides from the GTEx project, we demonstrated how terms related to "calcification" show higher enrichment in calcified samples, whereas anatomical terms predominate in healthy tissues [1]. A differential analysis highlighted terms such as gap junction, vascular niche, and apoptosis as significantly enriched in calcified arteries—consistent with observed morphological changes [1].</p>
+
+<p align="center">
+    <picture align="center">
+        <img src="https://cdn.jsdelivr.net/gh/rendeirolab/rendeirolab.github.io@main/assets/img/2026-02-XX-text-similarity-results.png" alt="text-similarity-results" width="80%">
+    </picture>
+</p>
+
+<h3>Integration with bulk RNA-seq and other genomic modalities</h3>
+
+<p>One of our most exciting applications connects histology with transcriptomics. Given paired H&amp;E images and bulk RNA-seq data, LazySlide can learn relationships between morphological features and gene expression to deliver more insight than RNA-seq alone. </p>
+
+<p>Moreover, LazySlide can predict protein expressions from HE images. This opens possibilities for mining the vast archives of H&amp;E slides that lack molecular profiling, imputing molecular information from morphology [2].</p>
+
+<p align="center">
+    <picture align="center">
+        <img src="https://cdn.jsdelivr.net/gh/rendeirolab/rendeirolab.github.io@main/assets/img/2026-02-XX-rna-seq-integration.png" alt="rna-seq-integration" width="80%">
+    </picture>
+</p>
+
+<h3>Natural language summaries</h3>
+
+<p>For descriptive analysis, LazySlide can generate natural language summaries of histological content from slide embeddings. Imagine processing thousands of slides and getting preliminary text reports automatically—not to replace pathologists, but to assist them with concise, context-aware interpretations.</p>
+
+<h2>Benchmarking: how does it compare?</h2>
+
+<p>We believe in rigorous, reproducible benchmarking. Our <a href="https://github.com/rendeirolab/lazyslide-benchmark">dedicated benchmark repository</a> compares LazySlide against six established frameworks and QuPath, the gold standard in pathology analysis.</p>
+
+<p>The results show that LazySlide achieves comparable or superior classification accuracy while dramatically reducing code complexity. Tasks that require dozens of lines in other frameworks often need just one or two in LazySlide.</p>
+
+<p align="center">
+    <picture align="center">
+        <img src="https://cdn.jsdelivr.net/gh/rendeirolab/rendeirolab.github.io@main/assets/img/2026-02-XX-benchmark.png" alt="benchmark" width="80%">
+    </picture>
+</p>
+
+<h2>Community and adoption</h2>
+
+<h3>Part of scverse</h3>
+
+<p>LazySlide is officially part of the <a href="https://scverse.org/">scverse ecosystem</a>, the community-driven collection of tools for single-cell and spatial omics. This means seamless integration with scanpy, squidpy, and the broader Python biology stack.</p>
+
+<p>Given its maturity, open-source availability, and design philosophy focused on modularity and ease of use, LazySlide fills a critical gap by making digital pathology accessible to researchers experienced in single-cell analysis who seek to expand their toolbox with histological methods powered by foundation models [2].</p>
+
+<h3>Spreading the word</h3>
+
+<p>Yimin has been tireless in presenting LazySlide to the community:</p>
+
+<ul>
+<li><strong>scverse conference</strong>: <a href="https://scverse.org/conference2025/schedule">community showcase of LazySlide</a> (yes, at late-late-night hours!)</li>
+<li><strong>scverse community meeting</strong>: <a href="https://hackmd.io/VfVLKb3ETGKN2j_7tn8ZJQ?view#2025-10-14">invited talk</a></li>
+<li><strong>Sydney Statistical Bioinformatics Seminar</strong>: <a href="https://www.youtube.com/watch?v=PZApPewJn0k">"The lazy way of pathological image analysis"</a></li>
+<li><strong>BioLinkX Workshop at Zhejiang University</strong>: <a href="https://www.bilibili.com/video/BV1YpHPzzEHo/">invited talk</a></li>
+<li><strong>European Society of Pathology meeting</strong>: e-poster presentation</li>
+<li><strong>Cell Symposia on Hallmarks of Cancer</strong>: poster presentation</li>
+</ul>
+
+<p>And yes, we made stickers. Very cool stickers. The sloth mascot has been a hit.</p>
+
+<p align="center">
+    <picture align="center">
+        <img src="https://cdn.jsdelivr.net/gh/rendeirolab/rendeirolab.github.io@main/assets/img/2026-02-XX-lazyslide-stickers.jpg" alt="lazyslide-sticker" width="80%">
+    </picture>
+</p>
+
+<h3>Rapid adoption</h3>
+
+<p>The community response has been overwhelming. You can see the growth trajectory on <a href="https://www.star-history.com/#rendeirolab/lazyslide&Date">Star History</a>:</p>
+
+<p align="center">
+    <picture align="center">
+        <img src="https://api.star-history.com/svg?repos=rendeirolab/lazyslide&type=date&legend=top-left" alt="Star History Chart" width="80%">
+    </picture>
+</p>
+
+<p>We hit 100 GitHub stars in July 2025, and growth has only accelerated since. More importantly, we're seeing LazySlide cited in preprints, used in workshops, usage via MCP servers, and integrated into research pipelines worldwide.</p>
+
+<h2>What's next</h2>
+
+<p>Publication in <em>Nature Methods</em> is not an endpoint—it's a milestone. We're actively working on:</p>
+
+<ul>
+<li><strong>More foundation models</strong>: the field moves fast, and we're committed to keeping up</li>
+<li><strong>Enhanced multimodal capabilities</strong>: deeper integration between vision, language, and molecular data</li>
+<li><strong>Clinical deployment tools</strong>: making LazySlide ready for regulated environments</li>
+<li><strong>Community contributions</strong>: we welcome PRs and are building contributor documentation</li>
+</ul>
+
+<h2>Try it yourself</h2>
+
+<p>Ready to get started?</p>
+
+<pre><code class="bash language-bash">pip install lazyslide
+</code></pre>
+
+<p>Then explore the resources:</p>
+
+<ul>
+<li>📚 <a href="https://lazyslide.readthedocs.io/en/stable/">Documentation</a></li>
+<li>🎓 <a href="https://lazyslide.readthedocs.io/en/stable/tutorials/index.html">Tutorials</a></li>
+<li>💻 <a href="https://github.com/rendeirolab/lazyslide">Source code</a></li>
+<li>📊 <a href="https://github.com/rendeirolab/lazyslide-benchmark">Benchmarks</a></li>
+</ul>
+
+<h2>Acknowledgments</h2>
+
+<p>LazySlide exists because of the incredible work of the entire team, with Yimin Zheng leading the development effort. We thank Elisabeth Weigert, Elisabeth Gurnhofer, Patrick Wagner, and Gerald Timelthaler for their technical support and pathologists Zsuzsanna Bagó-Horváth and Ulrike Heber for their feedback on tissue annotations [1].</p>
+
+<p>We're grateful to the scverse community for their support and for welcoming LazySlide into the ecosystem [2]. We also owe a debt of gratitude to the developers of the 44 foundation models we integrate—their open science practices make frameworks like LazySlide possible.</p>
+
+<p>Finally, thank you to everyone who has tested LazySlide, reported bugs, suggested features, and spread the word. Building open-source scientific software is a community endeavor. Thank you for being part of it.</p>
+
+<hr />
+
+<p><em>LazySlide is open source under the MIT license. If you use it in your research, please <a href="https://doi.org/10.1038/s41592-026-03044-7">cite our Nature Methods paper</a>.</em></p>
+
+    </div>
+  </article>
+</div>
+
+                <br />
+            </div>
+            <br />
+        </div>
+        <br />
+
+        
+        <!-- Footer -->
+        <nav class="navbar fixed-bottom bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/"></a>
+                <small>
+                    <a href="https://github.com/rendeirolab/rendeirolab.github.io" target="_blank">Open source</a>, thanks to
+                    <a href="https://jinja.palletsprojects.com/en/stable/" target="_blank">Jinja</a>, 
+                    <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>, and 
+                    <a href="https://pages.github.com/" target="_blank">GitHub</a>
+                </small>
+            </div>
+        </nav>
+        
+
+        
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <!-- Bootstrap color toggle -->
+        <script defer src="https://cdn.jsdelivr.net/gh/rendeirolab/rendeirolab.github.io@main/assets/js/color_toggler.js"></script>
+        
+    <!-- Code block highlighting -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+    </body>
+</html>

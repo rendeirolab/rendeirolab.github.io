@@ -2,43 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://rendeiro.group/</loc>
-		<lastmod>2026-03-16</lastmod>
+		<lastmod>2026-03-20</lastmod>
 	</url>
 	<url>
 		<loc>https://rendeiro.group/contact/</loc>
-		<lastmod>2026-03-16</lastmod>
+		<lastmod>2026-03-20</lastmod>
 	</url>
 	<url>
 		<loc>https://rendeiro.group/lab-manual/</loc>
-		<lastmod>2026-03-16</lastmod>
+		<lastmod>2026-03-20</lastmod>
 	</url>
 	<url>
 		<loc>https://rendeiro.group/press/</loc>
-		<lastmod>2026-03-16</lastmod>
+		<lastmod>2026-03-20</lastmod>
 	</url>
 	<url>
 		<loc>https://rendeiro.group/p/</loc>
-		<lastmod>2026-03-16</lastmod>
+		<lastmod>2026-03-20</lastmod>
 	</url>
 	<url>
 		<loc>https://rendeiro.group/research/</loc>
-		<lastmod>2026-03-16</lastmod>
+		<lastmod>2026-03-20</lastmod>
 	</url>
 	<url>
 		<loc>https://rendeiro.group/publications/</loc>
-		<lastmod>2026-03-16</lastmod>
+		<lastmod>2026-03-20</lastmod>
 	</url>
 	<url>
 		<loc>https://rendeiro.group/team/</loc>
-		<lastmod>2026-03-16</lastmod>
+		<lastmod>2026-03-20</lastmod>
 	</url>
 	<url>
 		<loc>https://rendeiro.group/software/</loc>
-		<lastmod>2026-03-16</lastmod>
+		<lastmod>2026-03-20</lastmod>
 	</url>
 	<url>
 		<loc>https://rendeiro.group/news/</loc>
-		<lastmod>2026-03-16</lastmod>
+		<lastmod>2026-03-20</lastmod>
 	</url>
 	<url>
 		<loc>https://rendeiro.group/lab-manual/manuscript_writing/</loc>
@@ -89,7 +89,11 @@
 		<lastmod>2025-01-27</lastmod>
 	</url>
 	<url>
+		<loc>https://rendeiro.group/p/lazyslide-behind-the-scenes/</loc>
+		<lastmod>2026-03-20</lastmod>
+	</url>
+	<url>
 		<loc>https://rendeiro.group/p/2025_a_year_in_review/</loc>
-		<lastmod>2026-03-16</lastmod>
+		<lastmod>2026-03-20</lastmod>
 	</url>
 </urlset>

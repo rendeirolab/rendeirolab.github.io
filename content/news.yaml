@@ -5,6 +5,15 @@ news:
   content: "News from our lab:"
   outro: ""
   news:
+    - date: 2026-03-25
+      title: "LazySlide is now published in Nature Methods!"
+      description: |
+        <p>Our framework for accessible and interoperable whole slide image analysis is now published in <a href="https://doi.org/10.1038/s41592-026-03044-7">Nature Methods</a>.</p>
+        <p>This work was led by Yimin Zheng, who developed the core architecture enabling scverse-compatible analysis of histopathological images at scale.</p>
+        <p>LazySlide brings the interoperability and efficiency of single-cell genomics workflows to computational pathology, lowering barriers for researchers across disciplines.</p>
+        <p>Check out the documentation at <a href="https://lazyslide.readthedocs.io">lazyslide.readthedocs.io</a> and the code at <a href="https://github.com/RendeiroLab/LazySlide">GitHub</a>.</p>
+      img: 2025-06-01-LazySlide_figure1.webp
+      img_alt: "Overview of the LazySlide framework for scverse-compatible whole slide image analysis."
     - date: 2026-02-26
       title: "Our lab received the Beyond the Journal Award for Open Science!"
       description: |

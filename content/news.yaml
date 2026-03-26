@@ -5,6 +5,14 @@ news:
   content: "News from our lab:"
   outro: ""
   news:
+    - date: 2026-03-26
+      title: "Andre elected to the Young Academy of the Austrian Academy of Sciences"
+      description: |
+        <p>Andre has been elected as a member of the <a href="https://www.oeaw.ac.at/en/young-academy">Young Academy of the Austrian Academy of Sciences (ÖAW)</a>.</p>
+        <p>The Young Academy brings together excellent early-career scientists from diverse disciplines to contribute to the Austrian scientific landscape and engage in interdisciplinary exchange and outreach.</p>
+        <p>We are honored by this recognition and look forward to contributing to the Academy's mission.</p>
+      img: https://raw.githubusercontent.com/rendeirolab/rendeirolab.github.io/refs/heads/main/assets/logos/oeaw_white-en.svg
+      img_alt: The logo of the Austrian Academy of Sciences
     - date: 2026-03-25
       title: "LazySlide is now published in Nature Methods!"
       description: |

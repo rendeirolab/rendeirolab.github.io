@@ -5,6 +5,38 @@ press:
   content: "Press coverage of our our lab's work:"
   outro: ""
   press:
+      - date: 2026-03-27
+        title: Searching tissue with words
+        publisher: "Bionity"
+        url: "https://www.bionity.com/en/news/1188376/searching-tissue-with-words.html"
+        description: Coverage of the LazySlide paper
+        img: https://img.chemie.de/Portal/News/69c50f864b967_6kYPbASOA.jpg?tr=w-4692,h-2346,cm-extract,x-0,y-469:n-news_teaser
+        img_alt: "First author Yimin Zheng and senior author André Rendeiro"
+
+      - date: 2026-03-27
+        title: "Vom Gewebeschnitt zur Datenquelle: KI-Werkzeug eröffnet neue Möglichkeiten für Klinik und Forschung"
+        publisher: "Austrian Academy of Sciences (OeAW)"
+        url: "https://www.oeaw.ac.at/news/vom-gewebeschnitt-zur-datenquelle-ki-werkzeug-eroeffnet-neue-moeglichkeiten-fuer-klinik-und-forschung"
+        description: Coverage of the LazySlide paper
+        img: https://www.oeaw.ac.at/fileadmin/NEWS/userupload2025/Cell_detection_with_LazySlide_in_human_colon_tissue__c__Yimin_Zheng.webp
+        img_alt: "Cell detection with LazySlide in human colon tissue: Immune cells (green), stromal cells (blue) and epithelial cells (orange)"
+
+      - date: 2026-03-27
+        title: "From pathology image to biological discovery: LazySlide uses foundation models to connect tissue images and RNA data"
+        publisher: "Medical Xpress"
+        url: "https://medicalxpress.com/news/2026-03-pathology-image-biological-discovery-lazyslide.html"
+        description: Coverage of the LazySlide paper
+        img: https://medx.b-cdn.net/tmpl/v6/img/logo.png
+        img_alt: The logo of Medical Xpress
+
+      - date: 2026-03-27
+        title: "From pathology image to biological discovery: A journey with LazySlide"
+        publisher: "EurekAlert"
+        url: "https://www.eurekalert.org/news-releases/1120542"
+        description: Coverage of the LazySlide paper
+        img: https://www.eurekalert.org/images/logo-2x.png
+        img_alt: The logo of EurekAlert
+
       - date: 2025-10-04
         title: "Jeder Mensch altert anders"
         publisher: "Die Presse"

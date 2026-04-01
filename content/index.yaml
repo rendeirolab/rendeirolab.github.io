@@ -1,9 +1,25 @@
 index:
   description: "The Rendeiro lab at CeMM and LBI-NetMed"
   title: "Index"
-  intro: ""
-  content: ""
-  outro: ""
+  intro:
+    - text: "We are a research group at <a rel=\"schema:affiliation\" target=\"_blank\" href=\"https://cemm.at/research/groups/andre-rendeiro-group\">CeMM </a>- the <a rel=\"schema:affiliation\" target=\"_blank\" href=\"https://cemm.at/research/groups/andre-rendeiro-group\">Research Center for Molecular Medicine</a> of the <a rel=\"schema:memberOf\" target=\"_blank\" href=\"https://www.oeaw.ac.at/en/\">Austrian Academy of Sciences</a> and at the <a target=\"_blank\" href=\"https://netmed.lbg.ac.at/\">Ludwig Boltzmann Institute for Network Medicine</a> at the <a target=\"_blank\" href=\"https://www.univie.ac.at/en/\"> University of Vienna</a> working on computational and molecular methods to study human aging and pathology."
+  topics:
+    - title: "Spatially resolved,<br>cross-scale biology"
+      link: "/research/#spatial"
+      image: "/img/research_a.webp"
+      image_alt: "A scientific illustration of a human body with many organs labeled from which a cellular composition and interactions, microanatomy, organ architecture, pathology and disease are derived and studied using graphs represented on the right. In the bottom three icons for histopathology, multiplexed imaging and spatial transcriptomics are shown."
+    - title: "Aging biology,<br>disease risk and onset"
+      link: "/research/#aging"
+      image: "/img/2024-11-16-Tissue-clocks.webp"
+      image_alt: "A scientific illustration of the process to derive rich numerical descriptions from histopathological images, which are then used as predictors of biological age and age gaps. In the bottom a concept of how data from blood can be used to predict tissue-specific biological aging insights previously derived from histopathological images."
+    - title: "Principled computational<br>approaches and software"
+      link: "/research/#comp"
+      image: "/img/research_c.webp"
+      image_alt: "On the left various examples of deep learning model development for histopathology are shown, on the right icons of various computational tools are shown."
+  body:
+    - "We are interested in uncovering the architectural patterns of the human body across anatomical scales: cellular and micro-anatomical organization, and organ-wide patterns."
+    - "We think that these patterns hold the key to understand how cellular changes lead to the progressive loss of physiological ability as individuals age and can be predictive of disease risk and its onset."
+    - "To do that, we primarily develop computational methods and software tools for the analysis of spatial data (digital pathology, spatial transcriptomics, highly multiplexed imaging), and its integration with various modalities of molecular and clinical data of individuals along their lifespan."
   funding:
     - name: "CeMM"
       url: "https://www.cemm.at/"
@@ -29,3 +45,23 @@ index:
       url: "https://angeliniventures.com/"
       logo_light: "https://cdn.jsdelivr.net/gh/rendeirolab/rendeirolab.github.io@main/assets/logos/AV_logo_blue.svg"
       logo_dark: "https://cdn.jsdelivr.net/gh/rendeirolab/rendeirolab.github.io@main/assets/logos/AV_logo_white.svg"
+  highlights:
+    - category: "Spatially resolved biology and tissue architecture"
+      papers:
+        - authors: "Buljan, et al"
+          title: "BioRxiv, 2025"
+          doi: "10.1101/2025.10.13.682110"
+        - authors: "Abila, Buljan, Zheng, et al."
+          title: "BioRxiv, 2024"
+          doi: "10.1101/2024.11.14.618081"
+        - authors: "Kim, et al."
+          title: "Nature Methods, 2022"
+          doi: "10.1038/s41592-022-01657-2"
+    - category: "Computational methods and software"
+      papers:
+        - authors: "Zheng, et al."
+          title: "Nature Methods, 2026"
+          doi: "10.1038/s41592-026-03044-7"
+        - authors: "Zheng, et al."
+          title: "Genome Biology, 2025"
+          doi: "10.1186/s13059-024-03469-3"

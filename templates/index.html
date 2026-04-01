@@ -27,32 +27,17 @@
                     <br>
 
                     <h4>Research highlights</h4>
-                    <h6>Spatially resolved biology and tissue architecture:</h6>
-                    <ol style="list-style-type: decimal">
-                        <li>
-                            <a rel="datacite:doi" href="http://dx.doi.org/10.1101/2025.10.13.682110">
-                            Buljan, <i>et al</i>, BioRxiv, 2025</a>
-                        </li>
-                        <li>
-                            <a rel="datacite:doi" href="https://www.biorxiv.org/content/10.1101/2024.11.14.618081">
-                            Abila, Buljan, Zheng, <i>et al.</i>, BioRxiv, 2024</a>
-                        </li>
-                        <li>
-                            <a rel="datacite:doi" href="http://dx.doi.org/10.1038/s41592-022-01657-2">
-                            Kim, <i>et al.</i>, Nature Methods, 2022</a>
-                        </li>
-                    </ol>
-                    <h6>Computational methods and software:</h6>
-                    <ol style="list-style-type: decimal">
-                        <li>
-                            <a rel="datacite:doi" href="http://dx.doi.org/10.1038/s41592-026-03044-7">
-                            Zheng, <i>et al.</i>, Nature Methods, 2026</a>
-                        </li>
-                        <li>
-                            <a rel="datacite:doi" href="http://dx.doi.org/10.1186/s13059-024-03469-3">
-                            Zheng, <i>et al.</i>, Genome Biology, 2025</a>
-                        </li>
-                    </ol>
+                    {% for section in highlights %}
+                        <h6>{{ section.category }}:</h6>
+                        <ul>
+                            {% for paper in section.papers %}
+                            <li>
+                                <a rel="datacite:doi" href="http://dx.doi.org/{{ paper.doi }}">
+                                {{ paper.authors }}, <i>{{ paper.title }}</i></a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    {% endfor %}
 
                     <h4>Latest news</h4>
                     {% for item in (news|sort(attribute="date", reverse=True))[:6] %}
@@ -68,18 +53,11 @@
                 <!-- Remaining content -->
                 <div class="col-md-9 col-12 blog-main" id="research">
 
-                    <p>
-                        We are a research group at <a rel="schema:affiliation" target="_blank" href="https://cemm.at/research/groups/andre-rendeiro-group">CeMM </a>- the <a rel="schema:affiliation" target="_blank" href="https://cemm.at/research/groups/andre-rendeiro-group">Research Center for Molecular Medicine</a> of the <a rel="schema:memberOf" target="_blank" href="https://www.oeaw.ac.at/en/">Austrian Academy of Sciences</a> and at the <a target="_blank" href="https://netmed.lbg.ac.at/">Ludwig Boltzmann Institute for Network Medicine</a> at the <a target="_blank" href="https://www.univie.ac.at/en/"> University of Vienna</a> working on computational and molecular methods to study human aging and pathology.
-                    </p>
+                    {% for item in intro %}
+                    <p>{{ item.text|safe }}</p>
+                    {% endfor %}
 
                     <div class="col-12 d-none d-md-block text-center"> <!-- larger screens -->
-<!--                         <img
-                            class="img-fluid rounded"
-                            tabindex="0"
-                            src="{{ static_url }}/img/2023-10-23-Group_photo.webp"
-                            alt="A group picture in the CeMM brain lounge, with five lab members looking at the camera."
-                            style="width: 60%;"> -->
-
                         <img
                             class="img-fluid rounded"
                             tabindex="0"
@@ -91,66 +69,29 @@
                     </div>
 
                     <div class="row justify-content-center">
+                        {% for topic in topics %}
                         <div class="col-12 col-md-4 mb-4 d-flex">
                             <div class="card text-center w-100 d-flex flex-column">
                                 <div class="card-body flex-grow-1">
-                                    <h5 class="card-title unstyled-link">Spatially resolved,<br>cross-scale biology</h5>
+                                    <h5 class="card-title unstyled-link">{{ topic.title }}</h5>
                                 </div>
                                 <div class="mt-auto">
-                                    <a href="/research/#spatial" class="text-center">
+                                    <a href="{{ topic.link }}" class="text-center">
                                         <img
                                             class="card-img-top mx-auto rounded"
-                                            alt="A scientific illustration of a human body with many organs labeled from which a cellular composition and interactions, microanatomy, organ architecture, pathology and disease are derived and studied using graphs represented on the right. In the bottom three icons for histopathology, multiplexed imaging and spatial transcriptomics are shown."
+                                            alt="{{ topic.image_alt }}"
                                             tabindex="0"
-                                            src="{{ static_url }}/img/research_a.webp">
+                                            src="{{ static_url }}{{ topic.image }}">
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-md-4 mb-4 d-flex">
-                            <div class="card text-center w-100 d-flex flex-column">
-                                <div class="card-body flex-grow-1">
-                                    <h5 class="card-title unstyled-link">Aging biology,<br>disease risk and onset</h5>
-                                </div>
-                                <div class="mt-auto">
-                                    <a href="/research/#aging" class="text-center">
-                                        <img
-                                            class="card-img-top mx-auto rounded"
-                                            alt="A scientific illustration of the process to derive rich numerical descriptions from histopathological images, which are then used as predictors of biological age and age gaps. In the bottom a concept of how data from blood can be used to predict tissue-specific biological aging insights previously derived from histopathological images."
-                                            tabindex="0"
-                                            src="{{ static_url }}/img/2024-11-16-Tissue-clocks.webp">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-4 mb-4 d-flex">
-                            <div class="card text-center w-100 d-flex flex-column">
-                                <div class="card-body flex-grow-1">
-                                    <h5 class="card-title unstyled-link">Principled computational<br>approaches and software</h5>
-                                </div>
-                                <div class="mt-auto">
-                                    <a href="/research/#comp" class="text-center">
-                                        <img
-                                            class="card-img-top mx-auto rounded"
-                                            alt="On the left various examples of deep learning model development for histopathology are shown, on the right icons of various computational tools are shown."
-                                            tabindex="0"
-                                            src="{{ static_url }}/img/research_c.webp">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
+                        {% endfor %}
                     </div>
 
-                    <p>
-                        We are interested in uncovering the architectural patterns of the human body across anatomical scales: cellular and micro-anatomical organization, and organ-wide patterns.
-                    </p>
-                    <p>
-                        We think that these patterns hold the key to understand how cellular changes lead to the progressive loss of physiological ability as individuals age and can be predictive of disease risk and its onset.
-                    </p>
-                    <p>
-                        To do that, we primarily develop computational methods and software tools for the analysis of spatial data (digital pathology, spatial transcriptomics, highly multiplexed imaging), and its integration with various modalities of molecular and clinical data of individuals along their lifespan.
-                    </p>
+                    {% for paragraph in body %}
+                    <p>{{ paragraph }}</p>
+                    {% endfor %}
 
                 </div>
 

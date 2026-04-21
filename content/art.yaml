@@ -1,0 +1,78 @@
+art:
+  description: "Art works from our lab"
+  title: "Art"
+  intro: ""
+  content: "Art works from our lab:"
+  outro: ""
+  art:
+    - date: 2025-10-04
+      title: "X-frames-per-space exhibition"
+      type: "exhibition"
+      publisher: "Parnass"
+      url: "https://www.parnass.at/news/x-frames-per-space"
+      description: |
+        <p>A collaborative exploration by LBI-NetMed and Vienna Contemporary Art Space into how scientific data and artistic perspectives shape our reality.</p>
+        <p>We are kicking off 2025 with a feature in the international PARNASS art magazine highlighting “X FRAMES PER SPACE – different logics, shared questions.” Organized by the Ludwig Boltzmann Institute for Network Medicine in partnership with Vienna Contemporary Art Space, this exhibition transformed 1,200 square meters into a “mycelial network” where art, science, and technology nourished one another.</p>
+        <p>The project, realized in cooperation with the LBG Open Innovation in Science Center and Vienna Art Week, featured contributions from our multidisciplinary team of experts in medicine, physics, and art. It examined the interaction between scientific data and artistic production, opening new pathways for future connections. While the exhibition has closed, the collaborative networks it sparked remain active and continue to resonate within our research.</p>
+        <p>Interdisciplinary Exhibition “X FRAMES PER SPACE” featured in PARNASS Art Magazine</p>
+
+        <hr>
+
+        <p><strong>Contributions by the lab</strong></p>
+        <p><i>The puzzle of microanatomy</i>, Andre Rendeiro</p>
+        <p>What are we made of? Is it the atoms in our body, the cells in our brain?</p>
+        <p>At the mesoscale (hundreds of microns to centimeter scale) our cells arrange themselves into microanatomical structures each associated with a function for the respective organ - the mucosa of the stomach provides a barrier, the muscle movement for digestion; pancreatic ducts drive digestive juices out of the pancreas; the outer layer of the coronary artery provides support and elasticity.</p>
+        <p>Finding these microanatomical domains is not easy, but that's one of our projects. In this Frame, you get to participate! What organs are represented? Which domains are connected? What is their coordinated function?</p>
+
+        <hr>
+
+        <p><i>Tissue turbulence</i>, Shrestha Srivastava</p>
+        <p>The starry night, a painting that at first glance depicts a serene village under a clear night sky, but upon looking closely we understand Van Gogh's turbulent perception of the world.</p>
+        <p>Similarly, tissues can appear deceptively normal on whole-slide imaging. Only when we zoom in do the hidden details emerge, interstitial fat deposition, narrowed or damaged vessels, inflammatory infiltrates, cellular atrophy, and other subtle changes that reflect underlying biological processes.</p>
+
+        <hr>
+      img:
+        - "https://www.parnass.at/sites/default/files/styles/uqkua/public/media/images/xframesperspace-csophie-menegaldo-ivory-rose-photography-002.jpg?h=29fd7d21&itok=q8vwBu_a"
+        - "2025-11-08-puzzle_of_microanatomy.jpg"
+      img_alt:
+        - "The X-frames-per-space installation"
+        - "Andre's entry for the exhibition, a puzzle of microanatomy"
+    - date: 2024-11-07
+      title: "The 'Pile of Trash' - an AI installation at the EU-LIFE Utopia 2024 conference"
+      type: "installation"
+      publisher: "EU-LIFE"
+      url: "https://eu-life.eu/newsroom/events/utopia-2024-AI"
+      description: |
+        <p><strong>"The Pile of Trash"</strong> was an interactive AI art installation created jointly by the labs of <a href="https://menchelab.com/" target="_blank">Jörg Menche</a> (LBI-NetMed, and CeMM) and ours for the <a href="https://eu-life.eu/newsroom/news/community-meeting-2024">EU-LIFE Community Meeting 2024</a>, themed "Utopia 2024 — AI." The installation explored the role of artificial intelligence as an omnipresent, sensing entity — one that listens, reflects, and participates in the collective intellectual life of a scientific conference.</p>
+
+        <p>The centerpiece was a deliberately chaotic, techno-punk sculpture: a pile of approximately twelve monitors surrounded by tangled cables, exposed hardware, and LED light hoses cascading from the ceiling. At the start of the conference, the screens merely flickered — displaying scrolling code, static, and noise. But as the event progressed, the pile came alive.</p>
+
+        <h6><strong>AI as joint conscience</strong></h6>
+        <p>Throughout the conference, microphones captured the speakers' talks in real time. A local AI system transcribed the audio on the fly, and the meaning of the ongoing discourse was continuously extracted and transformed into two parallel outputs:</p>
+        <ul>
+          <li><strong>Ambient mood projection:</strong> The semantic content and emotional tone of the talks were translated into a subtle, evolving light- and projection-based stream cast across the room by several high-luminosity projectors. This ambient layer communicated the collective mood and thematic drift of the conference — an ever-shifting visual conscience that most participants sensed only subliminally.</li>
+          <li><strong>Generative imagery on the pile:</strong> The transcribed content was progressively summarized by a large language model, which in turn drove continuous image generation. These AI-generated images — visual interpretations of the conference's intellectual content — gradually filled the monitors in the pile, replacing the initial static with a growing gallery of machine-imagined science. The pile of trash was becoming sentient.</li>
+        </ul>
+
+        <h6><strong>AI as participant</strong></h6>
+        <p>The AI was not merely a passive observer. At designated moments, session chairs could prompt the installation directly, posing questions to the AI entity. Drawing on its accumulated understanding of everything said during the conference, the AI responded — sometimes in real time, sometimes pre-prompted — effectively participating in the scientific discussion as a non-human panelist emerging from a pile of electronic debris.</p>
+
+        <h6><strong>AI as matchmaker</strong></h6>
+        <p>The installation also had a deeply social dimension. Before the conference, participants signed up by answering three seemingly random questions. Behind the scenes, their answers were embedded into a latent space using large language models. For scientist participants, we additionally mined their publication records, creating rich vector representations from which we computed pairwise distances and identified communities of intellectual affinity.</p>
+        <p>At registration, each participant received a badge featuring their name, affiliation, and a unique QR code — a discreet identifier linking them to their position in the latent space. During a dedicated interactive session, participants approached the pile of trash to scan their badge. The installation — via an old, airport-style thermal printer, in appropriately gritty techno-punk aesthetic — printed out a personalized slip: whom they should meet, where to find them, and an AI-generated conversation topic tailored to the pair's shared (or complementary) interests.</p>
+        <p>Participants then sought each other out. As proof of interaction, they scanned each other's QR codes using a phone app, sending these pairs to a central server. Throughout the event, a dedicated screen displayed the growing network of connections in real time — a living social graph of the conference. Participants could scan additional people, expanding their local network, and the most gregarious connectors were celebrated at the end.</p>
+
+        <h6><strong>Behind the scenes</strong></h6>
+        <p>The project was a substantial undertaking requiring microphones, 4–6 high-luminosity projectors, local GPU hardware for real-time audio transcription and inference, QR-coded badges, a dozen monitors, thermal printers, LED installations, and a generous amount of cables and techno-punk decoration. The Rendeiro lab led the software development — real-time transcription, LLM-based summarization, latent space computation, image generation, the matchmaking algorithm, the QR-scanning app, and the network visualization server — while the Menche lab spearheaded the hardware assembly, physical design, and the atmospheric staging of the installation.</p>
+
+        <p>It was an enormous amount of work, and an enormous amount of fun — a genuine experiment in what happens when you let an AI not just analyze a conference, but inhabit it.</p>
+
+        <p>See also: <a href="https://eu-life.eu/newsroom/news/community-meeting-2024" target="_blank">EU-LIFE Community Meeting 2024 recap</a>.</p>
+      img:
+        - "2024-11-07-pile-of-trash-01.jpg"
+        - "2024-11-07-pile-of-trash-02.jpg"
+        - "2024-11-07-pile-of-trash-03.jpg"
+      img_alt:
+        - "The Pile of Trash installation at the entrance"
+        - "The Pile of Trash installation at the stage"
+        - "The Pile of Trash installation at the stage shot through the perspective of a conference participant"

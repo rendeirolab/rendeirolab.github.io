@@ -1,0 +1,54 @@
+{# templates/art.html #}
+{% extends "_template.html" %}
+{% block title %}Art{% endblock title %}
+{% block content %}
+                <div class="row">
+                    <h3>{{ title }}</h3>
+                    <p>{{ intro }}</p>
+                    <p>{{ content }}</p>
+                    {% for item in art|sort(attribute="date", reverse=True) %}
+                    <div class="col-12">
+                        <h5 tabindex="0"><strong>{{ item.date }}</strong> - <a href={{ item.url }}>'{{ item.title }}'</a></h5>
+                        <div class="row">
+                            {% if item.img is not none %}
+                            <div class="col-12 text-center">
+                                {% if item.img is string %}
+                                <a href="{{ item.url }}" target="_blank">
+                                    <img class="img-responsive rounded" src="{% if item.img.startswith('http') %}{{ item.img }}{% else %}{{ static_url }}/img/{{ item.img }}{% endif %}"
+                                    {% if item.img_alt is defined and item.img_alt is not none %}
+                                    alt="{{ item.img_alt }}"
+                                    {% endif %}
+                                    tabindex="0"
+                                    style="width: 95%; height: auto; display: block">
+                                </a>
+                                {% else %}
+                                {% for img_src in item.img %}
+                                <a href="{{ item.url }}" target="_blank">
+                                    <img class="img-responsive rounded" src="{% if img_src.startswith('http') %}{{ img_src }}{% else %}{{ static_url }}/img/{{ img_src }}{% endif %}"
+                                    {% if item.img_alt is defined and item.img_alt is not none %}
+                                        {% if item.img_alt is string %}
+                                    alt="{{ item.img_alt }}"
+                                        {% elif loop.index0 < item.img_alt|length %}
+                                    alt="{{ item.img_alt[loop.index0] }}"
+                                        {% endif %}
+                                    {% endif %}
+                                    tabindex="0"
+                                    style="width: 95%; height: auto; display: block{% if not loop.last %}; margin-bottom: 0.5rem{% endif %}">
+                                </a>
+                                {% endfor %}
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                            {% if item.description is not none %}
+                            <div class="col-12">
+                                <p class="mb-0">{{ item.description }}</p>
+                                <p class="mb-0"><a href="{{ item.url }}" target="_blank">Read more here</a>.</p>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <br>
+                    </div>
+                    {% endfor %}
+                    <p>{{ outro }}</p>
+                </div>
+{% endblock content %}

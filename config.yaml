@@ -49,6 +49,11 @@ pages:
     url: /p/
     template: posts_index.html
     file: p/index.html
+  art:
+    name: Art
+    url: /art/
+    template: art.html
+    file: art/index.html
   contact:
     name: Contact
     url: /contact/

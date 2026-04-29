@@ -5,6 +5,14 @@ news:
   content: "News from our lab:"
   outro: ""
   news:
+    - date: 2026-04-24
+      title: "Lab dinner"
+      description: |
+        <p>We had a very nice dinner together at 'In Dish', an Indian restaurant in Vienna's first district.</p>
+        <p>The food was delicious, the spirits high, and it was great to see so many people together.</p>
+        <p>Thanks Lisa for the restaurant suggestion, Samir for organizing, and everyone for joining!</p>
+      img: 2026-04-24-lab_dinner.webp
+      img_alt: "The team at the table in the 'In Dish' restaurant"
     - date: 2026-04-19
       title: "We took part in the Vienna City Marathon"
       description: |

@@ -10,6 +10,7 @@
 # ]
 # ///
 
+import argparse
 from pathlib import Path
 import os
 import shutil
@@ -498,5 +499,30 @@ def clean_build_dir():
     shutil.rmtree(build_dir)
 
 
-if __name__ == "__main__":
+def serve():
+    from livereload import Server
+
     main()
+
+    server = Server()
+
+    server.watch("templates/", lambda: main())
+    server.watch("content/", lambda: main())
+    server.watch("assets/", lambda: main())
+    server.watch("config.yaml", lambda: main())
+
+    print("Dev server at http://localhost:8000 — watching for changes...")
+    server.serve(root=build_dir, port=8000, open_url_delay=1)
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--serve", action="store_true", help="Start dev server with live reload"
+    )
+    args = parser.parse_args()
+
+    if args.serve:
+        serve()
+    else:
+        main()

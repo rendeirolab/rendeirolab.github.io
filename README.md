@@ -27,7 +27,8 @@ uv run build.py  # installs dependencies and builds the website
 
 ### Serving locally
 
-After editing, you can render the website with `task serve` (from [taskipy](https://github.com/taskipy/taskipy)), which simply runs `python -m http.server` in the `docs` directory.
+After editing, you can render the website with `uv run task serve` (from [taskipy](https://github.com/taskipy/taskipy)), which simply runs `python -m http.server` in the `docs` directory.
+This includes hot-module reloading, so any changes to the source files will automatically trigger a rebuild and refresh the browser.
 
 ### Deploying
 

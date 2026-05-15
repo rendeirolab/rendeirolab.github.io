@@ -86,3 +86,8 @@ table {
   object-fit: cover;
   object-position: 50% 20%;     /* crop upwards */
 }
+
+/* Offset for fixed navbar when jumping to anchor links */
+#content [id^="art-"] {
+    scroll-margin-top: 70px;
+}

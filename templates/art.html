@@ -6,8 +6,13 @@
                     <h3>{{ title }}</h3>
                     <p>{{ intro }}</p>
                     <p>{{ content }}</p>
+                    <ul>
+                        {% for item in art|sort(attribute="date", reverse=True) %}
+                        <li><a href="#art-{{ item.date }}">{{ item.date }} — {{ item.title }}</a></li>
+                        {% endfor %}
+                    </ul>
                     {% for item in art|sort(attribute="date", reverse=True) %}
-                    <div class="col-12">
+                    <div class="col-12" id="art-{{ item.date }}">
                         <h5 tabindex="0"><strong>{{ item.date }}</strong> - <a href={{ item.url }}>'{{ item.title }}'</a></h5>
                         <div class="row">
                             {% if item.img is not none %}

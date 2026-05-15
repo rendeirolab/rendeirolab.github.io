@@ -5,6 +5,15 @@ news:
   content: "News from our lab:"
   outro: ""
   news:
+    - date: 2026-05-01
+      title: "Marsilea spotlighted at GitHub maintainer month!"
+      description: |
+        <p>Marsilea, our framework for composable visualizations has been selected for a spotlight on <a href="https://maintainermonth.github.com/">Github Maintainer Month</a></p>
+        <p>The feature contains an interview with Yimin, who conceived and maintains the project.</p>
+        <p>Open source runs a large fraction of the world's digital infrastructure, but this is thanks to the largely unrewarded efforts of open source maintainers worldwide.</p>
+        <p>Thank you to the Github Community Management team for the opportunity to celebrate maintainers of open source software.</p>
+      img: https://maintainermonth.github.com/images/opener.jpg
+      img_alt: An image by Github on maintainers
     - date: 2026-04-24
       title: "Lab dinner"
       description: |

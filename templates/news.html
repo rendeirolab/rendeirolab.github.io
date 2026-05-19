@@ -9,82 +9,35 @@
                     <h3>{{ title }}</h3>
                     <p>{{ intro }}</p>
                     <p>{{ content }}</p>
-                    {% for year, items in news
+                    {% set grouped_years = news
                       |sort(attribute="date", reverse=True)
                       |groupby("date.year")
                       |sort(attribute="grouper", reverse=True) %}
-                      <div class="mb-3">
-                        <!-- Year toggle -->
-                        <button class="btn btn-primary w-100 text-start"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#collapse-{{ year }}"
-                            aria-expanded="{% if loop.first %}true{% else %}false{% endif %}"
-                            aria-controls="collapse-{{ year }}">
-                          {{ year }}
-                        </button>
-
-                        <!-- News block for this year -->
-                        <div class="collapse mt-2 {% if loop.first %}show{% endif %}" id="collapse-{{ year }}">
-                          {% for item in items %}
-                          <div class="col-12 mb-3">
-                            <h5 tabindex="0"><strong>{{ item.date }}</strong> - {{ item.title }}</h5>
-
-                            <!-- Small screens -->
-                            <div class="d-md-none">
-                              <div class="row overflow-x-auto">
-                                {% if item.img is not none %}
-                                <div class="col-12 text-center">
-                                  <a href="{% if item.img.startswith('http') %}{{ item.img }}{% else %}{{ static_url }}/img/{{ item.img }}{% endif %}">
-                                    <img class="img-responsive rounded mx-auto d-block"
-                                         src="{% if item.img.startswith('http') %}{{ item.img }}{% else %}{{ static_url }}/img/{{ item.img }}{% endif %}"
-                                         alt="{{ item.img_alt }}"
-                                         tabindex="0"
-                                         style="max-width: 100%; height: auto;">
-                                  </a>
-                                </div>
-                                {% endif %}
-
-                                {% if item.description is not none %}
-                                <div class="col-12">
-                                  <p class="mb-0">{{ item.description }}</p>
-                                </div>
-                                {% endif %}
-                              </div>
-                            </div>
-
-                            <!-- Larger screens -->
-                            <div class="col-12 d-none d-md-block">
-                              <div class="row overflow-x-auto">
-                                {% if item.img is not none %}
-                                <div class="col-6 col-md-3 text-center">
-                                  <a href="{% if item.img.startswith('http') %}{{ item.img }}{% else %}{{ static_url }}/img/{{ item.img }}{% endif %}">
-                                    <img class="img-responsive rounded"
-                                         src="{% if item.img.startswith('http') %}{{ item.img }}{% else %}{{ static_url }}/img/{{ item.img }}{% endif %}"
-                                         alt="{{ item.img_alt }}"
-                                         tabindex="0"
-                                         style="max-width: 100%; height: auto;">
-                                  </a>
-                                </div>
-                                {% endif %}
-
-                                {% if item.description is not none %}
-                                {% if item.img is not none %}
-                                <div class="col-6 col-md-9">
-                                {% else %}
-                                <div class="col-12">
-                                {% endif %}
-                                  <p class="mb-0">{{ item.description }}</p>
-                                </div>
-                                {% endif %}
-                              </div>
-                            </div>
-
-                          </div>
-                          {% endfor %}
-                        </div>
-                      </div>
+                    <div class="d-flex flex-wrap gap-1 mb-2" id="year-tabs">
+                    {% for year, items in grouped_years %}
+                      <button class="btn {% if loop.first %}btn-primary{% else %}btn-outline-primary{% endif %}"
+                          type="button"
+                          hx-get="/news/year-{{ year }}.html"
+                          hx-target="#news-content"
+                          hx-swap="innerHTML"
+                          hx-on::before-request="document.querySelectorAll('#year-tabs .btn').forEach(b => b.className = 'btn btn-outline-primary'); this.className = 'btn btn-primary';">
+                        {{ year }}
+                      </button>
                     {% endfor %}
+                    </div>
+
+                    <div id="news-content" class="mt-2">
+                      {% set items = (grouped_years|first)[1] %}
+                      {% include "_news_year.html" %}
+                    </div>
+
                     <p>{{ outro }}</p>
                 </div>
 {% endblock content %}
+
+{% block js %}
+{{ super() }}
+<script src="https://unpkg.com/htmx.org@2.0.4"
+    integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
+    crossorigin="anonymous"></script>
+{% endblock js %}

@@ -1,0 +1,56 @@
+{% for item in items %}
+<div class="col-12 mb-3">
+  <h5 tabindex="0"><strong>{{ item.date }}</strong> - {{ item.title }}</h5>
+
+  <!-- Small screens -->
+  <div class="d-md-none">
+    <div class="row overflow-x-auto">
+      {% if item.img is not none %}
+      <div class="col-12 text-center">
+        <a href="{% if item.img.startswith('http') %}{{ item.img }}{% else %}{{ static_url }}/img/{{ item.img }}{% endif %}">
+          <img class="img-responsive rounded mx-auto d-block"
+               src="{% if item.img.startswith('http') %}{{ item.img }}{% else %}{{ static_url }}/img/{{ item.img }}{% endif %}"
+               alt="{{ item.img_alt }}"
+               tabindex="0"
+               style="max-width: 100%; height: auto;">
+        </a>
+      </div>
+      {% endif %}
+
+      {% if item.description is not none %}
+      <div class="col-12">
+        <p class="mb-0">{{ item.description }}</p>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Larger screens -->
+  <div class="col-12 d-none d-md-block">
+    <div class="row overflow-x-auto">
+      {% if item.img is not none %}
+      <div class="col-6 col-md-3 text-center">
+        <a href="{% if item.img.startswith('http') %}{{ item.img }}{% else %}{{ static_url }}/img/{{ item.img }}{% endif %}">
+          <img class="img-responsive rounded"
+               src="{% if item.img.startswith('http') %}{{ item.img }}{% else %}{{ static_url }}/img/{{ item.img }}{% endif %}"
+               alt="{{ item.img_alt }}"
+               tabindex="0"
+               style="max-width: 100%; height: auto;">
+        </a>
+      </div>
+      {% endif %}
+
+      {% if item.description is not none %}
+      {% if item.img is not none %}
+      <div class="col-6 col-md-9">
+      {% else %}
+      <div class="col-12">
+      {% endif %}
+        <p class="mb-0">{{ item.description }}</p>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+</div>
+{% endfor %}

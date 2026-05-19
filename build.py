@@ -24,6 +24,7 @@ from jinja2 import Environment, FileSystemLoader
 import requests
 from bs4 import BeautifulSoup
 from markdown2 import Markdown
+from collections import defaultdict
 
 config = yaml.safe_load(Path("config.yaml").open().read())
 template_dir = Path(config["template_dir"])
@@ -77,6 +78,8 @@ def build_all_pages():
 
         with page_file.open("w") as f:
             f.write(html)
+
+    build_news_fragments(environment)
 
     # if local, copy assets folder to build
     if not os.getenv("GITHUB_ACTIONS"):
@@ -163,6 +166,35 @@ def build_posts_index(posts_metadata: list[dict], environment: Environment):
 
     with (page_dir / "index.html").open("w") as f:
         f.write(html)
+
+
+def build_news_fragments(environment):
+    """Generate per-year HTML fragments for htmx lazy-loading on the news page."""
+    content = yaml.safe_load((content_dir / "news.yaml").open().read())["news"]
+
+    fragment_template = environment.from_string(
+        (template_dir / "_news_year.html").open().read()
+    )
+
+    sorted_news = sorted(
+        content["news"],
+        key=lambda x: x["date"],
+        reverse=True,
+    )
+
+    years = defaultdict(list)
+    for item in sorted_news:
+        years[item["date"].year].append(item)
+
+    for year in sorted(years.keys(), reverse=True):
+        html = fragment_template.render(
+            items=years[year],
+            static_url=config["static_url"],
+        )
+        fragment_path = build_dir / "news" / f"year-{year}.html"
+        fragment_path.parent.mkdir(exist_ok=True, parents=True)
+        with fragment_path.open("w") as f:
+            f.write(html)
 
 
 def build_lab_manual():

@@ -17,7 +17,7 @@ import shutil
 import xml.etree.cElementTree as ET
 from datetime import datetime
 import subprocess
-from copy import deepcopy as copy
+from copy import deepcopy
 
 import yaml
 from jinja2 import Environment, FileSystemLoader
@@ -53,19 +53,17 @@ def build_all_pages():
             continue
 
         content_file = content_dir / f"{page}.yaml"
-        content = yaml.safe_load(content_file.open().read())[page]
+        content = load_yaml(content_file)[page]
 
         page_file = build_dir / config["pages"][page]["file"]
         page_file.parent.mkdir(exist_ok=True, parents=True)
 
-        page_template = environment.from_string(
-            (template_dir / config["pages"][page]["template"]).open().read()
-        )
+        page_template = load_template(environment, config["pages"][page]["template"])
 
         add = {}
         if page in additionals:
             add = {
-                k: yaml.safe_load((content_dir / f"{k}.yaml").open().read())[k][k]
+                k: load_yaml(content_dir / f"{k}.yaml")[k][k]
                 for k in additionals[page]
             }
 
@@ -95,7 +93,7 @@ def build_posts():
         return
 
     environment = Environment(loader=FileSystemLoader(template_dir))
-    template = environment.from_string((template_dir / "post.html").open().read())
+    template = load_template(environment, "post.html")
     md = Markdown(
         extras=[
             "fenced-code-blocks",
@@ -150,9 +148,7 @@ def build_posts():
 
 def build_posts_index(posts_metadata: list[dict], environment: Environment):
     """Build an index page listing all posts."""
-    template = environment.from_string(
-        (template_dir / "posts_index.html").open().read()
-    )
+    template = load_template(environment, "posts_index.html")
 
     page_dir = build_dir / "p"
     page_dir.mkdir(exist_ok=True, parents=True)
@@ -170,11 +166,9 @@ def build_posts_index(posts_metadata: list[dict], environment: Environment):
 
 def build_news_fragments(environment):
     """Generate per-year HTML fragments for htmx lazy-loading on the news page."""
-    content = yaml.safe_load((content_dir / "news.yaml").open().read())["news"]
+    content = load_yaml(content_dir / "news.yaml")["news"]
 
-    fragment_template = environment.from_string(
-        (template_dir / "_news_year.html").open().read()
-    )
+    fragment_template = load_template(environment, "_news_year.html")
 
     sorted_news = sorted(
         content["news"],
@@ -200,9 +194,7 @@ def build_news_fragments(environment):
 def build_lab_manual():
     name = config["pages"]["manual"]["url"][1:-1]
     environment = Environment(loader=FileSystemLoader(template_dir))
-    template = environment.from_string(
-        (template_dir / config["pages"]["manual"]["template"]).open().read()
-    )
+    template = load_template(environment, config["pages"]["manual"]["template"])
 
     manual_root_url = config["pages"]["manual"]["url"]
     req = requests.get(
@@ -265,7 +257,7 @@ def build_lab_manual():
         )
 
     for page_slug, data in pages.items():
-        manual_pages = copy(pages)
+        manual_pages = deepcopy(pages)
         manual_pages[page_slug]["active"] = True
         html = template.render(
             page_url=data["page_url"],
@@ -281,7 +273,7 @@ def build_lab_manual():
 
 
 def get_last_mod_date() -> dict[str, str]:
-    now = datetime.now().strftime("%Y-%m-%d")
+    now = today()
 
     try:
         subprocess.run(
@@ -298,110 +290,38 @@ def get_last_mod_date() -> dict[str, str]:
     # Content YAML files
     for page in content_dir.glob("*.yaml"):
         page_name = page.stem
-        try:
-            result = subprocess.run(
-                ["git", "log", "-n", "1", "--format=%ci", "--", page],
-                check=True,
-                capture_output=True,
-                text=True,
-            )
-            date_str = result.stdout.strip()
-            if not date_str:
-                continue
-            date_obj = datetime.fromisoformat(
-                date_str.replace("Z", "+00:00")
-                .replace(" +0100", " +01:00")
-                .replace(" +0200", " +02:00")
-            )
-            last_mod_dates[page_name] = date_obj.strftime("%Y-%m-%d")
-        except subprocess.CalledProcessError as e:
-            print(f"Error getting git log for {page}: {e}")
-            last_mod_dates[page_name] = now
+        date_obj = git_log_date(page)
+        last_mod_dates[page_name] = date_obj.strftime("%Y-%m-%d") if date_obj else now
 
     # Posts (markdown files)
     posts_dir = content_dir / "posts"
     if posts_dir.exists():
         latest_post_date = None
         for post in posts_dir.glob("*.md"):
-            post_key = f"post:{post.stem}"  # e.g., "post:my-first-post"
-            try:
-                result = subprocess.run(
-                    ["git", "log", "-n", "1", "--format=%ci", "--", post],
-                    check=True,
-                    capture_output=True,
-                    text=True,
-                )
-                date_str = result.stdout.strip()
-                if not date_str:
-                    continue
-                date_obj = datetime.fromisoformat(
-                    date_str.replace("Z", "+00:00")
-                    .replace(" +0100", " +01:00")
-                    .replace(" +0200", " +02:00")
-                )
-                formatted_date = date_obj.strftime("%Y-%m-%d")
-                last_mod_dates[post_key] = formatted_date
-
-                # Track latest post date for posts index
+            post_key = f"post:{post.stem}"
+            date_obj = git_log_date(post)
+            if date_obj:
+                last_mod_dates[post_key] = date_obj.strftime("%Y-%m-%d")
                 if latest_post_date is None or date_obj > latest_post_date:
                     latest_post_date = date_obj
-            except subprocess.CalledProcessError as e:
-                print(f"Error getting git log for {post}: {e}")
+            else:
                 last_mod_dates[post_key] = now
 
-        # Posts index uses the date of the most recently modified post
         if latest_post_date:
             last_mod_dates["posts"] = latest_post_date.strftime("%Y-%m-%d")
 
     return last_mod_dates
 
 
-# def get_manual_mod_dates() -> dict[str, str]:
-#     """Get last modification dates for lab-manual pages via GitHub API."""
-#     now = datetime.now().strftime("%Y-%m-%d")
-#     mod_dates = {}
-
-#     repo = config["manual_repo"]
-#     api_base = f"https://api.github.com/repos/{repo}/commits"
-
-#     req = requests.get(
-#         f"https://api.github.com/repos/{repo}/contents/source",
-#         headers={"Accept": "application/vnd.github.v3+json"},
-#     )
-#     if req.status_code != 200:
-#         return {}
-
-#     for file_info in req.json():
-#         if not file_info["name"].endswith(".md"):
-#             continue
-#         page_name = file_info["name"].replace(".md", "")
-
-#         # Get last commit for this file
-#         commits_req = requests.get(
-#             api_base,
-#             params={"path": f"source/{file_info['name']}", "per_page": 1},
-#             headers={"Accept": "application/vnd.github.v3+json"},
-#         )
-#         if commits_req.status_code == 200 and commits_req.json():
-#             commit_date = commits_req.json()[0]["commit"]["committer"]["date"]
-#             date_obj = datetime.fromisoformat(commit_date.replace("Z", "+00:00"))
-#             mod_dates[f"lab-manual:{page_name}"] = date_obj.strftime("%Y-%m-%d")
-#         else:
-#             mod_dates[f"lab-manual:{page_name}"] = now
-
-#     return mod_dates
-
-
 def get_manual_mod_dates() -> dict[str, str]:
     """Clone manual repo shallowly and get git log dates."""
     import tempfile
 
-    now = datetime.now().strftime("%Y-%m-%d")
+    now = today()
     mod_dates = {}
     repo = config["manual_repo"]
 
     with tempfile.TemporaryDirectory() as tmpdir:
-        # Shallow clone with enough history to get meaningful dates
         subprocess.run(
             ["git", "clone", "--depth", "50", f"https://github.com/{repo}.git", tmpdir],
             check=True,
@@ -426,45 +346,15 @@ def get_manual_mod_dates() -> dict[str, str]:
                 page_slug = page.replace("source/", "").lower()
                 file_path = f"{page}.md"
 
-            try:
-                result = subprocess.run(
-                    [
-                        "git",
-                        "-C",
-                        tmpdir,
-                        "log",
-                        "-n",
-                        "1",
-                        "--format=%ci",
-                        "--",
-                        file_path,
-                    ],
-                    check=True,
-                    capture_output=True,
-                    text=True,
-                )
-                date_str = result.stdout.strip()
-                if not date_str:
-                    mod_dates[f"lab-manual:{page_slug}"] = now
-                    continue
-
-                date_obj = datetime.fromisoformat(
-                    date_str.replace("Z", "+00:00")
-                    .replace(" +0100", " +01:00")
-                    .replace(" +0200", " +02:00")
-                )
-                formatted_date = date_obj.strftime("%Y-%m-%d")
-                mod_dates[f"lab-manual:{page_slug}"] = formatted_date
-
-                # Track latest for manual index
+            date_obj = git_log_date(file_path, git_dir=tmpdir)
+            if date_obj:
+                mod_dates[f"lab-manual:{page_slug}"] = date_obj.strftime("%Y-%m-%d")
                 if latest_manual_date is None or date_obj > latest_manual_date:
                     latest_manual_date = date_obj
-
-            except subprocess.CalledProcessError as e:
-                print(f"Error getting git log for {file_path}: {e}")
+            else:
+                print(f"Error getting git log for {file_path}")
                 mod_dates[f"lab-manual:{page_slug}"] = now
 
-        # Manual index uses the most recently modified page
         if latest_manual_date:
             mod_dates["lab-manual"] = latest_manual_date.strftime("%Y-%m-%d")
 
@@ -472,7 +362,7 @@ def get_manual_mod_dates() -> dict[str, str]:
 
 
 def make_sitemap():
-    now = datetime.now().strftime("%Y-%m-%d")
+    now = today()
     mod_dates = get_last_mod_date() | get_manual_mod_dates()
 
     # Build reverse mapping: build file path -> page key
@@ -529,6 +419,42 @@ def make_robots_txt():
 
 def clean_build_dir():
     shutil.rmtree(build_dir)
+
+
+def today() -> str:
+    return datetime.now().strftime("%Y-%m-%d")
+
+
+def load_yaml(path: str | Path) -> dict:
+    return yaml.safe_load(Path(path).read_text())
+
+
+def load_template(environment: Environment, name: str):
+    return environment.from_string((template_dir / name).read_text())
+
+
+def parse_git_date(date_str: str) -> datetime:
+    return datetime.fromisoformat(
+        date_str.replace("Z", "+00:00")
+        .replace(" +0100", " +01:00")
+        .replace(" +0200", " +02:00")
+    )
+
+
+def git_log_date(
+    file_path: str | Path, git_dir: str | Path | None = None
+) -> datetime | None:
+    cmd = ["git", "log", "-n", "1", "--format=%ci", "--", str(file_path)]
+    if git_dir is not None:
+        cmd = ["git", "-C", str(git_dir)] + cmd
+    try:
+        result = subprocess.run(cmd, check=True, capture_output=True, text=True)
+        date_str = result.stdout.strip()
+        if not date_str:
+            return None
+        return parse_git_date(date_str)
+    except subprocess.CalledProcessError:
+        return None
 
 
 def serve():

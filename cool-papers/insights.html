@@ -18,7 +18,7 @@
   <div class="col-md-3 col-6 mb-2">
     <div class="card border-primary h-100">
       <div class="card-body text-center py-3">
-        <h2 class="card-title mb-0 text-primary">554</h2>
+        <h2 class="card-title mb-0 text-primary">676</h2>
         <small class="text-muted">Papers analyzed</small>
       </div>
     </div>
@@ -34,7 +34,7 @@
   <div class="col-md-3 col-6 mb-2">
     <div class="card border-info h-100">
       <div class="card-body text-center py-3">
-        <h2 class="card-title mb-0 text-info">4</h2>
+        <h2 class="card-title mb-0 text-info">3</h2>
         <small class="text-muted">Hot topics (3mo)</small>
       </div>
     </div>
@@ -67,20 +67,8 @@
 
 
 <div class="mb-4">
-  <h6>Hottest topics (last 3 months)</h6>
-  
-<div class="text-center">
-<img src="/cool-papers/insights/hot_topics.svg" class="img-fluid rounded svg-dark mx-auto d-block" alt="hot_topics" loading="lazy">
-<img src="/cool-papers/insights/hot_topics-light.svg" class="img-fluid rounded svg-light mx-auto d-block" alt="hot_topics" loading="lazy">
-</div>
-
-</div>
-
-
-
-<div class="mb-4">
   <h6>Topic growth</h6>
-  <p class="text-muted small">Growth coefficients from linear regression on weekly paper counts. Pink bars are hot topics (top 20% over last 3 months).</p>
+  <p class="text-muted small">Relative growth rate from linear regression on weekly paper counts, normalized by topic frequency. Hot topics (&gt;10%/wk) in pink; cold topics (&lt;-10%/wk) in teal; dashed lines mark ±10% thresholds.</p>
   
 <div class="text-center">
 <img src="/cool-papers/insights/growth.svg" class="img-fluid rounded svg-dark mx-auto d-block" alt="growth" loading="lazy">
@@ -101,6 +89,207 @@
 </div>
 
 </div>
+
+
+
+<details class="mb-4">
+  <summary class="text-muted small">All clusters (20)</summary>
+  <table class="table table-sm table-striped mt-2 small">
+    <thead>
+      <tr>
+        <th>Topic</th>
+        <th>Label</th>
+        <th>Papers</th>
+        <th>Growth rate (%/wk)</th>
+        <th>3mo rate (%/wk)</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>1</td>
+        <td>Aging, Biological, Clocks</td>
+        <td>53</td>
+        <td>2.37%</td>
+        <td>0.00%</td>
+        <td>—</td>
+      </tr>
+      
+      <tr>
+        <td>12</td>
+        <td>Aging, Senescence, Ageing</td>
+        <td>50</td>
+        <td>3.13%</td>
+        <td>-23.68%</td>
+        <td>&#x1f9ca;</td>
+      </tr>
+      
+      <tr>
+        <td>17</td>
+        <td>Spatial, Transcriptomics, Spatial transcriptomics</td>
+        <td>50</td>
+        <td>3.71%</td>
+        <td>-23.08%</td>
+        <td>&#x1f9ca;</td>
+      </tr>
+      
+      <tr>
+        <td>4</td>
+        <td>Human, Atlas, Tissue</td>
+        <td>48</td>
+        <td>2.27%</td>
+        <td>7.14%</td>
+        <td>—</td>
+      </tr>
+      
+      <tr>
+        <td>0</td>
+        <td>Images, Histopathology, Histological</td>
+        <td>44</td>
+        <td>5.78%</td>
+        <td>-13.04%</td>
+        <td>&#x1f9ca;</td>
+      </tr>
+      
+      <tr>
+        <td>6</td>
+        <td>Pathology, Foundation, Model</td>
+        <td>40</td>
+        <td>3.57%</td>
+        <td>-15.00%</td>
+        <td>&#x1f9ca;</td>
+      </tr>
+      
+      <tr>
+        <td>13</td>
+        <td>Genetic, Risk, Prediction</td>
+        <td>40</td>
+        <td>4.75%</td>
+        <td>11.54%</td>
+        <td>&#x1f525;</td>
+      </tr>
+      
+      <tr>
+        <td>19</td>
+        <td>Cancer, Tumor, Spatial</td>
+        <td>38</td>
+        <td></td>
+        <td></td>
+        <td>—</td>
+      </tr>
+      
+      <tr>
+        <td>2</td>
+        <td>Learning, Graph, Segment</td>
+        <td>38</td>
+        <td>4.06%</td>
+        <td>-13.64%</td>
+        <td>&#x1f9ca;</td>
+      </tr>
+      
+      <tr>
+        <td>7</td>
+        <td>Cell, Rna, Single</td>
+        <td>37</td>
+        <td>2.44%</td>
+        <td>0.00%</td>
+        <td>—</td>
+      </tr>
+      
+      <tr>
+        <td>5</td>
+        <td>Cell, Segmentation, Cell segmentation</td>
+        <td>33</td>
+        <td>2.21%</td>
+        <td>-75.00%</td>
+        <td>&#x1f9ca;</td>
+      </tr>
+      
+      <tr>
+        <td>18</td>
+        <td>Cell, Single, Single cell</td>
+        <td>31</td>
+        <td>1.88%</td>
+        <td>-33.33%</td>
+        <td>&#x1f9ca;</td>
+      </tr>
+      
+      <tr>
+        <td>3</td>
+        <td>Immune, Cells, Cell</td>
+        <td>29</td>
+        <td>2.33%</td>
+        <td>-30.00%</td>
+        <td>&#x1f9ca;</td>
+      </tr>
+      
+      <tr>
+        <td>11</td>
+        <td>Imaging, Multiplexed, Using</td>
+        <td>28</td>
+        <td>2.87%</td>
+        <td>33.33%</td>
+        <td>&#x1f525;</td>
+      </tr>
+      
+      <tr>
+        <td>8</td>
+        <td>Omics, Spatial omics, Spatial</td>
+        <td>28</td>
+        <td>4.14%</td>
+        <td>0.00%</td>
+        <td>—</td>
+      </tr>
+      
+      <tr>
+        <td>15</td>
+        <td>Learning, Deep learning, Deep</td>
+        <td>28</td>
+        <td>1.96%</td>
+        <td>150.00%</td>
+        <td>&#x1f525;</td>
+      </tr>
+      
+      <tr>
+        <td>10</td>
+        <td>Discovery, Model, Ai</td>
+        <td>20</td>
+        <td>3.29%</td>
+        <td>0.00%</td>
+        <td>—</td>
+      </tr>
+      
+      <tr>
+        <td>16</td>
+        <td>Age, Brain, Brain age</td>
+        <td>18</td>
+        <td>4.62%</td>
+        <td>-75.00%</td>
+        <td>&#x1f9ca;</td>
+      </tr>
+      
+      <tr>
+        <td>9</td>
+        <td>Brain, Mouse, Spatial</td>
+        <td>16</td>
+        <td>3.91%</td>
+        <td>-50.00%</td>
+        <td>&#x1f9ca;</td>
+      </tr>
+      
+      <tr>
+        <td>14</td>
+        <td>Telomere, Telomere length, Length</td>
+        <td>7</td>
+        <td></td>
+        <td></td>
+        <td>—</td>
+      </tr>
+      
+    </tbody>
+  </table>
+</details>
 
 
 
@@ -140,208 +329,7 @@
   
 </div>
 
-
-<details class="mb-3">
-  <summary class="text-muted small">All clusters (20)</summary>
-  <table class="table table-sm table-striped mt-2 small">
-    <thead>
-      <tr>
-        <th>Topic</th>
-        <th>Label</th>
-        <th>Papers</th>
-        <th>Growth</th>
-        <th>3mo growth</th>
-        <th>Hot</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-      <tr>
-        <td>3</td>
-        <td>Aging, Age, Lifespan</td>
-        <td>50</td>
-        <td>0.0019</td>
-        <td>0.0</td>
-        <td></td>
-      </tr>
-      
-      <tr>
-        <td>14</td>
-        <td>Aging, Senescence, Cell</td>
-        <td>45</td>
-        <td>0.0019</td>
-        <td>0.0</td>
-        <td></td>
-      </tr>
-      
-      <tr>
-        <td>4</td>
-        <td>Histopathology, Images, Histology</td>
-        <td>40</td>
-        <td>0.0101</td>
-        <td>-0.1571</td>
-        <td></td>
-      </tr>
-      
-      <tr>
-        <td>8</td>
-        <td>Cell, Single cell, Single</td>
-        <td>39</td>
-        <td>-0.0058</td>
-        <td>-0.0058</td>
-        <td></td>
-      </tr>
-      
-      <tr>
-        <td>18</td>
-        <td>Spatial, Histology, Spatial transcriptomics</td>
-        <td>36</td>
-        <td>0.0084</td>
-        <td>0.0</td>
-        <td></td>
-      </tr>
-      
-      <tr>
-        <td>6</td>
-        <td>Pathology, Computational pathology, Computational</td>
-        <td>33</td>
-        <td>-0.0078</td>
-        <td>-0.0078</td>
-        <td></td>
-      </tr>
-      
-      <tr>
-        <td>12</td>
-        <td>Cancer, Spatial, Tumor</td>
-        <td>32</td>
-        <td>0.0068</td>
-        <td>0.15</td>
-        <td>&#x1f525;</td>
-      </tr>
-      
-      <tr>
-        <td>10</td>
-        <td>Imaging, Microscopy, 3d</td>
-        <td>32</td>
-        <td>0.003</td>
-        <td>0.0</td>
-        <td></td>
-      </tr>
-      
-      <tr>
-        <td>15</td>
-        <td>Omics, Spatial, Spatial omics</td>
-        <td>32</td>
-        <td>-0.0007</td>
-        <td>0.0</td>
-        <td></td>
-      </tr>
-      
-      <tr>
-        <td>5</td>
-        <td>Deep, Deep learning, Learning</td>
-        <td>31</td>
-        <td>0.0053</td>
-        <td>0.0053</td>
-        <td>&#x1f525;</td>
-      </tr>
-      
-      <tr>
-        <td>19</td>
-        <td>Immune, Inflammatory, Cell</td>
-        <td>26</td>
-        <td>0.0008</td>
-        <td>0.05</td>
-        <td>&#x1f525;</td>
-      </tr>
-      
-      <tr>
-        <td>11</td>
-        <td>Clocks, Aging, Clock</td>
-        <td>25</td>
-        <td>-0.0113</td>
-        <td>0.0</td>
-        <td></td>
-      </tr>
-      
-      <tr>
-        <td>1</td>
-        <td>Foundation, Model, Foundation model</td>
-        <td>25</td>
-        <td>0.0069</td>
-        <td>-0.125</td>
-        <td></td>
-      </tr>
-      
-      <tr>
-        <td>7</td>
-        <td>Ai, Discovery, Tissue</td>
-        <td>22</td>
-        <td>-0.0037</td>
-        <td>-0.0037</td>
-        <td></td>
-      </tr>
-      
-      <tr>
-        <td>13</td>
-        <td>Risk, Genetic, Rare</td>
-        <td>22</td>
-        <td>0.003</td>
-        <td>0.0</td>
-        <td></td>
-      </tr>
-      
-      <tr>
-        <td>2</td>
-        <td>Human, Atlas, Organ</td>
-        <td>22</td>
-        <td>-0.0201</td>
-        <td>-0.0201</td>
-        <td></td>
-      </tr>
-      
-      <tr>
-        <td>16</td>
-        <td>Transcriptomics, Spatial, Spatial transcriptomics</td>
-        <td>18</td>
-        <td>0.0357</td>
-        <td>0.0357</td>
-        <td>&#x1f525;</td>
-      </tr>
-      
-      <tr>
-        <td>17</td>
-        <td>Visual, Learning, Ai</td>
-        <td>16</td>
-        <td>-0.0379</td>
-        <td>-0.125</td>
-        <td></td>
-      </tr>
-      
-      <tr>
-        <td>9</td>
-        <td>Telomere, Telomere length, Length</td>
-        <td>6</td>
-        <td>0.0</td>
-        <td>0.0</td>
-        <td></td>
-      </tr>
-      
-      <tr>
-        <td>0</td>
-        <td>Segment, Space time, Language models</td>
-        <td>2</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      
-    </tbody>
-  </table>
-</details>
-
-
 <p class="small text-muted mt-2">
   Generated using sentence-transformers (all-MiniLM-L6-v2), KMeans, TF-IDF, and UMAP.
-  Last updated: 2026-06-07 18:14.
+  Last updated: 2026-06-07 19:32.
 </p>

@@ -25,7 +25,7 @@
                       |sort(attribute="grouper", reverse=True) %}
                     <div class="d-flex flex-wrap gap-1 mb-2" id="year-tabs">
                     {% for year, items in grouped_years %}
-                      <button class="btn {% if loop.first %}btn-primary{% else %}btn-outline-primary{% endif %}"
+                      <button id="tab-{{ year }}" class="btn {% if loop.first %}btn-primary{% else %}btn-outline-primary{% endif %}"
                           type="button"
                           hx-get="/news/year-{{ year }}.html"
                           hx-target="#news-content"
@@ -50,4 +50,5 @@
 <script src="https://unpkg.com/htmx.org@2.0.4"
     integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
     crossorigin="anonymous"></script>
+<script src="{{ static_url }}/js/tab_history.js"></script>
 {% endblock js %}

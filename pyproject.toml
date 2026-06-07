@@ -28,6 +28,7 @@ authors = [
 clean = { cmd = "rm -r docs || true", help = "Remove the 'docs' directory" }
 build = { cmd = "python build.py", help = "Run the build script" }
 serve = { cmd = "python build.py --serve", help = "Dev server with live reload" }
+check = { cmd = "gh run list --repo rendeirolab/rendeirolab.github.io --workflow deploy.yml --limit 5 --json conclusion,headBranch,createdAt,displayTitle --template '{{range .}}{{tablerow (timeago .createdAt) .headBranch (printf \"%-.35s\" .displayTitle) .conclusion }}{{end}}'", help = "Check latest deployment statuses" }
 
 [dependency-groups]
 dev = [

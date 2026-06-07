@@ -1,0 +1,25 @@
+{% for paper in year_papers %}
+<div class="row mb-2">
+    <div class="col-12">
+        <h6 class="mb-0">
+            {% if paper.url %}
+            <a href="{{ paper.url }}" target="_blank">{{ paper.title }}</a>
+            {% else %}
+            {{ paper.title }}
+            {% endif %}
+        </h6>
+        <p class="text-muted small mb-1">
+            <span title="{{ paper.date_parsed or paper.date }}">{{ (paper.date_parsed or paper.date)[:10] }}</span>
+            &middot; shared by {{ paper.from_name }}
+            {% if paper.journal %}
+            &middot; {{ paper.journal }}
+            {% endif %}
+        </p>
+        {% if paper.comment %}
+        {% set comment = paper.comment.split('^^', 1)[-1].lstrip('^ ') %}
+        <p class="mb-1"><em>{{ comment[:300] }}{% if comment|length > 300 %}&hellip;{% endif %}</em></p>
+        {% endif %}
+    </div>
+</div>
+{% if not loop.last %}<hr class="my-1">{% endif %}
+{% endfor %}

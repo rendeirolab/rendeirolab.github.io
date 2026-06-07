@@ -1,0 +1,52 @@
+{# templates/cool_papers.html #}
+
+{% extends "_template.html" %}
+
+{% block title %}Cool Papers{% endblock title %}
+
+{% block head %}
+{{ super() }}
+<link rel="alternate" type="application/rss+xml" title="Cool Papers — Rendeiro Lab" href="{{ deploy_url }}cool-papers/feed.xml" />
+{% endblock %}
+
+{% block content %}
+                <div class="col-12">
+                    <h3>
+                        {{ title }}
+                        <a href="feed.xml" class="ms-2 text-decoration-none" title="RSS feed">
+                            <i class="bi bi-rss-fill" style="color: #ee802f;"></i>
+                        </a>
+                    </h3>
+                    <p>{{ intro }}</p>
+                    <p>{{ content }}</p>
+                    <hr>
+                    {% set grouped_years = papers|dictsort(reverse=True) %}
+                    <div class="d-flex flex-wrap gap-1 mb-2" id="year-tabs">
+                    {% for year, items in grouped_years %}
+                      <button class="btn {% if loop.first %}btn-primary{% else %}btn-outline-primary{% endif %}"
+                          type="button"
+                          hx-get="/cool-papers/year-{{ year }}.html"
+                          hx-target="#papers-content"
+                          hx-swap="innerHTML"
+                          hx-on::before-request="document.querySelectorAll('#year-tabs .btn').forEach(b => b.className = 'btn btn-outline-primary'); this.className = 'btn btn-primary';">
+                        {{ year }} ({{ items|length }})
+                      </button>
+                    {% endfor %}
+                    </div>
+
+                    <div id="papers-content" class="mt-2">
+                      {% set year_papers = (grouped_years|first)[1] %}
+                      {% include "_cool_papers_year.html" %}
+                    </div>
+
+                    <hr>
+                    <p>{{ outro }}</p>
+                </div>
+{% endblock content %}
+
+{% block js %}
+{{ super() }}
+<script src="https://unpkg.com/htmx.org@2.0.4"
+    integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
+    crossorigin="anonymous"></script>
+{% endblock js %}

@@ -54,6 +54,11 @@ pages:
     url: /art/
     template: art.html
     file: art/index.html
+  cool_papers:
+    name: Cool Papers
+    url: /cool-papers/
+    template: cool_papers.html
+    file: cool-papers/index.html
   contact:
     name: Contact
     url: /contact/

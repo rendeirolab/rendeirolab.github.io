@@ -1,0 +1,146 @@
+<style>
+.svg-dark { display: block !important; }
+.svg-light { display: none !important; }
+[data-bs-theme="light"] .svg-light { display: block !important; }
+[data-bs-theme="light"] .svg-dark { display: none !important; }
+[data-bs-theme="auto"] .svg-light { display: none !important; }
+[data-bs-theme="auto"] .svg-dark { display: block !important; }
+@media (prefers-color-scheme: light) {
+  [data-bs-theme="auto"] .svg-light { display: block !important; }
+  [data-bs-theme="auto"] .svg-dark { display: none !important; }
+}
+</style>
+
+<h5 class="mt-0">Insights</h5>
+
+{% if stats.total_papers > 0 %}
+<div class="row mb-3">
+  <div class="col-md-3 col-6 mb-2">
+    <div class="card border-primary h-100">
+      <div class="card-body text-center py-3">
+        <h2 class="card-title mb-0 text-primary">{{ stats.total_papers }}</h2>
+        <small class="text-muted">Papers analyzed</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-6 mb-2">
+    <div class="card border-success h-100">
+      <div class="card-body text-center py-3">
+        <h2 class="card-title mb-0 text-success">{{ stats.topics }}</h2>
+        <small class="text-muted">Topics found</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-6 mb-2">
+    <div class="card border-info h-100">
+      <div class="card-body text-center py-3">
+        <h2 class="card-title mb-0 text-info">{{ stats.topics_hot }}</h2>
+        <small class="text-muted">Hot topics (3mo)</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-6 mb-2">
+    <div class="card border-warning h-100">
+      <div class="card-body text-center py-3">
+        <h2 class="card-title mb-0 text-warning">{{ stats.years_span }}</h2>
+        <small class="text-muted">Years of sharing</small>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% macro themed_img(base) %}
+<div class="text-center">
+<img src="/cool-papers/insights/{{ base }}.svg" class="img-fluid rounded svg-dark mx-auto d-block" alt="{{ base }}" loading="lazy">
+<img src="/cool-papers/insights/{{ base }}-light.svg" class="img-fluid rounded svg-light mx-auto d-block" alt="{{ base }}" loading="lazy">
+</div>
+{% endmacro %}
+
+{% if svgs.umap %}
+<div class="mb-4">
+  <h6>Paper map</h6>
+  <p class="text-muted small">Each dot is a paper; similar topics are grouped and colored together. Triangles mark each cluster centroid.</p>
+  {{ themed_img("umap") }}
+</div>
+{% endif %}
+
+{% if svgs.hot_topics %}
+<div class="mb-4">
+  <h6>Hottest topics (last 3 months)</h6>
+  {{ themed_img("hot_topics") }}
+</div>
+{% endif %}
+
+{% if svgs.growth %}
+<div class="mb-4">
+  <h6>Topic growth</h6>
+  <p class="text-muted small">Growth coefficients from linear regression on weekly paper counts. Pink bars are hot topics (top 20% over last 3 months).</p>
+  {{ themed_img("growth") }}
+</div>
+{% endif %}
+
+{% if svgs.trends_per_topic %}
+<div class="mb-4">
+  <h6>Top topic trends</h6>
+  <p class="text-muted small">Weekly paper counts with 4-week rolling average for the 10 most frequent topics.</p>
+  {{ themed_img("trends_per_topic") }}
+</div>
+{% endif %}
+
+{% if svgs.trends_overall %}
+<div class="mb-4">
+  <h6>Papers over time</h6>
+  {{ themed_img("trends_overall") }}
+</div>
+{% endif %}
+
+<div class="row mb-4">
+  {% if svgs.weekday %}
+  <div class="col-md-6 mb-3 mb-md-0">
+    <h6>Sharing day</h6>
+    {{ themed_img("weekday") }}
+  </div>
+  {% endif %}
+  {% if svgs.hour %}
+  <div class="col-md-6">
+    <h6>Sharing hour</h6>
+    {{ themed_img("hour") }}
+  </div>
+  {% endif %}
+</div>
+
+{% if topics %}
+<details class="mb-3">
+  <summary class="text-muted small">All clusters ({{ topics|length }})</summary>
+  <table class="table table-sm table-striped mt-2 small">
+    <thead>
+      <tr>
+        <th>Topic</th>
+        <th>Label</th>
+        <th>Papers</th>
+        <th>Growth</th>
+        <th>3mo growth</th>
+        <th>Hot</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for t in topics %}
+      <tr>
+        <td>{{ t.id }}</td>
+        <td>{{ t.label }}</td>
+        <td>{{ t.papers }}</td>
+        <td>{{ t.growth }}</td>
+        <td>{{ t.growth_3mo }}</td>
+        <td>{% if t.hot %}&#x1f525;{% endif %}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</details>
+{% endif %}
+
+<p class="small text-muted mt-2">
+  Generated using sentence-transformers (all-MiniLM-L6-v2), KMeans, TF-IDF, and UMAP.
+  Last updated: {{ generated }}.
+</p>

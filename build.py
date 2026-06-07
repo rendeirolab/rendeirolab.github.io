@@ -106,6 +106,7 @@ def build_all_pages():
 
     build_news_fragments(environment)
     build_cool_papers_fragments(environment)
+    build_cool_papers_insights(environment)
 
     # if local, copy assets folder to build
     if not os.getenv("GITHUB_ACTIONS"):
@@ -273,6 +274,129 @@ def build_cool_papers_fragments(environment):
         fragment_path.parent.mkdir(exist_ok=True, parents=True)
         with fragment_path.open("w") as f:
             f.write(html)
+
+
+def build_cool_papers_insights(environment):
+    """Read insights data from cool-papers/insights/ and render the fragment."""
+    import csv as csv_mod
+    import sys as csv_sys
+    from datetime import datetime
+
+    csv_mod.field_size_limit(csv_sys.maxsize)
+
+    insights_dir = Path(__file__).parent / "cool-papers" / "insights"
+    fragment_template = load_template(environment, "_cool_papers_insights.html")
+
+    paper_topics_csv = insights_dir / "paper_topics.csv"
+    topic_growth_csv = insights_dir / "topic_growth.csv"
+
+    stats = {"total_papers": 0, "topics": 0, "topics_hot": 0, "years_span": 0}
+
+    if not paper_topics_csv.exists():
+        log.debug("No insights data found at %s, skipping insights fragment", insights_dir)
+        html = fragment_template.render(stats=stats, svgs={}, topics=[], generated=datetime.now().strftime("%Y-%m-%d %H:%M"))
+        fragment_path = build_dir / "cool-papers" / "insights.html"
+        fragment_path.parent.mkdir(exist_ok=True, parents=True)
+        with fragment_path.open("w") as f:
+            f.write(html)
+        return
+
+    # Read stats from paper_topics.csv
+    papers = []
+    with paper_topics_csv.open() as f:
+        for row in csv_mod.DictReader(f):
+            papers.append(dict(row))
+
+    total = len(papers)
+    topic_counts = {}
+    for p in papers:
+        t = p.get("topic", "-1")
+        topic_counts[t] = topic_counts.get(t, 0) + 1
+    n_topics = sum(1 for t in topic_counts if t != "-1")
+
+    # Read growth data
+    growth_rows = []
+    hot_count = 0
+    if topic_growth_csv.exists():
+        with topic_growth_csv.open() as f:
+            for row in csv_mod.DictReader(f):
+                r = dict(row)
+                growth_rows.append(r)
+                if r.get("hot") == "True":
+                    hot_count += 1
+
+    dates = [p.get("date_parsed", "") for p in papers if p.get("date_parsed")]
+    years_span = ""
+    if dates:
+        parsed = [d for d in dates if d]
+        if parsed:
+            min_year = min(d[:4] for d in parsed)
+            max_year = max(d[:4] for d in parsed)
+            if min_year == max_year:
+                years_span = min_year
+            else:
+                years_span = f"{min_year}&ndash;{max_year}"
+
+    stats = {
+        "total_papers": total,
+        "topics": n_topics,
+        "topics_hot": hot_count,
+        "years_span": years_span,
+    }
+
+    # Check which SVGs exist
+    svg_names = ["umap", "trends_overall", "trends_per_topic", "growth", "hot_topics", "weekday", "hour"]
+    svgs = {name: (insights_dir / f"{name}.svg").exists() for name in svg_names}
+
+    # Build topic table — merge all clusters from paper_topics with growth data
+    growth_by_topic = {}
+    for gr in growth_rows:
+        tid = gr.get("topic", "-1")
+        growth_by_topic[tid] = gr
+
+    # Unique labels from paper_topics
+    topic_labels_lookup = {}
+    for p in papers:
+        t = p.get("topic", "-1")
+        lbl = p.get("topic_label", f"Topic {t}")
+        if t not in topic_labels_lookup:
+            topic_labels_lookup[t] = lbl
+
+    topics = []
+    for tid_str in sorted(topic_counts, key=lambda t: topic_counts[t], reverse=True):
+        if tid_str == "-1":
+            continue
+        gr = growth_by_topic.get(tid_str, {})
+        topics.append({
+            "id": int(tid_str),
+            "label": topic_labels_lookup.get(tid_str, f"Topic {tid_str}"),
+            "papers": topic_counts[tid_str],
+            "growth": gr.get("growth_slope", ""),
+            "growth_3mo": gr.get("growth_3mo", ""),
+            "hot": gr.get("hot") == "True",
+        })
+
+    html = fragment_template.render(
+        stats=stats,
+        svgs=svgs,
+        topics=topics,
+        generated=datetime.now().strftime("%Y-%m-%d %H:%M"),
+    )
+
+    fragment_path = build_dir / "cool-papers" / "insights.html"
+    fragment_path.parent.mkdir(exist_ok=True, parents=True)
+    with fragment_path.open("w") as f:
+        f.write(html)
+    log.debug("Wrote %s", fragment_path)
+
+    # Copy SVGs and CSVs to build directory for serving
+    import shutil
+    build_insights = build_dir / "cool-papers" / "insights"
+    build_insights.mkdir(exist_ok=True, parents=True)
+    for f in insights_dir.iterdir():
+        if f.suffix in (".svg", ".csv"):
+            shutil.copy2(f, build_insights / f.name)
+    log.debug("Copied insights data to %s", build_insights)
 
 
 def build_lab_manual():
@@ -458,7 +582,7 @@ def make_sitemap():
         relative_path = str(page.relative_to(build_dir))
 
         # Skip HTMX fragment files (not standalone pages)
-        if relative_path.startswith("news/year-") or relative_path.startswith("cool-papers/year-"):
+        if relative_path.startswith("news/year-") or relative_path.startswith("cool-papers/year-") or relative_path == "cool-papers/insights.html":
             continue
 
         page_key = file_to_page.get(relative_path)

@@ -23,7 +23,7 @@
                     {% set grouped_years = papers|dictsort(reverse=True) %}
                     <div class="d-flex flex-wrap gap-1 mb-2" id="year-tabs">
                     {% for year, items in grouped_years %}
-                      <button class="btn {% if loop.first %}btn-primary{% else %}btn-outline-primary{% endif %}"
+                      <button id="tab-{{ year }}" class="btn {% if loop.first %}btn-primary{% else %}btn-outline-primary{% endif %}"
                           type="button"
                           hx-get="/cool-papers/year-{{ year }}.html"
                           hx-target="#papers-content"
@@ -32,6 +32,14 @@
                         {{ year }} ({{ items|length }})
                       </button>
                     {% endfor %}
+                      <button id="tab-insights" class="btn btn-outline-primary"
+                          type="button"
+                          hx-get="/cool-papers/insights.html"
+                          hx-target="#papers-content"
+                          hx-swap="innerHTML"
+                          hx-on::before-request="document.querySelectorAll('#year-tabs .btn').forEach(b => b.className = 'btn btn-outline-primary'); this.className = 'btn btn-primary';">
+                        Insights
+                      </button>
                     </div>
 
                     <div id="papers-content" class="mt-2">
@@ -49,4 +57,13 @@
 <script src="https://unpkg.com/htmx.org@2.0.4"
     integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
     crossorigin="anonymous"></script>
+<script>
+(function() {
+  var hash = window.location.hash.slice(1);
+  if (hash) {
+    var btn = document.getElementById('tab-' + hash);
+    if (btn) btn.click();
+  }
+})();
+</script>
 {% endblock js %}

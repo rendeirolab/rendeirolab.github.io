@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>News — Rendeiro Lab</title>
+    <link>https://rendeiro.group/news/</link>
+    <description>Recent news from the Rendeiro Lab</description>
+    <language>en-us</language>
+    <atom:link href="https://rendeiro.group/news/feed.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Jun 2026 10:26:50 -0000</lastBuildDate>
+    <item>
+      <title>Marsilea spotlighted at GitHub maintainer month!</title>
+      <guid isPermaLink="false">Marsilea spotlighted at GitHub maintainer month!2026-05-01</guid>
+      <pubDate>Fri, 01 May 2026 00:00:00 -0000</pubDate>
+      <description>Marsilea, our framework for composable visualizations has been selected for a spotlight on Github Maintainer Month . The feature contains an interview with Yimin, who conceived and maintains the project. Open source runs a large fraction of the world's digital infrastructure, but this is thanks to the largely unrewarded efforts of open source maintainers worldwide. Thank you to the Github Community Management team for the opportunity to celebrate maintainers of open source software.</description>
+    </item>
+    <item>
+      <title>Lab dinner</title>
+      <guid isPermaLink="false">Lab dinner2026-04-24</guid>
+      <pubDate>Fri, 24 Apr 2026 00:00:00 -0000</pubDate>
+      <description>We had a very nice dinner together at 'In Dish', an Indian restaurant in Vienna's first district. The food was delicious, the spirits high, and it was great to see so many people together. Thanks Lisa for the restaurant suggestion, Samir for organizing, and everyone for joining!</description>
+    </item>
+    <item>
+      <title>We took part in the Vienna City Marathon</title>
+      <guid isPermaLink="false">We took part in the Vienna City Marathon2026-04-19</guid>
+      <pubDate>Sun, 19 Apr 2026 00:00:00 -0000</pubDate>
+      <description>For the first time our team ran together in the Vienna City Marathon relay. CeMM was the proud sponsor of the race and it was great to meet and run with colleagues from the institute! Yimin, Lisa, Tamas and Andre together ran the 42 km in 4 hours and 11 minutes. We finished with a nice photo at the MuseumsQuartier - thanks everyone for joining and doing your best!</description>
+    </item>
+    <item>
+      <title>Samir and Yimin took part in the 2026 SpatialData hackathon</title>
+      <guid isPermaLink="false">Samir and Yimin took part in the 2026 SpatialData hackathon2026-04-15</guid>
+      <pubDate>Wed, 15 Apr 2026 00:00:00 -0000</pubDate>
+      <description>The event held in Padova, Italy over 4 days focused on SpatialData, the basic data structure underlying spatially resolved data within the scverse ecosystem. SpatialData also underlies WSIData, the data object LazySlide uses for whole slide image analysis. The hackathon had an ambitious program , with themes including design modernization, bioconducted compatibility, and visualization. Samir and Yimin focused both on SpatialData design and its modernization. Thank you to the organizers and to th</description>
+    </item>
+    <item>
+      <title>Andre elected to the Young Academy of the Austrian Academy of Sciences</title>
+      <guid isPermaLink="false">Andre elected to the Young Academy of the Austrian Academy of Sciences2026-03-26</guid>
+      <pubDate>Thu, 26 Mar 2026 00:00:00 -0000</pubDate>
+      <description>Andre has been elected as a member of the Young Academy of the Austrian Academy of Sciences (ÖAW) . The Young Academy brings together excellent early-career scientists from diverse disciplines to contribute to the Austrian scientific landscape and engage in interdisciplinary exchange and outreach. We are honored by this recognition and look forward to contributing to the Academy's mission.</description>
+    </item>
+    <item>
+      <title>LazySlide is now published in Nature Methods!</title>
+      <guid isPermaLink="false">LazySlide is now published in Nature Methods!2026-03-25</guid>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 -0000</pubDate>
+      <description>Our framework for accessible and interoperable whole slide image analysis is now published in Nature Methods . This work was led by Yimin Zheng, who developed the core architecture enabling scverse-compatible analysis of histopathological images at scale. LazySlide brings the interoperability and efficiency of single-cell genomics workflows to computational pathology, lowering barriers for researchers across disciplines. Check out the documentation at lazyslide.readthedocs.io and the code at Git</description>
+    </item>
+    <item>
+      <title>Our lab received the Beyond the Journal Award for Open Science!</title>
+      <guid isPermaLink="false">Our lab received the Beyond the Journal Award for Open Science!2026-02-26</guid>
+      <pubDate>Thu, 26 Feb 2026 00:00:00 -0000</pubDate>
+      <description>We are honored to receive the Experiment Foundation 's Beyond the Journal Award, recognizing scientists pushing the boundaries of open science. The award acknowledges our commitment to transparency through our publicly hosted , open-source lab manual that makes internal workflows and computational practices reusable by the community. We are grateful for this recognition and remain committed to embedding reproducibility into our daily research culture. Read more about the award and the other awar</description>
+    </item>
+    <item>
+      <title>Clemens joins the lab!</title>
+      <guid isPermaLink="false">Clemens joins the lab!2026-01-19</guid>
+      <pubDate>Mon, 19 Jan 2026 00:00:00 -0000</pubDate>
+      <description>Clemens Kohl joins the lab as a postdoctoral researcher. After studying Food Science and Biotechnology in Vienna, he did a Master at ETH Zürich in Basel, Switzerland, and a PhD in Bioinformatics at the Max Planck Institute for Molecular Genetics in Berlin, Germany. With a strong background in single-cell analysis and clustering methods the lab will gain a major bridge to the genomics and single-cell field, as well as a close connection to the group of Georg Busslinger at the Medical University o</description>
+    </item>
+    <item>
+      <title>Congratulations to Lisa on securing a postdoctoral fellowship!</title>
+      <guid isPermaLink="false">Congratulations to Lisa on securing a postdoctoral fellowship!2026-01-12</guid>
+      <pubDate>Mon, 12 Jan 2026 00:00:00 -0000</pubDate>
+      <description>Lisa Kleissl has been awarded the prestigious APART-MINT fellowship from the Austrian Academy of Sciences (ÖAW). This competitive fellowship supports outstanding early-career researchers in the natural sciences, technology, and medicine and will support her work for one year. Congratulations Lisa on this well-deserved recognition of your ideas and research!</description>
+    </item>
+    <item>
+      <title>StainX: CUDA-optimized stain normalization is now open source!</title>
+      <guid isPermaLink="false">StainX: CUDA-optimized stain normalization is now open source!2025-12-06</guid>
+      <pubDate>Sat, 06 Dec 2025 00:00:00 -0000</pubDate>
+      <description>We are excited to release StainX , a Python package for enhanced stain normalization of histopathology images with batch processing support. StainX provides multiple algorithms (Reinhard, Macenko, Histogram Matching) with automatic backend selection for CPU, GPU (CUDA), and Apple Silicon (MPS) devices. Our preliminary benchmarks show 8-11x speedups compared to standard PyTorch implementations when using optimized CUDA kernels! Install it with pip install stainx and check out the GitHub repositor</description>
+    </item>
+    <item>
+      <title>Welcome to Simon!</title>
+      <guid isPermaLink="false">Welcome to Simon!2025-12-01</guid>
+      <pubDate>Mon, 01 Dec 2025 00:00:00 -0000</pubDate>
+      <description>Simon Schindler joined the lab as a joint PhD student between our lab and the lab of Joerg Menche at the LBI-NetMed. He has a background in electrical engineering and machine learning and will work on geometric learning of cellular organization.</description>
+    </item>
+    <item>
+      <title>Ernesto presented his work at Cytodata 2025</title>
+      <guid isPermaLink="false">Ernesto presented his work at Cytodata 20252025-11-21</guid>
+      <pubDate>Fri, 21 Nov 2025 00:00:00 -0000</pubDate>
+      <description>Ernesto Abila attented the Cytodata 2025 hackathon and symposium which took place at Campus Berlin-Buch, Berlin, Germany. He presented a posted on his main PhD project as well as a poster on our framework for whole slide image analysis - LazySlide. Thank you to the organizers for putting together such an exciting event!</description>
+    </item>
+    <item>
+      <title>Andre gave a talk at the 2nd European CyTOF conference</title>
+      <guid isPermaLink="false">Andre gave a talk at the 2nd European CyTOF conference2025-11-20</guid>
+      <pubDate>Thu, 20 Nov 2025 00:00:00 -0000</pubDate>
+      <description>Andre gave a keynote talk on 'Leveraging spatial biology insights across anatomical scales' at the 2nd European CyTOF conference which took place in Vienna It was a very nice conference full of exciting use cases of high-dimensional and spatial data as well as nice applications of it. Thank you for the organizers, in particular Lena Mueller for the invitation.</description>
+    </item>
+    <item>
+      <title>LazySlide was showcased at the 2025 scverse conference</title>
+      <guid isPermaLink="false">LazySlide was showcased at the 2025 scverse conference2025-11-19</guid>
+      <pubDate>Wed, 19 Nov 2025 00:00:00 -0000</pubDate>
+      <description>Yimin and Tamas presented a community showcase of LazySlide - our framework for accessible and interoperable whole slide image analysis in the 2025 scverse conference. We are eager to support the scverse community in the analysis of histopathological images and to receive feedback on LazySlide. Thank you to the organizers for selecting LazySlide for the showcase and thank you to Yimin and Tamas for giving the workshop at late night hours!</description>
+    </item>
+    <item>
+      <title>Samir joins the lab!</title>
+      <guid isPermaLink="false">Samir joins the lab!2025-11-03</guid>
+      <pubDate>Mon, 03 Nov 2025 00:00:00 -0000</pubDate>
+      <description>Samir Moustafa joins the lab as a data scientist With a strong background in graph neural networks and the development of efficient solutions in deep learning, the lab will gain major experience in the fast developing field. We are happy Samir decided to join the team and wish him an exciting and successfull time in the lab - welcome!</description>
+    </item>
+    <item>
+      <title>We joined the 2025 CeMM halloween party!</title>
+      <guid isPermaLink="false">We joined the 2025 CeMM halloween party!2025-10-31</guid>
+      <pubDate>Fri, 31 Oct 2025 00:00:00 -0000</pubDate>
+      <description>Following a long-standing tradition at CeMM, we joined the 2025 CeMM halloween party which this year was themed "Dumb ways to die". This year we performed a little theater play with a commentary on the current publication system, and we won the prize for best performance! Thank you to the first year PhD students for organizing such a fun party and to all the staff for making this cool night possible!</description>
+    </item>
+    <item>
+      <title>Andre attended ESSB 2025</title>
+      <guid isPermaLink="false">Andre attended ESSB 20252025-10-17</guid>
+      <pubDate>Fri, 17 Oct 2025 00:00:00 -0000</pubDate>
+      <description>Andre attended the 2nd meeting of the European Society for Spatial Biology in Heidelberg, Germany. It was great to see the rapid advances in spatial biology and meet friends and colleagues in the field. The field is full of exciting research and we are looking forward to contributing to it! Thank you to the organizers for a great meeting!</description>
+    </item>
+    <item>
+      <title>The LBI-NetMed had its first SAB meeting</title>
+      <guid isPermaLink="false">The LBI-NetMed had its first SAB meeting2025-10-07</guid>
+      <pubDate>Tue, 07 Oct 2025 00:00:00 -0000</pubDate>
+      <description>The first meeting of the LBI-NetMed scientific advisory board took place on October 7th at the institute. The SAB is composed by Joseph Loscalzo, Katy Börner, Marc van Kempen, and Marinka Zitnik - all very accomplished researchers and leaders in their fields. We are very happy to have them provide advice on our research and institute organization. Thank you also to the Rendeiro lab members who presented, Ernesto Abila, Parijat Chakraborty and Shrestha Srivastava. Especially Parijat and Shrestha </description>
+    </item>
+    <item>
+      <title>Andre participated in a panel discussion at FotoWien</title>
+      <guid isPermaLink="false">Andre participated in a panel discussion at FotoWien2025-10-05</guid>
+      <pubDate>Sun, 05 Oct 2025 00:00:00 -0000</pubDate>
+      <description>Andre participated in a panel discussion on the intersection of art and science as part of FotoWien, Vienna's international photography festival. The discussion was entitled "Medical Gaze and In/visibility" and was moderated by Monika Pietrzak-Franger, professor at the University of Vienna, head of the department of English and American Studies, and specializing in historical illness iconography, knowledge production and injustice. The panel also included artist and researcher Fiona Tang, who br</description>
+    </item>
+    <item>
+      <title>We participated in the 20th run for cancer research</title>
+      <guid isPermaLink="false">We participated in the 20th run for cancer research2025-10-04</guid>
+      <pubDate>Sat, 04 Oct 2025 00:00:00 -0000</pubDate>
+      <description>We took part in the run for cancer research in which altogether a combined distance of 46,239 laps were run, each with a donation to support cancer research. With this we hope to not only raise funds for cancer research in Austria, but also awareness about cancer, and promote its prevention.</description>
+    </item>
+    <item>
+      <title>We took part in the 2025 CeMM outing</title>
+      <guid isPermaLink="false">We took part in the 2025 CeMM outing2025-10-03</guid>
+      <pubDate>Fri, 03 Oct 2025 00:00:00 -0000</pubDate>
+      <description>The CeMM outing is a day where the science meets society in the physical space. This year, we visited the historic and just renovated Theater an der Wien - the perfect setting for the 2025 theme of "changing the scenery".</description>
+    </item>
+    <item>
+      <title>Andre gave a talk at the 2025 OeGMBT meeting</title>
+      <guid isPermaLink="false">Andre gave a talk at the 2025 OeGMBT meeting2025-09-24</guid>
+      <pubDate>Wed, 24 Sep 2025 00:00:00 -0000</pubDate>
+      <description>Andre gave a talk at the 2025 annual meeting of the Austrian Society for Molecular Biology and Biotechnology (OeGMBT) in Innsbruck, Austria. It was great to see the diverse research made by the local community, in particular by the young researchers who presented their work. Thank you to the organizers and in particular to Markus Mandl for the invitation!</description>
+    </item>
+    <item>
+      <title>We took part in the 2025 LBI-NetMed retreat</title>
+      <guid isPermaLink="false">We took part in the 2025 LBI-NetMed retreat2025-09-16</guid>
+      <pubDate>Tue, 16 Sep 2025 00:00:00 -0000</pubDate>
+      <description>The LBI-NetMed had its yearly retreat in Horn, Austria. Andre, Parijat and Shrestha represented our lab and had a great time discussing science, networking, and thinking on the future of the institute. Thank you to the organizers for a great retreat!</description>
+    </item>
+    <item>
+      <title>Lisa won the best short talk award at the FEBS Advanced Course on Immunology, metabolism and ageing</title>
+      <guid isPermaLink="false">Lisa won the best short talk award at the FEBS Advanced Course on Immunology, metabolism and ageing2025-09-10</guid>
+      <pubDate>Wed, 10 Sep 2025 00:00:00 -0000</pubDate>
+      <description>Lisa Kleissl won the best short talk award at the FEBS Advanced Course on Immunology, metabolism and ageing in Matrei am Brenner, Austria. Congratulations Lisa!</description>
+    </item>
+    <item>
+      <title>Welcome to Shrestha!</title>
+      <guid isPermaLink="false">Welcome to Shrestha!2025-09-10</guid>
+      <pubDate>Wed, 10 Sep 2025 00:00:00 -0000</pubDate>
+      <description>Shrestha Srivastava joined the lab for a PhD at the LBI-NetMed. He has a background in Data Science and Engineering using deep learning and will work on novel models and methods to study tissue organization in health and disease.</description>
+    </item>
+  </channel>
+</rss>

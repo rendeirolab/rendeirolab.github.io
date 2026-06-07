@@ -65,17 +65,10 @@
 </div>
 {% endif %}
 
-{% if svgs.hot_topics %}
-<div class="mb-4">
-  <h6>Hottest topics (last 3 months)</h6>
-  {{ themed_img("hot_topics") }}
-</div>
-{% endif %}
-
 {% if svgs.growth %}
 <div class="mb-4">
   <h6>Topic growth</h6>
-  <p class="text-muted small">Growth coefficients from linear regression on weekly paper counts. Pink bars are hot topics (top 20% over last 3 months).</p>
+  <p class="text-muted small">Relative growth rate from linear regression on weekly paper counts, normalized by topic frequency. Hot topics (&gt;10%/wk) in pink; cold topics (&lt;-10%/wk) in teal; dashed lines mark ±10% thresholds.</p>
   {{ themed_img("growth") }}
 </div>
 {% endif %}
@@ -86,6 +79,36 @@
   <p class="text-muted small">Weekly paper counts with 4-week rolling average for the 10 most frequent topics.</p>
   {{ themed_img("trends_per_topic") }}
 </div>
+{% endif %}
+
+{% if topics %}
+<details class="mb-4">
+  <summary class="text-muted small">All clusters ({{ topics|length }})</summary>
+  <table class="table table-sm table-striped mt-2 small">
+    <thead>
+      <tr>
+        <th>Topic</th>
+        <th>Label</th>
+        <th>Papers</th>
+        <th>Growth rate (%/wk)</th>
+        <th>3mo rate (%/wk)</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for t in topics %}
+      <tr>
+        <td>{{ t.id }}</td>
+        <td>{{ t.label }}</td>
+        <td>{{ t.papers }}</td>
+        <td>{{ t.growth }}</td>
+        <td>{{ t.growth_3mo }}</td>
+        <td>{% if t.hot %}&#x1f525;{% elif t.cold %}&#x1f9ca;{% else %}—{% endif %}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</details>
 {% endif %}
 
 {% if svgs.trends_overall %}
@@ -109,36 +132,6 @@
   </div>
   {% endif %}
 </div>
-
-{% if topics %}
-<details class="mb-3">
-  <summary class="text-muted small">All clusters ({{ topics|length }})</summary>
-  <table class="table table-sm table-striped mt-2 small">
-    <thead>
-      <tr>
-        <th>Topic</th>
-        <th>Label</th>
-        <th>Papers</th>
-        <th>Growth</th>
-        <th>3mo growth</th>
-        <th>Hot</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for t in topics %}
-      <tr>
-        <td>{{ t.id }}</td>
-        <td>{{ t.label }}</td>
-        <td>{{ t.papers }}</td>
-        <td>{{ t.growth }}</td>
-        <td>{{ t.growth_3mo }}</td>
-        <td>{% if t.hot %}&#x1f525;{% endif %}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</details>
-{% endif %}
 
 <p class="small text-muted mt-2">
   Generated using sentence-transformers (all-MiniLM-L6-v2), KMeans, TF-IDF, and UMAP.

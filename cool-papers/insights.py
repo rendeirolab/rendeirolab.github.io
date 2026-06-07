@@ -140,39 +140,62 @@ def reduce_umap(emb: np.ndarray) -> np.ndarray:
 # ---------------------------------------------------------------------------
 
 def compute_trends(df: pd.DataFrame, labels: np.ndarray) -> pd.DataFrame:
-    """Weekly paper counts per topic, with 4-week rolling average."""
+    """Monthly paper counts per topic, with 3-month rolling average.
+
+    Fills in zero-count months so the time series is complete.
+    """
     df = df.copy()
     df["topic"] = labels
-    df["week"] = df["date_parsed"].dt.isocalendar().week.astype(int)
-    df["year"] = df["date_parsed"].dt.year
-    # ISO week year can differ from calendar year for first/last weeks
-    df["year_week"] = df["date_parsed"].dt.strftime("%Y-%W")
+    df["year_month"] = df["date_parsed"].dt.strftime("%Y-%m")
 
-    # Total counts per week
-    total = df.groupby("year_week").size().reset_index(name="count")
-    total["topic"] = -1  # sentinel for total
-    total["date"] = pd.to_datetime(total["year_week"] + "-1", format="%Y-%W-%w", utc=True)
+    min_date = df["date_parsed"].min()
+    max_date = df["date_parsed"].max()
+    all_months = pd.date_range(start=min_date, end=max_date, freq="MS", tz="UTC")
+    month_grid = pd.DataFrame({
+        "year_month": all_months.strftime("%Y-%m"),
+        "date": all_months,
+    })
 
-    # Per topic per week
-    per_topic = df.groupby(["year_week", "topic"]).size().reset_index(name="count")
-    per_topic["date"] = pd.to_datetime(per_topic["year_week"] + "-1", format="%Y-%W-%w", utc=True)
+    def _fill(series, grid):
+        """Merge with month grid, fill missing counts with 0."""
+        merged = grid.merge(series, on="year_month", how="left")
+        merged["count"] = merged["count"].fillna(0).astype(int)
+        merged["date"] = pd.to_datetime(merged["date"], utc=True)
+        return merged
+
+    # Total counts per month (all topics)
+    total = df.groupby("year_month").size().reset_index(name="count")
+    total = _fill(total, month_grid)
+    total["topic"] = -1
+
+    # Per topic per month
+    per_topic = df.groupby(["year_month", "topic"]).size().reset_index(name="count")
+    filled = []
+    for t in sorted(per_topic["topic"].unique()):
+        t_series = per_topic[per_topic["topic"] == t][["year_month", "count"]]
+        t_filled = _fill(t_series, month_grid)
+        t_filled["topic"] = t
+        filled.append(t_filled)
+    per_topic = pd.concat(filled, ignore_index=True)
 
     combined = pd.concat([total, per_topic], ignore_index=True)
     combined = combined.sort_values(["topic", "date"])
-    # 4-week rolling average
+    # 3-month rolling average on zero-filled series
     combined["smoothed"] = combined.groupby("topic")["count"].transform(
-        lambda x: x.rolling(4, min_periods=1).mean()
+        lambda x: x.rolling(3, min_periods=1).mean()
     )
     return combined
 
 
 def compute_growth(df: pd.DataFrame, labels: np.ndarray) -> pd.DataFrame:
-    """Linear regression slope on weekly counts per topic."""
+    """Relative growth rates, surge ratios, and hot-topic detection."""
     from scipy import stats as sp_stats
 
     trends = compute_trends(df, labels)
     last_date = df["date_parsed"].max()
     three_months_ago = last_date - pd.Timedelta(days=90)
+
+    _MIN_MEAN = 0.1  # ignore topics with negligible mean count to avoid blow-up
 
     rows = []
     for topic in sorted(set(labels)):
@@ -181,33 +204,55 @@ def compute_growth(df: pd.DataFrame, labels: np.ndarray) -> pd.DataFrame:
         t = trends[trends["topic"] == topic].copy()
         if len(t) < 4:
             continue
+
+        mean_count = float(t["smoothed"].mean())
+        if mean_count < _MIN_MEAN:
+            continue
+
         t["x"] = np.arange(len(t))
         slope, _, _, pval, _ = sp_stats.linregress(t["x"], t["smoothed"])
+        growth_rate = slope / mean_count
+
         t3 = t[t["date"] >= three_months_ago]
         if len(t3) >= 3:
             t3["x"] = np.arange(len(t3))
-            slope_3mo, _, _, _, _ = sp_stats.linregress(t3["x"], t3["smoothed"])
+            slope_3mo, _, _, pval_3mo, _ = sp_stats.linregress(t3["x"], t3["smoothed"])
+            mean_3mo = float(t3["smoothed"].mean())
+            growth_rate_3mo = slope_3mo / mean_3mo if mean_3mo > 0 else 0.0
         else:
-            slope_3mo = slope
+            growth_rate_3mo = growth_rate
+            pval_3mo = pval
+
+        rate_overall = mean_count
+        rate_recent = float(t3["smoothed"].mean()) if len(t3) >= 3 else mean_count
+        surge_ratio = rate_recent / rate_overall if rate_overall > 0 else 1.0
+
         total_count = int(t["count"].sum())
         rows.append({
             "topic": topic,
             "total_papers": total_count,
-            "growth_slope": round(slope, 4),
-            "growth_3mo": round(slope_3mo, 4),
+            "growth_rate": round(growth_rate, 4),
+            "growth_rate_3mo": round(growth_rate_3mo, 4),
+            "surge_ratio": round(surge_ratio, 4),
             "p_value": round(pval, 6),
+            "p_value_3mo": round(pval_3mo, 6),
         })
 
     growth_df = pd.DataFrame(rows)
-    # Flag hot topics: top 20% by 3-month growth AND positive
-    # With few topics, flag at least the best one if positive
-    if len(growth_df) >= 5:
-        threshold = growth_df["growth_3mo"].quantile(0.8)
-    elif len(growth_df) >= 1:
-        threshold = growth_df["growth_3mo"].max()
-    else:
-        threshold = float("inf")
-    growth_df["hot"] = (growth_df["growth_3mo"] >= threshold) & (growth_df["growth_3mo"] > 0)
+
+    # C: Keep only topics with significant full-period trend (p < 0.1).
+    # Fall back to all if too few would remain.
+    sig = growth_df[growth_df["p_value"] < 0.1]
+    if len(sig) >= 3:
+        growth_df = sig.copy()
+
+    if len(growth_df) == 0:
+        growth_df["hot"] = False
+        growth_df["cold"] = False
+        return growth_df
+
+    growth_df["hot"] = growth_df["growth_rate_3mo"] > 0.1
+    growth_df["cold"] = growth_df["growth_rate_3mo"] < -0.1
     return growth_df
 
 
@@ -324,16 +369,30 @@ def plot_umap(emb_2d: np.ndarray, labels: np.ndarray, topic_labels: dict[int, st
     _plot_and_save(fig, out, theme)
 
 
-def plot_trends_overall(trends: pd.DataFrame, out: Path, theme: str):
+def plot_trends_overall(df: pd.DataFrame, trends: pd.DataFrame, out: Path, theme: str):
     plt = _setup_style(theme)
     fig, ax = plt.subplots(figsize=(12, 5))
 
-    total = trends[trends["topic"] == -1].sort_values("date")
+    # Weekly aggregation (for the overall total only)
+    weekly = df["date_parsed"].dt.strftime("%Y-%W").value_counts().reset_index()
+    weekly.columns = ["year_week", "count"]
+    min_date = df["date_parsed"].min()
+    max_date = df["date_parsed"].max()
+    all_mondays = pd.date_range(start=min_date, end=max_date, freq="W-MON", tz="UTC")
+    week_grid = pd.DataFrame({
+        "year_week": all_mondays.strftime("%Y-%W"),
+        "date": all_mondays,
+    })
+    weekly = week_grid.merge(weekly, on="year_week", how="left")
+    weekly["count"] = weekly["count"].fillna(0).astype(int)
+    weekly["date"] = pd.to_datetime(weekly["date"], utc=True)
+    weekly["smoothed"] = weekly["count"].rolling(12, min_periods=1).mean()
+
     bar_color = "#4361ee" if theme == "dark" else "#4361ee"
     line_color = "#f72585" if theme == "dark" else "#d90429"
 
-    ax.bar(total["date"], total["count"], width=5, color=bar_color, alpha=0.45, label="Papers per week")
-    ax.plot(total["date"], total["smoothed"], color=line_color, linewidth=2, label="4-week average")
+    ax.bar(weekly["date"], weekly["count"], width=5, color=bar_color, alpha=0.45, label="Papers per week")
+    ax.plot(weekly["date"], weekly["smoothed"], color=line_color, linewidth=2, label="3-month average")
 
     ax.set_title("Papers shared per week", fontsize=14)
     ax.set_xlabel("Date")
@@ -355,7 +414,7 @@ def plot_trends_per_topic(trends: pd.DataFrame, topic_labels: dict[int, str], gr
         t = trends[(trends["topic"] == topic)].sort_values("date")
         label = topic_labels.get(topic, f"Topic {topic}")
         ax = axes[ax_i]
-        ax.bar(t["date"], t["count"], width=5, color=color, alpha=0.3)
+        ax.bar(t["date"], t["count"], width=20, color=color, alpha=0.3)
         ax.plot(t["date"], t["smoothed"], color=color, linewidth=2)
         ax.set_title(label, fontsize=10)
         ax.tick_params(axis="x", labelsize=7)
@@ -364,60 +423,50 @@ def plot_trends_per_topic(trends: pd.DataFrame, topic_labels: dict[int, str], gr
     for i in range(len(topics), len(axes)):
         axes[i].set_visible(False)
 
-    fig.suptitle("Papers per week by topic (top 10)", fontsize=14)
+    fig.suptitle("Papers per month by topic (top 10)", fontsize=14)
     fig.tight_layout()
     _plot_and_save(fig, out, theme)
 
 
 def plot_growth(growth_df: pd.DataFrame, topic_labels: dict[int, str], out: Path, theme: str):
     plt = _setup_style(theme)
-    top = growth_df.sort_values("growth_slope", ascending=False).head(15)
+    top = growth_df.sort_values("growth_rate", ascending=False).head(15)
 
     fig, ax = plt.subplots(figsize=(10, 6))
     labels_display = [topic_labels.get(t, f"Topic {t}") for t in top["topic"]]
-    bar_color = "#4361ee" if theme == "dark" else "#4361ee"
-    hot_color = "#f72585" if theme == "dark" else "#d90429"
+    stable_color = "#999999" if theme == "dark" else "#999999"
+    hot_color = "#f72585"
+    cold_color = "#4cc9f0"
 
-    bars = ax.barh(range(len(top)), top["growth_slope"], color=bar_color, alpha=0.7)
+    bars = ax.barh(range(len(top)), top["growth_rate"] * 100, color=stable_color, alpha=0.6)
+    n_hot = n_cold = 0
     for i, (_, row) in enumerate(top.iterrows()):
         if row["hot"]:
             bars[i].set_color(hot_color)
             bars[i].set_alpha(0.85)
+            n_hot += 1
+        elif row["cold"]:
+            bars[i].set_color(cold_color)
+            bars[i].set_alpha(0.85)
+            n_cold += 1
 
     ax.set_yticks(range(len(top)))
     ax.set_yticklabels(labels_display, fontsize=9)
-    ax.set_xlabel("Growth coefficient (slope)")
+    ax.set_xlabel("Relative growth rate (% per month)")
     ax.set_title("Topic growth over time", fontsize=14)
     ax.axvline(0, color="#666666", linewidth=0.8)
+    # Add padding so bars don't hug the edges
+    x_min, x_max = ax.get_xlim()
+    pad = max(abs(x_max - x_min) * 0.15, 3)
+    ax.set_xlim(x_min - pad, x_max + pad)
     from matplotlib.patches import Patch
-    legend_elements = [
-        Patch(facecolor=bar_color, alpha=0.7, label="Growing"),
-        Patch(facecolor=hot_color, alpha=0.85, label="Hot (top 20% 3-month)"),
-    ]
+    legend_elements = []
+    if n_hot > 0:
+        legend_elements.append(Patch(facecolor=hot_color, alpha=0.85, label=f"Hot (>10% per month)"))
+    if n_cold > 0:
+        legend_elements.append(Patch(facecolor=cold_color, alpha=0.85, label=f"Cold (<-10% per month)"))
+    legend_elements.append(Patch(facecolor=stable_color, alpha=0.6, label="Stable"))
     ax.legend(handles=legend_elements, loc="lower right")
-    fig.tight_layout()
-    _plot_and_save(fig, out, theme)
-
-
-def plot_hot_topics(growth_df: pd.DataFrame, topic_labels: dict[int, str], out: Path, theme: str):
-    plt = _setup_style(theme)
-    hot = growth_df[growth_df["hot"]].sort_values("growth_3mo", ascending=False)
-
-    if len(hot) == 0:
-        log.info("No hot topics to plot")
-        return
-
-    fig, ax = plt.subplots(figsize=(9, 4))
-    labels_display = [topic_labels.get(t, f"Topic {t}") for t in hot["topic"]]
-    hot_color = "#f72585" if theme == "dark" else "#d90429"
-
-    ax.barh(range(len(hot)), hot["growth_3mo"], color=hot_color, alpha=0.8)
-
-    ax.set_yticks(range(len(hot)))
-    ax.set_yticklabels(labels_display, fontsize=9)
-    ax.set_xlabel("3-month growth coefficient")
-    ax.set_title("Hottest topics (last 3 months)", fontsize=14)
-    ax.axvline(0, color="#666666", linewidth=0.8)
     fig.tight_layout()
     _plot_and_save(fig, out, theme)
 
@@ -458,10 +507,9 @@ def _plot_all(df, emb_2d, labels, topic_labels, trends, growth_df):
     """Generate all SVGs for both themes."""
     for theme in ("dark", "light"):
         plot_umap(emb_2d, labels, topic_labels, OUT_DIR / "umap.svg", theme)
-        plot_trends_overall(trends, OUT_DIR / "trends_overall.svg", theme)
+        plot_trends_overall(df, trends, OUT_DIR / "trends_overall.svg", theme)
         plot_trends_per_topic(trends, topic_labels, growth_df, OUT_DIR / "trends_per_topic.svg", theme)
         plot_growth(growth_df, topic_labels, OUT_DIR / "growth.svg", theme)
-        plot_hot_topics(growth_df, topic_labels, OUT_DIR / "hot_topics.svg", theme)
         plot_weekday(df, OUT_DIR / "weekday.svg", theme)
         plot_hour(df, OUT_DIR / "hour.svg", theme)
 

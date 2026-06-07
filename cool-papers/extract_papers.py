@@ -5,14 +5,19 @@
 # ]
 # ///
 
-"""Extract [paper]-tagged emails from Thunderbird mbox to CSV.
+"""Extract [paper]-tagged emails from Thunderbird mbox folders to CSV.
+
+Scans both INBOX and Sent Items folders for [paper]-tagged messages and
+combines them into a single deduplicated CSV.
 
 Usage:
     uv run extract_papers.py
 
 Environment:
-    MAILBOX: path to Thunderbird INBOX mbox file
-            (default: ~/.thunderbird/.../ImapMail/outlook.office365.com/INBOX)
+    MAILBOX:     path to Thunderbird INBOX mbox file
+                (default: ~/.thunderbird/.../ImapMail/outlook.office365.com/INBOX)
+    SENT_MAILBOX: path to Thunderbird Sent Items mbox file
+                (default: ~/.thunderbird/.../ImapMail/outlook.office365.com/Sent Items-1)
 
 Output:
     papers.csv in the same directory as this script.
@@ -46,46 +51,56 @@ logging.basicConfig(
 log = logging.getLogger("extract_papers")
 
 SCRIPT_DIR = Path(__file__).parent.resolve()
+OUTPUT = SCRIPT_DIR / "papers.csv"
 
-INBOX = Path(
-    os.environ.get(
-        "MAILBOX",
-        Path.home()
-        / ".thunderbird"
-        / "7z5edwgd.default-release"
-        / "ImapMail"
-        / "outlook.office365.com"
-        / "INBOX",
-    )
+THUNDERBIRD = (
+    Path.home()
+    / ".thunderbird"
+    / "7z5edwgd.default-release"
+    / "ImapMail"
+    / "outlook.office365.com"
 )
 
-FROM_OFFSETS = SCRIPT_DIR / "from_offsets.txt"
-PAPER_LINES = SCRIPT_DIR / "paper_lines.txt"
-OUTPUT = SCRIPT_DIR / "papers.csv"
+# Each entry: (label, mbox_path, offsets_path, lines_path)
+MBOX_CONFIGS: list[tuple[str, Path, Path, Path]] = []
+
+_inbox = Path(os.environ.get("MAILBOX", THUNDERBIRD / "INBOX"))
+MBOX_CONFIGS.append(("inbox", _inbox,
+    SCRIPT_DIR / "from_offsets_inbox.txt",
+    SCRIPT_DIR / "paper_lines_inbox.txt"))
+
+_sent = os.environ.get("SENT_MAILBOX", str(THUNDERBIRD / "Sent Items-1"))
+_sent_path = Path(_sent)
+if _sent_path.exists():
+    MBOX_CONFIGS.append(("sent", _sent_path,
+        SCRIPT_DIR / "from_offsets_sent.txt",
+        SCRIPT_DIR / "paper_lines_sent.txt"))
+else:
+    log.info("Sent mailbox not found at %s, skipping", _sent_path)
 
 
 # ── Index building (fast grep on the 12 GB mbox) ──────────────────────
 
 
-def build_indexes():
-    """Run grep to build message-boundary and paper-subject indexes."""
-    log.info("Building message boundary index ...")
+def build_indexes(mbox_path: Path, offsets_path: Path, lines_path: Path):
+    """Run grep to build message-boundary and paper-subject indexes for one mbox."""
+    log.info("Building message boundary index for %s ...", mbox_path.name)
     subprocess.run(
-        ["grep", "-nb", "^From ", str(INBOX)],
-        stdout=open(FROM_OFFSETS, "w"),
+        ["grep", "-nb", "^From ", str(mbox_path)],
+        stdout=open(offsets_path, "w"),
         stderr=subprocess.DEVNULL,
         check=True,
     )
-    log.info("Built %s (%d lines)", FROM_OFFSETS.name, FROM_OFFSETS.stat().st_size)
+    log.info("Built %s (%d lines)", offsets_path.name, offsets_path.stat().st_size)
 
-    log.info("Building paper subject index ...")
+    log.info("Building paper subject index for %s ...", mbox_path.name)
     subprocess.run(
-        ["grep", "-n", "^Subject: \\[paper\\]", str(INBOX)],
-        stdout=open(PAPER_LINES, "w"),
+        ["grep", "-n", "^Subject: \\[paper\\]", str(mbox_path)],
+        stdout=open(lines_path, "w"),
         stderr=subprocess.DEVNULL,
         check=True,
     )
-    log.info("Built %s (%d lines)", PAPER_LINES.name, PAPER_LINES.stat().st_size)
+    log.info("Built %s (%d lines)", lines_path.name, lines_path.stat().st_size)
 
 
 def parse_from_offsets(path: Path) -> list[tuple[int, int]]:
@@ -646,19 +661,20 @@ def process_message(
     }
 
 
-def main():
-    log.info("mbox: %s (%s)", INBOX, INBOX.stat().st_size)
-
-    if not FROM_OFFSETS.exists() or not PAPER_LINES.exists():
-        build_indexes()
+def extract_papers(
+    mbox_path: Path, offsets_path: Path, lines_path: Path
+) -> list[dict]:
+    """Build/load indexes and extract [paper] messages from one mbox."""
+    if not offsets_path.exists() or not lines_path.exists():
+        build_indexes(mbox_path, offsets_path, lines_path)
     else:
-        log.info("Using existing indexes")
+        log.info("Using existing indexes for %s", mbox_path.name)
 
-    boundaries = parse_from_offsets(FROM_OFFSETS)
-    log.info("Message boundaries: %d", len(boundaries))
+    boundaries = parse_from_offsets(offsets_path)
+    log.info("%s: %d message boundaries", mbox_path.name, len(boundaries))
 
-    paper_lines = parse_paper_lines(PAPER_LINES)
-    log.info("Paper subject lines: %d", len(paper_lines))
+    paper_lines = parse_paper_lines(lines_path)
+    log.info("%s: %d paper subject lines", mbox_path.name, len(paper_lines))
 
     boundary_lines = [b[0] for b in boundaries]
     boundary_bytes = [b[1] for b in boundaries]
@@ -667,8 +683,8 @@ def main():
     skipped = 0
 
     for i, paper_line in enumerate(paper_lines, 1):
-        if i % 50 == 0:
-            log.info("Progress: %d/%d", i, len(paper_lines))
+        if i % 100 == 0:
+            log.info("%s: progress %d/%d", mbox_path.name, i, len(paper_lines))
 
         idx = bisect_right(boundary_lines, paper_line) - 1
         if idx < 0:
@@ -681,7 +697,7 @@ def main():
         )
 
         header_section, body_section = extract_message_range(
-            INBOX, start_byte, end_byte
+            mbox_path, start_byte, end_byte
         )
         if not header_section:
             skipped += 1
@@ -693,7 +709,30 @@ def main():
         else:
             skipped += 1
 
-    log.info("Extracted: %d papers, skipped: %d", len(papers), skipped)
+    log.info("%s: extracted %d papers, skipped %d", mbox_path.name, len(papers), skipped)
+    return papers
+
+
+def main():
+    all_papers: list[dict] = []
+
+    for label, mbox_path, offsets_path, lines_path in MBOX_CONFIGS:
+        log.info("mbox: %s (%s)", mbox_path, mbox_path.stat().st_size)
+        extracted = extract_papers(mbox_path, offsets_path, lines_path)
+        all_papers.extend(extracted)
+
+    # Deduplicate by title (case-insensitive, keep first occurrence)
+    seen = set()
+    deduped = []
+    for p in all_papers:
+        key = p["title"].strip().lower()
+        if key and key not in seen:
+            seen.add(key)
+            deduped.append(p)
+
+    n_dup = len(all_papers) - len(deduped)
+    log.info("Total extracted: %d, duplicates removed: %d, final: %d",
+             len(all_papers), n_dup, len(deduped))
 
     with open(OUTPUT, "w", newline="") as f:
         writer = csv.DictWriter(
@@ -704,9 +743,9 @@ def main():
             ],
         )
         writer.writeheader()
-        writer.writerows(papers)
+        writer.writerows(deduped)
 
-    log.info("Wrote %s (%d rows)", OUTPUT, len(papers))
+    log.info("Wrote %s (%d rows)", OUTPUT, len(deduped))
 
 
 if __name__ == "__main__":

@@ -345,7 +345,7 @@ def build_cool_papers_insights(environment):
     }
 
     # Check which SVGs exist
-    svg_names = ["umap", "trends_overall", "trends_per_topic", "growth", "hot_topics", "weekday", "hour"]
+    svg_names = ["umap", "trends_overall", "trends_per_topic", "growth", "weekday", "hour"]
     svgs = {name: (insights_dir / f"{name}.svg").exists() for name in svg_names}
 
     # Build topic table — merge all clusters from paper_topics with growth data
@@ -371,9 +371,10 @@ def build_cool_papers_insights(environment):
             "id": int(tid_str),
             "label": topic_labels_lookup.get(tid_str, f"Topic {tid_str}"),
             "papers": topic_counts[tid_str],
-            "growth": gr.get("growth_slope", ""),
-            "growth_3mo": gr.get("growth_3mo", ""),
+            "growth": f'{float(gr.get("growth_rate", 0)) * 100:.2f}%' if gr.get("growth_rate", "") != "" else "",
+            "growth_3mo": f'{float(gr.get("growth_rate_3mo", 0)) * 100:.2f}%' if gr.get("growth_rate_3mo", "") != "" else "",
             "hot": gr.get("hot") == "True",
+            "cold": gr.get("cold") == "True",
         })
 
     html = fragment_template.render(

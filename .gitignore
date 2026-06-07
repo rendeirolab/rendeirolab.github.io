@@ -1,6 +1,6 @@
 *sublime*
 docs/
-cool-papers/from_offsets.txt
-cool-papers/paper_lines.txt
+cool-papers/from_offsets_*.txt
+cool-papers/paper_lines_*.txt
 cool-papers/insights/embeddings_key.txt
 cool-papers/insights/embeddings.npy

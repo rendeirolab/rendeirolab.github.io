@@ -1,0 +1,347 @@
+<style>
+.svg-dark { display: block !important; }
+.svg-light { display: none !important; }
+[data-bs-theme="light"] .svg-light { display: block !important; }
+[data-bs-theme="light"] .svg-dark { display: none !important; }
+[data-bs-theme="auto"] .svg-light { display: none !important; }
+[data-bs-theme="auto"] .svg-dark { display: block !important; }
+@media (prefers-color-scheme: light) {
+  [data-bs-theme="auto"] .svg-light { display: block !important; }
+  [data-bs-theme="auto"] .svg-dark { display: none !important; }
+}
+</style>
+
+<h5 class="mt-0">Insights</h5>
+
+
+<div class="row mb-3">
+  <div class="col-md-3 col-6 mb-2">
+    <div class="card border-primary h-100">
+      <div class="card-body text-center py-3">
+        <h2 class="card-title mb-0 text-primary">554</h2>
+        <small class="text-muted">Papers analyzed</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-6 mb-2">
+    <div class="card border-success h-100">
+      <div class="card-body text-center py-3">
+        <h2 class="card-title mb-0 text-success">20</h2>
+        <small class="text-muted">Topics found</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-6 mb-2">
+    <div class="card border-info h-100">
+      <div class="card-body text-center py-3">
+        <h2 class="card-title mb-0 text-info">4</h2>
+        <small class="text-muted">Hot topics (3mo)</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-6 mb-2">
+    <div class="card border-warning h-100">
+      <div class="card-body text-center py-3">
+        <h2 class="card-title mb-0 text-warning">2022&ndash;2026</h2>
+        <small class="text-muted">Years of sharing</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="mb-4">
+  <h6>Paper map</h6>
+  <p class="text-muted small">Each dot is a paper; similar topics are grouped and colored together. Triangles mark each cluster centroid.</p>
+  
+<div class="text-center">
+<img src="/cool-papers/insights/umap.svg" class="img-fluid rounded svg-dark mx-auto d-block" alt="umap" loading="lazy">
+<img src="/cool-papers/insights/umap-light.svg" class="img-fluid rounded svg-light mx-auto d-block" alt="umap" loading="lazy">
+</div>
+
+</div>
+
+
+
+<div class="mb-4">
+  <h6>Hottest topics (last 3 months)</h6>
+  
+<div class="text-center">
+<img src="/cool-papers/insights/hot_topics.svg" class="img-fluid rounded svg-dark mx-auto d-block" alt="hot_topics" loading="lazy">
+<img src="/cool-papers/insights/hot_topics-light.svg" class="img-fluid rounded svg-light mx-auto d-block" alt="hot_topics" loading="lazy">
+</div>
+
+</div>
+
+
+
+<div class="mb-4">
+  <h6>Topic growth</h6>
+  <p class="text-muted small">Growth coefficients from linear regression on weekly paper counts. Pink bars are hot topics (top 20% over last 3 months).</p>
+  
+<div class="text-center">
+<img src="/cool-papers/insights/growth.svg" class="img-fluid rounded svg-dark mx-auto d-block" alt="growth" loading="lazy">
+<img src="/cool-papers/insights/growth-light.svg" class="img-fluid rounded svg-light mx-auto d-block" alt="growth" loading="lazy">
+</div>
+
+</div>
+
+
+
+<div class="mb-4">
+  <h6>Top topic trends</h6>
+  <p class="text-muted small">Weekly paper counts with 4-week rolling average for the 10 most frequent topics.</p>
+  
+<div class="text-center">
+<img src="/cool-papers/insights/trends_per_topic.svg" class="img-fluid rounded svg-dark mx-auto d-block" alt="trends_per_topic" loading="lazy">
+<img src="/cool-papers/insights/trends_per_topic-light.svg" class="img-fluid rounded svg-light mx-auto d-block" alt="trends_per_topic" loading="lazy">
+</div>
+
+</div>
+
+
+
+<div class="mb-4">
+  <h6>Papers over time</h6>
+  
+<div class="text-center">
+<img src="/cool-papers/insights/trends_overall.svg" class="img-fluid rounded svg-dark mx-auto d-block" alt="trends_overall" loading="lazy">
+<img src="/cool-papers/insights/trends_overall-light.svg" class="img-fluid rounded svg-light mx-auto d-block" alt="trends_overall" loading="lazy">
+</div>
+
+</div>
+
+
+<div class="row mb-4">
+  
+  <div class="col-md-6 mb-3 mb-md-0">
+    <h6>Sharing day</h6>
+    
+<div class="text-center">
+<img src="/cool-papers/insights/weekday.svg" class="img-fluid rounded svg-dark mx-auto d-block" alt="weekday" loading="lazy">
+<img src="/cool-papers/insights/weekday-light.svg" class="img-fluid rounded svg-light mx-auto d-block" alt="weekday" loading="lazy">
+</div>
+
+  </div>
+  
+  
+  <div class="col-md-6">
+    <h6>Sharing hour</h6>
+    
+<div class="text-center">
+<img src="/cool-papers/insights/hour.svg" class="img-fluid rounded svg-dark mx-auto d-block" alt="hour" loading="lazy">
+<img src="/cool-papers/insights/hour-light.svg" class="img-fluid rounded svg-light mx-auto d-block" alt="hour" loading="lazy">
+</div>
+
+  </div>
+  
+</div>
+
+
+<details class="mb-3">
+  <summary class="text-muted small">All clusters (20)</summary>
+  <table class="table table-sm table-striped mt-2 small">
+    <thead>
+      <tr>
+        <th>Topic</th>
+        <th>Label</th>
+        <th>Papers</th>
+        <th>Growth</th>
+        <th>3mo growth</th>
+        <th>Hot</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>3</td>
+        <td>Aging, Age, Lifespan</td>
+        <td>50</td>
+        <td>0.0019</td>
+        <td>0.0</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <td>14</td>
+        <td>Aging, Senescence, Cell</td>
+        <td>45</td>
+        <td>0.0019</td>
+        <td>0.0</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <td>4</td>
+        <td>Histopathology, Images, Histology</td>
+        <td>40</td>
+        <td>0.0101</td>
+        <td>-0.1571</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <td>8</td>
+        <td>Cell, Single cell, Single</td>
+        <td>39</td>
+        <td>-0.0058</td>
+        <td>-0.0058</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <td>18</td>
+        <td>Spatial, Histology, Spatial transcriptomics</td>
+        <td>36</td>
+        <td>0.0084</td>
+        <td>0.0</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <td>6</td>
+        <td>Pathology, Computational pathology, Computational</td>
+        <td>33</td>
+        <td>-0.0078</td>
+        <td>-0.0078</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <td>12</td>
+        <td>Cancer, Spatial, Tumor</td>
+        <td>32</td>
+        <td>0.0068</td>
+        <td>0.15</td>
+        <td>&#x1f525;</td>
+      </tr>
+      
+      <tr>
+        <td>10</td>
+        <td>Imaging, Microscopy, 3d</td>
+        <td>32</td>
+        <td>0.003</td>
+        <td>0.0</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <td>15</td>
+        <td>Omics, Spatial, Spatial omics</td>
+        <td>32</td>
+        <td>-0.0007</td>
+        <td>0.0</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <td>5</td>
+        <td>Deep, Deep learning, Learning</td>
+        <td>31</td>
+        <td>0.0053</td>
+        <td>0.0053</td>
+        <td>&#x1f525;</td>
+      </tr>
+      
+      <tr>
+        <td>19</td>
+        <td>Immune, Inflammatory, Cell</td>
+        <td>26</td>
+        <td>0.0008</td>
+        <td>0.05</td>
+        <td>&#x1f525;</td>
+      </tr>
+      
+      <tr>
+        <td>11</td>
+        <td>Clocks, Aging, Clock</td>
+        <td>25</td>
+        <td>-0.0113</td>
+        <td>0.0</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <td>1</td>
+        <td>Foundation, Model, Foundation model</td>
+        <td>25</td>
+        <td>0.0069</td>
+        <td>-0.125</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <td>7</td>
+        <td>Ai, Discovery, Tissue</td>
+        <td>22</td>
+        <td>-0.0037</td>
+        <td>-0.0037</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <td>13</td>
+        <td>Risk, Genetic, Rare</td>
+        <td>22</td>
+        <td>0.003</td>
+        <td>0.0</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <td>2</td>
+        <td>Human, Atlas, Organ</td>
+        <td>22</td>
+        <td>-0.0201</td>
+        <td>-0.0201</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <td>16</td>
+        <td>Transcriptomics, Spatial, Spatial transcriptomics</td>
+        <td>18</td>
+        <td>0.0357</td>
+        <td>0.0357</td>
+        <td>&#x1f525;</td>
+      </tr>
+      
+      <tr>
+        <td>17</td>
+        <td>Visual, Learning, Ai</td>
+        <td>16</td>
+        <td>-0.0379</td>
+        <td>-0.125</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <td>9</td>
+        <td>Telomere, Telomere length, Length</td>
+        <td>6</td>
+        <td>0.0</td>
+        <td>0.0</td>
+        <td></td>
+      </tr>
+      
+      <tr>
+        <td>0</td>
+        <td>Segment, Space time, Language models</td>
+        <td>2</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+    </tbody>
+  </table>
+</details>
+
+
+<p class="small text-muted mt-2">
+  Generated using sentence-transformers (all-MiniLM-L6-v2), KMeans, TF-IDF, and UMAP.
+  Last updated: 2026-06-07 11:29.
+</p>

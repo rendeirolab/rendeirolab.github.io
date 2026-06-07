@@ -212,7 +212,7 @@
                     
                     <div class="d-flex flex-wrap gap-1 mb-2" id="year-tabs">
                     
-                      <button class="btn btn-primary"
+                      <button id="tab-2026" class="btn btn-primary"
                           type="button"
                           hx-get="/cool-papers/year-2026.html"
                           hx-target="#papers-content"
@@ -221,7 +221,7 @@
                         2026 (92)
                       </button>
                     
-                      <button class="btn btn-outline-primary"
+                      <button id="tab-2025" class="btn btn-outline-primary"
                           type="button"
                           hx-get="/cool-papers/year-2025.html"
                           hx-target="#papers-content"
@@ -230,7 +230,7 @@
                         2025 (191)
                       </button>
                     
-                      <button class="btn btn-outline-primary"
+                      <button id="tab-2024" class="btn btn-outline-primary"
                           type="button"
                           hx-get="/cool-papers/year-2024.html"
                           hx-target="#papers-content"
@@ -239,7 +239,7 @@
                         2024 (167)
                       </button>
                     
-                      <button class="btn btn-outline-primary"
+                      <button id="tab-2023" class="btn btn-outline-primary"
                           type="button"
                           hx-get="/cool-papers/year-2023.html"
                           hx-target="#papers-content"
@@ -248,7 +248,7 @@
                         2023 (85)
                       </button>
                     
-                      <button class="btn btn-outline-primary"
+                      <button id="tab-2022" class="btn btn-outline-primary"
                           type="button"
                           hx-get="/cool-papers/year-2022.html"
                           hx-target="#papers-content"
@@ -257,6 +257,14 @@
                         2022 (19)
                       </button>
                     
+                      <button id="tab-insights" class="btn btn-outline-primary"
+                          type="button"
+                          hx-get="/cool-papers/insights.html"
+                          hx-target="#papers-content"
+                          hx-swap="innerHTML"
+                          hx-on::before-request="document.querySelectorAll('#year-tabs .btn').forEach(b => b.className = 'btn btn-outline-primary'); this.className = 'btn btn-primary';">
+                        Insights
+                      </button>
                     </div>
 
                     <div id="papers-content" class="mt-2">
@@ -2222,6 +2230,15 @@
 <script src="https://unpkg.com/htmx.org@2.0.4"
     integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
     crossorigin="anonymous"></script>
+<script>
+(function() {
+  var hash = window.location.hash.slice(1);
+  if (hash) {
+    var btn = document.getElementById('tab-' + hash);
+    if (btn) btn.click();
+  }
+})();
+</script>
 
     </body>
 </html>

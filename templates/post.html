@@ -9,18 +9,18 @@
 {% block title %}Post - {{ title }}{% endblock title %}
 
 {% block content %}
-<div class="container py-5">
-  <article>
-    <header class="mb-4">
-      <h1>{{ title }}</h1>
-      {% if date %}<p class="text-muted"><small>{{ date }}</small></p>{% endif %}
-      {% if subtitle %}<p class="lead">{{ subtitle }}</p>{% endif %}
-    </header>
-    <div class="post-content">
-      {{ content }}
-    </div>
-  </article>
-</div>
+                <div class="col-12">
+                    <article>
+                        <header class="mb-4">
+                            <h3>{{ title }}</h3>
+                            {% if date %}<p class="text-muted"><small>{{ date }}</small></p>{% endif %}
+                            {% if subtitle %}<p class="lead">{{ subtitle }}</p>{% endif %}
+                        </header>
+                        <div class="post-content">
+                            {{ content }}
+                        </div>
+                    </article>
+                </div>
 {% endblock %}
 
 {% block js %}

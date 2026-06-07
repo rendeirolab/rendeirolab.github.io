@@ -4,9 +4,19 @@
 
 {% block title %}News{% endblock title %}
 
+{% block head %}
+{{ super() }}
+<link rel="alternate" type="application/rss+xml" title="News — Rendeiro Lab" href="{{ deploy_url }}news/feed.xml" />
+{% endblock %}
+
 {% block content %}
                 <div class="row">
-                    <h3>{{ title }}</h3>
+                    <h3>
+                        {{ title }}
+                        <a href="feed.xml" class="ms-2 text-decoration-none" title="RSS feed">
+                            <i class="bi bi-rss-fill" style="color: #ee802f;"></i>
+                        </a>
+                    </h3>
                     <p>{{ intro }}</p>
                     <p>{{ content }}</p>
                     {% set grouped_years = news

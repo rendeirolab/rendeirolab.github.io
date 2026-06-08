@@ -1,0 +1,75 @@
+<style>
+.svg-dark { display: block !important; }
+.svg-light { display: none !important; }
+[data-bs-theme="light"] .svg-light { display: block !important; }
+[data-bs-theme="light"] .svg-dark { display: none !important; }
+[data-bs-theme="auto"] .svg-light { display: none !important; }
+[data-bs-theme="auto"] .svg-dark { display: block !important; }
+@media (prefers-color-scheme: light) {
+  [data-bs-theme="auto"] .svg-light { display: block !important; }
+  [data-bs-theme="auto"] .svg-dark { display: none !important; }
+}
+</style>
+
+<h5 class="mt-0">Insights</h5>
+
+
+<div class="row mb-3">
+  <div class="col-md-4 col-6 mb-2">
+    <div class="card border-primary h-100">
+      <div class="card-body text-center py-3">
+        <h2 class="card-title mb-0 text-primary">83</h2>
+        <small class="text-muted">News items</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-6 mb-2">
+    <div class="card border-success h-100">
+      <div class="card-body text-center py-3">
+        <h2 class="card-title mb-0 text-success">6</h2>
+        <small class="text-muted">Topics found</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-6 mb-2">
+    <div class="card border-warning h-100">
+      <div class="card-body text-center py-3">
+        <h2 class="card-title mb-0 text-warning">2022&ndash;2026</h2>
+        <small class="text-muted">Years</small>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="mb-4">
+  <h6>News topic map</h6>
+  <p class="text-muted small">Each dot is a news item; similar topics are grouped and colored together. Triangles mark each cluster centroid.</p>
+  
+<div class="text-center">
+<img src="/cool-papers/news_insights/umap.svg" class="img-fluid rounded svg-dark mx-auto d-block" alt="umap" loading="lazy">
+<img src="/cool-papers/news_insights/umap-light.svg" class="img-fluid rounded svg-light mx-auto d-block" alt="umap" loading="lazy">
+</div>
+
+</div>
+
+
+
+<div class="mb-4">
+  <h6>News over time</h6>
+  
+<div class="text-center">
+<img src="/cool-papers/news_insights/trends_overall.svg" class="img-fluid rounded svg-dark mx-auto d-block" alt="trends_overall" loading="lazy">
+<img src="/cool-papers/news_insights/trends_overall-light.svg" class="img-fluid rounded svg-light mx-auto d-block" alt="trends_overall" loading="lazy">
+</div>
+
+</div>
+
+
+<p class="small text-muted mt-2">
+  Generated using sentence-transformers (all-MiniLM-L6-v2), KMeans, TF-IDF, and UMAP.
+  Last updated: 2026-06-08 07:24.
+</p>

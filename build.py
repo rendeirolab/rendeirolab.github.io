@@ -107,6 +107,7 @@ def build_all_pages():
     build_news_fragments(environment)
     build_cool_papers_fragments(environment)
     build_cool_papers_insights(environment)
+    build_news_insights(environment)
 
     # if local, copy assets folder to build
     if not os.getenv("GITHUB_ACTIONS"):
@@ -400,6 +401,96 @@ def build_cool_papers_insights(environment):
     log.debug("Copied insights data to %s", build_insights)
 
 
+def build_news_insights(environment):
+    """Read insights data from cool-papers/news_insights/ and render the fragment."""
+    import csv as csv_mod
+    import sys as csv_sys
+    from datetime import datetime
+
+    csv_mod.field_size_limit(csv_sys.maxsize)
+
+    insights_dir = Path(__file__).parent / "cool-papers" / "news_insights"
+    fragment_template = load_template(environment, "_news_insights.html")
+
+    stats = {"total_items": 0, "topics": 0, "years_span": 0}
+
+    news_topics_csv = insights_dir / "news_topics.csv"
+
+    if not news_topics_csv.exists():
+        log.debug("No news insights data found at %s, skipping", insights_dir)
+        html = fragment_template.render(stats=stats, svgs={}, topics=[], generated=datetime.now().strftime("%Y-%m-%d %H:%M"))
+        fragment_path = build_dir / "news" / "insights.html"
+        fragment_path.parent.mkdir(exist_ok=True, parents=True)
+        with fragment_path.open("w") as f:
+            f.write(html)
+        return
+
+    # Read items
+    items = []
+    with news_topics_csv.open() as f:
+        for row in csv_mod.DictReader(f):
+            items.append(dict(row))
+
+    total = len(items)
+    topic_counts = {}
+    for p in items:
+        t = p.get("topic", "-1")
+        topic_counts[t] = topic_counts.get(t, 0) + 1
+    n_topics = sum(1 for t in topic_counts if t != "-1")
+
+    dates = [p.get("date_parsed", "") for p in items if p.get("date_parsed")]
+    years_span = ""
+    if dates:
+        parsed = [d for d in dates if d]
+        if parsed:
+            min_year = min(d[:4] for d in parsed)
+            max_year = max(d[:4] for d in parsed)
+            if min_year == max_year:
+                years_span = min_year
+            else:
+                years_span = f"{min_year}&ndash;{max_year}"
+
+    stats = {
+        "total_items": total,
+        "topics": n_topics,
+        "years_span": years_span,
+    }
+
+    # Check which SVGs exist
+    svg_names = ["umap", "trends_overall"]
+    svgs = {name: (insights_dir / f"{name}.svg").exists() for name in svg_names}
+
+    # Build topic table
+    topic_labels_lookup = {}
+    for p in items:
+        t = p.get("topic", "-1")
+        lbl = p.get("topic_label", f"Topic {t}")
+    if t not in topic_labels_lookup:
+        topic_labels_lookup[t] = lbl
+
+    html = fragment_template.render(
+        stats=stats,
+        svgs=svgs,
+        topics=[],
+        generated=datetime.now().strftime("%Y-%m-%d %H:%M"),
+    )
+
+    fragment_path = build_dir / "news" / "insights.html"
+    fragment_path.parent.mkdir(exist_ok=True, parents=True)
+    with fragment_path.open("w") as f:
+        f.write(html)
+    log.debug("Wrote %s", fragment_path)
+
+    # Copy SVGs and CSVs to build directory
+    import shutil
+    build_insights = build_dir / "cool-papers" / "news_insights"
+    build_insights.mkdir(exist_ok=True, parents=True)
+    for f in insights_dir.iterdir():
+        if f.suffix in (".svg", ".csv"):
+            shutil.copy2(f, build_insights / f.name)
+    log.debug("Copied news insights data to %s", build_insights)
+
+
 def build_lab_manual():
     name = config["pages"]["manual"]["url"][1:-1]
     environment = Environment(loader=FileSystemLoader(template_dir))
@@ -583,7 +674,7 @@ def make_sitemap():
         relative_path = str(page.relative_to(build_dir))
 
         # Skip HTMX fragment files (not standalone pages)
-        if relative_path.startswith("news/year-") or relative_path.startswith("cool-papers/year-") or relative_path == "cool-papers/insights.html":
+        if relative_path.startswith("news/year-") or relative_path.startswith("cool-papers/year-") or relative_path == "cool-papers/insights.html" or relative_path == "news/insights.html":
             continue
 
         page_key = file_to_page.get(relative_path)

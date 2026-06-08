@@ -1,0 +1,70 @@
+<style>
+.svg-dark { display: block !important; }
+.svg-light { display: none !important; }
+[data-bs-theme="light"] .svg-light { display: block !important; }
+[data-bs-theme="light"] .svg-dark { display: none !important; }
+[data-bs-theme="auto"] .svg-light { display: none !important; }
+[data-bs-theme="auto"] .svg-dark { display: block !important; }
+@media (prefers-color-scheme: light) {
+  [data-bs-theme="auto"] .svg-light { display: block !important; }
+  [data-bs-theme="auto"] .svg-dark { display: none !important; }
+}
+</style>
+
+<h5 class="mt-0">Insights</h5>
+
+{% if stats.total_items > 0 %}
+<div class="row mb-3">
+  <div class="col-md-4 col-6 mb-2">
+    <div class="card border-primary h-100">
+      <div class="card-body text-center py-3">
+        <h2 class="card-title mb-0 text-primary">{{ stats.total_items }}</h2>
+        <small class="text-muted">News items</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-6 mb-2">
+    <div class="card border-success h-100">
+      <div class="card-body text-center py-3">
+        <h2 class="card-title mb-0 text-success">{{ stats.topics }}</h2>
+        <small class="text-muted">Topics found</small>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 col-6 mb-2">
+    <div class="card border-warning h-100">
+      <div class="card-body text-center py-3">
+        <h2 class="card-title mb-0 text-warning">{{ stats.years_span }}</h2>
+        <small class="text-muted">Years</small>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% macro themed_img(base) %}
+<div class="text-center">
+<img src="/cool-papers/news_insights/{{ base }}.svg" class="img-fluid rounded svg-dark mx-auto d-block" alt="{{ base }}" loading="lazy">
+<img src="/cool-papers/news_insights/{{ base }}-light.svg" class="img-fluid rounded svg-light mx-auto d-block" alt="{{ base }}" loading="lazy">
+</div>
+{% endmacro %}
+
+{% if svgs.umap %}
+<div class="mb-4">
+  <h6>News topic map</h6>
+  <p class="text-muted small">Each dot is a news item; similar topics are grouped and colored together. Triangles mark each cluster centroid.</p>
+  {{ themed_img("umap") }}
+</div>
+{% endif %}
+
+{% if svgs.trends_overall %}
+<div class="mb-4">
+  <h6>News over time</h6>
+  {{ themed_img("trends_overall") }}
+</div>
+{% endif %}
+
+<p class="small text-muted mt-2">
+  Generated using sentence-transformers (all-MiniLM-L6-v2), KMeans, TF-IDF, and UMAP.
+  Last updated: {{ generated }}.
+</p>

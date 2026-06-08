@@ -34,6 +34,14 @@
                         {{ year }}
                       </button>
                     {% endfor %}
+                      <button id="tab-insights" class="btn btn-outline-primary"
+                          type="button"
+                          hx-get="/news/insights.html"
+                          hx-target="#news-content"
+                          hx-swap="innerHTML"
+                          hx-on::before-request="document.querySelectorAll('#year-tabs .btn').forEach(b => b.className = 'btn btn-outline-primary'); this.className = 'btn btn-primary';">
+                        Insights
+                      </button>
                     </div>
 
                     <div id="news-content" class="mt-2">

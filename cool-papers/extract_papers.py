@@ -661,11 +661,19 @@ def process_message(
     }
 
 
+def _indexes_stale(mbox_path: Path, offsets_path: Path, lines_path: Path) -> bool:
+    """Return True if indexes are missing or older than the mbox file."""
+    if not offsets_path.exists() or not lines_path.exists():
+        return True
+    mbox_mtime = mbox_path.stat().st_mtime
+    return mbox_mtime > offsets_path.stat().st_mtime or mbox_mtime > lines_path.stat().st_mtime
+
+
 def extract_papers(
     mbox_path: Path, offsets_path: Path, lines_path: Path
 ) -> list[dict]:
     """Build/load indexes and extract [paper] messages from one mbox."""
-    if not offsets_path.exists() or not lines_path.exists():
+    if _indexes_stale(mbox_path, offsets_path, lines_path):
         build_indexes(mbox_path, offsets_path, lines_path)
     else:
         log.info("Using existing indexes for %s", mbox_path.name)
@@ -714,6 +722,18 @@ def extract_papers(
 
 
 def main():
+    # Load existing enrichment from previous run so we don't need to re-enrich
+    old_enrichment: dict[str, dict[str, str]] = {}
+    if OUTPUT.exists():
+        with open(OUTPUT) as f:
+            for row in csv.DictReader(f):
+                key = row.get("title", "").strip().lower()
+                doi = row.get("doi", "").strip()
+                journal = row.get("journal", "").strip()
+                if key and (doi or journal):
+                    old_enrichment[key] = {"doi": doi, "journal": journal}
+        log.info("Loaded existing enrichment for %d papers", len(old_enrichment))
+
     all_papers: list[dict] = []
 
     for label, mbox_path, offsets_path, lines_path in MBOX_CONFIGS:
@@ -734,12 +754,19 @@ def main():
     log.info("Total extracted: %d, duplicates removed: %d, final: %d",
              len(all_papers), n_dup, len(deduped))
 
+    # Merge back existing enrichment for papers that were already enriched
+    for p in deduped:
+        key = p["title"].strip().lower()
+        prev = old_enrichment.get(key, {})
+        p["doi"] = prev.get("doi", "")
+        p["journal"] = prev.get("journal", "")
+
     with open(OUTPUT, "w", newline="") as f:
         writer = csv.DictWriter(
             f,
             fieldnames=[
                 "title", "url", "from", "date", "date_parsed",
-                "comment", "keywords",
+                "comment", "keywords", "doi", "journal",
             ],
         )
         writer.writeheader()

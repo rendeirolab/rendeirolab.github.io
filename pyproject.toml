@@ -26,9 +26,14 @@ authors = [
 
 [tool.taskipy.tasks]
 clean = { cmd = "rm -r docs || true", help = "Remove the 'docs' directory" }
-build = { cmd = "python build.py", help = "Run the build script" }
-serve = { cmd = "python build.py --serve", help = "Dev server with live reload" }
+build = { cmd = "uv run build.py", help = "Run the build script" }
+serve = { cmd = "uv run build.py --serve", help = "Dev server with live reload" }
 check = { cmd = "gh run list --repo rendeirolab/rendeirolab.github.io --workflow deploy.yml --limit 5 --json conclusion,headBranch,createdAt,displayTitle --template '{{range .}}{{tablerow (timeago .createdAt) .headBranch (printf \"%-.35s\" .displayTitle) .conclusion }}{{end}}'", help = "Check latest deployment statuses" }
+collect-papers = { cmd = "uv run cool-papers/extract_papers.py && uv run cool-papers/enrich_papers.py", help = "Extract new papers from mailbox and enrich with DOI/journal" }
+pre_insights = { cmd = "uv run task collect-papers", help = "Extract and enrich papers before regenerating insights" }
+insights = { cmd = "uv run cool-papers/insights.py && uv run cool-papers/news_insights.py", help = "Regenerate all topic insights and plots (cool papers + news)" }
+insights-cool-papers = { cmd = "uv run cool-papers/insights.py", help = "Regenerate cool papers topic insights and plots" }
+insights-news = { cmd = "uv run cool-papers/news_insights.py", help = "Regenerate news topic insights and plots" }
 
 [dependency-groups]
 dev = [

@@ -22,7 +22,11 @@ The build script is self contained, using `uv script` to install dependencies in
 The only build requirements are `pyyaml`, `jinja2`, `requests`, `beautifulsoup4`, and `markdown2`.
 
 ```bash
-uv run build.py  # installs dependencies and builds the website
+uv run build.py                          # installs dependencies and builds the website
+uv run task collect-papers               # extract new papers from mailbox and enrich
+uv run task insights                     # regenerate all topic insights and plots
+uv run task insights-cool-papers         # regenerate cool papers insights only
+uv run task insights-news                # regenerate news insights only
 ```
 
 ### Serving locally

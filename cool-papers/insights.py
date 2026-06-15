@@ -129,7 +129,7 @@ def _tfidf_labels(titles: pd.Series, labels: np.ndarray) -> dict[int, str]:
 def reduce_umap(emb: np.ndarray) -> np.ndarray:
     import umap
     log.info("Reducing to 2D with UMAP …")
-    reducer = umap.UMAP(random_state=42, min_dist=0.3, n_neighbors=15)
+    reducer = umap.UMAP(min_dist=0.3, n_neighbors=15)
     emb_2d = reducer.fit_transform(emb)
     log.info("UMAP done")
     return emb_2d
@@ -352,7 +352,8 @@ def plot_umap(emb_2d: np.ndarray, labels: np.ndarray, topic_labels: dict[int, st
         else:
             ax.scatter(emb_2d[mask, 0], emb_2d[mask, 1], c=c, s=12, alpha=0.7, label=label_str)
 
-    # Centroids as larger triangles
+    # Centroids as larger triangles with text labels underneath
+    label_offset = (emb_2d[:, 1].max() - emb_2d[:, 1].min()) * 0.04
     for lbl in unique_labels:
         if lbl == -1:
             continue
@@ -360,10 +361,11 @@ def plot_umap(emb_2d: np.ndarray, labels: np.ndarray, topic_labels: dict[int, st
         cx, cy = emb_2d[mask].mean(axis=0)
         ax.scatter(cx, cy, marker="^", s=120, c=color_map[lbl], edgecolors=centroid_edge,
                    linewidths=0.8, zorder=5)
+        label_str = topic_labels.get(lbl, "Noise")
+        ax.text(cx, cy - label_offset, label_str, ha="center", va="top",
+                fontsize=6, color=color_map[lbl])
 
-    ax.set_title("Paper Topics (UMAP)", fontsize=14)
-    ax.set_xlabel("UMAP 1")
-    ax.set_ylabel("UMAP 2")
+    ax.set(title="Paper Topics (UMAP)", xlabel="UMAP 1", ylabel="UMAP 2")
     ax.legend(loc="best", fontsize=7, ncol=2, markerscale=1.5)
     fig.tight_layout()
     _plot_and_save(fig, out, theme)
@@ -394,9 +396,7 @@ def plot_trends_overall(df: pd.DataFrame, trends: pd.DataFrame, out: Path, theme
     ax.bar(weekly["date"], weekly["count"], width=5, color=bar_color, alpha=0.45, label="Papers per week")
     ax.plot(weekly["date"], weekly["smoothed"], color=line_color, linewidth=2, label="3-month average")
 
-    ax.set_title("Papers shared per week", fontsize=14)
-    ax.set_xlabel("Date")
-    ax.set_ylabel("Papers")
+    ax.set(title="Papers shared per week", xlabel="Date", ylabel="Papers")
     ax.legend(loc="upper left")
     fig.tight_layout()
     _plot_and_save(fig, out, theme)
@@ -452,8 +452,7 @@ def plot_growth(growth_df: pd.DataFrame, topic_labels: dict[int, str], out: Path
 
     ax.set_yticks(range(len(top)))
     ax.set_yticklabels(labels_display, fontsize=9)
-    ax.set_xlabel("Relative growth rate (% per month)")
-    ax.set_title("Topic growth over time", fontsize=14)
+    ax.set(xlabel="Relative growth rate (% per month)", title="Topic growth over time")
     ax.axvline(0, color="#666666", linewidth=0.8)
     # Add padding so bars don't hug the edges
     x_min, x_max = ax.get_xlim()
@@ -473,7 +472,7 @@ def plot_growth(growth_df: pd.DataFrame, topic_labels: dict[int, str], out: Path
 
 def plot_weekday(df: pd.DataFrame, out: Path, theme: str):
     plt = _setup_style(theme)
-    fig, ax = plt.subplots(figsize=(9, 4))
+    fig, ax = plt.subplots(figsize=(10, 4))
     days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
     counts = df["date_parsed"].dt.dayofweek.value_counts().reindex(range(7), fill_value=0)
     xs = range(7)
@@ -481,8 +480,7 @@ def plot_weekday(df: pd.DataFrame, out: Path, theme: str):
     ax.bar(xs, [counts[i] for i in xs], color=bar_color, alpha=0.65, tick_label=days)
     for i, v in enumerate(counts):
         ax.text(i, v + 2, str(int(v)), ha="center", va="bottom", fontsize=9)
-    ax.set_title("Papers shared per weekday", fontsize=14)
-    ax.set_ylabel("Papers")
+    ax.set(title="Papers shared per weekday", xlabel="Day of week", ylabel="Papers")
     fig.tight_layout()
     _plot_and_save(fig, out, theme)
 
@@ -495,10 +493,8 @@ def plot_hour(df: pd.DataFrame, out: Path, theme: str):
     bar_color = "#4361ee" if theme == "dark" else "#4361ee"
     ax.bar(xs, [hours[i] for i in xs], color=bar_color, alpha=0.65,
            tick_label=[f"{h:02d}" for h in xs])
-    ax.set_title("Papers shared per hour of day", fontsize=14)
-    ax.set_xlabel("Hour (UTC)")
-    ax.set_ylabel("Papers")
-    ax.set_xticks(range(0, 24, 2))
+    ax.set(title="Papers shared per hour of day", xlabel="Hour (UTC)", ylabel="Papers",
+           xticks=range(0, 24, 2))
     fig.tight_layout()
     _plot_and_save(fig, out, theme)
 
@@ -518,28 +514,50 @@ def _plot_all(df, emb_2d, labels, topic_labels, trends, growth_df):
 # Main
 # ---------------------------------------------------------------------------
 
-def _cache_key(titles: list[str]) -> bytes:
+def _paper_id(title: str) -> str:
     import hashlib
-    return hashlib.md5("".join(titles).encode()).digest()
+    return hashlib.md5(title.strip().lower().encode()).hexdigest()
 
 
 def _load_or_embed(titles: list[str]) -> np.ndarray:
     emb_path = OUT_DIR / "embeddings.npy"
-    key_path = OUT_DIR / "embeddings_key.txt"
+    ids_path = OUT_DIR / "embedding_ids.txt"
 
-    if emb_path.exists() and key_path.exists():
-        cached_key = key_path.read_text().strip()
-        current_key = _cache_key(titles).hex()
-        if cached_key == current_key:
-            log.info("Loading cached embeddings from %s", emb_path)
-            return np.load(emb_path)
-        log.info("Titles changed, re-embedding …")
+    paper_ids = [_paper_id(t) for t in titles]
 
-    log.info("Embedding %d titles …", len(titles))
-    emb = embed_titles(titles)
-    np.save(emb_path, emb)
-    key_path.write_text(_cache_key(titles).hex())
-    log.info("Cached embeddings to %s", emb_path)
+    # Load existing cache as {paper_id -> embedding}
+    cached: dict[str, np.ndarray] = {}
+    if emb_path.exists() and ids_path.exists():
+        cached_ids = ids_path.read_text().strip().splitlines()
+        cached_emb = np.load(emb_path)
+        if len(cached_ids) == len(cached_emb):
+            for pid, vec in zip(cached_ids, cached_emb):
+                cached[pid] = vec
+            log.info("Loaded %d cached embeddings from %s", len(cached), emb_path)
+
+    # Find new papers not yet in cache
+    new_titles = []
+    new_ids = []
+    for pid, title in zip(paper_ids, titles):
+        if pid not in cached:
+            new_titles.append(title)
+            new_ids.append(pid)
+
+    if new_titles:
+        log.info("Embedding %d new titles …", len(new_titles))
+        new_emb = embed_titles(new_titles)
+        for pid, vec in zip(new_ids, new_emb):
+            cached[pid] = vec
+
+    # Reconstruct in original order
+    emb = np.array([cached[pid] for pid in paper_ids])
+
+    # Save updated cache
+    all_ids = list(cached.keys())
+    all_emb = np.array([cached[pid] for pid in all_ids])
+    np.save(emb_path, all_emb)
+    ids_path.write_text("\n".join(all_ids) + "\n")
+    log.info("Cached %d embeddings to %s", len(all_ids), emb_path)
     return emb
 
 

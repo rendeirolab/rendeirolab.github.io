@@ -6,7 +6,8 @@
 #   "jinja2",
 #   "requests",
 #   "beautifulsoup4",
-#   "markdown2",
+#   "markdown2[all]",
+#   "livereload",
 # ]
 # ///
 

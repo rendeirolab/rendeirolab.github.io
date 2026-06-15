@@ -347,7 +347,7 @@ def build_cool_papers_insights(environment):
     }
 
     # Check which SVGs exist
-    svg_names = ["umap", "trends_overall", "trends_per_topic", "growth", "weekday", "hour"]
+    svg_names = ["embedding", "trends_overall", "trends_per_topic", "growth", "weekday", "hour"]
     svgs = {name: (insights_dir / f"{name}.svg").exists() for name in svg_names}
 
     # Build topic table — merge all clusters from paper_topics with growth data
@@ -458,7 +458,7 @@ def build_news_insights(environment):
     }
 
     # Check which SVGs exist
-    svg_names = ["umap", "trends_overall"]
+    svg_names = ["embedding", "trends_overall"]
     svgs = {name: (insights_dir / f"{name}.svg").exists() for name in svg_names}
 
     # Build topic table

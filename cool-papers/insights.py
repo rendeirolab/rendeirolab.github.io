@@ -13,7 +13,7 @@
 """Generate topic insights for cool papers: embeddings, clustering, trends, plots.
 
 Output written to cool-papers/insights/:
-  paper_topics.csv   — per-paper topic assignments + UMAP coords
+  paper_topics.csv   — per-paper topic assignments + embedding coords
   topic_trends.csv   — weekly paper counts per topic (smoothed)
   topic_growth.csv   — growth coefficients per topic
   *.svg              — figures
@@ -123,17 +123,17 @@ def _tfidf_labels(titles: pd.Series, labels: np.ndarray) -> dict[int, str]:
 
 
 # ---------------------------------------------------------------------------
-# 5. UMAP reduction
+# 5. Reduction
 # ---------------------------------------------------------------------------
 
-def reduce_umap(emb: np.ndarray) -> np.ndarray:
+
+def reduce_embedding(emb: np.ndarray) -> np.ndarray:
     import umap
-    log.info("Reducing to 2D with UMAP …")
-    reducer = umap.UMAP(min_dist=0.3, n_neighbors=15)
+    log.info("Reducing embedding with UMAP …")
+    reducer = umap.UMAP()
     emb_2d = reducer.fit_transform(emb)
     log.info("UMAP done")
     return emb_2d
-
 
 # ---------------------------------------------------------------------------
 # 6. Time trends
@@ -334,7 +334,7 @@ def _plot_and_save(fig, out: Path, theme: str):
     log.debug("Saved %s", themed_path)
 
 
-def plot_umap(emb_2d: np.ndarray, labels: np.ndarray, topic_labels: dict[int, str], out: Path, theme: str):
+def plot_embedding(emb_2d: np.ndarray, labels: np.ndarray, topic_labels: dict[int, str], out: Path, theme: str):
     plt = _setup_style(theme)
     fig, ax = plt.subplots(figsize=(10, 8))
 
@@ -365,9 +365,9 @@ def plot_umap(emb_2d: np.ndarray, labels: np.ndarray, topic_labels: dict[int, st
         ax.text(cx, cy - label_offset, label_str, ha="center", va="top",
                 fontsize=6, color=color_map[lbl])
 
-    ax.set(title="Paper Topics (UMAP)", xlabel="UMAP 1", ylabel="UMAP 2")
-    ax.legend(loc="best", fontsize=7, ncol=2, markerscale=1.5)
-    fig.tight_layout()
+    ax.set(title="Paper Topics", xlabel="Component 1", ylabel="Component 2")
+    ax.legend(loc="center left", bbox_to_anchor=(1.02, 0.5), fontsize=7, ncol=1, markerscale=1.5)
+    fig.subplots_adjust(right=0.8)
     _plot_and_save(fig, out, theme)
 
 
@@ -502,7 +502,7 @@ def plot_hour(df: pd.DataFrame, out: Path, theme: str):
 def _plot_all(df, emb_2d, labels, topic_labels, trends, growth_df):
     """Generate all SVGs for both themes."""
     for theme in ("dark", "light"):
-        plot_umap(emb_2d, labels, topic_labels, OUT_DIR / "umap.svg", theme)
+        plot_embedding(emb_2d, labels, topic_labels, OUT_DIR / "embedding.svg", theme)
         plot_trends_overall(df, trends, OUT_DIR / "trends_overall.svg", theme)
         plot_trends_per_topic(trends, topic_labels, growth_df, OUT_DIR / "trends_per_topic.svg", theme)
         plot_growth(growth_df, topic_labels, OUT_DIR / "growth.svg", theme)
@@ -574,8 +574,8 @@ def main():
     topic_labels = _tfidf_labels(df["title"], labels)
     log.info("Topic labels: %s", topic_labels)
 
-    log.info("Step 4/6: UMAP reduction …")
-    emb_2d = reduce_umap(emb)
+    log.info("Step 4/6: Embedding reduction …")
+    emb_2d = reduce_embedding(emb)
 
     log.info("Step 5/6: Computing trends & growth …")
     trends = compute_trends(df, labels)
@@ -587,8 +587,8 @@ def main():
     out_papers = df[["title", "url", "date_parsed"]].copy()
     out_papers["topic"] = labels
     out_papers["topic_label"] = out_papers["topic"].map(topic_labels).fillna("Other")
-    out_papers["umap_x"] = emb_2d[:, 0]
-    out_papers["umap_y"] = emb_2d[:, 1]
+    out_papers["embedding_x"] = emb_2d[:, 0]
+    out_papers["embedding_y"] = emb_2d[:, 1]
     out_papers.to_csv(OUT_DIR / "paper_topics.csv", index=False)
     log.info("Wrote %s", OUT_DIR / "paper_topics.csv")
 

@@ -175,14 +175,14 @@ def _tfidf_labels(titles: pd.Series, labels: np.ndarray) -> dict:
     return topic_labels
 
 
-# ── UMAP reduction ─────────────────────────────────────────────────────
+# ── Embedding reduction ───────────────────────────────────────────────
 
 
-def reduce_umap(emb: np.ndarray) -> np.ndarray:
+def reduce_embedding(emb: np.ndarray) -> np.ndarray:
     import umap
 
-    log.info("Reducing to 2D with UMAP …")
-    reducer = umap.UMAP(n_neighbors=20, min_dist=0.1)
+    log.info("Reducing embedding with UMAP …")
+    reducer = umap.UMAP()
     emb_2d = reducer.fit_transform(emb)
     log.info("UMAP done")
     return emb_2d
@@ -375,7 +375,7 @@ def _color_palette(n: int) -> list:
     return [mcolors.to_hex(c) for c in list(base) + list(extra)]
 
 
-def plot_umap(emb_2d: np.ndarray, labels: np.ndarray, topic_labels: dict, out: Path, theme: str):
+def plot_embedding(emb_2d: np.ndarray, labels: np.ndarray, topic_labels: dict, out: Path, theme: str):
     plt = _setup_style(theme)
     fig, ax = plt.subplots(figsize=(10, 7))
 
@@ -406,9 +406,9 @@ def plot_umap(emb_2d: np.ndarray, labels: np.ndarray, topic_labels: dict, out: P
         ax.text(cx, cy - label_offset, label_str, ha="center", va="top",
                 fontsize=6, color=color_map[lbl])
 
-    ax.set(title="News topic map", xlabel="UMAP 1", ylabel="UMAP 2")
-    ax.legend(loc="best", fontsize=7, ncol=2, markerscale=1.5)
-    fig.tight_layout()
+    ax.set(title="News topic map", xlabel="Component 1", ylabel="Component 2")
+    ax.legend(loc="center left", bbox_to_anchor=(1.02, 0.5), fontsize=7, ncol=1, markerscale=1.5)
+    fig.subplots_adjust(right=0.8)
     _plot_and_save(fig, out, theme)
 
 
@@ -504,22 +504,22 @@ def main():
     topic_labels = _tfidf_labels(df["title"], labels)
     log.info("Topic labels: %s", topic_labels)
 
-    log.info("Step 4/5: Reducing to 2D …")
-    emb_2d = reduce_umap(emb)
+    log.info("Step 4/5: Reducing embedding …")
+    emb_2d = reduce_embedding(emb)
 
     log.info("Step 5/5: Computing trends & growth + plotting …")
     trends = compute_trends(df, labels)
 
     for theme in ("dark", "light"):
-        plot_umap(emb_2d, labels, topic_labels, OUT_DIR / "umap.svg", theme)
+        plot_embedding(emb_2d, labels, topic_labels, OUT_DIR / "embedding.svg", theme)
         plot_trends_overall(df, OUT_DIR / "trends_overall.svg", theme)
 
     # Write CSVs
     out_items = df[["title", "date", "date_parsed"]].copy()
     out_items["topic"] = labels
     out_items["topic_label"] = out_items["topic"].map(topic_labels).fillna("Other")
-    out_items["umap_x"] = emb_2d[:, 0]
-    out_items["umap_y"] = emb_2d[:, 1]
+    out_items["embedding_x"] = emb_2d[:, 0]
+    out_items["embedding_y"] = emb_2d[:, 1]
     out_items.to_csv(OUT_DIR / "news_topics.csv", index=False)
     log.info("Wrote %s", OUT_DIR / "news_topics.csv")
 

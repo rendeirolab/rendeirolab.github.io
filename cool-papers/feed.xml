@@ -6,7 +6,15 @@
     <description>Recent interesting papers shared by the Rendeiro Lab team</description>
     <language>en-us</language>
     <atom:link href="https://rendeiro.group/cool-papers/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Mon, 15 Jun 2026 09:31:55 -0000</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jun 2026 11:17:07 -0000</lastBuildDate>
+    <item>
+      <title>The molecular asynchrony of single cells</title>
+      <link>https://www.biorxiv.org/content/10.64898/2026.06.02.729594v1.full</link>
+      <guid isPermaLink="false">https://www.biorxiv.org/content/10.64898/2026.06.02.729594v1.full</guid>
+      <author>Lisa Kleissl</author>
+      <pubDate>Mon, 15 Jun 2026 10:13:16 +0200</pubDate>
+      <description>[bioRxiv]</description>
+    </item>
     <item>
       <title>General-purpose large language models outperform specialized clinical AI tools on medical benchmarks</title>
       <link>https://www.nature.com/articles/s41591-026-04431-5</link>
@@ -21,7 +29,7 @@
       <guid isPermaLink="false">https://www.biorxiv.org/content/10.64898/2026.06.09.731197v1</guid>
       <author>arendeiro</author>
       <pubDate>Mon, 15 Jun 2026 08:03:10 +0200</pubDate>
-      <description>[bioRxiv] worth looking into this very short paper. Understanding the data is so so more worth than brute force modeling. Also, if you don't know him</description>
+      <description>[bioRxiv] worth looking into this very short paper. Understanding the data is so so more worth than brute force modeling. Also, if you don't know him yet, check out the first author's blog:</description>
     </item>
     <item>
       <title>Spatial biomarker discovery via interpretable semantic learning in histopathology</title>
@@ -285,7 +293,7 @@
       <guid isPermaLink="false">https://link.springer.com/article/10.1007/s10522-026-10429-w</guid>
       <author>Andre Rendeiro</author>
       <pubDate>Wed, 06 May 2026 08:38:57 +0200</pubDate>
-      <description>[Biogerontology]</description>
+      <description>[Biogerontology] probably worth a look e.g.</description>
     </item>
     <item>
       <title>Linking spatial biology and clinical histology via Haiku</title>
@@ -301,7 +309,7 @@
       <guid isPermaLink="false">https://www.biorxiv.org/content/10.64898/2026.04.25.720812</guid>
       <author>Andre Rendeiro</author>
       <pubDate>Mon, 04 May 2026 13:59:28 +0200</pubDate>
-      <description>[bioRxiv] spatial gene expression prediction from H&amp;E via flow matching. Weights not available yet. Full TCGA dataset with inference will be available.</description>
+      <description>[bioRxiv] spatial gene expression prediction from H&amp;E via flow matching. Code available now: Weights not available yet. Full TCGA dataset with inference will be available.</description>
     </item>
     <item>
       <title>AI framework for multidisease detection via retinal imaging</title>
@@ -798,14 +806,6 @@
       <author>Andre Rendeiro</author>
       <pubDate>Wed, 11 Feb 2026 12:37:53 +0100</pubDate>
       <description>[bioRxiv] seems like a good reference for all sorts of T cell states which includes lymph nodes also in some cancer models. There are also some other companion papers</description>
-    </item>
-    <item>
-      <title>Circulating Cell Type Senescence Signatures Reveal High-Resolution Health Status and  2 Trajectories in Human Longitudinal Studies</title>
-      <link>https://www.medrxiv.org/content/10.64898/2026.02.06.26345739v1.full.pdf</link>
-      <guid isPermaLink="false">https://www.medrxiv.org/content/10.64898/2026.02.06.26345739v1.full.pdf</guid>
-      <author>Ernesto Abila</author>
-      <pubDate>Tue, 10 Feb 2026 19:20:55 +0100</pubDate>
-      <description>[medRxiv] Circulating Cell Type Senescence Signatures Reveal High-Resolution Health Status and 2 Trajectories in Human Longitudinal Studies</description>
     </item>
   </channel>
 </rss>

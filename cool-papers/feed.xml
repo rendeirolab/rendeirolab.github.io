@@ -6,7 +6,47 @@
     <description>Recent interesting papers shared by the Rendeiro Lab team</description>
     <language>en-us</language>
     <atom:link href="https://rendeiro.group/cool-papers/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Mon, 08 Jun 2026 07:24:23 -0000</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jun 2026 08:59:44 -0000</lastBuildDate>
+    <item>
+      <title>General-purpose large language models outperform specialized clinical AI tools on medical benchmarks</title>
+      <link>https://www.nature.com/articles/s41591-026-04431-5</link>
+      <guid isPermaLink="false">https://www.nature.com/articles/s41591-026-04431-5</guid>
+      <author>arendeiro</author>
+      <pubDate>Mon, 15 Jun 2026 08:50:39 +0200</pubDate>
+      <description>[Nature Medicine] General-purpose large language models outperform specialized clinical AI tools on medical benchmarks</description>
+    </item>
+    <item>
+      <title>Back to basics: Observed statistics are sufficient to predict drug responses</title>
+      <link>https://www.biorxiv.org/content/10.64898/2026.06.09.731197v1</link>
+      <guid isPermaLink="false">https://www.biorxiv.org/content/10.64898/2026.06.09.731197v1</guid>
+      <author>arendeiro</author>
+      <pubDate>Mon, 15 Jun 2026 08:03:10 +0200</pubDate>
+      <description>[bioRxiv] worth looking into this very short paper. Understanding the data is so so more worth than brute force modeling. Also, if you don't know him</description>
+    </item>
+    <item>
+      <title>Spatial biomarker discovery via interpretable semantic learning in histopathology</title>
+      <link>https://www.cell.com/cancer-cell/fulltext/S1535-6108(26)00259-X?</link>
+      <guid isPermaLink="false">https://www.cell.com/cancer-cell/fulltext/S1535-6108(26)00259-X?</guid>
+      <author>Ernesto Abila</author>
+      <pubDate>Fri, 12 Jun 2026 14:56:00 +0200</pubDate>
+      <description>[Cancer Cell]</description>
+    </item>
+    <item>
+      <title>Plasma signals of lung tumor promotion for molecular cancer prevention</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)00522-2</link>
+      <guid isPermaLink="false">https://www.cell.com/cell/fulltext/S0092-8674(26)00522-2</guid>
+      <author>arendeiro</author>
+      <pubDate>Tue, 09 Jun 2026 20:08:16 +0200</pubDate>
+      <description>[Cell] they identified a 14-protein plasma signature predicting lung cancer more than 5 years before diagnosis!</description>
+    </item>
+    <item>
+      <title>DaX: Learning General Pathology Representations Across Scales</title>
+      <link>https://arxiv.org/pdf/2606.06983</link>
+      <guid isPermaLink="false">https://arxiv.org/pdf/2606.06983</guid>
+      <author>Ernesto Abila</author>
+      <pubDate>Mon, 08 Jun 2026 10:10:32 +0200</pubDate>
+      <description>[arXiv] Alibaba joins the histopathology game with a multi scale DINOv3 framework with cross-scale self-supervision, trained on GTEx, TCGA and HistAi. Apparently, they outperform all the other current models.</description>
+    </item>
     <item>
       <title>A multimodal perturbation atlas defines the phenotypic resolution of cellular morphology</title>
       <link>https://www.biorxiv.org/content/10.64898/2026.06.01.728087v1</link>
@@ -766,46 +806,6 @@
       <author>Ernesto Abila</author>
       <pubDate>Tue, 10 Feb 2026 19:20:55 +0100</pubDate>
       <description>[medRxiv] Circulating Cell Type Senescence Signatures Reveal High-Resolution Health Status and 2 Trajectories in Human Longitudinal Studies</description>
-    </item>
-    <item>
-      <title>A lightweight, ultrafast and general embedding framework for large-scale spatial omics data</title>
-      <link>https://www.biorxiv.org/content/10.64898/2026.02.04.703814</link>
-      <guid isPermaLink="false">https://www.biorxiv.org/content/10.64898/2026.02.04.703814</guid>
-      <author>Andre Rendeiro</author>
-      <pubDate>Mon, 09 Feb 2026 08:00:00 +0100</pubDate>
-      <description>[bioRxiv] very impressive work, we should study it (method and paper); maybe particularly relevant for Simon regarding previous foundation model ideas</description>
-    </item>
-    <item>
-      <title>Trans-eQTLs reveal the architecture of human gene regulatory networks</title>
-      <link>https://www.medrxiv.org/content/10.64898/2026.02.04.26343575v1</link>
-      <guid isPermaLink="false">https://www.medrxiv.org/content/10.64898/2026.02.04.26343575v1</guid>
-      <author>Andre Rendeiro</author>
-      <pubDate>Mon, 09 Feb 2026 08:00:00 +0100</pubDate>
-      <description>[medRxiv] the latest in QTL land</description>
-    </item>
-    <item>
-      <title>AtlasPatch: An Efficient and Scalable Tool for Whole Slide Image Preprocessing in Computational Pathology</title>
-      <link>https://arxiv.org/abs/2602.03998</link>
-      <guid isPermaLink="false">https://arxiv.org/abs/2602.03998</guid>
-      <author>Ernesto Abila</author>
-      <pubDate>Thu, 05 Feb 2026 17:09:25 +0100</pubDate>
-      <description>[arXiv] maybe another Grandqc competitor. They also have or plan a patch writing database functionality:</description>
-    </item>
-    <item>
-      <title>Unifying the genetic landscape of common and rare diseases via latent neighborhoods</title>
-      <link>https://www.biorxiv.org/content/10.64898/2026.01.27.701945v1</link>
-      <guid isPermaLink="false">https://www.biorxiv.org/content/10.64898/2026.01.27.701945v1</guid>
-      <author>Andre Rendeiro</author>
-      <pubDate>Wed, 04 Feb 2026 22:34:37 +0100</pubDate>
-      <description>[bioRxiv]</description>
-    </item>
-    <item>
-      <title>Revealing the genetic architectures underlying organ-specific aging based on proteomic data</title>
-      <link>https://www.nature.com/articles/s41467-025-67223-4</link>
-      <guid isPermaLink="false">https://www.nature.com/articles/s41467-025-67223-4</guid>
-      <author>Andre Rendeiro</author>
-      <pubDate>Wed, 04 Feb 2026 15:55:42 +0100</pubDate>
-      <description>[Nature Communications] not sure I sent this one around - look at the bell curve in figure 1... that's what I'm thinking</description>
     </item>
   </channel>
 </rss>

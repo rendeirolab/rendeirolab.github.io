@@ -462,7 +462,10 @@ def _find_title_in_body(body: str) -> str | None:
                 text = tag.get_text(strip=True)
                 if not text:
                     continue
-                if "http" in text or "www." in text or "mailto:" in text:
+                text = re.sub(r"https?://\S+", "", text)
+                text = re.sub(r"\bwww\.\S+", "", text)
+                text = re.sub(r"mailto:\S+", "", text)
+                if not text.strip():
                     continue
                 if tag.get("id", "").startswith(("ms-outlook", "Signature")):
                     continue
@@ -477,7 +480,10 @@ def _find_title_in_body(body: str) -> str | None:
     clean = re.sub(r"<[^>]+>", "\n", body)
     for line in clean.split("\n"):
         line = html_mod.unescape(line.strip())
-        if not line or "http" in line or "mailto:" in line:
+        line = re.sub(r"https?://\S+", "", line)
+        line = re.sub(r"\bwww\.\S+", "", line)
+        line = re.sub(r"mailto:\S+", "", line)
+        if not line.strip():
             continue
         if _is_boilerplate(line):
             continue
@@ -583,7 +589,8 @@ def _extract_comment_from_body(body: str, title: str, url: str) -> str:
             continue
         if line.rstrip("/") == url_norm or line == url:
             continue
-        if "http" in line:
+        line = re.sub(r"https?://\S+", "", line).strip()
+        if not line:
             continue
         if len(line) < 3:
             continue

@@ -3,8 +3,9 @@
 <html lang="en" data-bs-theme="dark">
     <head>
         
+
         <meta charset="utf-8" />
-        <title>Posts - Rendeiro lab</title>
+        <title>Post - "Sharing papers, the lab way" - Rendeiro lab</title>
         <meta name="description" content="" />
         <meta name="author" content="André Rendeiro" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -46,12 +47,15 @@
         />
 
         <!-- SEO -->
-        <link rel="canonical" href="https://rendeiro.group/p/" />
+        <link rel="canonical" href="https://rendeiro.group/p/cool-papers-sharing/" />
 
         <!-- Load assets/styles/style.css -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rendeirolab/rendeirolab.github.io@main/assets/css/style.css">
         
         
+<!-- Code block highlighting -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
     </head>
 
     <body>
@@ -195,29 +199,27 @@
             <div class="row" id="content">
                 
                 <div class="col-12">
-                    <h3>Posts</h3>
-                    <p>Longer-form posts about our research, software, and lab life.</p>
-                    <ul class="list-unstyled">
-                    
-                        <li class="mb-3">
-                            <a href="/p/cool-papers-sharing/">"Sharing papers, the lab way"</a>
-                            <small class="text-muted ms-2">2026-06-07</small>
-                            <p class="text-muted mb-0"><small>"From a lab email thread to a public page with RSS"</small></p>
-                        </li>
-                    
-                        <li class="mb-3">
-                            <a href="/p/lazyslide-behind-the-scenes/">"LazySlide: behind the scenes"</a>
-                            <small class="text-muted ms-2">2026-02-29</small>
-                            <p class="text-muted mb-0"><small>How we built an accessible framework for AI-powered histopathology analysis</small></p>
-                        </li>
-                    
-                        <li class="mb-3">
-                            <a href="/p/2025_a_year_in_review/">"2025: A year in review"</a>
-                            <small class="text-muted ms-2">2025-12-31</small>
-                            <p class="text-muted mb-0"><small>Manuscripts, milestones, and a growing team</small></p>
-                        </li>
-                    
-                    </ul>
+                    <article>
+                        <header class="mb-4">
+                            <h3>"Sharing papers, the lab way"</h3>
+                            <p class="text-muted"><small>2026-06-07</small></p>
+                            <p class="lead">"From a lab email thread to a public page with RSS"</p>
+                        </header>
+                        <div class="post-content">
+                            <p>In our lab, as in many others we share a lot of papers. Some are just filled in <em>to read later</em>, some get only a quick scan of abstract and figures, some deeply inspected. In many cases these are shared among the lab with a note on the relevance.</p>
+
+<p>The backbone of this system came from my PhD time: back in Christoph Bock's lab, there was a simple mailing list where anyone could post interesting papers. It wasn't fancy, but it worked nicely as an archive. You could search it but mostly it was used as a barometer for what people were excited about at any given time. That system stuck with me. From day one of starting my own group, I set up the same thing: an email address where we send papers with <code>[paper]</code> in the subject, a comment, and a link.</p>
+
+<p>For the longest time, the list was just that - a mailbox. Useful to us, invisible to everyone else.</p>
+
+<p>Last week I finally got around to changing that. I wrote a script that pulled all 554 papers from the inbox, extracts titles and DOIs from the URLs, looks up the journal names via Crossref, and renders them into a proper page on our lab site. It also generates an RSS feed, because I'm still nostalgic for the late 2000s internet and think feeds deserve a comeback. Finally, a UMAP and a few other plots describe the data - what is trending with time, how many and when papers are shared. Yes, the data scientist in me will never die.</p>
+
+<p>It pairs nicely with the little <a href="https://github.com/rendeirolab/sendpaper-chrome-extension">browser extension</a> we built a while back - one click to compose a <code>[paper]</code> email with the title and URL pre-filled.</p>
+
+<p>You can see the result at <a href="/cool-papers/#insights">rendeiro.group/cool-papers/</a> and subscribe to the <a href="/cool-papers/feed.xml">RSS feed</a>. If you build something similar in your lab, I'd love to hear about it.</p>
+
+                        </div>
+                    </article>
                 </div>
 
                 <br />
@@ -242,11 +244,18 @@
         
 
         
+
         <!-- Bootstrap JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
         <!-- Bootstrap color toggle -->
         <script defer src="https://cdn.jsdelivr.net/gh/rendeirolab/rendeirolab.github.io@main/assets/js/color_toggler.js"></script>
         
+    <!-- Code block highlighting -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
     </body>
 </html>

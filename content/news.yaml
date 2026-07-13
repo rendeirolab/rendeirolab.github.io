@@ -5,6 +5,14 @@ news:
   content: "News from our lab:"
   outro: ""
   news:
+    - date: 2026-07-01
+      title: "Ariadna, Ernesto and Shrestha attended the Ascona Workshop 2026"
+      description: |
+        <p>Ariadna Villanueva Marijuan, Ernesto Abila and Shrestha Srivastava attended the <a href="https://ascona2026.sciencesconf.org/">Ascona Workshop: Statistical and AI methods for multi-modal multi-scale modeling of biological systems</a> at Monte Verità, Ascona, Switzerland.</p>
+        <p>The workshop (28 June - 3 July 2026) addressed current challenges in integrating and interpreting multi-modal datasets across biological scales, bringing together leading researchers in statistics, machine learning, systems biology and biomedicine.</p>
+        <p>Thank you to the organizers Niko Beerenwinkel, Valentina Boeva, Peter Bühlmann and Wolfgang Huber for this excellent workshop that has been running for many years!</p>
+      img: 2026-07-01-ascona_meeting.webp
+      img_alt: "The 2026 Ascona workshop participants"
     - date: 2026-05-01
       title: "Marsilea spotlighted at GitHub maintainer month!"
       description: |

@@ -5,10 +5,19 @@ news:
   content: "News from our lab:"
   outro: ""
   news:
+    - date: 2026-07-04
+      title: "Ariadna awarded the DOC Fellowship of the Austrian Academy of Sciences"
+      description: |
+        <p>Ariadna Villanueva Marijuan has been awarded the <a href="https://stipendien.oeaw.ac.at/en/fellowships/doc">DOC Fellowship (Doctoral Fellowship Program)</a> of the Austrian Academy of Sciences (ÖAW).</p>
+        <p>The DOC fellowship is a highly competitive program that supports outstanding doctoral candidates across all areas of basic research, enabling them to focus on their dissertation with dedicated funding.</p>
+        <p>Ariadna is the first PhD student in the lab to receive a fellowship: a major achievement!</p>
+        <p>We are all proud of you Ariadna! Congratulations!</p>
+      img: https://cemm.at/fileadmin/_processed_/a/b/csm_Villanueava_Marijuan_Ariadna_bubble_9c1eda1c3a.png
+      img_alt: "Ariadna Villanueva Marijuan"
     - date: 2026-07-01
       title: "Ariadna, Ernesto and Shrestha attended the Ascona Workshop 2026"
       description: |
-        <p>Ariadna Villanueva Marijuan, Ernesto Abila and Shrestha Srivastava attended the <a href="https://ascona2026.sciencesconf.org/">Ascona Workshop: Statistical and AI methods for multi-modal multi-scale modeling of biological systems</a> at Monte Verità, Ascona, Switzerland.</p>
+        <p>Ariadna, Ernesto and Shrestha attended the <a href="https://ascona2026.sciencesconf.org/">Ascona Workshop: Statistical and AI methods for multi-modal multi-scale modeling of biological systems</a> at Monte Verità, Ascona, Switzerland.</p>
         <p>The workshop (28 June - 3 July 2026) addressed current challenges in integrating and interpreting multi-modal datasets across biological scales, bringing together leading researchers in statistics, machine learning, systems biology and biomedicine.</p>
         <p>Thank you to the organizers Niko Beerenwinkel, Valentina Boeva, Peter Bühlmann and Wolfgang Huber for this excellent workshop that has been running for many years!</p>
       img: 2026-07-01-ascona_meeting.webp

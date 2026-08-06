@@ -31,6 +31,22 @@ publications:
       resources:
         - Code: https://github.com/rendeirolab/stainx
       highlight: false
+    10.1038/s41591-026-04566-5:
+      authors: "Ernesto Abila<sup>*</sup>, Iva Buljan<sup>*</sup>, Yimin Zheng<sup>*</sup>, Lisa Kleissl, Sigrid Klotz, Tamas Veres, Zhilong Weng, Maja Nackenhorst, Rizqah Kamies, Anja Michl, Safwen Kadri, Samir Moustafa, Wolfgang Hulla, Matthias Perkonigg, Mathias Drach, Philipp Tschandl, Barbara Sterniczky, Matthias Heinig, Laurens J. De Sadeleer, Wim Wuyts, Bart Vanaudenaerde, Laurens J. Ceulemans,  Daniel D. Buchanan, Lochlan J. Fennell, Georg Stary, Yuri Tolkach, Adelheid Wöhrer, Herbert B. Schiller, André F. Rendeiro"
+      title: "Histological aging signatures for monitoring tissue-specific aging and disease"
+      publisher: "Nature Medicine"
+      year: 2026
+      type: journal
+      description: null
+      resources:
+        - Press: https://www.focus.it/scienza/salute/gli-organi-del-corpo-umano-non-invecchiano-tutti-alla-stessa-velocita
+        - Press: https://www.newscientist.com/article/2458249-most-comprehensive-picture-yet-of-how-organs-age-at-different-rates/
+        - Preprint: https://doi.org/10.1101/2024.11.14.618081
+        - Data: https://zenodo.org/doi/10.5281/zenodo.13330658
+        - Data: https://zenodo.org/doi/10.5281/zenodo.20709093
+        - Code: https://github.com/rendeirolab/agingpath
+        - Code: https://doi.org/10.5281/zenodo.20671352
+      highlight: true
     10.64898/2026.03.27.714678:
       authors: "Daphne A Superville, Eva Chrenková, Yimin Zheng, Alexis J. Combes, Iros Barozzi, Zena Werb, André F. Rendeiro, Christopher S. McGinnis, Andrei Goga, Juliane Winkler"
       title: "Tumor Heterogeneity Induces Pro- and Anti-metastatic Myeloid Cell Phenotypes in Breast Cancer Lung Metastasis"

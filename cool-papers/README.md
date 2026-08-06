@@ -5,6 +5,7 @@ Extracts `[paper]`-tagged emails from a Thunderbird mbox file, enriches them wit
 ## Pipeline
 
 1. **Extract** — `extract_papers.py` (uv script)
+   - Mailbox paths are read from the `cool_papers:` section of the root `config.yaml` (or `MAILBOX`/`SENT_MAILBOX` env vars; built-in Thunderbird default as last resort)
    - Greps the mbox (12GB, 155M lines, 22K messages) for message-boundary offsets and `[paper]` subjects (554 matches)
    - Uses `mmap` + `bisect_right` to extract only matching messages
    - Parses multipart/single-part MIME, QP/base64, extracts title/URL/comment/date/sender

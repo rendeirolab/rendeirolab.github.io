@@ -2,6 +2,7 @@
 # /// script
 # dependencies = [
 #   "beautifulsoup4",
+#   "pyyaml",
 # ]
 # ///
 
@@ -13,11 +14,10 @@ combines them into a single deduplicated CSV.
 Usage:
     uv run extract_papers.py
 
-Environment:
-    MAILBOX:     path to Thunderbird INBOX mbox file
-                (default: ~/.thunderbird/.../ImapMail/outlook.office365.com/INBOX)
-    SENT_MAILBOX: path to Thunderbird Sent Items mbox file
-                (default: ~/.thunderbird/.../ImapMail/outlook.office365.com/Sent Items-1)
+Configuration (first match wins):
+    1. MAILBOX / SENT_MAILBOX environment variables
+    2. `cool_papers:` section in the project's config.yaml
+    3. built-in Thunderbird default path
 
 Output:
     papers.csv in the same directory as this script.
@@ -43,6 +43,11 @@ try:
 except ImportError:
     BeautifulSoup = None
 
+try:
+    import yaml
+except ImportError:
+    yaml = None
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(levelname)s %(message)s",
@@ -56,7 +61,7 @@ OUTPUT = SCRIPT_DIR / "papers.csv"
 THUNDERBIRD = (
     Path.home()
     / ".thunderbird"
-    / "7z5edwgd.default-release"
+    / "xsjcp63z.default-release"
     / "ImapMail"
     / "outlook.office365.com"
 )
@@ -64,13 +69,31 @@ THUNDERBIRD = (
 # Each entry: (label, mbox_path, offsets_path, lines_path)
 MBOX_CONFIGS: list[tuple[str, Path, Path, Path]] = []
 
-_inbox = Path(os.environ.get("MAILBOX", THUNDERBIRD / "INBOX"))
+
+def load_config() -> dict:
+    """Load the cool_papers section from the project's config.yaml."""
+    cfg_path = SCRIPT_DIR.parent / "config.yaml"
+    if not cfg_path.exists() or yaml is None:
+        return {}
+    try:
+        cfg = yaml.safe_load(cfg_path.read_text()) or {}
+        return cfg.get("cool_papers", {}) or {}
+    except Exception:
+        return {}
+
+
+_cfg = load_config()
+_inbox = Path(
+    os.environ.get("MAILBOX", _cfg.get("mailbox", THUNDERBIRD / "INBOX"))
+).expanduser()
 MBOX_CONFIGS.append(("inbox", _inbox,
     SCRIPT_DIR / "from_offsets_inbox.txt",
     SCRIPT_DIR / "paper_lines_inbox.txt"))
 
-_sent = os.environ.get("SENT_MAILBOX", str(THUNDERBIRD / "Sent Items-1"))
-_sent_path = Path(_sent)
+_sent = os.environ.get(
+    "SENT_MAILBOX", _cfg.get("sent_mailbox", THUNDERBIRD / "Sent Items")
+)
+_sent_path = Path(_sent).expanduser()
 if _sent_path.exists():
     MBOX_CONFIGS.append(("sent", _sent_path,
         SCRIPT_DIR / "from_offsets_sent.txt",

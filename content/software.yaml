@@ -36,6 +36,16 @@ software:
       img_alt: The Marsilea logo with a cross-layout at the center and gray background with the words "Transform your data landscape."
       url_gh: https://github.com/Marsilea-viz/marsilea
       url_docs: https://marsilea.readthedocs.io/
+    StainX:
+      title: "StainX"
+      subtitle: "GPU-accelerated batch stain normalization for computational pathology"
+      description: |
+        StainX is a Python library for stain normalization of histopathology images with batch processing support.
+        It is optimized for CPU, GPU (CUDA), and MPS (Apple Silicon) devices.
+      img: https://raw.githubusercontent.com/rendeirolab/stainx/main/assets/StainX-logo.svg
+      img_alt: The StainX logo — a stylized geometric mark in dark purple.
+      url_gh: https://github.com/rendeirolab/stainx
+      url_docs: https://stainx.readthedocs.io/
     wsi:
       title: "wsi"
       subtitle: "Python library for processing whole slide images (WSI)"

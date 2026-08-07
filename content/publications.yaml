@@ -5,7 +5,7 @@ publications:
   content: ""
   outro: ""
   publications:
-    stainx:
+    10.64898/2026.08.06.743198:
       authors: "Samir Moustafa, Yimin Zheng, André F. Rendeiro"
       title: "StainX: GPU-accelerated batch stain normalization for computational pathology at scale"
       publisher: "BioRxiv"

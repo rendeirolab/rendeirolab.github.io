@@ -5,6 +5,15 @@ news:
   content: "News from our lab:"
   outro: ""
   news:
+    - date: 2026-08-06
+      title: "StainX preprint is now available on BioRxiv!"
+      description: |
+        <p>Our manuscript describing <a href="https://doi.org/10.64898/2026.08.06.743198">StainX</a> is now available as a preprint on BioRxiv.</p>
+        <p>StainX is a Python package for GPU-accelerated batch stain normalization of histopathology images, achieving <strong>8-11x speedups</strong> over standard PyTorch implementations through optimized CUDA kernels.</p>
+        <p>The manuscript, led by Samir Moustafa, details the algorithm implementations and benchmarking.</p>
+        <p>Read the preprint at <a href="https://doi.org/10.64898/2026.08.06.743198">doi:10.64898/2026.08.06.743198</a>, install with <code>pip install stainx</code>, and check out the <a href="https://github.com/rendeirolab/stainx">GitHub repository</a>.</p>
+      img: https://raw.githubusercontent.com/rendeirolab/stainx/refs/heads/main/assets/staix-logo-256.png
+      img_alt: "StainX logo"
     - date: 2026-07-04
       title: "Ariadna awarded the DOC Fellowship of the Austrian Academy of Sciences"
       description: |

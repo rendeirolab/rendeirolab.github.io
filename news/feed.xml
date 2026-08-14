@@ -6,7 +6,13 @@
     <description>Recent news from the Rendeiro Lab</description>
     <language>en-us</language>
     <atom:link href="https://rendeiro.group/news/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Fri, 07 Aug 2026 09:32:47 -0000</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2026 09:55:13 -0000</lastBuildDate>
+    <item>
+      <title>Tissue clocks paper published in Nature Medicine!</title>
+      <guid isPermaLink="false">Tissue clocks paper published in Nature Medicine!2026-08-07</guid>
+      <pubDate>Fri, 07 Aug 2026 00:00:00 -0000</pubDate>
+      <description>Our study revealing how human organs age at different rates is now published in Nature Medicine . Led by Ernesto Abila, Iva Buljan, and Yimin Zheng, the work introduces histological aging signatures derived from pathology images that can monitor tissue-specific aging and predict disease. Read the paper at doi:10.1038/s41591-026-04566-5 and explore the code at agingpath .</description>
+    </item>
     <item>
       <title>StainX preprint is now available on BioRxiv!</title>
       <guid isPermaLink="false">StainX preprint is now available on BioRxiv!2026-08-06</guid>
@@ -150,12 +156,6 @@
       <guid isPermaLink="false">We took part in the 2025 CeMM outing2025-10-03</guid>
       <pubDate>Fri, 03 Oct 2025 00:00:00 -0000</pubDate>
       <description>The CeMM outing is a day where the science meets society in the physical space. This year, we visited the historic and just renovated Theater an der Wien - the perfect setting for the 2025 theme of "changing the scenery".</description>
-    </item>
-    <item>
-      <title>Andre gave a talk at the 2025 OeGMBT meeting</title>
-      <guid isPermaLink="false">Andre gave a talk at the 2025 OeGMBT meeting2025-09-24</guid>
-      <pubDate>Wed, 24 Sep 2025 00:00:00 -0000</pubDate>
-      <description>Andre gave a talk at the 2025 annual meeting of the Austrian Society for Molecular Biology and Biotechnology (OeGMBT) in Innsbruck, Austria. It was great to see the diverse research made by the local community, in particular by the young researchers who presented their work. Thank you to the organizers and in particular to Markus Mandl for the invitation!</description>
     </item>
   </channel>
 </rss>

@@ -5,6 +5,13 @@ news:
   content: "News from our lab:"
   outro: ""
   news:
+    - date: 2026-08-15
+      title: "Andre profiled in the Austrian Medical Journal (Ärztezeitung)"
+      description: |
+        <p>A profile piece on Andre's scientific career trajectory was published in the <a href="https://www.aerztezeitung.at/">Österreichische Ärztezeitung</a>, the official journal of the Austrian Medical Association.</p>
+        <p>Thank you to Ursula Scholz for the opportunity and the interview!</p>
+      img: 2026-08-15-oesterreichische_aertzezeitung.webp
+      img_alt: "A low-resolution photo of the Österreichische Ärztezeitung magazine page with the profile of Andre"
     - date: 2026-08-07
       title: "Tissue clocks paper published in Nature Medicine!"
       description: |

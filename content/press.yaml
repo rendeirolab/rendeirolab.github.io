@@ -5,6 +5,46 @@ press:
   content: "Press coverage of our our lab's work:"
   outro: ""
   press:
+      - date: 2026-08-17
+        title: "Blood Samples May Help Estimate Organs' Biological Ages, Study Finds"
+        publisher: "StudyFinds"
+        url: "https://studyfinds.com/blood-samples-organs-age/"
+        description: Coverage of the tissue-clocks Nature Medicine paper
+        img: https://studyfinds.com/wp-content/uploads/2024/06/Default-sharing-image.jpg
+        img_alt: The logo of StudyFinds
+
+      - date: 2026-08-14
+        title: "KI spürt im Blut „Gewebeuhren\" von Leber, Niere und Co. auf"
+        publisher: "Salzburger Nachrichten"
+        url: "https://www.sn.at/panorama/wissen/ki-spuert-im-blut-gewebeuhren-von-leber-niere-und-co-auf-art-667557"
+        description: Coverage of the tissue-clocks Nature Medicine paper
+        img: https://www.sn.at/design/pics/sn-logo-450x60.png
+        img_alt: The logo of the Salzburger Nachrichten
+
+      - date: 2026-08-14
+        title: "Órgãos envelhecem em ritmos diferentes e têm idades distintas, diz estudo"
+        publisher: "Revista Galileu (Globo)"
+        url: "https://revistagalileu.globo.com/saude/noticia/2026/08/orgaos-envelhecem-em-ritmos-diferentes-e-tem-idades-distintas-diz-estudo.ghtml"
+        description: Coverage of the tissue-clocks Nature Medicine paper
+        img: https://s2.glbimg.com/oDEfZScyfuDRSV0ahgVm10xXiDY=/i.s3.glbimg.com/v1/AUTH_fde5cd494fb04473a83fa5fd57ad4542/internal_photos/bs/2022/g/3/8XVpfTRwukBj5gXysVzw/galileu-icon-512x512-3380ecb337.webp
+        img_alt: The icon of Revista Galileu
+
+      - date: 2026-08-14
+        title: "\"장기마다 노화속도 달라…혈액검사로 빨리 늙는 장기 예측\""
+        publisher: "Yonhap News Agency"
+        url: "https://www.yna.co.kr/view/AKR20260814061100017"
+        description: Coverage of the tissue-clocks Nature Medicine paper
+        img: https://r.yna.co.kr/global/home/v01/img/yonhapnews_logo_600x325_kr05.jpg
+        img_alt: The logo of the Yonhap News Agency
+
+      - date: 2026-08-14
+        title: "Bluttest verrät, welche Organe schneller altern als andere"
+        publisher: "healthcare-in-europe.com"
+        url: "https://healthcare-in-europe.com/de/news/bluttest-organe-alter.html"
+        description: Coverage of the tissue-clocks Nature Medicine paper
+        img: https://healthcare-in-europe.com/styles/images/hie_logo.png
+        img_alt: The logo of healthcare-in-europe.com
+
       - date: 2026-03-27
         title: Searching tissue with words
         publisher: "Bionity"

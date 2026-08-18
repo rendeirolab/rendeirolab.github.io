@@ -6,7 +6,13 @@
     <description>Recent news from the Rendeiro Lab</description>
     <language>en-us</language>
     <atom:link href="https://rendeiro.group/news/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Fri, 14 Aug 2026 10:18:52 -0000</lastBuildDate>
+    <lastBuildDate>Tue, 18 Aug 2026 23:29:49 -0000</lastBuildDate>
+    <item>
+      <title>Andre profiled in the Austrian Medical Journal (Ärztezeitung)</title>
+      <guid isPermaLink="false">Andre profiled in the Austrian Medical Journal (Ärztezeitung)2026-08-15</guid>
+      <pubDate>Sat, 15 Aug 2026 00:00:00 -0000</pubDate>
+      <description>A profile piece on Andre's scientific career trajectory was published in the Österreichische Ärztezeitung , the official journal of the Austrian Medical Association. Thank you to Ursula Scholz for the opportunity and the interview!</description>
+    </item>
     <item>
       <title>Tissue clocks paper published in Nature Medicine!</title>
       <guid isPermaLink="false">Tissue clocks paper published in Nature Medicine!2026-08-07</guid>
@@ -150,12 +156,6 @@
       <guid isPermaLink="false">We participated in the 20th run for cancer research2025-10-04</guid>
       <pubDate>Sat, 04 Oct 2025 00:00:00 -0000</pubDate>
       <description>We took part in the run for cancer research in which altogether a combined distance of 46,239 laps were run, each with a donation to support cancer research. With this we hope to not only raise funds for cancer research in Austria, but also awareness about cancer, and promote its prevention.</description>
-    </item>
-    <item>
-      <title>We took part in the 2025 CeMM outing</title>
-      <guid isPermaLink="false">We took part in the 2025 CeMM outing2025-10-03</guid>
-      <pubDate>Fri, 03 Oct 2025 00:00:00 -0000</pubDate>
-      <description>The CeMM outing is a day where the science meets society in the physical space. This year, we visited the historic and just renovated Theater an der Wien - the perfect setting for the 2025 theme of "changing the scenery".</description>
     </item>
   </channel>
 </rss>

@@ -376,6 +376,14 @@ publications:
         - Data: https://doi.org/10.5281/zenodo.4635285
         - Code: https://github.com/ElementoLab/covid-imc
         - Code: https://github.com/ElementoLab/covid-imc-viz
+    10.1161/CIRCULATIONAHA.120.046464:
+      authors: "Laurienne Edgar, Naveed Akbar, Adam T Braithwaite, Thomas Krausgruber, Héctor Gallart-Ayala, Jade Bailey, Alastair L Corbin, Tariq E Khoyratty, Joshua T Chai, Mohammad Alkhalil, André F. Rendeiro, Klemen Ziberna, Ritu Arya, Thomas J Cahill, Christoph Bock, Jurga Laurencikiene, Mark J Crabtree, Madeleine E Lemieux, Niels P Riksen, Mihai G Netea, Craig E Wheelock, Keith M Channon, Mikael Rydén, Irina A Udalova, Ricardo Carnicer, Robin P Choudhury"
+      title: "Hyperglycaemia Induces Trained Immunity in Macrophages and Their Precursors and Promotes Atherosclerosis"
+      publisher: "Circulation"
+      year: 2021
+      type: journal
+      description: null
+      resources: null
     10.1038/s41588-021-00777-3:
       authors: "Sandra Schick, Sarah Grosche, Katharina Eva Kohl, Danica Drpic, Martin G. Jaeger, Nara C. Marella, Hana Imrichova, Jung-Ming G. Lin, Gerald Hofstätter, Michael Schuster, André F. Rendeiro, Anna Koren, Mark Petronczki, Christoph Bock, André C. Müller, Georg E. Winter, Stefan Kubicek"
       title: "Acute BAF perturbation causes immediate changes in chromatin accessibility"

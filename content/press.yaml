@@ -6,6 +6,30 @@ press:
   outro: ""
   press:
       - date: 2026-08-19
+        title: "Reloj biológico. No todos los órganos envejecen igual: estos son los primeros que empiezan a deteriorarse"
+        publisher: "La Voz del Interior"
+        url: "https://www.lavoz.com.ar/salud/organos-envejecen-igual-primeros-empiezan-deteriorarse_0_N3Kbnked43.html"
+        description: Coverage of the tissue-clocks Nature Medicine paper
+        img: https://www.lavoz.com.ar/img/logo-lavoz.png
+        img_alt: The logo of La Voz del Interior
+
+      - date: 2026-08-19
+        title: "AI Links Organ-Specific Aging Patterns in Histology to Blood-Based Signals"
+        publisher: "Lab Medica"
+        url: "https://www.labmedica.com/pathology/articles/294812558/ai-links-organ-specific-aging-patterns-in-histology-to-blood-based-signals.html"
+        description: Coverage of the tissue-clocks Nature Medicine paper
+        img: https://globetechcdn.com/labmedica/vimages/n_images/site_logo.gif
+        img_alt: The logo of Lab Medica
+
+      - date: 2026-08-19
+        title: "El cuerpo no envejece al mismo ritmo: cada órgano sigue su propio reloj"
+        publisher: "Infosalus"
+        url: "https://www.infosalus.com/salud-investigacion/noticia-cuerpo-no-envejece-mismo-ritmo-cada-organo-sigue-propio-reloj-20260819074849.html"
+        description: Coverage of the tissue-clocks Nature Medicine paper
+        img: https://s01.europapress.net/imagenes/estaticos/logo-infosalus-n.svg
+        img_alt: The logo of Infosalus
+
+      - date: 2026-08-19
         title: "Blood Tests Could Help Estimate Organs' Biological Age"
         publisher: "Technology Networks"
         url: "https://www.technologynetworks.com/genomics/news/blood-tests-could-help-estimate-organs-biological-age-415775"
@@ -20,6 +44,22 @@ press:
         description: Coverage of the tissue-clocks Nature Medicine paper
         img: https://studyfinds.com/wp-content/uploads/2024/06/Default-sharing-image.jpg
         img_alt: The logo of StudyFinds
+
+      - date: 2026-08-16
+        title: "Seus órgãos podem ter idades diferentes da sua, aponta estudo"
+        publisher: "Metrópoles"
+        url: "https://www.metropoles.com/saude/seus-orgaos-podem-ter-idades-diferentes-da-sua-aponta-estudo"
+        description: Coverage of the tissue-clocks Nature Medicine paper
+        img: https://upload.wikimedia.org/wikipedia/commons/c/c3/Metr%C3%B3poles_logo.svg
+        img_alt: The logo of Metrópoles
+
+      - date: 2026-08-14
+        title: "KI spürt im Blut das Alter von Leber, Niere und Co. auf"
+        publisher: "News TV"
+        url: "https://www.news.at/technik/ki-spurt-im-blut-das-alter-von-leber-niere-und-co-auf-1786706465"
+        description: Coverage of the tissue-clocks Nature Medicine paper
+        img: https://www.news.at/assets/logos/news-logo.svg
+        img_alt: The logo of News TV
 
       - date: 2026-08-14
         title: "KI spürt im Blut „Gewebeuhren\" von Leber, Niere und Co. auf"

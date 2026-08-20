@@ -5,6 +5,14 @@ press:
   content: "Press coverage of our our lab's work:"
   outro: ""
   press:
+      - date: 2026-08-19
+        title: "Blood Tests Could Help Estimate Organs' Biological Age"
+        publisher: "Technology Networks"
+        url: "https://www.technologynetworks.com/genomics/news/blood-tests-could-help-estimate-organs-biological-age-415775"
+        description: Interview-based coverage of the tissue-clocks Nature Medicine paper with quotes from Andre
+        img: "https://assets.technologynetworks.com/production/static/images/logos/TNLogo_StructuredData_2021.png?cb=514820"
+        img_alt: The logo of Technology Networks
+
       - date: 2026-08-17
         title: "Blood Samples May Help Estimate Organs' Biological Ages, Study Finds"
         publisher: "StudyFinds"

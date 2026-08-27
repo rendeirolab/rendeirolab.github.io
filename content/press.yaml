@@ -5,6 +5,22 @@ press:
   content: "Press coverage of our our lab's work:"
   outro: ""
   press:
+      - date: 2026-08-26
+        title: "Biologisches Alter: Lunge altert schneller als Leber – KI macht es sichtbar"
+        publisher: "Frankfurter Rundschau"
+        url: "https://www.fr.de/wissen/biologisches-alter-lunge-altert-schneller-als-leber-ki-macht-es-sichtbar-94460932.html"
+        description: Coverage of the tissue-clocks Nature Medicine paper
+        img: https://www.fr.de/static/fr/img/basis/responsive/logo.png
+        img_alt: The logo of the Frankfurter Rundschau
+
+      - date: 2026-08-26
+        title: "Os órgãos envelhecem a diferentes velocidades e o sangue pode revelar essa idade"
+        publisher: "Publico.pt"
+        url: "https://www.publico.pt/2026/08/26/ciencia/noticia/orgaos-envelhecem-diferentes-velocidades-sangue-revelar-idade-2185031"
+        description: Coverage of the tissue-clocks Nature Medicine paper
+        img: https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Logo_publico.svg/1920px-Logo_publico.svg.png
+        img_alt: The logo of the Publico newspaper
+
       - date: 2026-08-19
         title: "Reloj biológico. No todos los órganos envejecen igual: estos son los primeros que empiezan a deteriorarse"
         publisher: "La Voz del Interior"

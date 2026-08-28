@@ -5,6 +5,14 @@ press:
   content: "Press coverage of our our lab's work:"
   outro: ""
   press:
+      - date: 2026-08-28
+        title: "KI: Forscher lesen das Alter Ihrer Organe aus Gewebe – und entdecken Krankheitsmuster"
+        publisher: "Die Welt"
+        url: "https://www.welt.de/gesundheit/article6a8bee88511d4fd3bc4e1c57/ki-forscher-lesen-das-alter-ihrer-organe-aus-gewebe-und-entdecken-krankheitsmuster.html"
+        description: Coverage of the tissue-clocks Nature Medicine paper
+        img: https://www.welt.de/assets/public/images/global/welt_brand-h-60.png
+        img_alt: The logo of Die Welt
+
       - date: 2026-08-26
         title: "Biologisches Alter: Lunge altert schneller als Leber – KI macht es sichtbar"
         publisher: "Frankfurter Rundschau"
@@ -20,6 +28,14 @@ press:
         description: Coverage of the tissue-clocks Nature Medicine paper
         img: https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Logo_publico.svg/1920px-Logo_publico.svg.png
         img_alt: The logo of the Publico newspaper
+
+      - date: 2026-08-25
+        title: "Herz, Lunge, Gehirn – jedes Organ altert in eigenem Tempo. Eine „Nature\"-Studie mit fast 26.000 Gewebeaufnahmen zeigt, wie groß die Unterschiede sind."
+        publisher: "Focus Online"
+        url: "https://www.focus.de/gesundheit/news/herz-lunge-gehirn-jedes-organ-altert-in-eigenem-tempo-eine-nature-studie-mit-fast-26-000-gewebeaufnahmen-zeigt-wie-gross-die-unterschiede-sind_dd947117-97c5-4163-81b8-5c98704e42c7.html"
+        description: Coverage of the tissue-clocks Nature Medicine paper
+        img: https://static.focus.de/pics/fol/fol-logo-v3.png
+        img_alt: The logo of Focus Online
 
       - date: 2026-08-19
         title: "Reloj biológico. No todos los órganos envejecen igual: estos son los primeros que empiezan a deteriorarse"

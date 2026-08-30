@@ -28,6 +28,14 @@ news:
         <p>Thank you to Ursula Scholz for the opportunity and the interview!</p>
       img: 2026-08-15-oesterreichische_aertzezeitung.webp
       img_alt: "A low-resolution photo of the Österreichische Ärztezeitung magazine page with the profile of Andre"
+    - date: 2026-10-15
+      title: "Farewell to Yimin!"
+      description: |
+        <p>Yimin Zheng leaves the lab. As the lab's first postdoc he was instrumental in setting the pace in methods development and data processing, with excellent coding skills, while always being available to help others.</p>
+        <p>His contributions include the Marsilea visualization framework, the LazySlide/WSIData stack, and the tissue-clocks project.</p>
+        <p>Thank you, Yimin - we wish you all the best for your next steps!</p>
+      img: https://cemm.at/fileadmin/img/people/Bubble_pictures/Zheng_Yimin_Bubble.png
+      img_alt: "A photo of Yimin inside the CeMM bubble."
     - date: 2026-08-07
       title: "Tissue clocks paper published in Nature Medicine!"
       description: |

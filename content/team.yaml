@@ -136,14 +136,9 @@ team:
       # photo: assets/img/tveres.png
       photo: https://cemm.at/fileadmin/img/people/Bubble_pictures/Tamas_Veres_Bubble.png
       photo_alt: "A photo of Tamas inside the CeMM bubble."
+  alumni:
     yzheng:
       name: Yimin Zheng
-      role: Postdoc
-      description: null
-      other_groups: null
-      email: yzheng@cemm.oeaw.ac.at
-      interests: null
-      # photo: assets/img/yzheng.png
+      description: "Postdoc (Sep 2023 - Oct 2026)"
       photo: https://cemm.at/fileadmin/img/people/Bubble_pictures/Zheng_Yimin_Bubble.png
       photo_alt: "A photo of Yimin inside the CeMM bubble."
-  alumni:

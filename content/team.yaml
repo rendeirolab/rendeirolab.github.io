@@ -33,6 +33,15 @@ team:
       # photo: assets/img/avillanuevamarijuan.png
       photo: https://cemm.at/fileadmin/_processed_/a/b/csm_Villanueava_Marijuan_Ariadna_bubble_9c1eda1c3a.png
       photo_alt: "A photo of Ariadna inside the CeMM bubble."
+    cwesthoven:
+      name: Charlotte Westhoven
+      role: PhD Student
+      description: null
+      other_groups: null
+      email: cwesthoven@cemm.oeaw.ac.at
+      interests: null
+      photo: https://cdn.jsdelivr.net/gh/rendeirolab/rendeirolab.github.io@main/assets/img/empty_bubble_photo_1.png
+      photo_alt: "A photo of Charlotte inside the CeMM bubble."
     ckohl:
       name: Clemens Kohl
       role: Postdoc

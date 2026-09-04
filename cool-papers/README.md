@@ -5,11 +5,12 @@ Extracts `[paper]`-tagged emails from a Thunderbird mbox file, enriches them wit
 ## Pipeline
 
 1. **Extract** — `extract_papers.py` (uv script)
-   - Mailbox paths are read from the `cool_papers:` section of the root `config.yaml` (or `MAILBOX`/`SENT_MAILBOX` env vars; built-in Thunderbird default as last resort)
+   - Mailbox paths are read from the `cool_papers:` section of the root `config.yaml` (`mailbox`/`sent_mailbox`), or from the `MAILBOX`/`SENT_MAILBOX` env vars; the INBOX mailbox is mandatory (no built-in default — a missing config fails loudly)
    - Greps the mbox (12GB, 155M lines, 22K messages) for message-boundary offsets and `[paper]` subjects (554 matches)
    - Uses `mmap` + `bisect_right` to extract only matching messages
    - Parses multipart/single-part MIME, QP/base64, extracts title/URL/comment/date/sender
    - Strips HTML, signatures, style/script tags, Outlook safelinks, `^`/`^^` markers
+   - **Staleness guard:** refuses to run (exit code 1) when no `[paper]`-tagged email was found in the last 7 days — the mailbox is probably unsynced (Thunderbird not running). Override with `ALLOW_STALE_MAIL=1`
 
 2. **Enrich** — `enrich_papers.py` (uv script)
    - Extracts DOIs from URLs (doi.org, nature.com, science.org, Cell.com, etc.)

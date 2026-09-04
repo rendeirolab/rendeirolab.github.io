@@ -66,5 +66,5 @@ pages:
     file: contact/index.html
 manual_repo: rendeirolab/lab-manual
 cool_papers:
-  mailbox: ~/.thunderbird/xsjcp63z.default-release/ImapMail/outlook.office365.com/INBOX
-  sent_mailbox: ~/.thunderbird/xsjcp63z.default-release/ImapMail/outlook.office365.com/Sent Items
+  mailbox: ~/.thunderbird/dgk0fvz3.default-release/ImapMail/outlook.office365.com/INBOX
+  sent_mailbox: ~/.thunderbird/dgk0fvz3.default-release/ImapMail/outlook.office365.com/Sent Items

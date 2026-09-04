@@ -11,13 +11,18 @@
 Scans both INBOX and Sent Items folders for [paper]-tagged messages and
 combines them into a single deduplicated CSV.
 
+The run is refused (exit code 1) when no [paper]-tagged email was found in
+the last 7 days, which usually means the mailbox was not synced (e.g.
+Thunderbird not running). Override with ALLOW_STALE_MAIL=1.
+
 Usage:
     uv run extract_papers.py
 
-Configuration (first match wins):
+Configuration (required; no built-in default):
     1. MAILBOX / SENT_MAILBOX environment variables
     2. `cool_papers:` section in the project's config.yaml
-    3. built-in Thunderbird default path
+       (keys: mailbox, sent_mailbox)
+    The INBOX mailbox is mandatory; the sent mailbox is optional.
 
 Output:
     papers.csv in the same directory as this script.
@@ -34,7 +39,7 @@ import html as html_mod
 import quopri
 import base64
 from bisect import bisect_right
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import unquote
 
@@ -58,16 +63,9 @@ log = logging.getLogger("extract_papers")
 SCRIPT_DIR = Path(__file__).parent.resolve()
 OUTPUT = SCRIPT_DIR / "papers.csv"
 
-THUNDERBIRD = (
-    Path.home()
-    / ".thunderbird"
-    / "xsjcp63z.default-release"
-    / "ImapMail"
-    / "outlook.office365.com"
-)
-
-# Each entry: (label, mbox_path, offsets_path, lines_path)
-MBOX_CONFIGS: list[tuple[str, Path, Path, Path]] = []
+# Sanity cap on a single message byte range; a corrupt index must never
+# cause a huge slice+decode (which previously ballooned memory to > 15 GB).
+MAX_MESSAGE_BYTES = 100 * 1024 * 1024
 
 
 def load_config() -> dict:
@@ -82,44 +80,84 @@ def load_config() -> dict:
         return {}
 
 
-_cfg = load_config()
-_inbox = Path(
-    os.environ.get("MAILBOX", _cfg.get("mailbox", THUNDERBIRD / "INBOX"))
-).expanduser()
-MBOX_CONFIGS.append(("inbox", _inbox,
-    SCRIPT_DIR / "from_offsets_inbox.txt",
-    SCRIPT_DIR / "paper_lines_inbox.txt"))
+def resolve_mailboxes() -> list[tuple[str, Path, Path, Path]]:
+    """Resolve mbox sources from env vars or config.yaml.
 
-_sent = os.environ.get(
-    "SENT_MAILBOX", _cfg.get("sent_mailbox", THUNDERBIRD / "Sent Items")
-)
-_sent_path = Path(_sent).expanduser()
-if _sent_path.exists():
-    MBOX_CONFIGS.append(("sent", _sent_path,
-        SCRIPT_DIR / "from_offsets_sent.txt",
-        SCRIPT_DIR / "paper_lines_sent.txt"))
-else:
-    log.info("Sent mailbox not found at %s, skipping", _sent_path)
+    The INBOX mailbox is mandatory (no built-in default, so a stale or
+    missing configuration fails loudly instead of silently using a wrong
+    path). The sent mailbox is optional.
+
+    Returns a list of (label, mbox_path, offsets_path, lines_path).
+    """
+    cfg = load_config()
+    inbox_raw = os.environ.get("MAILBOX") or cfg.get("mailbox")
+    if not inbox_raw:
+        log.error(
+            "No INBOX mailbox configured: set 'cool_papers.mailbox' in "
+            "config.yaml or the MAILBOX environment variable."
+        )
+        sys.exit(1)
+    mboxes = [
+        (
+            "inbox",
+            Path(inbox_raw).expanduser(),
+            SCRIPT_DIR / "from_offsets_inbox.txt",
+            SCRIPT_DIR / "paper_lines_inbox.txt",
+        )
+    ]
+
+    sent_raw = os.environ.get("SENT_MAILBOX") or cfg.get("sent_mailbox")
+    sent_path = Path(sent_raw).expanduser() if sent_raw else None
+    if sent_path is not None:
+        if sent_path.exists():
+            mboxes.append(
+                (
+                    "sent",
+                    sent_path,
+                    SCRIPT_DIR / "from_offsets_sent.txt",
+                    SCRIPT_DIR / "paper_lines_sent.txt",
+                )
+            )
+        else:
+            log.info("Sent mailbox not found at %s, skipping", sent_path)
+    else:
+        log.info("No sent mailbox configured, skipping")
+
+    return mboxes
 
 
 # ── Index building (fast grep on the 12 GB mbox) ──────────────────────
 
 
+def _index_signature(mbox_path: Path) -> str:
+    """A header line identifying the mbox an index was built from."""
+    st = mbox_path.stat()
+    return (
+        f"# mbox: {mbox_path.resolve()} | size: {st.st_size} "
+        f"| mtime: {st.st_mtime_ns}\n"
+    )
+
+
 def build_indexes(mbox_path: Path, offsets_path: Path, lines_path: Path):
     """Run grep to build message-boundary and paper-subject indexes for one mbox."""
+    sig = _index_signature(mbox_path)
     log.info("Building message boundary index for %s ...", mbox_path.name)
+    with open(offsets_path, "w") as f:
+        f.write(sig)
     subprocess.run(
         ["grep", "-nb", "^From ", str(mbox_path)],
-        stdout=open(offsets_path, "w"),
+        stdout=open(offsets_path, "a"),
         stderr=subprocess.DEVNULL,
         check=True,
     )
     log.info("Built %s (%d lines)", offsets_path.name, offsets_path.stat().st_size)
 
     log.info("Building paper subject index for %s ...", mbox_path.name)
+    with open(lines_path, "w") as f:
+        f.write(sig)
     subprocess.run(
         ["grep", "-n", "^Subject: \\[paper\\]", str(mbox_path)],
-        stdout=open(lines_path, "w"),
+        stdout=open(lines_path, "a"),
         stderr=subprocess.DEVNULL,
         check=True,
     )
@@ -132,7 +170,7 @@ def parse_from_offsets(path: Path) -> list[tuple[int, int]]:
     with path.open() as f:
         for line in f:
             line = line.strip()
-            if not line:
+            if not line or line.startswith("#"):
                 continue
             parts = line.split(":", 2)
             if len(parts) >= 2:
@@ -149,7 +187,7 @@ def parse_paper_lines(path: Path) -> list[int]:
     with path.open() as f:
         for line in f:
             line = line.strip()
-            if not line:
+            if not line or line.startswith("#"):
                 continue
             parts = line.split(":", 1)
             if parts:
@@ -191,6 +229,13 @@ def extract_message_range(
             size = len(mm)
             if end_byte is None or end_byte > size:
                 end_byte = size
+            if end_byte - start_byte > MAX_MESSAGE_BYTES:
+                log.warning(
+                    "%s: skipping implausible byte range %d-%d "
+                    "(> %d bytes); index likely corrupt",
+                    mbox_path.name, start_byte, end_byte, MAX_MESSAGE_BYTES,
+                )
+                return "", None
             chunk = mm[start_byte:end_byte]
 
     text = chunk.decode("utf-8", errors="replace")
@@ -323,9 +368,27 @@ def _decode_sub_body(text: str, encoding: str) -> str:
 # ── URL extraction ────────────────────────────────────────────────────
 
 
+def _clean_url(url: str) -> str:
+    """Drop trailing whitespace/entities that glom onto URLs in HTML bodies
+    (e.g. a literal `&nbsp;` entity decoded to a non-breaking space)."""
+    return re.sub(r"[\s\u200b]+$", "", url)
+
+
+def _clean_text(text: str) -> str:
+    """Remove decoding/HTML artifacts from free-text fields: zero-width
+    spaces, non-breaking spaces (-> regular space) and U+FFFD replacement
+    characters left by lossy charset decoding."""
+    if not text:
+        return text
+    text = text.replace("\u200b", "")
+    text = text.replace("\u00a0", " ")
+    return text.replace("\ufffd", "").strip()
+
+
 def extract_originalsrc(body: str) -> str | None:
     for m in re.finditer(r'originalsrc="([^"]+)"', body):
         url = html_mod.unescape(m.group(1))
+        url = _clean_url(url)
         url = re.sub(r"^[^a-zA-Z]*", "", url)
         if not url.startswith(("http://", "https://")):
             continue
@@ -342,13 +405,13 @@ def extract_safelink_url(body: str) -> str | None:
         r"https?://eur\d*\.safelinks\.protection\.outlook\.com/\?url=([^&\"\s]+)",
         body,
     )
-    return unquote(m.group(1)) if m else None
+    return _clean_url(unquote(m.group(1))) if m else None
 
 
 def extract_direct_href(body: str) -> str | None:
     m = re.search(r'<a\s[^>]*href="([^"]+)"', body)
     if m:
-        url = m.group(1)
+        url = _clean_url(m.group(1))
         if url.startswith(("http://", "https://")):
             return url
     return None
@@ -360,7 +423,7 @@ def extract_plain_url(body: str) -> str | None:
         url = m.group(0)
         if "safelinks.protection.outlook.com" in url:
             continue
-        url = html_mod.unescape(url)
+        url = _clean_url(html_mod.unescape(url))
         # Strip leading non-URL junk from QP artifacts (e.g. "=https://" -> "https://")
         url = re.sub(r"^[^a-zA-Z]*", "", url)
         if url.startswith(("http://", "https://")):
@@ -371,7 +434,7 @@ def extract_plain_url(body: str) -> str | None:
 def extract_direct_href(body: str) -> str | None:
     """Extract the first http(s) href from an <a> tag."""
     for m in re.finditer(r'<a\s[^>]*href="([^"]+)"', body, re.IGNORECASE):
-        url = html_mod.unescape(m.group(1))
+        url = _clean_url(html_mod.unescape(m.group(1)))
         # Strip leading non-URL junk from QP artifacts
         url = re.sub(r"^[^a-zA-Z]*", "", url)
         if url.startswith(("http://", "https://")):
@@ -681,22 +744,32 @@ def process_message(
     date_parsed = parse_date(date_str) if date_str else ""
 
     return {
-        "title": title,
-        "url": url,
-        "from": from_addr or "",
+        "title": _clean_text(title),
+        "url": _clean_url(url),
+        "from": _clean_text(from_addr or ""),
         "date": date_str or "",
         "date_parsed": date_parsed,
-        "comment": comment,
-        "keywords": extract_header(header_section, "Keywords") or "",
+        "comment": _clean_text(comment),
+        "keywords": _clean_text(extract_header(header_section, "Keywords") or ""),
     }
 
 
 def _indexes_stale(mbox_path: Path, offsets_path: Path, lines_path: Path) -> bool:
-    """Return True if indexes are missing or older than the mbox file."""
+    """Return True if indexes are missing, older than the mbox, or built from
+    a different mailbox (same paths can be reused after a switch)."""
     if not offsets_path.exists() or not lines_path.exists():
         return True
     mbox_mtime = mbox_path.stat().st_mtime
-    return mbox_mtime > offsets_path.stat().st_mtime or mbox_mtime > lines_path.stat().st_mtime
+    if mbox_mtime > offsets_path.stat().st_mtime or mbox_mtime > lines_path.stat().st_mtime:
+        return True
+    sig = _index_signature(mbox_path)
+    for idx_path in (offsets_path, lines_path):
+        with idx_path.open() as f:
+            header = f.readline()
+        if header != sig:
+            log.warning("Index %s was built for a different mailbox, rebuilding", idx_path.name)
+            return True
+    return False
 
 
 def extract_papers(
@@ -766,7 +839,7 @@ def main():
 
     all_papers: list[dict] = []
 
-    for label, mbox_path, offsets_path, lines_path in MBOX_CONFIGS:
+    for label, mbox_path, offsets_path, lines_path in resolve_mailboxes():
         log.info("mbox: %s (%s)", mbox_path, mbox_path.stat().st_size)
         extracted = extract_papers(mbox_path, offsets_path, lines_path)
         all_papers.extend(extracted)
@@ -784,12 +857,49 @@ def main():
     log.info("Total extracted: %d, duplicates removed: %d, final: %d",
              len(all_papers), n_dup, len(deduped))
 
+    # Staleness guard: refuse to proceed when no [paper]-tagged email was
+    # found recently, which usually means the mailbox was not synced (e.g.
+    # Thunderbird not running). papers.csv is rebuilt from scratch below, so
+    # proceeding on a stale mailbox would silently drop papers.
+    if os.environ.get("ALLOW_STALE_MAIL") != "1":
+        now = datetime.now(timezone.utc).replace(tzinfo=None)
+        newest: datetime | None = None
+        for p in deduped:
+            raw = p.get("date_parsed", "")
+            if not raw:
+                continue
+            try:
+                ts = datetime.fromisoformat(raw.replace("Z", "+00:00"))
+            except ValueError:
+                continue
+            if ts.tzinfo is not None:
+                ts = ts.astimezone(timezone.utc).replace(tzinfo=None)
+            if newest is None or ts > newest:
+                newest = ts
+        if newest is None or (now - newest).total_seconds() > 7 * 86400:
+            newest_s = newest.isoformat() if newest is not None else "none"
+            log.error(
+                "No [paper]-tagged email found in the last 7 days (newest: %s). "
+                "The Thunderbird mailbox looks stale - start Thunderbird, let "
+                "it sync the account, then re-run. Override with "
+                "ALLOW_STALE_MAIL=1 if you are sure no [paper] emails are "
+                "missing.",
+                newest_s,
+            )
+            sys.exit(1)
+
     # Merge back existing enrichment for papers that were already enriched
     for p in deduped:
         key = p["title"].strip().lower()
         prev = old_enrichment.get(key, {})
         p["doi"] = prev.get("doi", "")
         p["journal"] = prev.get("journal", "")
+
+    # Sort deterministically (date, then title) so that papers.csv is
+    # stable across runs and diffs only show genuinely new/changed rows.
+    deduped.sort(
+        key=lambda p: (p.get("date_parsed", ""), p.get("title", "").lower())
+    )
 
     with open(OUTPUT, "w", newline="") as f:
         writer = csv.DictWriter(
@@ -798,6 +908,7 @@ def main():
                 "title", "url", "from", "date", "date_parsed",
                 "comment", "keywords", "doi", "journal",
             ],
+            lineterminator="\n",
         )
         writer.writeheader()
         writer.writerows(deduped)

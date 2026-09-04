@@ -447,7 +447,7 @@ def main():
             no_journal += 1
 
     with CSV_PATH.open("w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer = csv.DictWriter(f, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 

@@ -6,7 +6,159 @@
     <description>Recent interesting papers shared by the Rendeiro Lab team</description>
     <language>en-us</language>
     <atom:link href="https://rendeiro.group/cool-papers/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Fri, 28 Aug 2026 16:58:24 -0000</lastBuildDate>
+    <lastBuildDate>Fri, 04 Sep 2026 15:39:47 -0000</lastBuildDate>
+    <item>
+      <title>A comprehensive atlas of somatic mutation rates and mutational signatures in normal human cells</title>
+      <link>https://www.biorxiv.org/content/10.64898/2026.08.28.747772v1</link>
+      <guid isPermaLink="false">https://www.biorxiv.org/content/10.64898/2026.08.28.747772v1</guid>
+      <author>Andre Rendeiro</author>
+      <pubDate>Fri, 04 Sep 2026 11:31:58 +0200</pubDate>
+      <description>[bioRxiv] a relevant reference for somatic mutation (and their rates) with age</description>
+    </item>
+    <item>
+      <title>SlideChat is a multimodal generative artificial intelligence assistant for whole-slide computational pathology across cancer types</title>
+      <link>https://www.nature.com/articles/s43018-026-01220-4</link>
+      <guid isPermaLink="false">https://www.nature.com/articles/s43018-026-01220-4</guid>
+      <author>Yimin Zheng</author>
+      <pubDate>Thu, 03 Sep 2026 15:07:07 +0200</pubDate>
+      <description>[Nature Cancer] If it works as it claim, it could be a nice resource for improving explainability for many of our models. CONCH -&gt; LongNet (Gigapath slide encoder) -&gt; Qwen2.5-7B-Instruct Code: Weight:</description>
+    </item>
+    <item>
+      <title>DistillPath: An Efficient 22M Distilled Pathology Encoder Approaching Large Foundation Model Performance</title>
+      <link>https://arxiv.org/pdf/2608.17872</link>
+      <guid isPermaLink="false">https://arxiv.org/pdf/2608.17872</guid>
+      <author>Ernesto Abila</author>
+      <pubDate>Thu, 03 Sep 2026 10:35:39 +0200</pubDate>
+      <description>[arXiv]</description>
+    </item>
+    <item>
+      <title>JCI - Markers of compromised gut epithelial barrier integrity increase during the menopause transition</title>
+      <link>https://jci.org/articles/view/205059</link>
+      <guid isPermaLink="false">https://jci.org/articles/view/205059</guid>
+      <author>Andre Rendeiro</author>
+      <pubDate>Wed, 02 Sep 2026 11:40:23 +0200</pubDate>
+      <description>see also and</description>
+    </item>
+    <item>
+      <title>Mapping structural aging across human tissues reveals tissue-specific trajectories and coordinated deterioration</title>
+      <link>https://www.nature.com/articles/s43587-026-01200-4#MOESM1</link>
+      <guid isPermaLink="false">https://www.nature.com/articles/s43587-026-01200-4#MOESM1</guid>
+      <author>Andre Rendeiro</author>
+      <pubDate>Tue, 01 Sep 2026 09:01:34 +0200</pubDate>
+      <description>[Nature Aging]</description>
+    </item>
+    <item>
+      <title>The Biobank Rare Variant consortium powers the discovery of rare genetic associations through global collaboration</title>
+      <link>https://www.medrxiv.org/content/10.64898/2026.05.21.26353759</link>
+      <guid isPermaLink="false">https://www.medrxiv.org/content/10.64898/2026.05.21.26353759</guid>
+      <author>arendeiro</author>
+      <pubDate>Wed, 19 Aug 2026 00:25:41 +0200</pubDate>
+      <description>[medRxiv] maybe useful resource</description>
+    </item>
+    <item>
+      <title>P3CA: Encoder-Agnostic Interpretation of Vision Foundation Model Embeddings via Spatial Probing</title>
+      <link>https://arxiv.org/abs/2608.10131</link>
+      <guid isPermaLink="false">https://arxiv.org/abs/2608.10131</guid>
+      <author>arendeiro</author>
+      <pubDate>Wed, 19 Aug 2026 00:09:47 +0200</pubDate>
+      <description>[arXiv] interesting, perhaps worth a read</description>
+    </item>
+    <item>
+      <title>Three-dimensional mapping of intact ovaries reveals the aging dynamics of the ovarian reserve</title>
+      <link>https://www.nature.com/articles/s43587-026-01178-z</link>
+      <guid isPermaLink="false">https://www.nature.com/articles/s43587-026-01178-z</guid>
+      <author>arendeiro</author>
+      <pubDate>Thu, 13 Aug 2026 10:06:27 +0200</pubDate>
+      <description>[Nature Aging] super interesting, let's have a close look. Commentary here:</description>
+    </item>
+    <item>
+      <title>Deep-learning triage of three-dimensional pathology datasets for comprehensive and efficient pathologist assessments</title>
+      <link>https://www.nature.com/articles/s41551-026-01760-1</link>
+      <guid isPermaLink="false">https://www.nature.com/articles/s41551-026-01760-1</guid>
+      <author>arendeiro</author>
+      <pubDate>Wed, 12 Aug 2026 21:36:00 +0200</pubDate>
+      <description>[Nature Biomedical Engineering] a dataset to check out:</description>
+    </item>
+    <item>
+      <title>A Bayesian framework for longitudinal EHR and genetic discovery</title>
+      <link>https://doi.org/10.1038/s41586-026-10780-5</link>
+      <guid isPermaLink="false">https://doi.org/10.1038/s41586-026-10780-5</guid>
+      <author>Ariadna Villanueva Marijuan</author>
+      <pubDate>Tue, 11 Aug 2026 11:48:41 +0200</pubDate>
+      <description>[Nature]</description>
+    </item>
+    <item>
+      <title>Genetic decoding reveals druggable biology implicitly learned by a medical-history foundation model</title>
+      <link>https://doi.org/10.64898/2026.07.28.26359117</link>
+      <guid isPermaLink="false">https://doi.org/10.64898/2026.07.28.26359117</guid>
+      <author>Ariadna Villanueva Marijuan</author>
+      <pubDate>Tue, 11 Aug 2026 11:47:57 +0200</pubDate>
+      <description>[medRxiv]</description>
+    </item>
+    <item>
+      <title>The Virtual Tissues foundation model resolves spatial proteomics across scales</title>
+      <link>https://www.nature.com/articles/s41586-026-10884-y</link>
+      <guid isPermaLink="false">https://www.nature.com/articles/s41586-026-10884-y</guid>
+      <author>Andre Rendeiro</author>
+      <pubDate>Tue, 11 Aug 2026 09:41:00 +0200</pubDate>
+      <description>[Nature]</description>
+    </item>
+    <item>
+      <title>Why studying females reveals more about aging: The reproductive resilience hypothesis for the evolution of sex-specific aging</title>
+      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)00811-1</link>
+      <guid isPermaLink="false">https://www.cell.com/cell/fulltext/S0092-8674(26)00811-1</guid>
+      <author>Ernesto Abila</author>
+      <pubDate>Mon, 10 Aug 2026 13:57:38 +0200</pubDate>
+      <description>[Cell]</description>
+    </item>
+    <item>
+      <title>On Fermi Problems in Human Genetics</title>
+      <link>https://jkpritchard.substack.com/p/on-fermi-problems-in-human-genetics</link>
+      <guid isPermaLink="false">https://jkpritchard.substack.com/p/on-fermi-problems-in-human-genetics</guid>
+      <author>arendeiro</author>
+      <pubDate>Mon, 10 Aug 2026 13:51:06 +0200</pubDate>
+      <description>[Substack] nice post on something I often insist on: having good ballpark answers/estimates for problems</description>
+    </item>
+    <item>
+      <title>Multi-modal foundation model with whole-slide attention enables transferrable digital pathology at single-cell resolution</title>
+      <link>https://www.biorxiv.org/content/10.64898/2026.07.31.741265</link>
+      <guid isPermaLink="false">https://www.biorxiv.org/content/10.64898/2026.07.31.741265</guid>
+      <author>arendeiro</author>
+      <pubDate>Mon, 10 Aug 2026 10:34:22 +0200</pubDate>
+      <description>[bioRxiv] Multi-modal foundation model with whole-slide attention enables transferrable digital pathology at single-cell resolution</description>
+    </item>
+    <item>
+      <title>Topology Inference for Immune System Networks by Using Cell Amount Data</title>
+      <link>https://arxiv.org/abs/2608.07403</link>
+      <guid isPermaLink="false">https://arxiv.org/abs/2608.07403</guid>
+      <author>arendeiro</author>
+      <pubDate>Mon, 10 Aug 2026 10:30:05 +0200</pubDate>
+      <description>[arXiv] quite far from our ideas, but maybe useful</description>
+    </item>
+    <item>
+      <title>A compendium of next-generation patient-derived models for diverse cancers</title>
+      <link>https://www.nature.com/articles/s41586-026-10806-y</link>
+      <guid isPermaLink="false">https://www.nature.com/articles/s41586-026-10806-y</guid>
+      <author>Ernesto Abila</author>
+      <pubDate>Thu, 06 Aug 2026 22:24:43 +0200</pubDate>
+      <description>[Nature] quite impressive resource from the 'Human Cancer Models Initiative'. " The resource provides 522 models with comprehensive clinical data, 153 models of rare cancers". multimodal molecular profiling and clinical information are available.</description>
+    </item>
+    <item>
+      <title>Spatial remodeling of the thymic stroma with age disrupts niches for T cell selection and tolerance</title>
+      <link>https://www.biorxiv.org/content/10.64898/2026.07.29.741472v2?ct=</link>
+      <guid isPermaLink="false">https://www.biorxiv.org/content/10.64898/2026.07.29.741472v2?ct=</guid>
+      <author>Andre Rendeiro</author>
+      <pubDate>Thu, 06 Aug 2026 15:28:47 +0200</pubDate>
+      <description>[bioRxiv]</description>
+    </item>
+    <item>
+      <title>XunZi, an AI biologist, reveals disease-modifying targets</title>
+      <link>https://www.nature.com/articles/s41551-026-01769-6</link>
+      <guid isPermaLink="false">https://www.nature.com/articles/s41551-026-01769-6</guid>
+      <author>arendeiro</author>
+      <pubDate>Thu, 06 Aug 2026 12:18:44 +0200</pubDate>
+      <description>[Nature Biomedical Engineering] maybe worth bringing the BioMistral-7B based LLM to life locally and test it out on biology mechanistic reasoning</description>
+    </item>
     <item>
       <title>Multi-scale modeling of human tissues from spatial transcriptomics with TERRA</title>
       <link>https://www.biorxiv.org/content/10.64898/2026.07.29.741565</link>
@@ -149,7 +301,7 @@
       <guid isPermaLink="false">https://arxiv.org/pdf/2607.09526</guid>
       <author>SSchindler</author>
       <pubDate>Sat, 18 Jul 2026 11:09:44 +0200</pubDate>
-      <description>[arXiv] TLDR Knowledge distillation from all the major foundation models into a single new general purpose model. Seems to be very versatile. PDF Document � 5,3 MB</description>
+      <description>[arXiv] TLDR Knowledge distillation from all the major foundation models into a single new general purpose model. Seems to be very versatile. PDF Document  5,3 MB</description>
     </item>
     <item>
       <title>Health system learning enables generalist neuroimaging models</title>
@@ -654,158 +806,6 @@
       <author>Ernesto Abila</author>
       <pubDate>Wed, 13 May 2026 12:27:43 +0200</pubDate>
       <description>[Nature] Quite interesting study where they find conserved spatial ecotypes (spatially dependent cell states and multicellular ecosystems) in spatial transcriptomics data, which are linked to immune therapy response. They can even recover the spatial ecotypes' methylation profiles from plasma cDNA.</description>
-    </item>
-    <item>
-      <title>SPARC: A mechanism-aware spatial representation from routine histology predicts cancer survival and therapy response</title>
-      <link>https://www.medrxiv.org/content/10.64898/2026.05.04.26352410v1.full.pdf</link>
-      <guid isPermaLink="false">https://www.medrxiv.org/content/10.64898/2026.05.04.26352410v1.full.pdf</guid>
-      <author>Ernesto Abila</author>
-      <pubDate>Wed, 13 May 2026 12:09:07 +0200</pubDate>
-      <description>[medRxiv]</description>
-    </item>
-    <item>
-      <title>IBDome: An integrated molecular, histopathological, and clinical atlas of inflammatory bowel diseases</title>
-      <link>https://www.biorxiv.org/content/10.1101/2025.03.26.645544v2</link>
-      <guid isPermaLink="false">https://www.biorxiv.org/content/10.1101/2025.03.26.645544v2</guid>
-      <author>Andre Rendeiro</author>
-      <pubDate>Mon, 11 May 2026 08:00:00 +0200</pubDate>
-      <description>[bioRxiv] in case we didn't talk about it before - this is a great resource that may be of use to you. I know the last author so we could ask for data before it's accepted.</description>
-    </item>
-    <item>
-      <title>How to design effective scientific figures</title>
-      <link>https://www.nature.com/articles/s41562-026-02466-9</link>
-      <guid isPermaLink="false">https://www.nature.com/articles/s41562-026-02466-9</guid>
-      <author>Yimin Zheng</author>
-      <pubDate>Fri, 08 May 2026 14:49:21 +0200</pubDate>
-      <description>[Nature Human Behaviour] A nice little article on Nature human behavior discussing general ideas on how to design scientific figures.</description>
-    </item>
-    <item>
-      <title>OptimusKG: Unifying biomedical knowledge in a modern multimodal graph</title>
-      <link>https://arxiv.org/abs/2604.27269</link>
-      <guid isPermaLink="false">https://arxiv.org/abs/2604.27269</guid>
-      <author>Andre Rendeiro</author>
-      <pubDate>Wed, 06 May 2026 08:55:32 +0200</pubDate>
-      <description>[arXiv] finally an easy way to load the Zitnik lab Knowledge-graph! import optimuskg nodes, edges = optimuskg.load_graph(lcc=True)</description>
-    </item>
-    <item>
-      <title>Pleiotropy and disease interactors: the dual nature of genes linking ageing and ageing-related diseases</title>
-      <link>https://link.springer.com/article/10.1007/s10522-026-10429-w</link>
-      <guid isPermaLink="false">https://link.springer.com/article/10.1007/s10522-026-10429-w</guid>
-      <author>Andre Rendeiro</author>
-      <pubDate>Wed, 06 May 2026 08:38:57 +0200</pubDate>
-      <description>[Biogerontology] probably worth a look e.g.</description>
-    </item>
-    <item>
-      <title>Linking spatial biology and clinical histology via Haiku</title>
-      <link>https://arxiv.org/html/2605.00925</link>
-      <guid isPermaLink="false">https://arxiv.org/html/2605.00925</guid>
-      <author>Ernesto Abila</author>
-      <pubDate>Tue, 05 May 2026 09:51:30 +0200</pubDate>
-      <description>[arXiv] �A tri-modal contrastive learning model trained on multiplexed immunofluorescence (mIF), H&amp;E and clinical metadata from 11 organs of 1,606 patients. Both code and model weights are available: Github: Model weights:</description>
-    </item>
-    <item>
-      <title>Pan-cancer virtual spatial transcriptomics from routine histology with Phoenix</title>
-      <link>https://www.biorxiv.org/content/10.64898/2026.04.25.720812</link>
-      <guid isPermaLink="false">https://www.biorxiv.org/content/10.64898/2026.04.25.720812</guid>
-      <author>Andre Rendeiro</author>
-      <pubDate>Mon, 04 May 2026 13:59:28 +0200</pubDate>
-      <description>[bioRxiv] spatial gene expression prediction from H&amp;E via flow matching. Code available now: Weights not available yet. Full TCGA dataset with inference will be available.</description>
-    </item>
-    <item>
-      <title>AI framework for multidisease detection via retinal imaging</title>
-      <link>https://www.nature.com/articles/s41591-026-04359-w</link>
-      <guid isPermaLink="false">https://www.nature.com/articles/s41591-026-04359-w</guid>
-      <author>Andre Rendeiro</author>
-      <pubDate>Mon, 04 May 2026 09:37:05 +0200</pubDate>
-      <description>[Nature Medicine] the latest in ocular AI with implications for multi-organ health prediction - note this not OCT but color fundus photography - a much simpler, faster (30sec) and cheaper imaging method</description>
-    </item>
-    <item>
-      <title>Multimodal data analysis reveals asynchronous aging dynamics across female reproductive organs</title>
-      <link>https://www.nature.com/articles/s43587-026-01098-y</link>
-      <guid isPermaLink="false">https://www.nature.com/articles/s43587-026-01098-y</guid>
-      <author>Andre Rendeiro</author>
-      <pubDate>Thu, 30 Apr 2026 14:51:53 +0200</pubDate>
-      <description>[Nature Aging] the published version of - would be good to have a close look and see what resources we can use</description>
-    </item>
-    <item>
-      <title>An agentic framework for autonomous scientific discovery in cancer pathology</title>
-      <link>https://www.nature.com/articles/s41591-026-04357-y</link>
-      <guid isPermaLink="false">https://www.nature.com/articles/s41591-026-04357-y</guid>
-      <author>Yimin Zheng</author>
-      <pubDate>Thu, 30 Apr 2026 06:59:52 +0200</pubDate>
-      <description>[Nature Medicine]</description>
-    </item>
-    <item>
-      <title>Discovery of candidate therapeutic targets with Geneformer</title>
-      <link>https://www.nature.com/articles/s41596-026-01364-8;</link>
-      <guid isPermaLink="false">https://www.nature.com/articles/s41596-026-01364-8;</guid>
-      <author>Andre Rendeiro</author>
-      <pubDate>Tue, 28 Apr 2026 15:37:30 +0200</pubDate>
-      <description>[Nature Protocols] when you have some time, could you have a look at this an understand the intuition for how do they discover targets? It might be something we want to benchmark against down the line.</description>
-    </item>
-    <item>
-      <title>VitaminP: cross-modal learning enables whole-cell segmentation from routine histology</title>
-      <link>https://arxiv.org/pdf/2604.23799</link>
-      <guid isPermaLink="false">https://arxiv.org/pdf/2604.23799</guid>
-      <author>Ernesto Abila</author>
-      <pubDate>Tue, 28 Apr 2026 10:57:18 +0200</pubDate>
-      <description>[arXiv] Nuclear and cell segmentation by using a cross-modal framework and transferring molecular boundary information from mIF and detect cytoplasmic contrast in H&amp;E images. They also provide their models, the models seem to be straight forward to use:</description>
-    </item>
-    <item>
-      <title>A 3D morphogenetic blueprint for metastatic outgrowth in breast cancer</title>
-      <link>https://www.cell.com/cell/fulltext/S0092-8674(26)00276-X</link>
-      <guid isPermaLink="false">https://www.cell.com/cell/fulltext/S0092-8674(26)00276-X</guid>
-      <author>Yimin Zheng</author>
-      <pubDate>Mon, 27 Apr 2026 09:49:15 +0200</pubDate>
-      <description>[Cell] Basically, they found that the metastatic potential of breast cancer is highly correlated with the 3D architecture</description>
-    </item>
-    <item>
-      <title>Dynamics of genetic and somatic trade-offs in ageing and mortality</title>
-      <link>https://www.nature.com/articles/s41586-026-10407-9#Abs1</link>
-      <guid isPermaLink="false">https://www.nature.com/articles/s41586-026-10407-9#Abs1</guid>
-      <author>Andre Rendeiro</author>
-      <pubDate>Fri, 24 Apr 2026 11:22:24 +0200</pubDate>
-      <description>[Nature]</description>
-    </item>
-    <item>
-      <title>Weighted Genetic Risk Scores and Prediction of Weight Gain in Solid Organ Transplant Populations</title>
-      <link>https://doi.org/10.1371/journal.pone.0164443</link>
-      <guid isPermaLink="false">https://doi.org/10.1371/journal.pone.0164443</guid>
-      <author>Ariadna Villanueva Marijuan</author>
-      <pubDate>Wed, 22 Apr 2026 11:30:07 +0200</pubDate>
-      <description>[PLOS ONE] Here they describe a more or less similar approach to what I proposed when creating a PGS with a very small population. Three GRS were built following a weighted GRS (w-GRS) method as previously described [28] with 32 SNPs (SNP group#1) and 97 SNPs (SNP group#2) both from GWAS, and 19 SNPs (SNP group#3) from candidate genes. Briefly, genotypes from each SNP were coded as 0, 1 or 2 according to the number of BMI risk alleles and each polymorphism was then weighted by its �-coefficient (allele eff</description>
-    </item>
-    <item>
-      <title>A spatial atlas of the healthy human liver from live donors</title>
-      <link>https://www.nature.com/articles/s41586-026-10377-y</link>
-      <guid isPermaLink="false">https://www.nature.com/articles/s41586-026-10377-y</guid>
-      <author>Andre Rendeiro</author>
-      <pubDate>Fri, 17 Apr 2026 17:35:25 +0200</pubDate>
-      <description>[Nature]</description>
-    </item>
-    <item>
-      <title>95% of Experimental Life-Science Papers in Three Months of Nature Used Hypothesis Testing Without Justifying Sample Sizes</title>
-      <link>https://bmc-compbio.github.io/underpowered/</link>
-      <guid isPermaLink="false">https://bmc-compbio.github.io/underpowered/</guid>
-      <author>Andre Rendeiro</author>
-      <pubDate>Fri, 17 Apr 2026 16:42:59 +0200</pubDate>
-      <description>a so(m)ber assessment of statistical testing use in life sciences. To me the idea that life science research is largely designed to discover the hypothesis, not test pre-specified ones and its implications is the take-home message here.</description>
-    </item>
-    <item>
-      <title>Tissue morphology predicts telomere shortening in human tissues</title>
-      <link>https://doi.org/10.1016/j.crmeth.2026.101336</link>
-      <guid isPermaLink="false">https://doi.org/10.1016/j.crmeth.2026.101336</guid>
-      <author>Yimin Zheng</author>
-      <pubDate>Thu, 16 Apr 2026 11:04:00 +0200</pubDate>
-      <description>[Cell Reports Methods] Instead of predicting chronological age, they just predict telomere length, an interesting study.</description>
-    </item>
-    <item>
-      <title>Whole organism 3D mapping reveals universal branching topology and biophysical optimization governs vascular and nervous system development</title>
-      <link>https://www.biorxiv.org/content/10.64898/2026.04.10.717729v1</link>
-      <guid isPermaLink="false">https://www.biorxiv.org/content/10.64898/2026.04.10.717729v1</guid>
-      <author>Ernesto Abila</author>
-      <pubDate>Wed, 15 Apr 2026 19:05:18 +0200</pubDate>
-      <description>[bioRxiv] A new paper from the Wirtz lab where they developed a computational pipeline for whole-organism 3D imaging (z stacked H&amp;E) to reconstruct the complete vascular and nervous systems of rhesus macaque, mouse, and turtle embryos. Data is apparently available upon request.</description>
     </item>
   </channel>
 </rss>

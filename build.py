@@ -19,7 +19,9 @@ import xml.etree.cElementTree as ET
 from datetime import datetime
 from datetime import date as date_class
 import subprocess
+import time
 from copy import deepcopy
+from functools import lru_cache
 import logging
 
 logging.basicConfig(level=logging.WARNING, format="%(message)s")
@@ -492,20 +494,100 @@ def build_news_insights(environment):
     log.debug("Copied news insights data to %s", build_insights)
 
 
+@lru_cache(maxsize=1)
+def resolve_manual_dir() -> Path | None:
+    """Return a local clone of the lab manual, cloning it if needed.
+
+    Returns None when no local clone is available so callers can fall
+    back to fetching the manual from GitHub.
+    """
+    manual_dir = Path(
+        config.get("manual_local_dir", "~/work/lab-manual")
+    ).expanduser()
+    if manual_dir.is_dir():
+        try:
+            subprocess.run(
+                ["git", "-C", str(manual_dir), "pull", "--ff-only"],
+                capture_output=True,
+                timeout=60,
+            )
+        except (subprocess.SubprocessError, OSError) as exc:
+            log.warning("Could not update %s (%s); using it as is", manual_dir, exc)
+        return manual_dir
+
+    try:
+        manual_dir.parent.mkdir(parents=True, exist_ok=True)
+        subprocess.run(
+            [
+                "git",
+                "clone",
+                f"https://github.com/{config['manual_repo']}.git",
+                str(manual_dir),
+            ],
+            check=True,
+            capture_output=True,
+            timeout=120,
+        )
+        return manual_dir
+    except (subprocess.SubprocessError, OSError) as exc:
+        log.warning(
+            "Could not clone %s (%s); falling back to GitHub",
+            config["manual_repo"],
+            exc,
+        )
+        return None
+
+
+def fetch_url(url: str, retries: int = 3, timeout: int = 30) -> requests.Response:
+    """Fetch a URL with retries and exponential backoff."""
+    last_exc: requests.RequestException | None = None
+    for attempt in range(retries):
+        try:
+            response = requests.get(url, timeout=timeout)
+            response.raise_for_status()
+            return response
+        except requests.RequestException as exc:
+            last_exc = exc
+            if attempt < retries - 1:
+                time.sleep(2**attempt)
+    raise last_exc or RuntimeError(f"Could not fetch {url}")
+
+
+def manual_page_order(makefile: str) -> list[str]:
+    return [
+        p.split(".md")[0]
+        for p in makefile.split("\n")
+        if p.startswith("source/") or p.endswith(".md \\")
+    ]
+
+
+def read_manual_file(manual_dir: Path | None, path: str) -> str:
+    """Read a manual file from the local clone, falling back to GitHub."""
+    if manual_dir is not None:
+        file_path = manual_dir / path
+        if file_path.is_file():
+            return file_path.read_text()
+    url = (
+        f"https://raw.githubusercontent.com/{config['manual_repo']}"
+        f"/refs/heads/main/{path}"
+    )
+    try:
+        return fetch_url(url).content.decode()
+    except requests.RequestException as exc:
+        raise RuntimeError(
+            f"Could not read lab manual file '{path}' from {url}: {exc}"
+        ) from exc
+
+
 def build_lab_manual():
     name = config["pages"]["manual"]["url"][1:-1]
     environment = Environment(loader=FileSystemLoader(template_dir))
     template = load_template(environment, config["pages"]["manual"]["template"])
 
     manual_root_url = config["pages"]["manual"]["url"]
-    req = requests.get(
-        f"https://raw.githubusercontent.com/{config['manual_repo']}/refs/heads/main/Makefile"
-    )
-    page_order = [
-        p.split(".md")[0]
-        for p in req.content.decode().split("\n")
-        if p.startswith("source/") or p.endswith(".md \\")
-    ]
+    manual_dir = resolve_manual_dir()
+    makefile = read_manual_file(manual_dir, "Makefile")
+    page_order = manual_page_order(makefile)
 
     pages = dict()
     for page in page_order:
@@ -518,9 +600,7 @@ def build_lab_manual():
             page_file = build_dir / name / page_slug / "index.html"
             page_url = f"/{name}/{page_slug}/"
         page_file.parent.mkdir(exist_ok=True, parents=True)
-        req = requests.get(
-            f"https://raw.githubusercontent.com/{config['manual_repo']}/refs/heads/main/{page}.md"
-        )
+        content = read_manual_file(manual_dir, f"{page}.md")
         html = Markdown(
             extras=[
                 "fenced-code-blocks",
@@ -529,7 +609,7 @@ def build_lab_manual():
                 "admonitions",
                 "tables",
             ]
-        ).convert(req.content.decode())
+        ).convert(content)
         body = BeautifulSoup(html, "html.parser")
         page_title = body.find("h1").text
         if page_slug == "index":
@@ -615,27 +695,19 @@ def get_last_mod_date() -> dict[str, str]:
 
 
 def get_manual_mod_dates() -> dict[str, str]:
-    """Clone manual repo and get git log dates."""
-    import tempfile
-
+    """Get manual page modification dates from the local clone."""
     now = today()
     mod_dates = {}
-    repo = config["manual_repo"]
 
-    with tempfile.TemporaryDirectory() as tmpdir:
-        subprocess.run(
-            ["git", "clone", f"https://github.com/{repo}.git", tmpdir],
-            check=True,
-            capture_output=True,
-        )
+    manual_dir = resolve_manual_dir()
+    if manual_dir is None:
+        log.warning("No local lab manual clone available; skipping manual dates")
+        return mod_dates
 
+    try:
         # Get page order from Makefile (same logic as build_manual)
-        makefile = Path(tmpdir) / "Makefile"
-        page_order = [
-            p.split(".md")[0]
-            for p in makefile.read_text().split("\n")
-            if p.startswith("source/") or p.endswith(".md \\")
-        ]
+        makefile = manual_dir / "Makefile"
+        page_order = manual_page_order(makefile.read_text())
 
         latest_manual_date = None
 
@@ -647,7 +719,7 @@ def get_manual_mod_dates() -> dict[str, str]:
                 page_slug = page.replace("source/", "").lower()
                 file_path = f"{page}.md"
 
-            date_obj = git_log_date(file_path, git_dir=tmpdir)
+            date_obj = git_log_date(file_path, git_dir=manual_dir)
             if date_obj:
                 mod_dates[f"lab-manual:{page_slug}"] = date_obj.strftime("%Y-%m-%d")
                 if latest_manual_date is None or date_obj > latest_manual_date:
@@ -658,6 +730,9 @@ def get_manual_mod_dates() -> dict[str, str]:
 
         if latest_manual_date:
             mod_dates["lab-manual"] = latest_manual_date.strftime("%Y-%m-%d")
+    except (OSError, subprocess.SubprocessError) as exc:
+        log.warning("Could not get lab manual dates (%s); using current dates", exc)
+        return {}
 
     return mod_dates
 
@@ -885,9 +960,10 @@ def parse_git_date(date_str: str) -> datetime:
 def git_log_date(
     file_path: str | Path, git_dir: str | Path | None = None
 ) -> datetime | None:
-    cmd = ["git", "log", "-n", "1", "--format=%ci", "--", str(file_path)]
+    cmd = ["git"]
     if git_dir is not None:
-        cmd = ["git", "-C", str(git_dir)] + cmd
+        cmd += ["-C", str(git_dir)]
+    cmd += ["log", "-n", "1", "--format=%ci", "--", str(file_path)]
     try:
         result = subprocess.run(cmd, check=True, capture_output=True, text=True)
         date_str = result.stdout.strip()

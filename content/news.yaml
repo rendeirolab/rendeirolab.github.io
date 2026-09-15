@@ -5,6 +5,14 @@ news:
   content: "News from our lab:"
   outro: ""
   news:
+    - date: 2026-09-11
+      title: "Our lab had its yearly retreat in Dürnstein"
+      description: |
+        <p>We had a great time at our yearly lab retreat in Dürnstein, Austria, where we discussed our research, shared ideas, and enjoyed the beautiful views over the Danube and the Wachau valley.</p>
+        <p>It was a great time to think more deeply about our mission, bond with each other, and share nice and fun experiences.</p>
+        <p>A special thank you to Ernesto, Lisa and Yimin for organizing the retreat, and to the CeMM back office team for their help!</p>
+      img: 2026-09-11-lab_retreat.webp
+      img_alt: "The lab group sitting on a rock outcrop overlooking the Danube river and the town of Dürnstein in the Wachau valley."
     - date: 2026-08-15
       title: "Andre profiled in the Austrian Medical Journal (Ärztezeitung)"
       description: |

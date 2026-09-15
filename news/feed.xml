@@ -6,7 +6,13 @@
     <description>Recent news from the Rendeiro Lab</description>
     <language>en-us</language>
     <atom:link href="https://rendeiro.group/news/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Fri, 04 Sep 2026 15:58:10 -0000</lastBuildDate>
+    <lastBuildDate>Tue, 15 Sep 2026 19:48:53 -0000</lastBuildDate>
+    <item>
+      <title>Our lab had its yearly retreat in Dürnstein</title>
+      <guid isPermaLink="false">Our lab had its yearly retreat in Dürnstein2026-09-11</guid>
+      <pubDate>Fri, 11 Sep 2026 00:00:00 -0000</pubDate>
+      <description>We had a great time at our yearly lab retreat in Dürnstein, Austria, where we discussed our research, shared ideas, and enjoyed the beautiful views over the Danube and the Wachau valley. It was a great time to think more deeply about our mission, bond with each other, and share nice and fun experiences. A special thank you to Ernesto, Lisa and Yimin for organizing the retreat, and to the CeMM back office team for their help!</description>
+    </item>
     <item>
       <title>Andre profiled in the Austrian Medical Journal (Ärztezeitung)</title>
       <guid isPermaLink="false">Andre profiled in the Austrian Medical Journal (Ärztezeitung)2026-08-15</guid>
@@ -150,12 +156,6 @@
       <guid isPermaLink="false">Andre participated in a panel discussion at FotoWien2025-10-05</guid>
       <pubDate>Sun, 05 Oct 2025 00:00:00 -0000</pubDate>
       <description>Andre participated in a panel discussion on the intersection of art and science as part of FotoWien, Vienna's international photography festival. The discussion was entitled "Medical Gaze and In/visibility" and was moderated by Monika Pietrzak-Franger, professor at the University of Vienna, head of the department of English and American Studies, and specializing in historical illness iconography, knowledge production and injustice. The panel also included artist and researcher Fiona Tang, who br</description>
-    </item>
-    <item>
-      <title>We participated in the 20th run for cancer research</title>
-      <guid isPermaLink="false">We participated in the 20th run for cancer research2025-10-04</guid>
-      <pubDate>Sat, 04 Oct 2025 00:00:00 -0000</pubDate>
-      <description>We took part in the run for cancer research in which altogether a combined distance of 46,239 laps were run, each with a donation to support cancer research. With this we hope to not only raise funds for cancer research in Austria, but also awareness about cancer, and promote its prevention.</description>
     </item>
   </channel>
 </rss>

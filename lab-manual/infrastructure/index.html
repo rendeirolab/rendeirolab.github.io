@@ -326,6 +326,22 @@ So far it details only computational infrastructure.</p>
 <h2>CeMM infrastructure</h2>
 <p>Refer to the <a href="https://cemmat.sharepoint.com/sites/Intranet">CeMM Intranet documentation</a> for updated information.
 Below are a few notes on things which are not covered there:</p>
+<h4>Cluster containers (Podman)</h4>
+<p>On the CeMM cluster, use <strong>Podman</strong> for directory isolation (not speed): mount project <code>data</code> <strong>read-only</strong>, write only under <code>/nobackup/.../results</code>, and do <strong>not</strong> mount <code>$HOME</code>. The job script loads Podman (<code>module load podman</code>). For partitions, QoS, and GPUs, use the <a href="https://cemmat.sharepoint.com/sites/IT-Resources">CeMM cluster documentation</a>; <code>tinyq</code> in the examples is CPU-only.</p>
+<p>Scripts: <a href="examples/podman/01_bash.sbatch"><code>examples/podman/01_bash.sbatch</code></a> (<code>python:3.12-slim</code>), <a href="examples/podman/02_lazyslide.sbatch"><code>examples/podman/02_lazyslide.sbatch</code></a> (<code>ghcr.io/rendeirolab/lazyslide:v0.12.0</code>). Keep <a href="examples/podman/extract.py"><code>extract.py</code></a> next to <code>02_lazyslide.sbatch</code>. Submit <strong>from that directory</strong> so Slurm finds the files (<code>#SBATCH --output</code> and <code>extract.py</code> use the submit dir). <code>DATA</code> must already exist; <code>OUT</code> is created.</p>
+<pre><code class="bash language-bash">cd source/examples/podman   # or copy the three files somewhere on the cluster
+
+PROJECT=my_project
+DATA=/research/lab_rendeiro/projects/${PROJECT}/data
+OUT=/nobackup/lab_rendeiro/projects/${PROJECT}/results/container-demo
+
+sbatch --export=ALL,DATA="$DATA",OUT="$OUT" 01_bash.sbatch
+sbatch --export=ALL,DATA="$DATA",OUT="$OUT" 02_lazyslide.sbatch
+
+# Optional: a slide under DATA (path inside the container is /data/...)
+# sbatch --export=ALL,DATA="$DATA",OUT="$OUT",SLIDE=/data/slide.svs 02_lazyslide.sbatch
+</code></pre>
+<p>Without <code>SLIDE</code>, LazySlide runs <code>zs.datasets.sample()</code> and writes <code>sample.zarr</code> in <code>OUT</code>. Logs: <code>podman-bash-&lt;jobid&gt;.out</code> and <code>podman-lazyslide-&lt;jobid&gt;.out</code> in the submit directory.</p>
 <h4>Printing from Linux</h4>
 <p>CeMM has Canon iR-ADV C5735/5740 printers. They support IPP printing through CUPS.</p>
 <p>Install CUPS:</p>

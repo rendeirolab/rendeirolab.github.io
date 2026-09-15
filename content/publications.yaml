@@ -5,6 +5,16 @@ publications:
   content: ""
   outro: ""
   publications:
+    10.64898/2026.09.06.749715:
+      authors: "Ernesto Abila, Yimin Zheng, Zsuzsanna Bagó-Horváth, André F. Rendeiro"
+      title: "A single-cell view of human tissue aging reveals architectural decline beyond cellular composition"
+      publisher: "BioRxiv"
+      year: 2026
+      type: preprint
+      description: null
+      resources:
+        - Data: https://huggingface.co/datasets/RendeiroLab/histomorphological-cell-atlas
+      highlight: true
     10.1038/s41591-026-04566-5:
       authors: "Ernesto Abila<sup>*</sup>, Iva Buljan<sup>*</sup>, Yimin Zheng<sup>*</sup>, Lisa Kleissl, Sigrid Klotz, Tamas Veres, Zhilong Weng, Maja Nackenhorst, Rizqah Kamies, Anja Michl, Safwen Kadri, Samir Moustafa, Wolfgang Hulla, Matthias Perkonigg, Mathias Drach, Philipp Tschandl, Barbara Sterniczky, Matthias Heinig, Laurens J. De Sadeleer, Wim Wuyts, Bart Vanaudenaerde, Laurens J. Ceulemans,  Daniel D. Buchanan, Lochlan J. Fennell, Georg Stary, Yuri Tolkach, Adelheid Wöhrer, Herbert B. Schiller, André F. Rendeiro"
       title: "Histological aging signatures for monitoring tissue-specific aging and disease"

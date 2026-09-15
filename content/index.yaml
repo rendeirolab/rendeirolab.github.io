@@ -48,6 +48,9 @@ index:
   highlights:
     - category: "Spatially resolved biology and tissue architecture"
       papers:
+        - authors: "Abila, et al."
+          title: "BioRxiv, 2026"
+          doi: "10.64898/2026.09.06.749715"
         - authors: "Abila, Buljan, Zheng, et al."
           title: "Nature Medicine, 2026"
           doi: "10.1038/s41591-026-04566-5"

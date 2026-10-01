@@ -6,12 +6,18 @@
     <description>Recent news from the Rendeiro Lab</description>
     <language>en-us</language>
     <atom:link href="https://rendeiro.group/news/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Tue, 15 Sep 2026 19:56:07 -0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Oct 2026 12:58:55 -0000</lastBuildDate>
     <item>
       <title>Our lab had its yearly retreat in Dürnstein</title>
       <guid isPermaLink="false">Our lab had its yearly retreat in Dürnstein2026-09-11</guid>
       <pubDate>Fri, 11 Sep 2026 00:00:00 -0000</pubDate>
       <description>We had a great time at our yearly lab retreat in Dürnstein, Austria, where we discussed our research, shared ideas, and enjoyed the beautiful views over the Danube and the Wachau valley. It was a great time to think more deeply about our mission, bond with each other, and share nice and fun experiences. A special thank you to Ernesto, Lisa and Yimin for organizing the retreat, and to the CeMM back office team for their help!</description>
+    </item>
+    <item>
+      <title>Welcome to Charlotte!</title>
+      <guid isPermaLink="false">Welcome to Charlotte!2026-09-02</guid>
+      <pubDate>Wed, 02 Sep 2026 00:00:00 -0000</pubDate>
+      <description>Charlotte Westhoven joins the lab as a PhD student in the CeMM PhD Program. After a Bachelor's thesis at the Max Planck Institute for Terrestrial Microbiology and a Master's in Heidelberg with a thesis at the German Cancer Research Center (DKFZ) on oncolytic virotherapy in pancreatic cancer, she most recently worked on spatial transcriptomics (Xenium) of immune-related adverse events at Heidelberg University Hospital. She brings experience in single-cell and spatial data analysis - welcome, Char</description>
     </item>
     <item>
       <title>Andre profiled in the Austrian Medical Journal (Ärztezeitung)</title>
@@ -150,12 +156,6 @@
       <guid isPermaLink="false">The LBI-NetMed had its first SAB meeting2025-10-07</guid>
       <pubDate>Tue, 07 Oct 2025 00:00:00 -0000</pubDate>
       <description>The first meeting of the LBI-NetMed scientific advisory board took place on October 7th at the institute. The SAB is composed by Joseph Loscalzo, Katy Börner, Marc van Kempen, and Marinka Zitnik - all very accomplished researchers and leaders in their fields. We are very happy to have them provide advice on our research and institute organization. Thank you also to the Rendeiro lab members who presented, Ernesto Abila, Parijat Chakraborty and Shrestha Srivastava. Especially Parijat and Shrestha </description>
-    </item>
-    <item>
-      <title>Andre participated in a panel discussion at FotoWien</title>
-      <guid isPermaLink="false">Andre participated in a panel discussion at FotoWien2025-10-05</guid>
-      <pubDate>Sun, 05 Oct 2025 00:00:00 -0000</pubDate>
-      <description>Andre participated in a panel discussion on the intersection of art and science as part of FotoWien, Vienna's international photography festival. The discussion was entitled "Medical Gaze and In/visibility" and was moderated by Monika Pietrzak-Franger, professor at the University of Vienna, head of the department of English and American Studies, and specializing in historical illness iconography, knowledge production and injustice. The panel also included artist and researcher Fiona Tang, who br</description>
     </item>
   </channel>
 </rss>

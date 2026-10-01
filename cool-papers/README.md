@@ -1,16 +1,16 @@
 # Cool Papers
 
-Extracts `[paper]`-tagged emails from a Thunderbird mbox file, enriches them with DOI/journal metadata, and renders a year-tabbed HTMX page at `/cool-papers/` with a topic-insights panel.
+Extracts `[paper]`-tagged emails from the local **moe** mail store (SQLite), enriches them with DOI/journal metadata, and renders a year-tabbed HTMX page at `/cool-papers/` with a topic-insights panel.
 
 ## Pipeline
 
 1. **Extract** — `extract_papers.py` (uv script)
-   - Mailbox paths are read from the `cool_papers:` section of the root `config.yaml` (`mailbox`/`sent_mailbox`), or from the `MAILBOX`/`SENT_MAILBOX` env vars; the INBOX mailbox is mandatory (no built-in default — a missing config fails loudly)
-   - Greps the mbox (12GB, 155M lines, 22K messages) for message-boundary offsets and `[paper]` subjects (554 matches)
-   - Uses `mmap` + `bisect_right` to extract only matching messages
-   - Parses multipart/single-part MIME, QP/base64, extracts title/URL/comment/date/sender
-   - Strips HTML, signatures, style/script tags, Outlook safelinks, `^`/`^^` markers
-   - **Staleness guard:** refuses to run (exit code 1) when no `[paper]`-tagged email was found in the last 7 days — the mailbox is probably unsynced (Thunderbird not running). Override with `ALLOW_STALE_MAIL=1`
+   - Reads `[paper]`-tagged messages from moe's local SQLite store (default `~/.local/share/moe/moe.db`), scanning both the INBOX and Sent Items folders; configured via the `cool_papers:` section of the root `config.yaml` (`moe_db`, `inbox_folder`, `sent_folders`) or the `MOE_DB`/`MOE_INBOX`/`MOE_SENT_FOLDERS` env vars.
+   - Falls back to the legacy Thunderbird mbox scanner (`mailbox`/`sent_mailbox` config keys, `MAILBOX`/`SENT_MAILBOX` env vars) when no moe database is configured or the file is missing.
+   - Uses the cached searchable body text (`message_fts.body`), and the raw `rfc822` blob only when its Subject header matches the row (moe can associate the wrong message's blob/body with a row, so both are validated).
+   - Extracts title/URL/comment/date/sender; the URL picker keeps only publisher/archive-host URLs (dropping mail-client footer links), unwraps Outlook safelinks, and drops bodies that belong to a different message.
+   - **Carry-forward:** enrichment, URLs, and comments from the previous `papers.csv` are merged back by title; inbox-message bodies in moe are unreliable, so for inbox-origin papers the previous run's URL/comment win; papers that vanished from the mail store are restored instead of dropped.
+   - **Staleness guard:** refuses to run (exit code 1) when the moe INBOX folder has not synced in the last 7 days (`sync_state.last_sync_at`) — or, in mbox mode, when no `[paper]`-tagged email was found in the last 7 days. Override with `ALLOW_STALE_MAIL=1`
 
 2. **Enrich** — `enrich_papers.py` (uv script)
    - Extracts DOIs from URLs (doi.org, nature.com, science.org, Cell.com, etc.)
@@ -36,12 +36,12 @@ Extracts `[paper]`-tagged emails from a Thunderbird mbox file, enriches them wit
 
 | File | Purpose |
 |------|---------|
-| `extract_papers.py` | mbox → CSV extraction (run once) |
+| `extract_papers.py` | moe SQLite (or mbox fallback) → CSV extraction (run once) |
 | `enrich_papers.py` | add DOI/journal columns (run once after extraction) |
 | `insights.py` | topic clustering, trends, plots (re-runnable with cache) |
-| `papers.csv` | enriched output, 554 rows, 10 columns |
-| `from_offsets.txt` | grep index of message boundaries |
-| `paper_lines.txt` | grep index of `[paper]` subjects |
+| `papers.csv` | enriched output, 789 rows, 10 columns |
+| `from_offsets_*.txt` | grep index of message boundaries (mbox mode only) |
+| `paper_lines_*.txt` | grep index of `[paper]` subjects (mbox mode only) |
 | `insights/` | generated SVGs, CSVs, and embedding cache |
 
 ### `insights/` contents
@@ -74,7 +74,7 @@ All use `uv run` with inline dependency declarations.
 ```bash
 # Clone, then from project root:
 
-# Step 1 — extract papers from mbox (run once)
+# Step 1 — extract papers from moe (or the mbox fallback; run once)
 uv run cool-papers/extract_papers.py
 
 # Step 2 — enrich with DOI/journal (run once)

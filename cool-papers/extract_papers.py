@@ -6,23 +6,29 @@
 # ]
 # ///
 
-"""Extract [paper]-tagged emails from Thunderbird mbox folders to CSV.
+"""Extract [paper]-tagged emails to CSV from moe (primary) or Thunderbird mbox (fallback).
 
-Scans both INBOX and Sent Items folders for [paper]-tagged messages and
-combines them into a single deduplicated CSV.
+Reads [paper]-tagged messages from the local moe SQLite store
+(~/.local/share/moe/moe.db) by default, scanning both the INBOX and Sent
+Items folders and combining them into a single deduplicated CSV. When no
+moe database is configured (or the file is missing), it falls back to the
+legacy Thunderbird mbox scanner.
 
-The run is refused (exit code 1) when no [paper]-tagged email was found in
-the last 7 days, which usually means the mailbox was not synced (e.g.
-Thunderbird not running). Override with ALLOW_STALE_MAIL=1.
+The run is refused (exit code 1) when the moe store has not synced in the
+last 7 days (or, in mbox mode, when no [paper]-tagged email was found in
+the last 7 days), which usually means the mailbox was not synced. Override
+with ALLOW_STALE_MAIL=1.
 
 Usage:
     uv run extract_papers.py
 
-Configuration (required; no built-in default):
-    1. MAILBOX / SENT_MAILBOX environment variables
+Configuration (no built-in default):
+    1. Environment variables: MOE_DB, MOE_INBOX, MOE_SENT_FOLDERS
+       (comma-separated), or MAILBOX / SENT_MAILBOX for the mbox fallback.
     2. `cool_papers:` section in the project's config.yaml
-       (keys: mailbox, sent_mailbox)
-    The INBOX mailbox is mandatory; the sent mailbox is optional.
+       (keys: moe_db, inbox_folder, sent_folders, mailbox, sent_mailbox).
+    The moe INBOX folder is mandatory; sent folders are optional.
+    When the moe source is unavailable, the mbox INBOX is mandatory.
 
 Output:
     papers.csv in the same directory as this script.
@@ -33,18 +39,23 @@ import logging
 import mmap
 import os
 import re
+import sqlite3
 import subprocess
 import sys
+import warnings
 import html as html_mod
 import quopri
 import base64
 from bisect import bisect_right
 from datetime import datetime, timezone
+from email.header import decode_header
 from pathlib import Path
-from urllib.parse import unquote
+from urllib.parse import unquote, urlparse
 
 try:
     from bs4 import BeautifulSoup
+    from bs4 import MarkupResemblesLocatorWarning
+    warnings.filterwarnings("ignore", category=MarkupResemblesLocatorWarning)
 except ImportError:
     BeautifulSoup = None
 
@@ -126,7 +137,301 @@ def resolve_mailboxes() -> list[tuple[str, Path, Path, Path]]:
     return mboxes
 
 
-# ── Index building (fast grep on the 12 GB mbox) ──────────────────────
+# ── moe source (primary) ──────────────────────────────────────────────
+
+
+def resolve_moe() -> tuple[Path, list[str], list[str]] | None:
+    """Resolve the moe SQLite DB and folder names from env vars or config.yaml.
+
+    Returns (db_path, inbox_folders, sent_folders), or None when no moe
+    database is configured or the file does not exist (caller falls back
+    to the mbox source).
+    """
+    cfg = load_config()
+    db_raw = os.environ.get("MOE_DB") or cfg.get("moe_db")
+    if not db_raw:
+        return None
+    db_path = Path(db_raw).expanduser()
+    if not db_path.exists():
+        log.info("moe database not found at %s; falling back to mbox", db_path)
+        return None
+
+    inbox_raw = os.environ.get("MOE_INBOX") or cfg.get("inbox_folder")
+    inbox_folders = _split_folders(inbox_raw) or ["Inbox"]
+
+    sent_raw = os.environ.get("MOE_SENT_FOLDERS") or cfg.get("sent_folders")
+    sent_folders = _split_folders(sent_raw) or ["Sent Items"]
+
+    return db_path, inbox_folders, sent_folders
+
+
+def _split_folders(raw) -> list[str]:
+    """Normalize a folder-name config value into a list of names."""
+    if raw is None:
+        return []
+    if isinstance(raw, str):
+        return [s.strip() for s in raw.split(",") if s.strip()]
+    return [str(s).strip() for s in raw if str(s).strip()]
+
+
+def moe_folder_ids(conn: sqlite3.Connection, names: list[str]) -> dict[str, str]:
+    """Map folder names to folder ids (missing folders are dropped)."""
+    placeholders = ",".join("?" * len(names))
+    out = {}
+    for fid, name in conn.execute(
+        f"SELECT id, name FROM folders WHERE name IN ({placeholders})", names
+    ):
+        out[name] = fid
+    return out
+
+
+def moe_inbox_last_sync(conn: sqlite3.Connection, inbox_ids: list[str]) -> datetime | None:
+    """Return the most recent mail sync time of the INBOX folder(s), or None."""
+    newest = None
+    for fid in inbox_ids:
+        row = conn.execute(
+            "SELECT last_sync_at FROM sync_state WHERE scope = ?", (f"mail:{fid}",)
+        ).fetchone()
+        if row and row[0]:
+            ts = datetime.fromtimestamp(row[0], tz=timezone.utc).replace(tzinfo=None)
+            if newest is None or ts > newest:
+                newest = ts
+    return newest
+
+
+def moe_message_to_paper(
+    subject: str, sender: str, ts: int | None, rfc822: bytes | None, body_text: str | None
+) -> dict | None:
+    """Convert one moe message row into the standard paper dict.
+
+    Prefers the full raw RFC 822 message (parsed with the same MIME logic
+    as the mbox source) when its Subject header actually matches the row;
+    falls back to the cached searchable body text, which is plain text of
+    the form "title  URL  ^^ comment".
+    """
+    if not subject.startswith("[paper]"):
+        return None
+    title = subject[len("[paper]"):].strip()
+    if not title:
+        return None
+
+    sender_email = sender or ""
+    m = re.search(r"<([^>]+)>", sender_email)
+    if m:
+        sender_email = m.group(1)
+
+    date_iso = ""
+    if ts:
+        try:
+            date_iso = datetime.fromtimestamp(ts, tz=timezone.utc).isoformat()
+        except (ValueError, OSError, OverflowError):
+            date_iso = ""
+
+    if rfc822 and _rfc822_subject_matches(rfc822, subject):
+        try:
+            text = rfc822.decode("utf-8", errors="replace")
+        except Exception:
+            text = rfc822.decode("latin-1", errors="replace")
+        parts = re.split(r"\r?\n\r?\n", text, maxsplit=1)
+        if len(parts) >= 2:
+            header_section, body_section = parts[0], parts[1]
+            header_lines = header_section.split("\n", 1)
+            if header_lines[0].startswith("From "):
+                header_section = header_lines[1] if len(header_lines) > 1 else ""
+            try:
+                msg = process_message(header_section, body_section)
+            except Exception:
+                msg = None
+            if msg:
+                return msg
+
+    if not body_text:
+        return None
+    url = extract_url_from_text(body_text)
+    # moe can associate another message's cached body with this row. When
+    # the body text contains neither the paper title nor a confident paper
+    # URL, treat it as missing (the caller's carry-forward fills it in
+    # from the previous run) instead of extracting garbage.
+    title_key = re.sub(r"\s+", " ", title).strip().lower()
+    body_key = re.sub(r"\s+", " ", body_text).strip().lower()
+    body_belongs = bool(url) or (
+        len(title_key) > 15 and title_key[:60] in body_key
+    )
+    if not body_belongs:
+        return {
+            "title": _clean_text(title),
+            "url": "",
+            "from": _clean_text(sender_email),
+            "date": date_iso,
+            "date_parsed": date_iso,
+            "comment": "",
+            "keywords": "",
+        }
+    out_title, comment = extract_title_and_comment(body_text, title, url)
+    return {
+        "title": _clean_text(out_title),
+        "url": _clean_url(url),
+        "from": _clean_text(sender_email),
+        "date": date_iso,
+        "date_parsed": date_iso,
+        "comment": _clean_text(comment),
+        "keywords": "",
+    }
+
+
+def _rfc822_subject_matches(rfc822: bytes, subject: str) -> bool:
+    """True when the raw Subject header of the message equals the row subject.
+
+    moe can associate an rfc822 blob with the wrong message row, so the
+    blob is only trusted when its own Subject header (RFC 2047-decoded)
+    matches the subject column.
+    """
+    try:
+        text = rfc822.decode("utf-8", errors="replace")
+    except Exception:
+        return False
+    m = re.search(r"\nSubject: ([^\r\n]*)", text)
+    if not m:
+        return False
+    raw = m.group(1)
+    try:
+        decoded = ""
+        for part, enc in decode_header(raw):
+            decoded += part.decode(enc or "utf-8", errors="replace") if isinstance(part, bytes) else part
+    except Exception:
+        decoded = raw
+    return (
+        re.sub(r"\s+", " ", decoded).strip().lower()
+        == re.sub(r"\s+", " ", subject).strip().lower()
+    )
+
+
+# Hosts that never carry the paper itself (mail-client footers, links to
+# lab/organization homepages, meeting tools, ...). URLs on these hosts are
+# skipped when picking the paper URL out of plain-text bodies.
+_JUNK_URL_HOSTS = (
+    "aka.ms", "microsoft.com", "outlook.com", "office.com", "live.com",
+    "onedrive.com", "1drv.ms", "cemm.at", "gv.at", "fwf.ac.at", "ffg.at",
+    "meduniwien.ac.at", "univie.ac.at", "oeaw.ac.at",
+)
+
+# Publisher/archive hosts, best first. Anything else scores below the
+# confidence threshold (see extract_url_from_text).
+_PRIORITY_HOSTS = (
+    ("doi.org", 100), ("dx.doi.org", 100),
+    ("pubmed.ncbi.nlm.nih.gov", 95),
+    ("nature.com", 90), ("science.org", 90), ("cell.com", 90),
+    ("sciencedirect.com", 90), ("pnas.org", 90), ("nejm.org", 90),
+    ("jci.org", 90), ("elifesciences.org", 90),
+    ("biorxiv.org", 85), ("medrxiv.org", 85), ("arxiv.org", 85),
+    ("openreview.net", 85),
+    ("plos.org", 80), ("frontiersin.org", 80), ("mdpi.com", 80),
+    ("academic.oup.com", 80), ("oup.com", 80), ("link.springer.com", 80),
+    ("springer.com", 80), ("wiley.com", 80), ("tandfonline.com", 80),
+    ("sagepub.com", 80), ("annualreviews.org", 80), ("rupress.org", 80),
+    ("embopress.org", 80), ("bmj.com", 80), ("thelancet.com", 80),
+    ("liebertpub.com", 80), ("genome.gov", 80), ("researchsquare.com", 80),
+    ("biomedcentral.com", 80), ("ahajournals.org", 80),
+    ("bloodjournal.org", 80), ("jimmunol.org", 80), ("peerj.com", 80),
+    ("karger.com", 80), ("jamanetwork.com", 80), ("huggingface.co", 75),
+    ("zenodo.org", 75), ("osf.io", 75), ("figshare.com", 75),
+    ("github.com", 70),
+)
+
+# URLs scoring below this are not paper URLs (mail-client footers, links
+# to lab/organization homepages, meeting tools, ...) and are dropped.
+_CONFIDENT_URL_SCORE = 60
+
+
+def extract_url_from_text(body: str) -> str:
+    """Pick the paper URL out of a plain-text body, or return "".
+
+    moe's cached searchable body text is plain text: hyperlink-only paper
+    URLs are lost, while footers/signatures contribute lots of irrelevant
+    URLs. This unwraps Outlook safelinks and keeps only URLs on known
+    publisher/archive hosts (or with a DOI pattern); anything else is
+    dropped so the carry-forward from the previous run can take over.
+    """
+    unwrapped = re.sub(
+        r"https?://eur\d*\.safelinks\.protection\.outlook\.com/\?url=([^&\"\s<]+)",
+        lambda m: unquote(m.group(1)),
+        body,
+    )
+    urls = re.findall(r"https?://[^\s<>\"')\]]+", unwrapped)
+    best = ""
+    best_score = -1
+    for u in urls:
+        u = _clean_url(html_mod.unescape(u))
+        u = re.sub(r"^[^a-zA-Z]*", "", u)
+        if not u.startswith(("http://", "https://")):
+            continue
+        host = (urlparse(u).hostname or "").lower()
+        if host.startswith("www."):
+            host = host[4:]
+        if any(junk in host for junk in _JUNK_URL_HOSTS):
+            continue
+        score = 10
+        for ph, sc in _PRIORITY_HOSTS:
+            if host == ph or host.endswith("." + ph):
+                score = sc
+                break
+        if score == 10 and re.search(r"10\.\d{4,9}/", u):
+            score = 75
+        if score > best_score:
+            best_score = score
+            best = u
+    return best if best_score >= _CONFIDENT_URL_SCORE else ""
+
+
+
+def extract_from_moe(
+    db_path: Path, inbox_folders: list[str], sent_folders: list[str]
+) -> tuple[list[dict], datetime | None]:
+    """Extract [paper] messages from the moe SQLite store.
+
+    Returns (papers, inbox_last_sync) where inbox_last_sync is the most
+    recent sync time of the INBOX folder (used by the staleness guard).
+    """
+    conn = sqlite3.connect(f"file:{db_path}?mode=ro", uri=True)
+    try:
+        folder_ids = moe_folder_ids(conn, inbox_folders + sent_folders)
+        inbox_ids = [folder_ids[n] for n in inbox_folders if n in folder_ids]
+
+        papers: list[dict] = []
+        for name in inbox_folders + sent_folders:
+            fid = folder_ids.get(name)
+            if fid is None:
+                log.info("moe folder %r not found, skipping", name)
+                continue
+            is_sent = name in sent_folders
+            rows = conn.execute(
+                """
+                SELECT m.subject, m.from_, m.date, m.rfc822, fts.body
+                FROM messages m
+                LEFT JOIN message_fts fts ON fts.rowid = m.rowid
+                WHERE m.folder_id = ? AND m.subject LIKE '[paper]%'
+                """,
+                (fid,),
+            ).fetchall()
+            folder_papers = 0
+            for subject, sender, ts, rfc822, body_text in rows:
+                msg = moe_message_to_paper(subject, sender, ts, rfc822, body_text)
+                if msg:
+                    msg["_sent"] = is_sent
+                    papers.append(msg)
+                    folder_papers += 1
+            log.info("moe %s: extracted %d papers from %d tagged messages",
+                     name, folder_papers, len(rows))
+
+        last_sync = moe_inbox_last_sync(conn, inbox_ids)
+        return papers, last_sync
+    finally:
+        conn.close()
+
+
+
+
+# ── Index building (fast grep on the legacy mbox) ─────────────────────
 
 
 def _index_signature(mbox_path: Path) -> str:
@@ -825,75 +1130,134 @@ def extract_papers(
 
 
 def main():
-    # Load existing enrichment from previous run so we don't need to re-enrich
-    old_enrichment: dict[str, dict[str, str]] = {}
+    # Load the previous run so we don't need to re-enrich, and so fields
+    # moe can no longer provide (hyperlink-only URLs, some comments) are
+    # carried forward instead of silently degrading.
+    old_rows: dict[str, dict] = {}
     if OUTPUT.exists():
         with open(OUTPUT) as f:
             for row in csv.DictReader(f):
                 key = row.get("title", "").strip().lower()
-                doi = row.get("doi", "").strip()
-                journal = row.get("journal", "").strip()
-                if key and (doi or journal):
-                    old_enrichment[key] = {"doi": doi, "journal": journal}
-        log.info("Loaded existing enrichment for %d papers", len(old_enrichment))
+                if key and key not in old_rows:
+                    old_rows[key] = row
+        log.info("Loaded %d papers from the previous run", len(old_rows))
 
     all_papers: list[dict] = []
+    inbox_last_sync: datetime | None = None
 
-    for label, mbox_path, offsets_path, lines_path in resolve_mailboxes():
-        log.info("mbox: %s (%s)", mbox_path, mbox_path.stat().st_size)
-        extracted = extract_papers(mbox_path, offsets_path, lines_path)
-        all_papers.extend(extracted)
+    moe_source = resolve_moe()
+    if moe_source is not None:
+        db_path, inbox_folders, sent_folders = moe_source
+        log.info(
+            "moe database: %s (inbox=%s, sent=%s)",
+            db_path, inbox_folders, sent_folders,
+        )
+        all_papers, inbox_last_sync = extract_from_moe(
+            db_path, inbox_folders, sent_folders
+        )
+    else:
+        for label, mbox_path, offsets_path, lines_path in resolve_mailboxes():
+            log.info("mbox: %s (%s)", mbox_path, mbox_path.stat().st_size)
+            extracted = extract_papers(mbox_path, offsets_path, lines_path)
+            all_papers.extend(extracted)
 
-    # Deduplicate by title (case-insensitive, keep first occurrence)
-    seen = set()
-    deduped = []
+    # Deduplicate by title (case-insensitive); when the same paper appears
+    # in several folders, keep the occurrence with the most content (a URL
+    # beats no URL, a sent-message body beats an inbox one, a comment beats
+    # no comment).
+    seen: dict[str, int] = {}
+    deduped: list[dict] = []
     for p in all_papers:
         key = p["title"].strip().lower()
-        if key and key not in seen:
-            seen.add(key)
-            deduped.append(p)
+        if not key:
+            continue
+        if key in seen:
+            prev = deduped[seen[key]]
+            if not prev.get("_sent") and p.get("_sent"):
+                deduped[seen[key]] = p
+            elif not prev["url"] and p["url"]:
+                deduped[seen[key]] = p
+            elif not prev["comment"] and p["comment"]:
+                deduped[seen[key]] = p
+            continue
+        seen[key] = len(deduped)
+        deduped.append(p)
 
     n_dup = len(all_papers) - len(deduped)
     log.info("Total extracted: %d, duplicates removed: %d, final: %d",
              len(all_papers), n_dup, len(deduped))
 
-    # Staleness guard: refuse to proceed when no [paper]-tagged email was
-    # found recently, which usually means the mailbox was not synced (e.g.
-    # Thunderbird not running). papers.csv is rebuilt from scratch below, so
-    # proceeding on a stale mailbox would silently drop papers.
+    # Staleness guard: refuse to proceed when the mailbox was not synced
+    # recently. papers.csv is rebuilt from scratch below, so proceeding on a
+    # stale mailbox would silently drop papers.
     if os.environ.get("ALLOW_STALE_MAIL") != "1":
         now = datetime.now(timezone.utc).replace(tzinfo=None)
-        newest: datetime | None = None
-        for p in deduped:
-            raw = p.get("date_parsed", "")
-            if not raw:
-                continue
-            try:
-                ts = datetime.fromisoformat(raw.replace("Z", "+00:00"))
-            except ValueError:
-                continue
-            if ts.tzinfo is not None:
-                ts = ts.astimezone(timezone.utc).replace(tzinfo=None)
-            if newest is None or ts > newest:
-                newest = ts
-        if newest is None or (now - newest).total_seconds() > 7 * 86400:
-            newest_s = newest.isoformat() if newest is not None else "none"
-            log.error(
-                "No [paper]-tagged email found in the last 7 days (newest: %s). "
-                "The Thunderbird mailbox looks stale - start Thunderbird, let "
-                "it sync the account, then re-run. Override with "
-                "ALLOW_STALE_MAIL=1 if you are sure no [paper] emails are "
-                "missing.",
-                newest_s,
-            )
-            sys.exit(1)
+        if inbox_last_sync is not None:
+            if (now - inbox_last_sync).total_seconds() > 7 * 86400:
+                log.error(
+                    "moe mailbox has not synced in the last 7 days "
+                    "(last sync: %s). Run 'moe sync' (or the TUI) and let it "
+                    "finish, then re-run. Override with ALLOW_STALE_MAIL=1 if "
+                    "you are sure no [paper] emails are missing.",
+                    inbox_last_sync.isoformat(),
+                )
+                sys.exit(1)
+        else:
+            newest: datetime | None = None
+            for p in deduped:
+                raw = p.get("date_parsed", "")
+                if not raw:
+                    continue
+                try:
+                    ts = datetime.fromisoformat(raw.replace("Z", "+00:00"))
+                except ValueError:
+                    continue
+                if ts.tzinfo is not None:
+                    ts = ts.astimezone(timezone.utc).replace(tzinfo=None)
+                if newest is None or ts > newest:
+                    newest = ts
+            if newest is None or (now - newest).total_seconds() > 7 * 86400:
+                newest_s = newest.isoformat() if newest is not None else "none"
+                log.error(
+                    "No [paper]-tagged email found in the last 7 days (newest: %s). "
+                    "The mailbox looks stale - sync the account, then re-run. "
+                    "Override with ALLOW_STALE_MAIL=1 if you are sure no "
+                    "[paper] emails are missing.",
+                    newest_s,
+                )
+                sys.exit(1)
 
-    # Merge back existing enrichment for papers that were already enriched
+    # Merge back data from the previous run: enrichment (doi/journal) and
+    # fields the moe store no longer exposes (hyperlink-only URLs, comments
+    # lost or polluted in the plain-text body cache). Inbox-message bodies
+    # in moe are unreliable, so for papers whose occurrence comes from the
+    # inbox, the previous run's URL and comment win when they exist.
     for p in deduped:
         key = p["title"].strip().lower()
-        prev = old_enrichment.get(key, {})
-        p["doi"] = prev.get("doi", "")
-        p["journal"] = prev.get("journal", "")
+        prev = old_rows.get(key, {})
+        if prev.get("doi") or prev.get("journal"):
+            p["doi"] = prev.get("doi", "")
+            p["journal"] = prev.get("journal", "")
+        if moe_source is not None and not p.get("_sent"):
+            if prev.get("url") and prev["url"] != p.get("url", ""):
+                p["url"] = prev["url"]
+            if prev.get("comment") and prev["comment"] != p.get("comment", ""):
+                p["comment"] = prev["comment"]
+        else:
+            if not p["url"] and prev.get("url"):
+                p["url"] = prev["url"]
+            if not p["comment"] and prev.get("comment"):
+                p["comment"] = prev["comment"]
+
+    # Papers that vanished from the mail store (e.g. moe rows with an empty
+    # cached body) are restored from the previous run instead of dropped.
+    missing_keys = set(old_rows) - {p["title"].strip().lower() for p in deduped}
+    if missing_keys:
+        for key in sorted(missing_keys):
+            row = old_rows[key]
+            row["_sent"] = False
+            deduped.append(row)
+        log.info("Restored %d papers missing from the mail store", len(missing_keys))
 
     # Sort deterministically (date, then title) so that papers.csv is
     # stable across runs and diffs only show genuinely new/changed rows.
@@ -911,7 +1275,9 @@ def main():
             lineterminator="\n",
         )
         writer.writeheader()
-        writer.writerows(deduped)
+        writer.writerows(
+            {k: v for k, v in p.items() if k != "_sent"} for p in deduped
+        )
 
     log.info("Wrote %s (%d rows)", OUTPUT, len(deduped))
 

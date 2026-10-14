@@ -13,6 +13,13 @@ news:
         <p>Thank you, Yimin - we wish you all the best for your next steps!</p>
       img: yzheng.webp
       img_alt: "A photo of Yimin inside the CeMM bubble."
+    - date: 2026-10-09
+      title: "Andre presented at the UMC Utrecht Spatial Omics Symposium 2026"
+      description: |
+        <p>Andre gave a talk at the <a href="https://research.umcutrecht.nl/technologies/">UMC Utrecht Spatial Omics Symposium 2026</a>.</p>
+        <p>Thank you to the organizers for the kind invitation! Andre was impressed with the local research environment, enjoyed the talks, and looks forward to new collaborations.</p>
+      img: 2026-10-09-utrecht_spatial_omics.webp
+      img_alt: "A night view of an Utrecht canal with lit-up waterside cafés, red and white flowers in the foreground and the illuminated Dom Tower in the background."
     - date: 2026-10-06
       title: "WWTF \"Understanding biology with AI/ML\" grantee workshop"
       description: |
@@ -29,6 +36,14 @@ news:
         <p>Congratulations, Yimin!</p>
       img: https://raw.githubusercontent.com/rendeirolab/LazySlide/main/assets/logo.png
       img_alt: The LazySlide logo with a sloth lying belly down on a moon, all inside a glass slide with a barcode.
+    - date: 2026-10-01
+      title: "The lab at the 3rd Conference of the European Society for Spatial Biology (ESSB 2026)"
+      description: |
+        <p>Ernesto, Parijat and Tamas represented the lab at the 3rd Conference of the <a href="https://spatialbiologysociety.eu/">European Society for Spatial Biology</a>, "Painting a new biology", held from September 28th to October 1st in Sitges, near Barcelona.</p>
+        <p>Ernesto gave a talk on our work on tissue-specific aging from histology, and Parijat and Tamas each presented a poster.</p>
+        <p>Thank you to the organizers for a great meeting!</p>
+      img: 2026-10-01-essb_2026.webp
+      img_alt: "Ernesto speaking at the podium of the ESSB 2026 conference, next to a large screen showing his slide \"A cross anatomical view of biological age\" with portraits and histology images of young and old tissues."
     - date: 2026-09-11
       title: "Our lab had its yearly retreat in Dürnstein"
       description: |

@@ -273,6 +273,13 @@
                           <li class="nav-item">
                             <a class="nav-link "
                                
+                               href="/lab-manual/data_archiving/">Data archiving</a>
+                          </li>
+                        
+                          
+                          <li class="nav-item">
+                            <a class="nav-link "
+                               
                                href="/lab-manual/learning/">Learning</a>
                           </li>
                         
@@ -304,47 +311,77 @@
               <main class="col-md-10 col-lg-10 content-column">
                 <h1>Offboarding</h1>
 <p>It is important to be aware well in advance of the procedure for offboarding and to communicate the expectations and requirements involved in it.</p>
-<h2>Procedure</h2>
-<p>It is the responsability of the PI to communicate, initiate, and verify the following steps:</p>
+<p>The PI communicates and starts the procedure, and verifies that all steps are done. If you are leaving, start as soon as your last day is known.</p>
+<h2>Checklist for the leaving team member</h2>
+<h3>Data cleaning</h3>
+<p>Clean up, annotate, and hand over or archive your scientific data. Arrange a meeting with your Data Management representative to plan this (see the <a href="https://cemmat.sharepoint.com/sites/data-management">data management intranet</a>).</p>
+<p>Your data may be in the following places:</p>
+<ul>
+<li>CeMM HPC</li>
+<li>Hilde workstation</li>
+<li>CeMM shared folders (e.g. for photos):
+<ul>
+<li><code>smb://int.cemm.at/data/media</code></li>
+<li><code>smb://int.cemm.at/data/groupdata</code></li>
+<li><code>smb://int.cemm.at/data/labs</code></li>
+<li><code>smb://int.cemm.at/data/home/&lt;CEMM_USERNAME&gt;</code></li>
+</ul></li>
+<li>Personal OneDrive</li>
+<li>Lab OneDrive</li>
+</ul>
+<h4>Code archive</h4>
+<p>Make sure all your project code is pushed to GitHub, to the project's repository in the <a href="https://github.com/rendeirolab">lab's GitHub organization</a>.</p>
+<h4>Cluster/Hilde data cleaning</h4>
 <ol>
-<li>Review all lab-specific records (see the <a href="/lab-manual/record_keeping">record keeping section</a>:
+<li>For finished or stale projects, follow the instructions in <a href="/lab-manual/data_archiving">data archiving</a>.</li>
+<li>For ongoing projects, if you still need access to CeMM HPC, discuss it with the PI first. Then contact the Intellectual Property (IP) section and IT for specific instructions.</li>
+</ol>
+<h4>Private files</h4>
+<p>You may ask IT for a USB hard drive to back up your private files. Do not copy scientific data to private devices or private cloud storage.</p>
+<p>Prepare the handover of your laptop or desktop computer: move all scientific data to shared storage and remove any private data.</p>
+<p>Empty the following folders:</p>
 <ul>
-<li>Lab notebook</li>
-<li>OneDrive folder</li>
-<li>Github account</li>
-</ul></li>
-<li>Review Data archiving and cleanup:
+<li>Your personal OneDrive</li>
+<li><code>smb://int.cemm.at/data/home/&lt;CEMM_USERNAME&gt;</code></li>
+<li>Home directory on Hilde</li>
+<li>Home directory on CeMM HPC</li>
+</ul>
+<h3>Computer and accounts</h3>
+<h4>Return your computer</h4>
+<p>Return your computer to IT. If it still works, IT resets it to a clean state so it can be given to someone else. You can leave it with IT or buy it. The price is 50 EUR if the computer is more than 3 years old (as of 2026).</p>
+<h4>Account cleaning</h4>
+<p>Your email account is property of CeMM. It will not be transferred to you, and you will not have access to it after your employment contract ends. Delete or move private conversations, and tell collaborators and journals your new email address before you leave. Also update your email and affiliation on accounts such as ORCID and GitHub.</p>
+<h3>Office cleaning</h3>
+<p>Empty your office desk, lab bench, freezer drawers, etc. Dispose of any chemicals, toxic materials, and confidential documents you no longer need properly.</p>
+<p>Prepare your keys (office, lab, locker) and your magnetic card for handover.</p>
+<h3>Records cleaning</h3>
+<p>See the <a href="/lab-manual/record_keeping">record keeping section</a>.</p>
 <ul>
-<li>HPC cluster</li>
-<li>Hilde workstation</li>
-<li>Windows shares:
+<li>Do a final check of your lab journal(s). For any questions, contact Pedro, head of the IP section, before you return the lab journal.</li>
+<li>Make sure your digital notes are up to date and stored in the lab's records (see <a href="record_keeping.md#lab-notebooks">Lab Notebooks</a>).</li>
+<li>Make sure your grants, presentations, and manuscripts are properly recorded in the lab OneDrive (see <a href="record_keeping.md#shared-onedrive-folder">Shared OneDrive Folder</a>).</li>
+<li>Do a final check of your time recordings in SAGE, our time-tracking system.</li>
+<li>Hand over any documents, databases, contracts, licenses, and SOPs that are important to your colleagues.</li>
+<li>Leave your contact details with HR for any open legal, patent, salary, and tax issues.</li>
+</ul>
+<h2>Checklist for the PI</h2>
+<ol>
+<li>Ask the departing team member for their CeMM-independent contact information.</li>
+<li>Ask the departing team member whether they consent to be listed as alumni on the lab website.</li>
+<li>Agree on a successor for each of their projects. Update the owner in the Lab Project Registry and the contact in the project's <code>cemm_metadata.json</code> (see <a href="/lab-manual/record_keeping">record keeping</a> and <a href="/lab-manual/research">research</a>).</li>
+<li>Agree on who finishes their open manuscripts and who is the corresponding author.</li>
+<li>Check with HR and IT that their CeMM accounts (email, VPN) are closed.</li>
+<li>Remove the team member from:
 <ul>
-<li>Groupdata: <code>smb://int.cemm.at/files/groupdata/</code></li>
-<li>Labs: <code>smb://int.cemm.at/files/labs/</code></li>
-<li>Home Folder: <code>smb://int.cemm.at/files/home/&lt;username&gt;</code></li>
-</ul></li>
-</ul></li>
-<li>Review all CeMM-specifc requirements in coordination with HR:
-<ul>
-<li>Data management requirements (if points above are well executed, then it should be taken care of)</li>
-<li>E-mail</li>
-<li>VPN access</li>
-</ul></li>
-<li>Ask the new team member for their CeMM-independent contact information</li>
-<li>Ask the new team member whether they consent to be listed in the lab website as alumni</li>
-<li>Remove team member from external organizations:
-<ul>
-<li>Github (<a href="https://github.com/rendeirolab">https://github.com/rendeirolab</a>)</li>
-<li>Weights and Biases (<a href="https://wandb.ai/rendeiro-group">https://wandb.ai/rendeiro-group</a>)</li>
+<li>Microsoft team</li>
+<li>Mailing list</li>
+<li>Signal group (see <a href="/lab-manual/communication_and_meetings">communication and meetings</a>)</li>
+<li>GitHub (<a href="https://github.com/rendeirolab">https://github.com/rendeirolab</a>)</li>
+<li>Weights &amp; Biases (<a href="https://wandb.ai/rendeiro-group">https://wandb.ai/rendeiro-group</a>)</li>
 <li>HuggingFace (<a href="https://huggingface.co/RendeiroLab">https://huggingface.co/RendeiroLab</a>)</li>
-<li>lab infrastructure (such as Cytomine, VMs, etc: <a href="/lab-manual/infrastructure">infrastructure</a>)</li>
+<li>Lab infrastructure: Hilde workstation, Cytomine, VMs, etc. (see <a href="/lab-manual/infrastructure">infrastructure</a>)</li>
+<li>Azure data archive (see <a href="data_archiving.md#when-someone-leaves-the-lab">data archiving</a>)</li>
 </ul></li>
-<li>Remove team member accounts from lab-specific infrastructure:
-<ul>
-<li>Cytomine</li>
-<li>Hilde workstation</li>
-</ul></li>
-<li>Remove team member from Microsoft team and mailing list</li>
 </ol>
 <hr/><p><small>Edit this page on <a href="https://github.com/rendeirolab/lab-manual/edit/refs/heads/main/source/offboarding.md">GitHub</a></small></p>
               </main>

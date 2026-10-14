@@ -273,6 +273,13 @@
                           <li class="nav-item">
                             <a class="nav-link "
                                
+                               href="/lab-manual/data_archiving/">Data archiving</a>
+                          </li>
+                        
+                          
+                          <li class="nav-item">
+                            <a class="nav-link "
+                               
                                href="/lab-manual/learning/">Learning</a>
                           </li>
                         
@@ -314,19 +321,19 @@
 </ol></li>
 <li>Create a project directory structure from the lab's template: <code>cookiecutter gh:rendeirolab/_project_template</code></li>
 <li>Create a git repository on GitHub (<a href="https://github.com/rendeirolab">https://github.com/rendeirolab</a>) with the same name as the project, make a first commit and push to Github.</li>
-<li>Create a directory for the project in the CeMM cluster at: <code>/research/groups/lab_rendeiro/projects/</code>
+<li>Create a directory for the project in the CeMM cluster at: <code>/research/lab_rendeiro/projects/</code>
 <ol>
 <li>Create a directory inside called <code>data</code> to store raw data.</li>
 </ol></li>
-<li>Create a directory for the project in the CeMM cluster at: <code>/nobackup/groups/lab_rendeiro/projects/</code>
+<li>Create a directory for the project in the CeMM cluster at: <code>/nobackup/lab_rendeiro/projects/</code>
 <ol>
 <li>Create a soft link between <code>/research/.../data</code> and <code>/nobackup/.../data</code></li>
 </ol></li>
 <li>To run a job in a container with that isolation (data read-only, results on nobackup), see <a href="infrastructure.md#cluster-containers-podman">Cluster containers (Podman)</a>.</li>
-<li>Create a <code>cemm_metadata.json</code> file in <code>/research/groups/lab_rendeiro/projects/$PROJECT/</code></li>
-<li>Create a <code>cemm_metadata.json</code> file in <code>/nobackup/groups/lab_rendeiro/projects/$PROJECT/</code></li>
+<li>Create a <code>cemm_metadata.json</code> file in <code>/research/lab_rendeiro/projects/$PROJECT/</code></li>
+<li>Create a <code>cemm_metadata.json</code> file in <code>/nobackup/lab_rendeiro/projects/$PROJECT/</code></li>
 </ol>
-<p>You can find various metadata JSON templates at <code>/research/groups/lab_rendeiro/projects/_templates/</code>.</p>
+<p>You can find various metadata JSON templates at <code>/research/lab_rendeiro/projects/_templates/</code>.</p>
 <p>Make sure to validate your JSON files, e.g.:</p>
 <pre><code class="bash language-bash">wget --no-check-certificate https://metadata.int.cemm.at/latest/cemm_metadata_schema.json
 uvx check-jsonschema --schemafile cemm_metadata_schema.json cemm_metadata.json 
@@ -340,7 +347,7 @@ uvx check-jsonschema --schemafile cemm_metadata_schema.json cemm_metadata.json
 <li>Version control: Use <code>git</code> for all code and analysis scripts. Commit frequently with descriptive messages.</li>
 <li>Naming conventions: Adhere to consistent and descriptive naming conventions for files and directories to ensure clarity and ease of access.</li>
 <li>File organization: Maintain a clear and logical directory structure for each project, separating raw data, processed data, scripts, results, and documentation.</li>
-<li>Data backup: Backup only original data, or timestamped versions of processed data. Use the CeMM cluster's <code>/research/groups/lab_rendeiro/projects/$PROJECT</code> directory for this purpose.</li>
+<li>Data backup: Backup only original data, or timestamped versions of processed data. Use the CeMM cluster's <code>/research/lab_rendeiro/projects/$PROJECT</code> directory for this purpose.</li>
 </ul>
 <h3>Reporting research</h3>
 <p>Figures are the core of communicating reserach:</p>
@@ -357,6 +364,8 @@ uvx check-jsonschema --schemafile cemm_metadata_schema.json cemm_metadata.json
 <li>"Death by PowerPoint": Poorly constructed slides can bore and disengage the audience.</li>
 </ul>
 <p>By focusing on making figures proactively and using them to communicate (instead of PowerPoint), you'll develop your skills of visual story telling, enable you to tailor your analysis more directly to the a final figure plant and accelerate the path to publication.</p>
+<h3>Finishing a project</h3>
+<p>When a project is finished or stale, push the code to GitHub and archive the data following <a href="/lab-manual/data_archiving">data archiving</a>. Then mark the project as archived in the lab's project register.</p>
 <h2>Tools and technologies of standard use within the lab</h2>
 <h3>File types of digital data</h3>
 <p>Below are the preferred types of technology to be used in the lab to ensure consistency and efficiency:</p>

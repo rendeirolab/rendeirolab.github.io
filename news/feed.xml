@@ -6,7 +6,37 @@
     <description>Recent news from the Rendeiro Lab</description>
     <language>en-us</language>
     <atom:link href="https://rendeiro.group/news/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Thu, 01 Oct 2026 12:58:55 -0000</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 12:43:48 -0000</lastBuildDate>
+    <item>
+      <title>Farewell to Yimin!</title>
+      <guid isPermaLink="false">Farewell to Yimin!2026-10-15</guid>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 -0000</pubDate>
+      <description>Yimin Zheng leaves the lab. As the lab's first postdoc he was instrumental in setting the pace in methods development and data processing, with excellent coding skills, while always being available to help others. His contributions include the Marsilea visualization framework, the LazySlide/WSIData stack, and the tissue-clocks project. Thank you, Yimin - we wish you all the best for your next steps!</description>
+    </item>
+    <item>
+      <title>Andre presented at the UMC Utrecht Spatial Omics Symposium 2026</title>
+      <guid isPermaLink="false">Andre presented at the UMC Utrecht Spatial Omics Symposium 20262026-10-09</guid>
+      <pubDate>Fri, 09 Oct 2026 00:00:00 -0000</pubDate>
+      <description>Andre gave a talk at the UMC Utrecht Spatial Omics Symposium 2026 . Thank you to the organizers for the kind invitation! Andre was impressed with the local research environment, enjoyed the talks, and looks forward to new collaborations.</description>
+    </item>
+    <item>
+      <title>WWTF "Understanding biology with AI/ML" grantee workshop</title>
+      <guid isPermaLink="false">WWTF "Understanding biology with AI/ML" grantee workshop2026-10-06</guid>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 -0000</pubDate>
+      <description>We joined the workshop for grantees of the WWTF "Understanding biology with AI/ML" call at the Impact Hub Vienna, where teams shared their projects, offers and asks, and discussed how to build models that reflect real biology. Juliane Winkler presented our joint project on the multiscale discovery of cellular and microanatomical determinants of breast cancer metastasis, and Yimin, Eva, Fatemeh and Andre also took part in the workshop. Thank you to the WWTF for organizing it!</description>
+    </item>
+    <item>
+      <title>LazySlide wins a LBG Open Innovation in Science Early Career Researcher Award 2026!</title>
+      <guid isPermaLink="false">LazySlide wins a LBG Open Innovation in Science Early Career Researcher Award 2026!2026-10-06</guid>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 -0000</pubDate>
+      <description>Yimin Zheng's project LazySlide was chosen by the jury for the Support Award of the LBG OIS Early Career Researcher Award 2026 , given by the Open Innovation in Science Center of the Ludwig Boltzmann Gesellschaft. The award honors early career researchers who apply Open Innovation in Science (OIS) methods in their research. The Support Award recognizes an OIS project with development potential, and comes with consulting and mentoring from the OIS Center experts to take LazySlide's openness and c</description>
+    </item>
+    <item>
+      <title>The lab at the 3rd Conference of the European Society for Spatial Biology (ESSB 2026)</title>
+      <guid isPermaLink="false">The lab at the 3rd Conference of the European Society for Spatial Biology (ESSB 2026)2026-10-01</guid>
+      <pubDate>Thu, 01 Oct 2026 00:00:00 -0000</pubDate>
+      <description>Ernesto, Parijat and Tamas represented the lab at the 3rd Conference of the European Society for Spatial Biology , "Painting a new biology", held from September 28th to October 1st in Sitges, near Barcelona. Ernesto gave a talk on our work on tissue-specific aging from histology, and Parijat and Tamas each presented a poster. Thank you to the organizers for a great meeting!</description>
+    </item>
     <item>
       <title>Our lab had its yearly retreat in Dürnstein</title>
       <guid isPermaLink="false">Our lab had its yearly retreat in Dürnstein2026-09-11</guid>
@@ -126,36 +156,6 @@
       <guid isPermaLink="false">Andre gave a talk at the 2nd European CyTOF conference2025-11-20</guid>
       <pubDate>Thu, 20 Nov 2025 00:00:00 -0000</pubDate>
       <description>Andre gave a keynote talk on 'Leveraging spatial biology insights across anatomical scales' at the 2nd European CyTOF conference which took place in Vienna It was a very nice conference full of exciting use cases of high-dimensional and spatial data as well as nice applications of it. Thank you for the organizers, in particular Lena Mueller for the invitation.</description>
-    </item>
-    <item>
-      <title>LazySlide was showcased at the 2025 scverse conference</title>
-      <guid isPermaLink="false">LazySlide was showcased at the 2025 scverse conference2025-11-19</guid>
-      <pubDate>Wed, 19 Nov 2025 00:00:00 -0000</pubDate>
-      <description>Yimin and Tamas presented a community showcase of LazySlide - our framework for accessible and interoperable whole slide image analysis in the 2025 scverse conference. We are eager to support the scverse community in the analysis of histopathological images and to receive feedback on LazySlide. Thank you to the organizers for selecting LazySlide for the showcase and thank you to Yimin and Tamas for giving the workshop at late night hours!</description>
-    </item>
-    <item>
-      <title>Samir joins the lab!</title>
-      <guid isPermaLink="false">Samir joins the lab!2025-11-03</guid>
-      <pubDate>Mon, 03 Nov 2025 00:00:00 -0000</pubDate>
-      <description>Samir Moustafa joins the lab as a data scientist With a strong background in graph neural networks and the development of efficient solutions in deep learning, the lab will gain major experience in the fast developing field. We are happy Samir decided to join the team and wish him an exciting and successfull time in the lab - welcome!</description>
-    </item>
-    <item>
-      <title>We joined the 2025 CeMM halloween party!</title>
-      <guid isPermaLink="false">We joined the 2025 CeMM halloween party!2025-10-31</guid>
-      <pubDate>Fri, 31 Oct 2025 00:00:00 -0000</pubDate>
-      <description>Following a long-standing tradition at CeMM, we joined the 2025 CeMM halloween party which this year was themed "Dumb ways to die". This year we performed a little theater play with a commentary on the current publication system, and we won the prize for best performance! Thank you to the first year PhD students for organizing such a fun party and to all the staff for making this cool night possible!</description>
-    </item>
-    <item>
-      <title>Andre attended ESSB 2025</title>
-      <guid isPermaLink="false">Andre attended ESSB 20252025-10-17</guid>
-      <pubDate>Fri, 17 Oct 2025 00:00:00 -0000</pubDate>
-      <description>Andre attended the 2nd meeting of the European Society for Spatial Biology in Heidelberg, Germany. It was great to see the rapid advances in spatial biology and meet friends and colleagues in the field. The field is full of exciting research and we are looking forward to contributing to it! Thank you to the organizers for a great meeting!</description>
-    </item>
-    <item>
-      <title>The LBI-NetMed had its first SAB meeting</title>
-      <guid isPermaLink="false">The LBI-NetMed had its first SAB meeting2025-10-07</guid>
-      <pubDate>Tue, 07 Oct 2025 00:00:00 -0000</pubDate>
-      <description>The first meeting of the LBI-NetMed scientific advisory board took place on October 7th at the institute. The SAB is composed by Joseph Loscalzo, Katy Börner, Marc van Kempen, and Marinka Zitnik - all very accomplished researchers and leaders in their fields. We are very happy to have them provide advice on our research and institute organization. Thank you also to the Rendeiro lab members who presented, Ernesto Abila, Parijat Chakraborty and Shrestha Srivastava. Especially Parijat and Shrestha </description>
     </item>
   </channel>
 </rss>

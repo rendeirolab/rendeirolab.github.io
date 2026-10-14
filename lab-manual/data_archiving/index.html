@@ -1,0 +1,572 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+    <head>
+        
+
+        <meta charset="utf-8" />
+        <title>Lab manual - Rendeiro lab</title>
+        <meta name="description" content="" />
+        <meta name="author" content="André Rendeiro" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+        <!-- Favicons -->
+        <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/rendeirolab/rendeirolab.github.io@main/assets/logos/favicon.ico" />
+
+        <!-- Font awesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+            integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <!-- Bootstrap-social -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.9.2/bootstrap-social.min.css"
+            integrity="sha512-3CYhYJnb7/677SX8kzxL2+gW6vVzXiVEC6ZhK0S4tGVp7dTlMjSZPVvA79aH8YMU0xuKn2tLZIFaBctUi4Cb/w=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <!-- Bootstrap-icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+        <!-- Academic icons (ORCID, Google Scholar) -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css"
+            integrity="sha512-IW0nhlW5MgNydsXJO40En2EoCkTTjZhI3yuODrZIc8cQ4h1XcF53PsqDHa09NqnkXuIe0Oiyyj171BqZFwISBw=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        <!-- SEO -->
+        <link rel="canonical" href="/lab-manual/data_archiving/" />
+
+        <!-- Load assets/styles/style.css -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rendeirolab/rendeirolab.github.io@main/assets/css/style.css">
+        
+        
+<!-- Code block highlighting -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="https://cdn.jsdelivr.net/gh/rendeirolab/rendeirolab.github.io@main/assets/logos/rendeirolab.icon.webp" alt="Logo" width="30" height="30" class="d-inline-block align-text-center" />
+                    Rendeiro group
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/team/">Team</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/research/">Research</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/news/">News</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/publications/">Publications</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/software/">Software</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/press/">Press</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/lab-manual/">Manual</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/p/">Posts</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/art/">Art</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cool-papers/">Cool Papers</a>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contact/">Contact</a>
+                        </li>
+                        
+                    </ul>
+
+                    <ul class="navbar-nav d-flex flex-row flex-sm-row ms-lg-auto gap-2">
+                        <li class="nav-item">
+                            <a class="btn navbar-btn btn-social-icon" href="https://bsky.app/profile/andre-rendeiro.com" target="_blank">
+                                <i class="fab fa-brands fa-bluesky" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn navbar-btn btn-social-icon" href="https://github.com/rendeirolab" target="_blank">
+                                <i class="bi bi-github me-2" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn navbar-btn btn-social-icon" href="https://huggingface.co/RendeiroLab" target="_blank">
+                                <img src="https://cdn.jsdelivr.net/gh/rendeirolab/rendeirolab.github.io@main/assets/logos/huggingface.svg" alt="Hugging Face logo" style="width: 1.2rem; height: auto;" />
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn navbar-btn btn-social-icon" href="https://wandb.ai/rendeiro-group" target="_blank">
+                                <i class="fa-brands fa-mintbit" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn navbar-btn btn-social-icon" href="javascript:window.location.href=atob('bWFpbHRvOmFyZW5kZWlyb0BjZW1tLmF0')">
+                                <i class="bi bi-envelope-fill me-2" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+
+                    <form class="d-flex" role="search" method="get" action="https://google.com/search">
+                        <input type="hidden" name="q" value="site:https://rendeiro.group/" />
+                        <input class="form-control me-2 bs-primary" type="search" name="q" aria-label="Search" />
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <i class="bi bi-highlights me-2 navbar-btn"></i>Theme </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+                                        <i class="bi bi-brightness-high-fill me-2 navbar-btn"></i>
+                                        Light
+                                    </button>
+                                </li>
+                                <li>
+                                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+                                        <i class="bi bi-brightness-alt-high me-2 navbar-btn"></i>
+                                        Dark
+                                    </button>
+                                </li>
+                                <li>
+                                    <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+                                        <i class="bi bi-gear-fill me-2 navbar-btn"></i>
+                                        Auto
+                                    </button>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <br />
+        <br />
+
+        <div class="container-lg">
+            <!-- Page header -->
+            <div class="row">
+                <div class="col-xs-12 col-md-12">
+                    <div class="page-header">
+                        <br />
+                        <h1><a href="/">Rendeiro group</a></h1>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main content -->
+            <div class="row" id="content">
+                
+              <h1 class="page-title">Lab manual</h1>
+
+                    
+                    <div class="col-md-2 sidebar-nav-column">
+                      <ul class="nav nav-pills flex-column" style="list-style: none; padding-left: 0; margin-left: 0;">
+                        
+                          
+                          <li class="nav-item">
+                            <a class="nav-link "
+                               
+                               href="/lab-manual/">Lab manual</a>
+                          </li>
+                        
+                          
+                          <li class="nav-item">
+                            <a class="nav-link "
+                               
+                               href="/lab-manual/getting_started/">Getting started</a>
+                          </li>
+                        
+                          
+                          <li class="nav-item">
+                            <a class="nav-link "
+                               
+                               href="/lab-manual/mission_statement/">Mission and philosophy</a>
+                          </li>
+                        
+                          
+                          <li class="nav-item">
+                            <a class="nav-link "
+                               
+                               href="/lab-manual/code_of_conduct/">Code of conduct</a>
+                          </li>
+                        
+                          
+                          <li class="nav-item">
+                            <a class="nav-link "
+                               
+                               href="/lab-manual/communication_and_meetings/">Lab communication</a>
+                          </li>
+                        
+                          
+                          <li class="nav-item">
+                            <a class="nav-link "
+                               
+                               href="/lab-manual/infrastructure/">Lab infrastructure</a>
+                          </li>
+                        
+                          
+                          <li class="nav-item">
+                            <a class="nav-link "
+                               
+                               href="/lab-manual/project_planning/">Project planning</a>
+                          </li>
+                        
+                          
+                          <li class="nav-item">
+                            <a class="nav-link "
+                               
+                               href="/lab-manual/research/">Research</a>
+                          </li>
+                        
+                          
+                          <li class="nav-item">
+                            <a class="nav-link "
+                               
+                               href="/lab-manual/record_keeping/">Record keeping guidelines</a>
+                          </li>
+                        
+                          
+                          <li class="nav-item">
+                            <a class="nav-link active"
+                               aria-current="page"
+                               href="/lab-manual/data_archiving/">Data archiving</a>
+                          </li>
+                        
+                          
+                          <li class="nav-item">
+                            <a class="nav-link "
+                               
+                               href="/lab-manual/learning/">Learning</a>
+                          </li>
+                        
+                          
+                          <li class="nav-item">
+                            <a class="nav-link "
+                               
+                               href="/lab-manual/manuscript_writing/">Manuscript writing</a>
+                          </li>
+                        
+                          
+                          <li class="nav-item">
+                            <a class="nav-link "
+                               
+                               href="/lab-manual/offboarding/">Offboarding</a>
+                          </li>
+                        
+                          
+                          <li class="nav-item">
+                            <a class="nav-link "
+                               
+                               href="/lab-manual/changelog/">Version changes</a>
+                          </li>
+                        
+                      </ul>
+                    </div>
+
+              
+              <main class="col-md-10 col-lg-10 content-column">
+                <h1>Data archiving</h1>
+<p>How to archive a finished or stale lab project to the lab's Azure storage, and how to get it back.
+Use it when a project ends (see <a href="/lab-manual/research">research</a>) or when someone leaves the lab (see <a href="/lab-manual/offboarding">offboarding</a>).</p>
+<blockquote>
+<p>Last update: October 2026.
+  Names, versions and links may have changed since then. If something here does not match what you see, ask the PI or CeMM IT.</p>
+</blockquote>
+<p><strong>Archive details</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Storage account</td>
+<td><code>strendeiroarchive</code> (resource group <code>rg-rendeiro-archive</code>, subscription "Rendeiro Dev")</td>
+</tr>
+<tr>
+<td>Archive script</td>
+<td><a href="https://github.com/rendeirolab/lab-manual/blob/main/scripts/archive_project.sh"><code>scripts/archive_project.sh</code></a></td>
+</tr>
+<tr>
+<td>Staging folder on the cluster</td>
+<td><code>/nobackup/lab_rendeiro/archive_staging/</code> (tarballs and <code>inventory.csv</code>)</td>
+</tr>
+<tr>
+<td>Who can give access</td>
+<td>PI (André Rendeiro) or CeMM IT</td>
+</tr>
+</tbody>
+</table>
+<h2>Before you start (once per person)</h2>
+<ol>
+<li><p><strong>Ask for access.</strong> Ask the PI or IT for the role <strong>Storage Blob Data Contributor</strong> on the resource group <strong>rg-rendeiro-archive</strong>.</p></li>
+<li><p><strong>Use the right network.</strong> Uploads and downloads only work from the CeMM cluster or a CeMM office computer, not from home or VPN.</p></li>
+<li><p><strong>Get the script.</strong> Save it in your home folder and run it from there. It works with absolute paths, so it does not matter where your project is.</p>
+<pre><code class="bash language-bash">cd ~
+curl -fsSLO https://raw.githubusercontent.com/rendeirolab/lab-manual/main/scripts/archive_project.sh
+chmod +x archive_project.sh
+./archive_project.sh --help
+</code></pre></li>
+<li><p><strong>Check that the needed programs are installed:</strong></p>
+<pre><code class="bash language-bash">./archive_project.sh --check
+</code></pre>
+<p>Install anything marked <code>MISSING</code>. The script prints a hint for each:</p>
+<table>
+<thead>
+<tr>
+<th>Program</th>
+<th>What it's for</th>
+<th>How to get it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>az</code> (Azure CLI)</td>
+<td>login and checking uploads</td>
+<td><code>uv tool install azure-cli</code> (if that fails, add <code>--prerelease allow</code>), or <code>pip install --user azure-cli</code></td>
+</tr>
+<tr>
+<td><code>azcopy</code> (v10)</td>
+<td>uploading and downloading</td>
+<td><code>module load azcopy</code> if the cluster has it, otherwise download from <a href="https://aka.ms/downloadazcopy-v10-linux">https://aka.ms/downloadazcopy-v10-linux</a> and put the <code>azcopy</code> file in a folder on your PATH (e.g. <code>~/bin</code>)</td>
+</tr>
+<tr>
+<td><code>pigz</code></td>
+<td>fast compression</td>
+<td>usually installed; otherwise <code>module load pigz</code>, <code>conda install -c conda-forge pigz</code>, or ask HPC admins</td>
+</tr>
+<tr>
+<td><code>tar</code>, <code>sha256sum</code>, <code>openssl</code>, <code>base64</code></td>
+<td>packing and checksums</td>
+<td>standard on Linux</td>
+</tr>
+</tbody>
+</table>
+<p>If a program is installed but <code>--check</code> still says <code>MISSING</code>, the shell can't find it because its folder is not on your <code>PATH</code>. After a <code>uv</code> install, run <code>uv tool update-shell</code> and open a new terminal.</p></li>
+<li><p><strong>Log in to Azure.</strong> Open the link it prints and enter the code:</p>
+<pre><code class="bash language-bash">az login --use-device-code
+az account set --subscription "Rendeiro Dev"
+export AZCOPY_AUTO_LOGIN_TYPE=AZCLI   # lets azcopy reuse this login; add the line to ~/.bashrc to keep it
+</code></pre>
+<p>Run <code>./archive_project.sh --check</code> again; it should now say <code>Azure login as &lt;you&gt;, subscription 'Rendeiro Dev'</code>.</p></li>
+</ol>
+<h2>Archive a project</h2>
+<p>The script works on projects in <code>/nobackup/lab_rendeiro/projects/</code> on the cluster. If data is only on the Hilde workstation, copy it into the project folder on the cluster first.</p>
+<ol>
+<li><p><strong>Work on a compute node,</strong> not the login node, inside <code>tmux</code> or <code>screen</code> so a dropped connection does not stop the work. Example (partition names may differ):</p>
+<pre><code class="bash language-bash">srun -p interactiveq -c 16 --mem 16G -t 12:00:00 --pty bash
+</code></pre>
+<p>For very large projects (several TB), use the <code>sbatch</code> example in step 7 instead.</p></li>
+<li><p><strong>Push your code.</strong> Commit and push everything to GitHub, then check:</p>
+<pre><code class="bash language-bash">git -C /nobackup/lab_rendeiro/projects/&lt;project&gt; status -sb
+</code></pre>
+<p>It should list no changed files and show no <code>[ahead N]</code> next to the branch name.</p></li>
+<li><p><strong>Write <code>ARCHIVE.md</code></strong> in the project folder using the <a href="#template-for-the-archive-description">template</a> at the end of this page.</p></li>
+<li><p><strong>Look at the project:</strong></p>
+<pre><code class="bash language-bash">./archive_project.sh --dry-run &lt;project&gt; &lt;owner-email&gt;
+</code></pre>
+<p><code>&lt;project&gt;</code> is the folder name in <code>/nobackup/lab_rendeiro/projects/</code> (no spaces), not a path. <code>&lt;owner-email&gt;</code> is the email of the person responsible for the data.</p>
+<p>This prints folder sizes and counts the links that point to data outside the project. The links are listed in <code>/nobackup/lab_rendeiro/archive_staging/&lt;project&gt;/external_symlinks.txt</code>. That data is not archived, so mention it in <code>ARCHIVE.md</code>.</p></li>
+<li><p><strong>Decide what to leave out.</strong> Always left out: <code>.venv</code>, caches, SLURM logs, <code>wandb/</code> (local W&amp;B run files), <code>.nextflow</code> and Podman folders (<code>./archive_project.sh --help</code> has the full list). The <code>.git</code> folder is kept. You decide on the rest, for example:</p>
+<ul>
+<li>public data you can download again (TCGA, CAMELYON, …)</li>
+<li>other labs' data</li>
+<li>temporary copies that can be regenerated</li>
+</ul>
+<p>Write down what you leave out in <code>ARCHIVE.md</code>. If the project has personal or clinical data, ask the PI before you archive it, and say so in <code>ARCHIVE.md</code>.</p></li>
+<li><p><strong>Build the tarballs</strong> (nothing is uploaded yet):</p>
+<pre><code class="bash language-bash">./archive_project.sh --package-only [options] &lt;project&gt; &lt;owner-email&gt;
+</code></pre>
+<p>Options you may want:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>When to use it</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--exclude PATTERN</code></td>
+<td>Leave out a folder. The pattern starts with the project name and may use <code>*</code>. Repeat for several.</td>
+<td><code>--exclude 'myproj/data/tcga'</code></td>
+</tr>
+<tr>
+<td><code>--split DIR</code></td>
+<td>Big projects: one tarball per sub-folder of <code>DIR</code> (e.g. per experiment), so you can later restore one part. Files directly in <code>DIR</code> stay in the main tarball. Repeat for several folders.</td>
+<td><code>--split results</code></td>
+</tr>
+<tr>
+<td><code>--level 1</code></td>
+<td>Faster compression. Works well for image data.</td>
+<td></td>
+</tr>
+<tr>
+<td><code>--threads N</code></td>
+<td>Use more CPUs (default 8). Match what you requested from SLURM.</td>
+<td><code>--threads 16</code></td>
+</tr>
+</tbody>
+</table>
+<p>You get one tarball for the <code>/nobackup</code> folder (<code>&lt;project&gt;.nobackup.tar.gz</code>) and, if <code>/research/lab_rendeiro/projects/&lt;project&gt;</code> is a real folder (not a link), one for it too (<code>&lt;project&gt;.research.tar.gz</code>). They are written to <code>/nobackup/lab_rendeiro/archive_staging/&lt;project&gt;/</code>, which needs about as much free space as the project.</p>
+<p>If the run stops partway, run the same command again; finished tarballs are reused. This also means that changed options are ignored for finished tarballs: to rebuild with other options, delete that folder first.</p></li>
+<li><p><strong>Upload.</strong> Run the <strong>same command with the same options</strong> again, but without <code>--package-only</code> and with the storage account:</p>
+<pre><code class="bash language-bash">./archive_project.sh --account strendeiroarchive [same options] &lt;project&gt; &lt;owner-email&gt;
+</code></pre>
+<p>At the end, each file should show <code>OK ... tier=Archive</code>. If you see <code>MD5 mismatch</code>, stop, do not delete anything, and ask for help.</p>
+<p>An archive is never overwritten, so a project name can be archived only once. To archive the same project again, ask the PI or IT to move or delete the old archive first.</p>
+<p>For very large projects (several TB), run steps 6 and 7 as one job. The script packs, then uploads:</p>
+<pre><code class="bash language-bash">sbatch -p &lt;partition&gt; -c 16 --mem 16G -t &lt;time-limit&gt; \
+  --wrap "$HOME/archive_project.sh --threads 16 --account strendeiroarchive [options] &lt;project&gt; &lt;owner-email&gt;"
+</code></pre></li>
+<li><p><strong>Record it.</strong> Check that the script added your project to the inventory:</p>
+<pre><code class="bash language-bash">grep &lt;project&gt; /nobackup/lab_rendeiro/archive_staging/inventory.csv
+</code></pre>
+<p>Then mark the project as archived in the Lab Project Registry (see <a href="/lab-manual/record_keeping">record keeping</a>) and tell the PI and your Data Management representative that the project is archived. Deleting the project also deletes its <code>cemm_metadata.json</code> files.</p></li>
+<li><p><strong>Clean up only after the PI agrees, and at least 7 days after upload.</strong> First check the manifest (see <a href="#look-inside-an-archive">Look inside an archive</a>). Then check that these are the right folders and delete them:</p>
+<pre><code class="bash language-bash">ls -d /nobackup/lab_rendeiro/archive_staging/&lt;project&gt; /nobackup/lab_rendeiro/projects/&lt;project&gt; /research/lab_rendeiro/projects/&lt;project&gt;
+rm -rf /nobackup/lab_rendeiro/archive_staging/&lt;project&gt;
+rm -rf /nobackup/lab_rendeiro/projects/&lt;project&gt;
+rm -rf /research/lab_rendeiro/projects/&lt;project&gt;     # if it exists
+</code></pre></li>
+</ol>
+<h2>Look inside an archive</h2>
+<p>This is quick and very cheap. It needs the login and subscription from "Before you start".</p>
+<pre><code class="bash language-bash">azcopy copy "https://strendeiroarchive.blob.core.windows.net/manifests/&lt;project&gt;/*" ./&lt;project&gt;-manifest/ --recursive
+</code></pre>
+<p>Open <code>ARCHIVE.md</code>, the <code>*.filelist.txt</code> files (what is in each tarball) and <code>external_symlinks.txt</code> (data that was not archived). You can also browse the <strong>manifests</strong> container in the Azure portal from a CeMM office computer.</p>
+<h2>Get a project back</h2>
+<p>This needs the login and subscription from "Before you start".</p>
+<ol>
+<li><strong>Find the tarball name</strong> you need in the file list (see <a href="#look-inside-an-archive">Look inside an archive</a>). Names look like <code>&lt;project&gt;.nobackup.tar.gz</code>, <code>&lt;project&gt;.research.tar.gz</code> or, for <code>--split</code>, <code>&lt;project&gt;.nobackup.&lt;DIR&gt;-&lt;subfolder&gt;.tar.gz</code>. By lab convention the <code>data</code> folder lives under <code>/research</code> and is only linked from <code>/nobackup</code>, so you need the <code>research</code> tarball to get the data.</li>
+<li><strong>Request it.</strong> This takes up to 15 hours:
+<pre><code class="bash language-bash">az storage blob copy start --auth-mode login --account-name strendeiroarchive \
+  --source-container archive --source-blob "&lt;project&gt;/&lt;tarball&gt;" \
+  --destination-container restore --destination-blob "&lt;project&gt;/&lt;tarball&gt;" \
+  --tier Hot --rehydrate-priority Standard
+</code></pre></li>
+<li><strong>Check if it's ready.</strong> Repeat every few hours until it says <code>success</code>:
+<pre><code class="bash language-bash">az storage blob show --auth-mode login --account-name strendeiroarchive \
+  -c restore -n "&lt;project&gt;/&lt;tarball&gt;" --query properties.copy.status -o tsv
+</code></pre></li>
+<li><strong>Download and unpack</strong> in the folder where the project should live (<code>/nobackup/lab_rendeiro/projects/</code>, or <code>/research/lab_rendeiro/projects/</code> for the <code>research</code> tarball). The tarball contains a top-level <code>&lt;project&gt;/</code> folder.
+<pre><code class="bash language-bash">azcopy copy "https://strendeiroarchive.blob.core.windows.net/restore/&lt;project&gt;/&lt;tarball&gt;" ./
+tar -I pigz -xf &lt;tarball&gt;
+</code></pre>
+To check the download, copy <code>SHA256SUMS</code> from the manifest next to the tarball and run <code>sha256sum -c --ignore-missing SHA256SUMS</code>.</li>
+</ol>
+<p>The copy in <code>restore</code> deletes itself after 14 days, and the archive itself is never changed.</p>
+<h2>When someone leaves the lab</h2>
+<p>See also the checklist for the PI in <a href="/lab-manual/offboarding">offboarding</a>.</p>
+<ol>
+<li>Before they leave, they archive their finished or stale projects (see <a href="#archive-a-project">Archive a project</a>).</li>
+<li>Ask IT to remove their <strong>Storage Blob Data Contributor</strong> role.</li>
+<li>Update the owner in <code>inventory.csv</code> if needed.</li>
+<li>Ask HPC admins to transfer ownership of their cluster folders to the new owner.</li>
+</ol>
+<h2>Things that happen automatically</h2>
+<ul>
+<li>Archives are <strong>deleted 10 years after upload</strong>.</li>
+<li>Files deleted by mistake can be recovered for <strong>30 days</strong>. Ask IT.</li>
+</ul>
+<h2>Template for the archive description</h2>
+<p>Save this as <code>ARCHIVE.md</code> in the project folder:</p>
+<pre><code class="markdown language-markdown"># &lt;project&gt;
+- Owner: &lt;name, email&gt;
+- Archived by: &lt;name&gt;, &lt;date&gt;
+- What it is: &lt;2–3 sentences&gt;
+- Papers: &lt;DOI or "none"&gt;
+- Code: &lt;GitHub link + commit&gt;
+- What's included: &lt;folders, sizes&gt;
+- What's left out and why: &lt;e.g. data/tcga — public, can be downloaded again&gt;
+- Data stored elsewhere (not archived): &lt;paths, who owns it&gt;
+- Personal/clinical data?: &lt;yes/no, ethics reference; ask the PI before archiving such data&gt;
+- How to rerun: &lt;short instructions&gt;
+</code></pre>
+<hr/><p><small>Edit this page on <a href="https://github.com/rendeirolab/lab-manual/edit/refs/heads/main/source/data_archiving.md">GitHub</a></small></p>
+              </main>
+
+                <br />
+            </div>
+            <br />
+        </div>
+        <br />
+
+        
+        <!-- Footer -->
+        <nav class="navbar fixed-bottom bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/"></a>
+                <small>
+                    <a href="https://github.com/rendeirolab/rendeirolab.github.io" target="_blank">Open source</a>, thanks to
+                    <a href="https://jinja.palletsprojects.com/en/stable/" target="_blank">Jinja</a>, 
+                    <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a>, and 
+                    <a href="https://pages.github.com/" target="_blank">GitHub</a>
+                </small>
+            </div>
+        </nav>
+        
+
+        
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <!-- Bootstrap color toggle -->
+        <script defer src="https://cdn.jsdelivr.net/gh/rendeirolab/rendeirolab.github.io@main/assets/js/color_toggler.js"></script>
+        
+    <!-- Code block highlighting -->
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-python.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+    </body>
+</html>

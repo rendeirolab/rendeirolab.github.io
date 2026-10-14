@@ -91,17 +91,20 @@ def load_config() -> dict:
         return {}
 
 
-def resolve_mailboxes() -> list[tuple[str, Path, Path, Path]]:
+def resolve_mailboxes(required: bool = True) -> list[tuple[str, Path, Path, Path]]:
     """Resolve mbox sources from env vars or config.yaml.
 
-    The INBOX mailbox is mandatory (no built-in default, so a stale or
-    missing configuration fails loudly instead of silently using a wrong
-    path). The sent mailbox is optional.
+    When `required`, the INBOX mailbox is mandatory (no built-in default, so
+    a stale or missing configuration fails loudly instead of silently using
+    a wrong path); otherwise an empty list is returned when it is missing.
+    The sent mailbox is optional.
 
     Returns a list of (label, mbox_path, offsets_path, lines_path).
     """
     cfg = load_config()
     inbox_raw = os.environ.get("MAILBOX") or cfg.get("mailbox")
+    if not required and (not inbox_raw or not Path(inbox_raw).expanduser().exists()):
+        return []
     if not inbox_raw:
         log.error(
             "No INBOX mailbox configured: set 'cool_papers.mailbox' in "
@@ -200,7 +203,12 @@ def moe_inbox_last_sync(conn: sqlite3.Connection, inbox_ids: list[str]) -> datet
 
 
 def moe_message_to_paper(
-    subject: str, sender: str, ts: int | None, rfc822: bytes | None, body_text: str | None
+    subject: str,
+    sender: str,
+    ts: int | None,
+    rfc822: bytes | None,
+    body_text: str | None,
+    is_sent: bool = False,
 ) -> dict | None:
     """Convert one moe message row into the standard paper dict.
 
@@ -208,10 +216,14 @@ def moe_message_to_paper(
     as the mbox source) when its Subject header actually matches the row;
     falls back to the cached searchable body text, which is plain text of
     the form "title  URL  ^^ comment".
+
+    The returned dict has `_trusted` set when its URL/comment come from a
+    body known to belong to this message (matching rfc822 blob, a sent
+    message, or an inbox body that contains the title).
     """
     if not subject.startswith("[paper]"):
         return None
-    title = subject[len("[paper]"):].strip()
+    title = clean_title(subject[len("[paper]"):])
     if not title:
         return None
 
@@ -243,40 +255,69 @@ def moe_message_to_paper(
             except Exception:
                 msg = None
             if msg:
+                msg["_trusted"] = True
                 return msg
 
     if not body_text:
         return None
-    url = extract_url_from_text(body_text)
-    # moe can associate another message's cached body with this row. When
-    # the body text contains neither the paper title nor a confident paper
-    # URL, treat it as missing (the caller's carry-forward fills it in
-    # from the previous run) instead of extracting garbage.
-    title_key = re.sub(r"\s+", " ", title).strip().lower()
+    # moe can associate another message's cached body with an inbox row
+    # (sent-folder bodies have been reliable). An inbox body that does not
+    # contain the paper title is treated as missing (the caller's
+    # carry-forward fills it in from the previous run) instead of
+    # extracting garbage such as a newsletter's links.
+    tkey = re.sub(r"\s+", " ", title).strip().lower()
     body_key = re.sub(r"\s+", " ", body_text).strip().lower()
-    body_belongs = bool(url) or (
-        len(title_key) > 15 and title_key[:60] in body_key
-    )
+    body_belongs = is_sent or (len(tkey) > 15 and tkey[:60] in body_key)
     if not body_belongs:
         return {
-            "title": _clean_text(title),
+            "title": clean_title(title),
             "url": "",
             "from": _clean_text(sender_email),
             "date": date_iso,
             "date_parsed": date_iso,
             "comment": "",
             "keywords": "",
+            "_trusted": False,
         }
+    url = extract_url_from_text(body_text)
     out_title, comment = extract_title_and_comment(body_text, title, url)
     return {
-        "title": _clean_text(out_title),
+        "title": clean_title(out_title),
         "url": _clean_url(url),
         "from": _clean_text(sender_email),
         "date": date_iso,
         "date_parsed": date_iso,
         "comment": _clean_text(comment),
         "keywords": "",
+        "_trusted": True,
     }
+
+
+def moe_find_body(conn: sqlite3.Connection, title: str) -> str | None:
+    """Find a cached message body that starts with the paper title.
+
+    moe can attach a message's body to another row; the full-text index is
+    searched for the title and a body is accepted only when the title
+    appears at its very beginning (as in a shared-paper email, not in a
+    reply quoting it).
+    """
+    words = re.findall(r"\w+", title)[:10]
+    if len(words) < 3:
+        return None
+    tkey = re.sub(r"\s+", " ", title).strip().lower()[:60]
+    query = '"' + " ".join(words) + '"'
+    try:
+        rows = conn.execute(
+            "SELECT body FROM message_fts WHERE message_fts MATCH ? LIMIT 20",
+            (query,),
+        ).fetchall()
+    except sqlite3.Error:
+        return None
+    for (body,) in rows:
+        head = re.sub(r"\s+", " ", body or "").strip().lower()[:200]
+        if tkey in head and "reacted to your message" not in head:
+            return body
+    return None
 
 
 def _rfc822_subject_matches(rfc822: bytes, subject: str) -> bool:
@@ -312,7 +353,8 @@ def _rfc822_subject_matches(rfc822: bytes, subject: str) -> bool:
 _JUNK_URL_HOSTS = (
     "aka.ms", "microsoft.com", "outlook.com", "office.com", "live.com",
     "onedrive.com", "1drv.ms", "cemm.at", "gv.at", "fwf.ac.at", "ffg.at",
-    "meduniwien.ac.at", "univie.ac.at", "oeaw.ac.at",
+    "meduniwien.ac.at", "univie.ac.at", "oeaw.ac.at", "andre-rendeiro.com",
+    "sharepoint.com",
 )
 
 # Publisher/archive hosts, best first. Anything else scores below the
@@ -333,9 +375,12 @@ _PRIORITY_HOSTS = (
     ("liebertpub.com", 80), ("genome.gov", 80), ("researchsquare.com", 80),
     ("biomedcentral.com", 80), ("ahajournals.org", 80),
     ("bloodjournal.org", 80), ("jimmunol.org", 80), ("peerj.com", 80),
-    ("karger.com", 80), ("jamanetwork.com", 80), ("huggingface.co", 75),
-    ("zenodo.org", 75), ("osf.io", 75), ("figshare.com", 75),
-    ("github.com", 70),
+    ("karger.com", 80), ("jamanetwork.com", 80),
+    # Code/data hosts are below the confidence threshold: they are only
+    # picked when the message has no publisher URL (they are usually linked
+    # in the comment, next to the paper)
+    ("huggingface.co", 50), ("zenodo.org", 50), ("osf.io", 50),
+    ("figshare.com", 50), ("github.com", 50),
 )
 
 # URLs scoring below this are not paper URLs (mail-client footers, links
@@ -348,40 +393,11 @@ def extract_url_from_text(body: str) -> str:
 
     moe's cached searchable body text is plain text: hyperlink-only paper
     URLs are lost, while footers/signatures contribute lots of irrelevant
-    URLs. This unwraps Outlook safelinks and keeps only URLs on known
-    publisher/archive hosts (or with a DOI pattern); anything else is
-    dropped so the carry-forward from the previous run can take over.
+    URLs. Outlook safelinks are unwrapped and the signature/quoted reply is
+    cut off before scoring (see _pick_url).
     """
-    unwrapped = re.sub(
-        r"https?://eur\d*\.safelinks\.protection\.outlook\.com/\?url=([^&\"\s<]+)",
-        lambda m: unquote(m.group(1)),
-        body,
-    )
-    urls = re.findall(r"https?://[^\s<>\"')\]]+", unwrapped)
-    best = ""
-    best_score = -1
-    for u in urls:
-        u = _clean_url(html_mod.unescape(u))
-        u = re.sub(r"^[^a-zA-Z]*", "", u)
-        if not u.startswith(("http://", "https://")):
-            continue
-        host = (urlparse(u).hostname or "").lower()
-        if host.startswith("www."):
-            host = host[4:]
-        if any(junk in host for junk in _JUNK_URL_HOSTS):
-            continue
-        score = 10
-        for ph, sc in _PRIORITY_HOSTS:
-            if host == ph or host.endswith("." + ph):
-                score = sc
-                break
-        if score == 10 and re.search(r"10\.\d{4,9}/", u):
-            score = 75
-        if score > best_score:
-            best_score = score
-            best = u
-    return best if best_score >= _CONFIDENT_URL_SCORE else ""
-
+    text = _cut_signature_and_quote(_unwrap_safelinks(body))
+    return _pick_url(_URL_RE.findall(text))
 
 
 def extract_from_moe(
@@ -415,7 +431,15 @@ def extract_from_moe(
             ).fetchall()
             folder_papers = 0
             for subject, sender, ts, rfc822, body_text in rows:
-                msg = moe_message_to_paper(subject, sender, ts, rfc822, body_text)
+                msg = moe_message_to_paper(
+                    subject, sender, ts, rfc822, body_text, is_sent
+                )
+                if msg and not msg.get("_trusted"):
+                    # The row's cached body belongs to another message; the
+                    # right body is often attached to a different row
+                    other = moe_find_body(conn, msg["title"])
+                    if other:
+                        msg = moe_message_to_paper(subject, sender, ts, None, other)
                 if msg:
                     msg["_sent"] = is_sent
                     papers.append(msg)
@@ -439,7 +463,7 @@ def _index_signature(mbox_path: Path) -> str:
     st = mbox_path.stat()
     return (
         f"# mbox: {mbox_path.resolve()} | size: {st.st_size} "
-        f"| mtime: {st.st_mtime_ns}\n"
+        f"| mtime: {st.st_mtime_ns} | v2\n"
     )
 
 
@@ -460,8 +484,14 @@ def build_indexes(mbox_path: Path, offsets_path: Path, lines_path: Path):
     log.info("Building paper subject index for %s ...", mbox_path.name)
     with open(lines_path, "w") as f:
         f.write(sig)
+    # Subjects with non-ASCII characters are RFC 2047-encoded; "[paper]" is
+    # then literal or "=5Bpaper=5D" (Q encoding) or "W3BhcGVyX" (base64)
     subprocess.run(
-        ["grep", "-n", "^Subject: \\[paper\\]", str(mbox_path)],
+        [
+            "grep", "-n", "-E",
+            r"^Subject: (\[paper\]|=\?[^?]+\?[QqBb]\?(\[paper\]|=5[Bb]paper=5[Dd]|W3BhcGVyX))",
+            str(mbox_path),
+        ],
         stdout=open(lines_path, "a"),
         stderr=subprocess.DEVNULL,
         check=True,
@@ -504,6 +534,19 @@ def parse_paper_lines(path: Path) -> list[int]:
 
 
 # ── Message extraction from raw mbox ──────────────────────────────────
+
+
+def _decode_mime_header(value: str) -> str:
+    """Decode RFC 2047 encoded words ("=?utf-8?q?...?=")."""
+    if "=?" not in value:
+        return value
+    try:
+        out = ""
+        for part, enc in decode_header(value):
+            out += part.decode(enc or "utf-8", errors="replace") if isinstance(part, bytes) else part
+        return re.sub(r"\s+", " ", out).strip()
+    except Exception:
+        return value
 
 
 def extract_header(headers_text: str, name: str) -> str:
@@ -561,50 +604,6 @@ def extract_message_range(
     return header_section, body_section
 
 
-def _decode_qp(raw: str) -> str:
-    try:
-        decoded = quopri.decodestring(raw.encode("ascii", errors="replace"))
-        return decoded.decode("utf-8", errors="replace")
-    except Exception:
-        return raw
-
-
-def _decode_body_with_charset(raw: str, charset: str) -> str:
-    for enc in [charset, "utf-8", "latin-1", "iso-8859-1", "cp1252"]:
-        if not enc:
-            continue
-        try:
-            return raw.encode("latin-1").decode(enc, errors="replace")
-        except Exception:
-            try:
-                return raw.encode("ascii").decode(enc, errors="replace")
-            except Exception:
-                continue
-    return raw
-
-
-def maybe_decode_transfer_encoding(part_text: str, headers: str) -> str:
-    """Apply quoted-printable or base64 decoding if the headers indicate it."""
-    if "Content-Transfer-Encoding: base64" in headers:
-        # Remove any whitespace from base64 text
-        b64 = re.sub(r"\s", "", part_text.strip())
-        try:
-            decoded = base64.b64decode(b64)
-            # Try to guess charset
-            cs = "utf-8"
-            m = re.search(r'charset="?([^"\s;]+)', headers, re.IGNORECASE)
-            if m:
-                cs = m.group(1)
-            return decoded.decode(cs, errors="replace")
-        except Exception:
-            return part_text
-
-    if "Content-Transfer-Encoding: quoted-printable" in headers:
-        return _decode_qp(part_text)
-
-    return part_text
-
-
 def extract_body_text(
     body_section: str,
     content_type: str = "",
@@ -639,34 +638,52 @@ def extract_body_text(
             ct = extract_header(sub_headers, "Content-Type")
             cte = extract_header(sub_headers, "Content-Transfer-Encoding")
             if "text/html" in ct:
-                return _decode_sub_body(sub_body, cte)
+                return _decode_sub_body(sub_body, cte, _charset(ct))
             if "text/plain" in ct and "text/html" not in (
                 extract_header(body_section[:3000], "Content-Type")
             ):
-                return _decode_sub_body(sub_body, cte)
+                return _decode_sub_body(sub_body, cte, _charset(ct))
         return None
 
     # Not multipart – use main-header CTE
     decoded = body_section
     if content_transfer_encoding:
-        decoded = _decode_sub_body(decoded, content_transfer_encoding)
+        decoded = _decode_sub_body(
+            decoded, content_transfer_encoding, _charset(content_type)
+        )
 
     # Strip trailing mbox "From " separator if splice was imprecise
     decoded = re.sub(r"\nFrom[ -].*", "\n", decoded, count=1).strip()
     return decoded
 
 
-def _decode_sub_body(text: str, encoding: str) -> str:
-    """Decode a sub-part according to its Content-Transfer-Encoding."""
+def _charset(content_type: str) -> str:
+    """The charset parameter of a Content-Type header (default utf-8)."""
+    m = re.search(r'charset="?([^"\s;]+)', content_type, re.IGNORECASE)
+    return m.group(1) if m else "utf-8"
+
+
+def _decode_bytes(raw: bytes, charset: str) -> str:
+    try:
+        return raw.decode(charset, errors="replace")
+    except LookupError:
+        return raw.decode("utf-8", errors="replace")
+
+
+def _decode_sub_body(text: str, encoding: str, charset: str = "utf-8") -> str:
+    """Decode a sub-part according to its Content-Transfer-Encoding and charset."""
     if "base64" in encoding.lower():
         b64 = re.sub(r"\s", "", text.strip())
         try:
-            raw = base64.b64decode(b64)
-            return raw.decode("utf-8", errors="replace")
+            return _decode_bytes(base64.b64decode(b64), charset)
         except Exception:
             return text
     if "quoted-printable" in encoding.lower():
-        return _decode_qp(text)
+        try:
+            raw = quopri.decodestring(text.encode("ascii", errors="replace"))
+            return _decode_bytes(raw, charset)
+        except Exception:
+            return text
     return text
 
 
@@ -685,80 +702,98 @@ def _clean_text(text: str) -> str:
     characters left by lossy charset decoding."""
     if not text:
         return text
-    text = text.replace("\u200b", "")
+    text = text.replace("\u200b", "").replace("\ufeff", "")
     text = text.replace("\u00a0", " ")
     return text.replace("\ufffd", "").strip()
 
 
-def extract_originalsrc(body: str) -> str | None:
-    for m in re.finditer(r'originalsrc="([^"]+)"', body):
-        url = html_mod.unescape(m.group(1))
-        url = _clean_url(url)
-        url = re.sub(r"^[^a-zA-Z]*", "", url)
-        if not url.startswith(("http://", "https://")):
+# Parentheses are allowed inside URLs (Cell/Lancet PII URLs such as
+# S0092-8674(25)00749-4); unbalanced trailing ones are trimmed by _trim_url.
+_URL_RE = re.compile(r"https?://[^\s<>\"'\]]+", re.IGNORECASE)
+
+_SAFELINK_RE = re.compile(
+    r"https?://[\w.]*safelinks\.protection\.outlook\.com/\?url=([^&\"\s<>]+)[^\s<>\"]*",
+    re.IGNORECASE,
+)
+
+
+def _unwrap_safelinks(text: str) -> str:
+    """Replace Outlook safelinks with the URL they wrap."""
+    return _SAFELINK_RE.sub(lambda m: unquote(m.group(1)), text)
+
+
+def _trim_url(url: str) -> str:
+    """Normalize a URL found in free text: decode entities, strip leading
+    junk (QP artifacts such as "=https://"), trailing punctuation and
+    unbalanced closing brackets, and lower-case the scheme ("Https://")."""
+    url = _clean_url(html_mod.unescape(url))
+    url = re.sub(r"^[^a-zA-Z]*", "", url)
+    while url:
+        last = url[-1]
+        if last in ".,;:!?*'\"":
+            url = url[:-1]
+        elif last == ")" and url.count(")") > url.count("("):
+            url = url[:-1]
+        elif last == "]" and url.count("]") > url.count("["):
+            url = url[:-1]
+        else:
+            break
+    return re.sub(r"^https?://", lambda m: m.group(0).lower(), url, flags=re.IGNORECASE)
+
+
+def _url_score(url: str) -> int:
+    """Score a candidate paper URL; -1 for junk hosts."""
+    host = (urlparse(url).hostname or "").lower()
+    if host.startswith("www."):
+        host = host[4:]
+    if not host or any(junk in host for junk in _JUNK_URL_HOSTS):
+        return -1
+    for ph, sc in _PRIORITY_HOSTS:
+        if host == ph or host.endswith("." + ph):
+            return sc
+    if re.search(r"10\.\d{4,9}/", url):
+        return 75
+    return 10
+
+
+def _pick_url(candidates) -> str:
+    """Return the paper URL among candidates given in document order.
+
+    The highest-priority publisher/archive URL wins, the first one on ties
+    (later ones are usually related work mentioned in the comment); when
+    there is none, the first non-junk URL is returned (e.g. a project page
+    shared as a "paper").
+    """
+    best, best_score = "", -1
+    fallback = ""
+    for u in candidates:
+        u = _trim_url(u)
+        if not u.startswith(("http://", "https://")):
             continue
-        # Skip URLs that look like generic homepages (no meaningful path)
-        path = re.sub(r"https?://[^/]+", "", url).strip("/")
-        if not path or path.count("/") == 0:
-            continue
-        return url
-    return None
-
-
-def extract_safelink_url(body: str) -> str | None:
-    m = re.search(
-        r"https?://eur\d*\.safelinks\.protection\.outlook\.com/\?url=([^&\"\s]+)",
-        body,
-    )
-    return _clean_url(unquote(m.group(1))) if m else None
-
-
-def extract_direct_href(body: str) -> str | None:
-    m = re.search(r'<a\s[^>]*href="([^"]+)"', body)
-    if m:
-        url = _clean_url(m.group(1))
-        if url.startswith(("http://", "https://")):
-            return url
-    return None
-
-
-def extract_plain_url(body: str) -> str | None:
-    """Fallback: find any http(s) URL in plain text."""
-    for m in re.finditer(r"https?://[^\s<>\"']{10,}", body):
-        url = m.group(0)
-        if "safelinks.protection.outlook.com" in url:
-            continue
-        url = _clean_url(html_mod.unescape(url))
-        # Strip leading non-URL junk from QP artifacts (e.g. "=https://" -> "https://")
-        url = re.sub(r"^[^a-zA-Z]*", "", url)
-        if url.startswith(("http://", "https://")):
-            return url
-    return None
-
-
-def extract_direct_href(body: str) -> str | None:
-    """Extract the first http(s) href from an <a> tag."""
-    for m in re.finditer(r'<a\s[^>]*href="([^"]+)"', body, re.IGNORECASE):
-        url = _clean_url(html_mod.unescape(m.group(1)))
-        # Strip leading non-URL junk from QP artifacts
-        url = re.sub(r"^[^a-zA-Z]*", "", url)
-        if url.startswith(("http://", "https://")):
-            return url
-    return None
+        score = _url_score(u)
+        if score >= _CONFIDENT_URL_SCORE and score > best_score:
+            best, best_score = u, score
+        elif score > 0 and not fallback:
+            fallback = u
+    return best or fallback
 
 
 def extract_url(body: str) -> str:
-    """Best-effort extraction: originalsrc > plain > href > safelink."""
-    for fn in (
-        extract_originalsrc,
-        extract_plain_url,
-        extract_direct_href,
-        extract_safelink_url,
-    ):
-        url = fn(body)
-        if url:
-            return url
-    return ""
+    """Pick the paper URL out of an HTML or plain-text message body.
+
+    Candidates come from Outlook's originalsrc attributes, <a href> links
+    and plain-text URLs (all with safelinks unwrapped); the signature and
+    any quoted reply are cut off first.
+    """
+    body = _cut_signature_and_quote(_unwrap_safelinks(_strip_style_script(body)))
+    # Link targets and plain-text URLs, in document order
+    candidates = []
+    for piece in re.split(r"(<[^>]*>)", body):
+        if piece.startswith("<"):
+            candidates += re.findall(r'(?:originalsrc|href)="([^"]+)"', piece, re.IGNORECASE)
+        else:
+            candidates += _URL_RE.findall(html_mod.unescape(piece))
+    return _pick_url(html_mod.unescape(c) for c in candidates)
 
 
 # ── Title and comment extraction ──────────────────────────────────────
@@ -911,8 +946,8 @@ def extract_title_and_comment(
     if _is_comment_subject(subject_title):
         if body_title:
             return body_title, subject_title
-        # No good body title found; use subject as title but also as comment
-        return subject_title, subject_title
+        # No good body title found; keep the subject as the title
+        return subject_title, _extract_comment_from_body(body, subject_title, url)
 
     # Case 2: Subject is the title, but may be truncated (QP continuation)
     if _has_continuation(subject_title) and body_title:
@@ -929,17 +964,25 @@ def extract_title_and_comment(
     return subject_title, comment
 
 
+def _looks_like_html(body: str) -> bool:
+    return bool(re.search(r"<(?:html|body|div|p|br|span|table)\b", body, re.IGNORECASE))
+
+
 def _strip_signature(body: str) -> str:
-    """Remove email signature elements from HTML body text."""
-    if not BeautifulSoup:
+    """Remove Outlook link-preview cards (page title, description and domain
+    of a pasted link) from HTML body text.
+
+    Outlook's "Signature" divs are kept: older Outlook versions put whatever
+    was typed below the signature insertion point (often the comment) in
+    them. Real signatures are cut by _cut_signature_and_quote instead.
+    """
+    if not BeautifulSoup or not _looks_like_html(body):
         return body
     try:
         soup = BeautifulSoup(body, "html.parser")
-        # Remove elements with signature-related IDs or classes
         for selector in (
-            "[id*=signature i]", "[id*=Signature]",
-            "[class*=signature i]", "[class*=Signature]",
-            "[id*=ms-outlook i]",
+            "[id^=LPBorder]", "[id^=LPContainer]", "[class*=_EType_OWALinkPreview]",
+            "[class*=lp-rich-link]",
         ):
             for elem in soup.select(selector):
                 elem.decompose()
@@ -948,47 +991,179 @@ def _strip_signature(body: str) -> str:
         return body
 
 
+# Lines that end the useful part of a message: sign-offs, signatures,
+# mobile footers and quoted replies/forwards. Everything from the first
+# match onwards is dropped. Each pattern must match a whole line (or a
+# whole HTML element, hence the optional surrounding tags).
+_CUT_LINE_PATTERNS = (
+    r"(?:best|best wishes|best regards|kind regards|warm regards|regards|"
+    r"cheers|all the best|many thanks|thanks a lot|thanks|thank you|bw|br|"
+    r"liebe grüße|lg|viele grüße)\s*[,!.]?",
+    r"andre rendeiro, phd.*",
+    r"cemm research center for molecular medicine.*",
+    r"lazarettgasse.*",
+    r"[\w.-]+(?: [\w.-]+){1,3}, (?:msc|bsc|phd|ph\.d\.|md|dr)\b.*",
+    r"sent from my .*",
+    r"get outlook for .*",
+    r"-{3,}\s*original message\s*-{3,}.*",
+    r"-{5,}\s*forwarded message\s*-{5,}.*",
+    r"_{10,}",
+    r"\*?(?:from|von):\*?\s.*",
+    r"on .{5,120} wrote:",
+    r"am .{5,120} schrieb.*",
+    r"\d{4}年.*",
+)
+_CUT_RE = re.compile(
+    r"(?im)^(?:\s|<[^>]*>|&nbsp;)*(?:" + "|".join(_CUT_LINE_PATTERNS) + r")"
+    r"(?:\s|<[^>]*>|&nbsp;)*$"
+)
+# Outlook HTML reply/forward containers
+_CUT_HTML_RE = re.compile(r'<(?:div|hr)[^>]*id="(?:divRplyFwdMsg|appendonsend)"', re.IGNORECASE)
+
+
+def _cut_signature_and_quote(body: str) -> str:
+    """Drop everything from the first sign-off, signature or quoted reply."""
+    cut = len(body)
+    for rx in (_CUT_RE, _CUT_HTML_RE):
+        m = rx.search(body)
+        if m:
+            cut = min(cut, m.start())
+    # Plain-text quoted reply (lines starting with ">")
+    m = re.search(r"(?m)^>", body)
+    if m:
+        cut = min(cut, m.start())
+    return body[:cut]
+
+
+_BLOCK_TAG_RE = re.compile(
+    r"<(?:br|hr)\b[^>]*>|</?(?:div|p|li|ul|ol|tr|table|h\d|blockquote)\b[^>]*>",
+    re.IGNORECASE,
+)
+
+
+def _html_to_text(body: str) -> str:
+    """Convert HTML to text with line breaks only at block-level elements
+    (inline elements such as links or italics stay within their line)."""
+    m = _CUT_HTML_RE.search(body)
+    if m:
+        body = body[: m.start()]
+    body = re.sub(r"\s+", " ", body)
+    body = _BLOCK_TAG_RE.sub("\n", body)
+    if BeautifulSoup:
+        try:
+            text = BeautifulSoup(body, "html.parser").get_text()
+        except Exception:
+            text = re.sub(r"<[^>]+>", "", body)
+    else:
+        text = re.sub(r"<[^>]+>", "", body)
+    return text
+
+
+def _space_glued_urls(text: str) -> str:
+    """Separate URLs glued to the preceding word (adjacent inline elements:
+    "...title</span><a>https://...")."""
+    return re.sub(r"(?<=[^\s(<\[\"'=/])(https?://)", r" \1", text)
+
+
+_GREETING_RE = re.compile(r"(?i)^(?:dear|hi|hello|hey|hallo|liebe|lieber)\b[^.?!]{0,60}[,!:]?$")
+
+
+def _norm(text: str) -> str:
+    return re.sub(r"\s+", " ", text).strip().lower().strip(" .,:;-–|")
+
+
 def _extract_comment_from_body(body: str, title: str, url: str) -> str:
-    """Return body text that is not the title, URL, or boilerplate."""
+    """Return body text that is not the title, URL, greeting or boilerplate.
+
+    The signature and any quoted reply are cut off first. URLs other than
+    the paper URL are kept, since comments often point to related papers,
+    code or data.
+    """
     if not body:
         return ""
 
-    body = _strip_style_script(body)
+    body = _unwrap_safelinks(_strip_style_script(body))
+    text = _html_to_text(body) if _looks_like_html(body) else body
+    text = _cut_signature_and_quote(html_mod.unescape(text))
+    # Plain-text renderings of hyperlinks ("link text<https://...>") and of
+    # inline images ("[https://.../image.png]")
+    text = re.sub(r"<(?:https?|mailto):[^>\s]*>", "", text)
+    text = re.sub(r"\[(?:https?|cid):[^\]\s]*\]", "", text)
+    text = _space_glued_urls(text)
+    # The title on its own line(s), possibly wrapped and followed by a
+    # site suffix ("... - Nature Medicine")
+    words = [re.escape(w) for w in title.split()]
+    if words:
+        text = re.sub(
+            r"(?im)^\s*" + r"\s+".join(words)
+            + r"(?:\s*[-|:–]\s*(?:The Lancet|Nature|Cell|Science|ScienceDirect|bioRxiv"
+            r"|medRxiv|PubMed|Modern Pathology)[\w ]*)?[.\s]*$",
+            "",
+            text,
+        )
 
-    if BeautifulSoup:
-        try:
-            soup = BeautifulSoup(body, "html.parser")
-            text = soup.get_text(separator="\n")
-        except Exception:
-            text = re.sub(r"<[^>]+>", "\n", body)
-    else:
-        text = re.sub(r"<[^>]+>", "\n", body)
-
-    text = html_mod.unescape(text)
-
-    url_norm = url.rstrip("/")
-    title_norm = re.sub(r"\s+", " ", title).strip()
+    title_norm = _norm(title)
+    url_norm = _trim_url(url).rstrip("/") if url else ""
 
     lines = []
     for line in text.split("\n"):
         line = line.strip()
-        if not line:
+        if not line or _GREETING_RE.match(line):
             continue
-        if _is_boilerplate(line):
+        # Drop the paper URL wherever it appears (also when wrapped over
+        # two lines in the HTML source)
+        if url_norm:
+            line = " ".join(
+                w for w in line.split()
+                if not (
+                    w.lower().startswith("http")
+                    and url_norm.lower().startswith(_trim_url(w).rstrip("/").lower())
+                )
+            )
+        line_norm = _norm(line)
+        if len(line_norm) < 3 or sum(c.isalpha() for c in line_norm) < 3:
             continue
-        if re.sub(r"\s+", " ", line).strip() == title_norm:
+        # Plain-text link previews end with the bare domain ("www.cell.com"),
+        # after the page title (already dropped) and description
+        if re.fullmatch(r"(?:www\.)?[\w-]+(?:\.[\w-]+)+/?", line_norm):
+            if lines and "^" not in lines[-1]:
+                lines.pop()
             continue
-        if line.rstrip("/") == url_norm or line == url:
+        # The title (when it differs slightly from the subject)
+        if title_norm and line_norm == title_norm:
             continue
-        line = re.sub(r"https?://\S+", "", line).strip()
-        if not line:
-            continue
-        if len(line) < 3:
+        if line_norm in ("book time to meet with me", "reply", "nbsp", "=20"):
             continue
         lines.append(line)
 
-    comment = " ".join(lines)
-    return re.sub(r"\s+", " ", comment).strip()
+    # A bare first name signing off the message
+    while lines and re.fullmatch(r"[A-ZÀ-Ý][\w-]{1,15}", lines[-1]):
+        lines.pop()
+
+    comment = re.sub(r"\s+", " ", " ".join(lines)).strip()
+    if _norm(comment) == title_norm:
+        return ""
+    return comment
+
+
+_TITLE_SUFFIX_RE = re.compile(
+    r"\s*(?::\s*(?:Cell|Neuron|Immunity|Cancer Cell|Molecular Cell|Developmental Cell"
+    r"|Cell (?:Reports|Metabolism|Systems|Genomics|Stem Cell)[\w ]*)"
+    r"|\s[-|–]\s(?:The Lancet[\w ]*|Modern Pathology|ScienceDirect|PubMed|bioRxiv|medRxiv"
+    r"|Nature[\w ]*|Science[\w ]*))$"
+)
+
+
+def clean_title(title: str) -> str:
+    """Strip browser-tab site suffixes pasted along with the title
+    ("...: Cell", "... - The Lancet Digital Health", "... - ScienceDirect")."""
+    title = _clean_text(title or "")
+    return _TITLE_SUFFIX_RE.sub("", title).strip()
+
+
+def title_key(title: str) -> str:
+    """Key used to deduplicate papers and match them across runs."""
+    return re.sub(r"\s+", " ", clean_title(title)).lower()
 
 
 # ── Date parsing ──────────────────────────────────────────────────────
@@ -1019,11 +1194,11 @@ def process_message(
     header_section: str, body_section: str | None
 ) -> dict | None:
     """Parse a single paper email into a dict."""
-    subj = extract_header(header_section, "Subject")
+    subj = _decode_mime_header(extract_header(header_section, "Subject"))
     if not subj.startswith("[paper]") or subj.upper().startswith("RE:"):
         return None
 
-    title = subj[len("[paper]"):].strip()
+    title = clean_title(subj[len("[paper]"):])
     if not title:
         return None
 
@@ -1049,7 +1224,7 @@ def process_message(
     date_parsed = parse_date(date_str) if date_str else ""
 
     return {
-        "title": _clean_text(title),
+        "title": clean_title(title),
         "url": _clean_url(url),
         "from": _clean_text(from_addr or ""),
         "date": date_str or "",
@@ -1129,6 +1304,33 @@ def extract_papers(
     return papers
 
 
+# Quoted-reply markers inside a single-line comment from a previous run
+_INLINE_QUOTE_RE = re.compile(
+    r"\s(?:From|Von|Sent|Gesendet):\s|\s\d{4}年|\s>\s|\sOn .{5,120} wrote:|\sAm .{5,120} schrieb"
+)
+
+
+def _clean_carried_comment(comment: str) -> str:
+    """Trim quoted replies from a comment carried over from a previous run
+    (older runs did not cut them)."""
+    m = _INLINE_QUOTE_RE.search(comment)
+    return comment[: m.start()].strip() if m else comment
+
+
+def _source_rank(p: dict) -> tuple:
+    """Rank duplicate occurrences of a paper: one with a URL beats one
+    without; a body known to belong to the message beats an unverified one;
+    a comment beats none; the raw mbox archive (full MIME, hyperlinks
+    intact) beats moe's cached plain-text bodies; sent beats inbox."""
+    return (
+        bool(p.get("url")),
+        bool(p.get("_trusted")),
+        bool(p.get("comment")),
+        bool(p.get("_mbox")),
+        bool(p.get("_sent")),
+    )
+
+
 def main():
     # Load the previous run so we don't need to re-enrich, and so fields
     # moe can no longer provide (hyperlink-only URLs, some comments) are
@@ -1137,7 +1339,8 @@ def main():
     if OUTPUT.exists():
         with open(OUTPUT) as f:
             for row in csv.DictReader(f):
-                key = row.get("title", "").strip().lower()
+                row["title"] = clean_title(row.get("title", ""))
+                key = title_key(row["title"])
                 if key and key not in old_rows:
                     old_rows[key] = row
         log.info("Loaded %d papers from the previous run", len(old_rows))
@@ -1155,29 +1358,38 @@ def main():
         all_papers, inbox_last_sync = extract_from_moe(
             db_path, inbox_folders, sent_folders
         )
+        # The legacy mbox archive, when still on disk, holds the raw
+        # messages up to its last sync: use it as a reference for the
+        # papers it contains (moe's cached bodies lose hyperlinks and can
+        # belong to another message).
+        mboxes = resolve_mailboxes(required=False)
     else:
-        for label, mbox_path, offsets_path, lines_path in resolve_mailboxes():
-            log.info("mbox: %s (%s)", mbox_path, mbox_path.stat().st_size)
-            extracted = extract_papers(mbox_path, offsets_path, lines_path)
-            all_papers.extend(extracted)
+        mboxes = resolve_mailboxes()
+    for label, mbox_path, offsets_path, lines_path in mboxes:
+        log.info("mbox: %s (%s)", mbox_path, mbox_path.stat().st_size)
+        for p in extract_papers(mbox_path, offsets_path, lines_path):
+            p["_sent"] = label == "sent"
+            p["_mbox"] = True
+            p["_trusted"] = True
+            all_papers.append(p)
 
     # Deduplicate by title (case-insensitive); when the same paper appears
-    # in several folders, keep the occurrence with the most content (a URL
-    # beats no URL, a sent-message body beats an inbox one, a comment beats
-    # no comment).
+    # in several folders/sources, keep the best occurrence (_source_rank),
+    # and the latest one among equally good occurrences.
     seen: dict[str, int] = {}
     deduped: list[dict] = []
     for p in all_papers:
-        key = p["title"].strip().lower()
+        key = title_key(p["title"])
         if not key:
             continue
         if key in seen:
             prev = deduped[seen[key]]
-            if not prev.get("_sent") and p.get("_sent"):
-                deduped[seen[key]] = p
-            elif not prev["url"] and p["url"]:
-                deduped[seen[key]] = p
-            elif not prev["comment"] and p["comment"]:
+            # A paper shared several times (e.g. preprint, then published
+            # version) keeps its latest share on ties
+            if _source_rank(p) > _source_rank(prev) or (
+                _source_rank(p) == _source_rank(prev)
+                and p.get("date_parsed", "") > prev.get("date_parsed", "")
+            ):
                 deduped[seen[key]] = p
             continue
         seen[key] = len(deduped)
@@ -1229,33 +1441,31 @@ def main():
 
     # Merge back data from the previous run: enrichment (doi/journal) and
     # fields the moe store no longer exposes (hyperlink-only URLs, comments
-    # lost or polluted in the plain-text body cache). Inbox-message bodies
-    # in moe are unreliable, so for papers whose occurrence comes from the
-    # inbox, the previous run's URL and comment win when they exist.
+    # lost or polluted in the plain-text body cache). When a paper's body
+    # could not be verified to belong to its message (moe inbox rows), the
+    # previous run's URL and comment win when they exist.
     for p in deduped:
-        key = p["title"].strip().lower()
+        key = title_key(p["title"])
         prev = old_rows.get(key, {})
-        if prev.get("doi") or prev.get("journal"):
+        if not p.get("_trusted"):
+            if prev.get("url"):
+                p["url"] = prev["url"]
+            if prev.get("comment"):
+                p["comment"] = _clean_carried_comment(prev["comment"])
+        elif not p["url"] and prev.get("url"):
+            # Plain-text bodies lose hyperlink-only URLs
+            p["url"] = prev["url"]
+        # Enrichment is only valid for the same URL (re-enriched otherwise)
+        if (prev.get("doi") or prev.get("journal")) and prev.get("url") == p["url"]:
             p["doi"] = prev.get("doi", "")
             p["journal"] = prev.get("journal", "")
-        if moe_source is not None and not p.get("_sent"):
-            if prev.get("url") and prev["url"] != p.get("url", ""):
-                p["url"] = prev["url"]
-            if prev.get("comment") and prev["comment"] != p.get("comment", ""):
-                p["comment"] = prev["comment"]
-        else:
-            if not p["url"] and prev.get("url"):
-                p["url"] = prev["url"]
-            if not p["comment"] and prev.get("comment"):
-                p["comment"] = prev["comment"]
 
     # Papers that vanished from the mail store (e.g. moe rows with an empty
     # cached body) are restored from the previous run instead of dropped.
-    missing_keys = set(old_rows) - {p["title"].strip().lower() for p in deduped}
+    missing_keys = set(old_rows) - {title_key(p["title"]) for p in deduped}
     if missing_keys:
         for key in sorted(missing_keys):
             row = old_rows[key]
-            row["_sent"] = False
             deduped.append(row)
         log.info("Restored %d papers missing from the mail store", len(missing_keys))
 
@@ -1276,7 +1486,7 @@ def main():
         )
         writer.writeheader()
         writer.writerows(
-            {k: v for k, v in p.items() if k != "_sent"} for p in deduped
+            {k: v for k, v in p.items() if not k.startswith("_")} for p in deduped
         )
 
     log.info("Wrote %s (%d rows)", OUTPUT, len(deduped))

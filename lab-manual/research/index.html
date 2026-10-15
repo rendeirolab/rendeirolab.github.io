@@ -224,7 +224,7 @@
                           <li class="nav-item">
                             <a class="nav-link "
                                
-                               href="/lab-manual/mission_statement/">Mission and philosophy</a>
+                               href="/lab-manual/mission_statement/">Mission statement</a>
                           </li>
                         
                           
@@ -238,14 +238,14 @@
                           <li class="nav-item">
                             <a class="nav-link "
                                
-                               href="/lab-manual/communication_and_meetings/">Lab communication</a>
+                               href="/lab-manual/communication_and_meetings/">Communication and meetings</a>
                           </li>
                         
                           
                           <li class="nav-item">
                             <a class="nav-link "
                                
-                               href="/lab-manual/infrastructure/">Lab infrastructure</a>
+                               href="/lab-manual/infrastructure/">Infrastructure</a>
                           </li>
                         
                           
@@ -266,7 +266,7 @@
                           <li class="nav-item">
                             <a class="nav-link "
                                
-                               href="/lab-manual/record_keeping/">Record keeping guidelines</a>
+                               href="/lab-manual/record_keeping/">Record keeping</a>
                           </li>
                         
                           
@@ -301,7 +301,7 @@
                           <li class="nav-item">
                             <a class="nav-link "
                                
-                               href="/lab-manual/changelog/">Version changes</a>
+                               href="/lab-manual/changelog/">Changelog</a>
                           </li>
                         
                       </ul>
@@ -313,14 +313,14 @@
 <h2>Project life cycle</h2>
 <h3>Initializing a project</h3>
 <ol>
-<li>Register your project in the lab's project register:
+<li>Register your project in the lab's project registry:
 <ol>
-<li>Go to <a href="https://cemmat.sharepoint.com/sites/rendeirolab">https://cemmat.sharepoint.com/sites/rendeirolab</a> and find the 'Lab project register.xlsx' or directly <a href="https://cemmat.sharepoint.com/:x:/r/sites/rendeirolab/_layouts/15/Doc.aspx?sourcedoc=%7B4c72f84b-f33b-4162-a5e8-f05556fdf66b%7D&amp;action=editnew">here</a>.</li>
+<li>Go to <a href="https://cemmat.sharepoint.com/sites/rendeirolab">https://cemmat.sharepoint.com/sites/rendeirolab</a> and find the 'Lab project register.xlsx' file, or directly <a href="https://cemmat.sharepoint.com/:x:/r/sites/rendeirolab/_layouts/15/Doc.aspx?sourcedoc=%7B4c72f84b-f33b-4162-a5e8-f05556fdf66b%7D&amp;action=editnew">here</a>.</li>
 <li>Start a new row for your project and increment the <code>Project ID</code> by one.</li>
 <li>Choose an intuitive name for the project, avoiding adding personal information e.g. collaborator names.</li>
 </ol></li>
 <li>Create a project directory structure from the lab's template: <code>cookiecutter gh:rendeirolab/_project_template</code></li>
-<li>Create a git repository on GitHub (<a href="https://github.com/rendeirolab">https://github.com/rendeirolab</a>) with the same name as the project, make a first commit and push to Github.</li>
+<li>Create a git repository on GitHub (<a href="https://github.com/rendeirolab">https://github.com/rendeirolab</a>) with the same name as the project, make a first commit and push to GitHub.</li>
 <li>Create a directory for the project in the CeMM cluster at: <code>/research/lab_rendeiro/projects/</code>
 <ol>
 <li>Create a directory inside called <code>data</code> to store raw data.</li>
@@ -329,18 +329,17 @@
 <ol>
 <li>Create a soft link between <code>/research/.../data</code> and <code>/nobackup/.../data</code></li>
 </ol></li>
-<li>To run a job in a container with that isolation (data read-only, results on nobackup), see <a href="infrastructure.md#cluster-containers-podman">Cluster containers (Podman)</a>.</li>
-<li>Create a <code>cemm_metadata.json</code> file in <code>/research/lab_rendeiro/projects/$PROJECT/</code></li>
-<li>Create a <code>cemm_metadata.json</code> file in <code>/nobackup/lab_rendeiro/projects/$PROJECT/</code></li>
+<li>Create a <code>cemm_metadata.json</code> file in both <code>/research/lab_rendeiro/projects/$PROJECT/</code> and <code>/nobackup/lab_rendeiro/projects/$PROJECT/</code></li>
 </ol>
+<p>To run jobs in a container with that isolation (data read-only, results on <code>/nobackup</code>), see <a href="infrastructure.md#cluster-containers-podman">Cluster containers (Podman)</a>.</p>
 <p>You can find various metadata JSON templates at <code>/research/lab_rendeiro/projects/_templates/</code>.</p>
 <p>Make sure to validate your JSON files, e.g.:</p>
-<pre><code class="bash language-bash">wget --no-check-certificate https://metadata.int.cemm.at/latest/cemm_metadata_schema.json
+<pre><code class="bash language-bash">wget https://metadata.int.cemm.at/latest/cemm_metadata_schema.json
 uvx check-jsonschema --schemafile cemm_metadata_schema.json cemm_metadata.json 
 </code></pre>
 <h3>Developing a project</h3>
 <p>See the <a href="/lab-manual/project_planning">Project Planning</a> section for conceptual details on how to design and develop a project.</p>
-<p>From a practical standpoint, also refeer to the lab's <a href="https://github.com/rendeirolab/_project_template">Project Template</a> for instructions on how to set up a project repository, and how to structure your project files.</p>
+<p>From a practical standpoint, also refer to the lab's <a href="https://github.com/rendeirolab/_project_template">Project Template</a> for instructions on how to set up a project repository, and how to structure your project files.</p>
 <h3>Project management</h3>
 <ul>
 <li>Make sure to maintain the <code>cemm_metadata.json</code> files in line with the existing data on disk.</li>
@@ -350,9 +349,8 @@ uvx check-jsonschema --schemafile cemm_metadata_schema.json cemm_metadata.json
 <li>Data backup: Backup only original data, or timestamped versions of processed data. Use the CeMM cluster's <code>/research/lab_rendeiro/projects/$PROJECT</code> directory for this purpose.</li>
 </ul>
 <h3>Reporting research</h3>
-<p>Figures are the core of communicating reserach:</p>
+<p>Figures are crucial for communicating research. We encourage lab members to:</p>
 <ul>
-<li>Figures are crucial for communicating research. We encourage lab members to:</li>
 <li>Conceptualize figures early: Sketch potential figures during project development to visualize your story and refine experimental design. This "Figure Zero" mentality focuses work on key data that supports your narrative.</li>
 <li>Assemble figures often: Don't wait until the end. Assemble plots into draft figures iteratively as data comes in. This helps identify gaps, maintain quality, and keeps publication as the ultimate goal.</li>
 <li>Leverage vector graphics: Figures created as vector graphics (SVG, PDF) are highly versatile. They scale without resolution loss and can be reused efficiently across publications, presentations, grants, and posters, saving significant time.</li>
@@ -363,9 +361,9 @@ uvx check-jsonschema --schemafile cemm_metadata_schema.json cemm_metadata.json
 <li>Encouraging style over substance: Time is often spent on aesthetics rather than refining the core message.</li>
 <li>"Death by PowerPoint": Poorly constructed slides can bore and disengage the audience.</li>
 </ul>
-<p>By focusing on making figures proactively and using them to communicate (instead of PowerPoint), you'll develop your skills of visual story telling, enable you to tailor your analysis more directly to the a final figure plant and accelerate the path to publication.</p>
+<p>By focusing on making figures proactively and using them to communicate (instead of PowerPoint), you'll develop your skills of visual storytelling, tailor your analysis more directly to the final figure plan, and accelerate the path to publication.</p>
 <h3>Finishing a project</h3>
-<p>When a project is finished or stale, push the code to GitHub and archive the data following <a href="/lab-manual/data_archiving">data archiving</a>. Then mark the project as archived in the lab's project register.</p>
+<p>When a project is finished or stale, push the code to GitHub and archive the data following <a href="/lab-manual/data_archiving">data archiving</a>. Then mark the project as archived in the lab's project registry.</p>
 <h2>Tools and technologies of standard use within the lab</h2>
 <h3>File types of digital data</h3>
 <p>Below are the preferred types of technology to be used in the lab to ensure consistency and efficiency:</p>
@@ -379,13 +377,13 @@ uvx check-jsonschema --schemafile cemm_metadata_schema.json cemm_metadata.json
 <h2>Engaging in new projects</h2>
 <p>Be receptive to input and suggestions from others on collaborating and engaging in new projects.</p>
 <p>However, a careful balance between finishing existing projects and starting new ones is crucial.</p>
-<p>Consult with Andre before committing to new projects, especially if they involve significant time investment or resources.</p>
+<p>Consult with André before committing to new projects, especially if they involve significant time investment or resources.</p>
 <h2>Meta-science</h2>
 <ul>
 <li>The Night Science Series (<a href="https://night-science.org/genome-biology-miniseries/">https://night-science.org/genome-biology-miniseries/</a>)</li>
 <li>The Night Science Podcast (<a href="https://night-science.org/the-night-science-podcast/">https://night-science.org/the-night-science-podcast/</a>)</li>
 <li>The importance of stupidity in scientific research (<a href="https://doi.org/10.1242/jcs.033340">https://doi.org/10.1242/jcs.033340</a>)</li>
-<li>Parachute use to prevent death and major trauma when jumping from aircraft: randomized controlled trial (<a href="http://dx.doi.org/10.1136/bmj.k5094">http://dx.doi.org/10.1136/bmj.k5094</a>)</li>
+<li>Parachute use to prevent death and major trauma when jumping from aircraft: randomized controlled trial (<a href="https://doi.org/10.1136/bmj.k5094">https://doi.org/10.1136/bmj.k5094</a>)</li>
 </ul>
 <hr/><p><small>Edit this page on <a href="https://github.com/rendeirolab/lab-manual/edit/refs/heads/main/source/research.md">GitHub</a></small></p>
               </main>

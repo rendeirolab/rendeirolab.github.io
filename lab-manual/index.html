@@ -224,7 +224,7 @@
                           <li class="nav-item">
                             <a class="nav-link "
                                
-                               href="/lab-manual/mission_statement/">Mission and philosophy</a>
+                               href="/lab-manual/mission_statement/">Mission statement</a>
                           </li>
                         
                           
@@ -238,14 +238,14 @@
                           <li class="nav-item">
                             <a class="nav-link "
                                
-                               href="/lab-manual/communication_and_meetings/">Lab communication</a>
+                               href="/lab-manual/communication_and_meetings/">Communication and meetings</a>
                           </li>
                         
                           
                           <li class="nav-item">
                             <a class="nav-link "
                                
-                               href="/lab-manual/infrastructure/">Lab infrastructure</a>
+                               href="/lab-manual/infrastructure/">Infrastructure</a>
                           </li>
                         
                           
@@ -266,7 +266,7 @@
                           <li class="nav-item">
                             <a class="nav-link "
                                
-                               href="/lab-manual/record_keeping/">Record keeping guidelines</a>
+                               href="/lab-manual/record_keeping/">Record keeping</a>
                           </li>
                         
                           
@@ -301,7 +301,7 @@
                           <li class="nav-item">
                             <a class="nav-link "
                                
-                               href="/lab-manual/changelog/">Version changes</a>
+                               href="/lab-manual/changelog/">Changelog</a>
                           </li>
                         
                       </ul>
@@ -311,24 +311,27 @@
               <main class="col-md-10 col-lg-10 content-column">
                 <div style="page-break-after: always;"></div>
 
+<p><a href="https://doi.org/10.5281/zenodo.23398121"><img alt="DOI" src="https://zenodo.org/badge/DOI/10.5281/zenodo.23398121.svg"/></a></p>
 <p>Welcome to the Rendeiro Lab Manual.</p>
 <p>This manual provides comprehensive information about the lab's culture, procedures, and workflows to ensure a collaborative and efficient research environment.</p>
 <p>The manual is hosted in the <a href="https://github.com/rendeirolab/lab-manual/"><code>lab-manual</code></a> repository on GitHub. It is written in <a href="https://daringfireball.net/projects/markdown/">Markdown</a> and can be converted to HTML and PDF using <a href="https://pandoc.org/">Pandoc</a>.</p>
 <p>This manual is open source and maintained collaboratively. Anyone on GitHub can propose changes.</p>
 <h2>Editing the manual</h2>
-<p>To contribute an adition or change to the manual:</p>
+<p>To contribute an addition or change to the manual:</p>
 <ol>
 <li>Edit or create files directly <a href="https://github.com/rendeirolab/lab-manual">on GitHub</a>, or locally on your computer.</li>
 <li>Submit a pull request with a clear, one-line description of the changes made.</li>
 <li>Follow best practices by adding reviewers and referencing related issues, if applicable.</li>
 </ol>
-<p>Tip: to add a table of contents to a new file document, use <a href="https://github.com/hukkin/mdformat-toc">mdformat-toc</a>. Insert <code>&lt;!-- mdformat-toc start --&gt;</code> where the table of contents should appear, and run <code>mdformat &lt;file.md&gt;</code> on the edited file, or <code>make format</code> to format all.</p>
+<p>Tip: to add a table of contents to a new document, use <a href="https://github.com/hukkin/mdformat-toc">mdformat-toc</a>. Insert <code>&lt;!-- mdformat-toc start --&gt;</code> where the table of contents should appear, and run <code>mdformat &lt;file.md&gt;</code> on the edited file, or <code>make format</code> to format all.</p>
 <h3>Building the manual locally</h3>
-<p>To preview changes locally before committing to Github and deploying on the lab website, you can build the manual locally using the provided tools. Ensure you have the necessary dependencies installed:</p>
+<p>To preview changes locally before committing to GitHub and deploying on the lab website, you can build the manual locally using the provided tools. Ensure you have the necessary dependencies installed:</p>
 <ul>
 <li><a href="https://pandoc.org/installing.html">Pandoc</a></li>
 <li><a href="https://wkhtmltopdf.org/downloads.html">wkhtmltopdf</a></li>
+<li><a href="https://github.com/hukkin/mdformat">mdformat</a> with the <a href="https://github.com/hukkin/mdformat-gfm">mdformat-gfm</a> plugin</li>
 </ul>
+<p>On Debian/Ubuntu, <code>make requirements</code> installs them.</p>
 <p>To streamline the development process the project includes a <a href="https://github.com/rendeirolab/lab-manual/blob/main/Makefile">Makefile</a>. Key targets include:</p>
 <ul>
 <li><strong><code>format</code></strong>: Formats Markdown files consistently using <code>mdformat</code>.</li>
@@ -336,6 +339,17 @@
 <li><strong><code>clean</code></strong>: Removes generated files to ensure a fresh build.</li>
 </ul>
 <p>Styling for the manual is controlled by a custom <a href="assets/style.css">CSS file</a>, which ensures a nice appearance in both HTML and PDF formats.</p>
+<h3>Releases</h3>
+<p>Versions are named by date (<code>YYYY-MM-DD</code>). To make a release, update <a href="/lab-manual/https://github.com/rendeirolab/lab-manual/blob/main/CHANGELOG">CHANGELOG.md</a> and the <code>version</code> and <code>date-released</code> fields in <a href="https://github.com/rendeirolab/lab-manual/blob/main/CITATION.cff">CITATION.cff</a>, then create a GitHub release with a tag of the same name.
+The build workflow attaches the HTML and PDF versions of the manual to the release, and <a href="https://zenodo.org/">Zenodo</a> archives it with a DOI, using the metadata in <a href="https://github.com/rendeirolab/lab-manual/blob/main/.zenodo.json"><code>.zenodo.json</code></a>. When the list of authors changes, update both <code>.zenodo.json</code> and <code>CITATION.cff</code>.</p>
+<h2>Citing the manual</h2>
+<p>If you use or adapt this manual, please cite it:</p>
+<blockquote>
+<p>Rendeiro, A. F., Zheng, Y., Moustafa, S., Abila, E., Buljan, I., &amp; Veres, T. Rendeiro lab manual. Zenodo. <a href="https://doi.org/10.5281/zenodo.23398121">https://doi.org/10.5281/zenodo.23398121</a></p>
+</blockquote>
+<p>This DOI always resolves to the latest version; each release also has its own DOI, listed on <a href="https://doi.org/10.5281/zenodo.23398121">Zenodo</a>. Citation metadata is in <a href="https://github.com/rendeirolab/lab-manual/blob/main/CITATION.cff">CITATION.cff</a>, and the "Cite this repository" button on the <a href="https://github.com/rendeirolab/lab-manual">GitHub page</a> exports it in common formats.</p>
+<h2>License</h2>
+<p>The manual is licensed under the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License (CC BY 4.0)</a>. See <a href="https://github.com/rendeirolab/lab-manual/blob/main/LICENSE">LICENSE</a>.</p>
 <h2>Acknowledgements</h2>
 <p>We thank the following labs for sharing their open-source lab manuals, which inspired this project:</p>
 <ul>

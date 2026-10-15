@@ -224,7 +224,7 @@
                           <li class="nav-item">
                             <a class="nav-link "
                                
-                               href="/lab-manual/mission_statement/">Mission and philosophy</a>
+                               href="/lab-manual/mission_statement/">Mission statement</a>
                           </li>
                         
                           
@@ -238,14 +238,14 @@
                           <li class="nav-item">
                             <a class="nav-link "
                                
-                               href="/lab-manual/communication_and_meetings/">Lab communication</a>
+                               href="/lab-manual/communication_and_meetings/">Communication and meetings</a>
                           </li>
                         
                           
                           <li class="nav-item">
                             <a class="nav-link active"
                                aria-current="page"
-                               href="/lab-manual/infrastructure/">Lab infrastructure</a>
+                               href="/lab-manual/infrastructure/">Infrastructure</a>
                           </li>
                         
                           
@@ -266,7 +266,7 @@
                           <li class="nav-item">
                             <a class="nav-link "
                                
-                               href="/lab-manual/record_keeping/">Record keeping guidelines</a>
+                               href="/lab-manual/record_keeping/">Record keeping</a>
                           </li>
                         
                           
@@ -301,7 +301,7 @@
                           <li class="nav-item">
                             <a class="nav-link "
                                
-                               href="/lab-manual/changelog/">Version changes</a>
+                               href="/lab-manual/changelog/">Changelog</a>
                           </li>
                         
                       </ul>
@@ -309,32 +309,32 @@
 
               
               <main class="col-md-10 col-lg-10 content-column">
-                <h1>Lab infrastructure</h1>
+                <h1>Infrastructure</h1>
 <p>This document describes the infrastructure used in the lab, including CeMM-provided or our own infrastructure.
 So far it details only computational infrastructure.</p>
 <h2>Lab infrastructure</h2>
-<h4>Hardware</h4>
+<h3>Hardware</h3>
 <ul>
-<li>Hilde workstation: <a href="/lab-manual/https://github.com/rendeirolab/labdocs/blob/main/hilde_workstation">setting up and maintaining the hilde workstation: hilde_workstation.md</a>
+<li>Hilde workstation: <a href="/lab-manual/https://github.com/rendeirolab/labdocs/blob/main/hilde_workstation">setting up and maintaining the Hilde workstation</a> (private repository, lab members only)
 <ul>
 <li>Usage can be booked through its dedicated calendar:
 <ul>
-<li>HTML: https://outlook.office365.com/owa/calendar/92e5463911e04b688330fbd26c75faab@cemm.oeaw.ac.at/7dce5f2f61f84753bca69c49a309581114314229400116418487/calendar.html</li>
-<li>ICS: https://outlook.office365.com/owa/calendar/92e5463911e04b688330fbd26c75faab@cemm.oeaw.ac.at/7dce5f2f61f84753bca69c49a309581114314229400116418487/calendar.ics</li>
+<li><a href="https://outlook.office365.com/owa/calendar/92e5463911e04b688330fbd26c75faab@cemm.oeaw.ac.at/7dce5f2f61f84753bca69c49a309581114314229400116418487/calendar.html">HTML</a></li>
+<li><a href="https://outlook.office365.com/owa/calendar/92e5463911e04b688330fbd26c75faab@cemm.oeaw.ac.at/7dce5f2f61f84753bca69c49a309581114314229400116418487/calendar.ics">ICS</a></li>
 </ul></li>
 </ul></li>
 </ul>
-<h4>VMs</h4>
+<h3>VMs</h3>
 <ul>
-<li>Cytomine: <a href="/lab-manual/https://github.com/rendeirolab/labdocs/blob/main/cytomine">setting up and maintaining the cytomine VM: cytomine.md</a></li>
+<li>Cytomine: <a href="/lab-manual/https://github.com/rendeirolab/labdocs/blob/main/cytomine">setting up and maintaining the Cytomine VM</a> (private repository, lab members only)</li>
 </ul>
-<h4>Cloud resources</h4>
-<p><a href="/lab-manual/https://github.com/rendeirolab/labdocs/blob/main/azure">Read the documentation on using Azure web services here: azure.md</a></p>
+<h3>Cloud resources</h3>
+<p><a href="/lab-manual/https://github.com/rendeirolab/labdocs/blob/main/azure">Documentation on using Azure web services</a> (private repository, lab members only).</p>
 <p>Finished projects are archived in the lab's Azure storage account: see <a href="/lab-manual/data_archiving">data archiving</a>.</p>
 <h2>CeMM infrastructure</h2>
 <p>Refer to the <a href="https://cemmat.sharepoint.com/sites/Intranet">CeMM Intranet documentation</a> for updated information.
 Below are a few notes on things which are not covered there:</p>
-<h4>Cluster containers (Podman)</h4>
+<h3>Cluster containers (Podman)</h3>
 <p>On the CeMM cluster, use <strong>Podman</strong> for directory isolation (not speed): mount project <code>data</code> <strong>read-only</strong>, write only under <code>/nobackup/.../results</code>, and do <strong>not</strong> mount <code>$HOME</code>. The job script loads Podman (<code>module load podman</code>). For partitions, QoS, and GPUs, use the <a href="https://cemmat.sharepoint.com/sites/IT-Resources">CeMM cluster documentation</a>; <code>tinyq</code> in the examples is CPU-only.</p>
 <p>Scripts: <a href="examples/podman/01_bash.sbatch"><code>examples/podman/01_bash.sbatch</code></a> (<code>python:3.12-slim</code>), <a href="examples/podman/02_lazyslide.sbatch"><code>examples/podman/02_lazyslide.sbatch</code></a> (<code>ghcr.io/rendeirolab/lazyslide:v0.12.0</code>). Keep <a href="examples/podman/extract.py"><code>extract.py</code></a> next to <code>02_lazyslide.sbatch</code>. Submit <strong>from that directory</strong> so Slurm finds the files (<code>#SBATCH --output</code> and <code>extract.py</code> use the submit dir). <code>DATA</code> must already exist; <code>OUT</code> is created.</p>
 <pre><code class="bash language-bash">cd source/examples/podman   # or copy the three files somewhere on the cluster
@@ -350,7 +350,7 @@ sbatch --export=ALL,DATA="$DATA",OUT="$OUT" 02_lazyslide.sbatch
 # sbatch --export=ALL,DATA="$DATA",OUT="$OUT",SLIDE=/data/slide.svs 02_lazyslide.sbatch
 </code></pre>
 <p>Without <code>SLIDE</code>, LazySlide runs <code>zs.datasets.sample()</code> and writes <code>sample.zarr</code> in <code>OUT</code>. Logs: <code>podman-bash-&lt;jobid&gt;.out</code> and <code>podman-lazyslide-&lt;jobid&gt;.out</code> in the submit directory.</p>
-<h4>Printing from Linux</h4>
+<h3>Printing from Linux</h3>
 <p>CeMM has Canon imageFORCE C5140/5150 printers (upgraded from the iR-ADV C5735/5740
 series in 2026). They support printing from Linux via CUPS.</p>
 <p>Since the upgrade the devices no longer expose IPP (port 631 is closed and they

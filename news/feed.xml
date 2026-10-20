@@ -6,7 +6,13 @@
     <description>Recent news from the Rendeiro Lab</description>
     <language>en-us</language>
     <atom:link href="https://rendeiro.group/news/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Thu, 15 Oct 2026 20:45:38 -0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 Oct 2026 11:41:32 -0000</lastBuildDate>
+    <item>
+      <title>The lab at the 1st EFAR Conference on the Biology of Aging</title>
+      <guid isPermaLink="false">The lab at the 1st EFAR Conference on the Biology of Aging2026-10-16</guid>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 -0000</pubDate>
+      <description>Andre and Lisa took part in the 1st Conference of the European Federation for Aging Research (EFAR) on the Biology of Aging, held from October 14th to 16th at the Max Planck Institute for Biology of Ageing and the CECAD Research Center in Cologne. Andre gave a talk on our tissue clocks work, and Lisa presented a poster on her work on chronic inflammatory skin conditions. Thank you to the organizers for leading the creation of a Europe-wide effort to bring aging research together and for a great </description>
+    </item>
     <item>
       <title>Farewell to Yimin!</title>
       <guid isPermaLink="false">Farewell to Yimin!2026-10-15</guid>
@@ -150,12 +156,6 @@
       <guid isPermaLink="false">Ernesto presented his work at Cytodata 20252025-11-21</guid>
       <pubDate>Fri, 21 Nov 2025 00:00:00 -0000</pubDate>
       <description>Ernesto Abila attented the Cytodata 2025 hackathon and symposium which took place at Campus Berlin-Buch, Berlin, Germany. He presented a posted on his main PhD project as well as a poster on our framework for whole slide image analysis - LazySlide. Thank you to the organizers for putting together such an exciting event!</description>
-    </item>
-    <item>
-      <title>Andre gave a talk at the 2nd European CyTOF conference</title>
-      <guid isPermaLink="false">Andre gave a talk at the 2nd European CyTOF conference2025-11-20</guid>
-      <pubDate>Thu, 20 Nov 2025 00:00:00 -0000</pubDate>
-      <description>Andre gave a keynote talk on 'Leveraging spatial biology insights across anatomical scales' at the 2nd European CyTOF conference which took place in Vienna It was a very nice conference full of exciting use cases of high-dimensional and spatial data as well as nice applications of it. Thank you for the organizers, in particular Lena Mueller for the invitation.</description>
     </item>
   </channel>
 </rss>

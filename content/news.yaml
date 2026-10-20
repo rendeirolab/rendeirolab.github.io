@@ -5,6 +5,14 @@ news:
   content: "News from our lab:"
   outro: ""
   news:
+    - date: 2026-10-16
+      title: "The lab at the 1st EFAR Conference on the Biology of Aging"
+      description: |
+        <p>Andre and Lisa took part in the <a href="https://www.cecad.uni-koeln.de/outreach/events/2026-1st-efar-conference-on-the-biology-of-aging">1st Conference of the European Federation for Aging Research (EFAR)</a> on the Biology of Aging, held from October 14th to 16th at the Max Planck Institute for Biology of Ageing and the CECAD Research Center in Cologne.</p>
+        <p>Andre gave a talk on our <a href="http://dx.doi.org/10.1038/s41591-026-04566-5">tissue clocks</a> work, and Lisa presented a poster on her work on chronic inflammatory skin conditions.</p>
+        <p>Thank you to the organizers for leading the creation of a Europe-wide effort to bring aging research together and for a great first edition of the conference!</p>
+      img: 2026-10-16-efar_conference.webp
+      img_alt: "Group photo of the conference participants taken from above in the atrium of the Max Plank Institue for the Biology of  Aging in Cologne."
     - date: 2026-10-15
       title: "Farewell to Yimin!"
       description: |

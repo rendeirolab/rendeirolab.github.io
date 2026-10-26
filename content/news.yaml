@@ -5,6 +5,14 @@ news:
   content: "News from our lab:"
   outro: ""
   news:
+    - date: 2026-10-20
+      title: "Andre speaks at the Young Academy Science Day"
+      description: |
+        <p>Andre gave a talk at the <a href="https://www.oeaw.ac.at/detail/veranstaltung/science-day-die-vielen-dimensionen-der-zeit">Science Day of the Young Academy of the Austrian Academy of Sciences (ÖAW)</a>, held on October 20th in the Johannessaal of the Academy in Vienna and dedicated to the many dimensions of time, with researchers from across disciplines reflecting on "time" from their own perspectives.</p>
+        <p>In the first panel, "Time and the Body", Andre presented "The body keeps time: Reading organ-specific aging from a drop of blood". The talk explored the different kinds of time our bodies keep: the daily circadian clock, seasonal rhythms in our immune system, and aging, the one clock that only moves forward. Andre then presented our <a href="http://dx.doi.org/10.1038/s41591-026-04566-5">tissue clocks</a> work, where we used AI to read biological age from routine microscopy images of healthy tissues, showing that each of our organs keeps time in its own way and that organ aging can be estimated from a blood sample.</p>
+        <p>Thank you to the organizers and fellow members of the Young Academy for a day of great interdisciplinary exchange!</p>
+      img: 2026-10-20-young_academy_science_day.webp
+      img_alt: "Cover of the programme of the Young Academy Science Day on Time, showing an hourglass, a globe and a large clock. Cover image © Fernando Capetillo / Pexels"
     - date: 2026-10-16
       title: "The lab at the 1st EFAR Conference on the Biology of Aging"
       description: |

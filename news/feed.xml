@@ -6,7 +6,13 @@
     <description>Recent news from the Rendeiro Lab</description>
     <language>en-us</language>
     <atom:link href="https://rendeiro.group/news/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Tue, 20 Oct 2026 11:41:32 -0000</lastBuildDate>
+    <lastBuildDate>Mon, 26 Oct 2026 19:33:34 -0000</lastBuildDate>
+    <item>
+      <title>Andre speaks at the Young Academy Science Day</title>
+      <guid isPermaLink="false">Andre speaks at the Young Academy Science Day2026-10-20</guid>
+      <pubDate>Tue, 20 Oct 2026 00:00:00 -0000</pubDate>
+      <description>Andre gave a talk at the Science Day of the Young Academy of the Austrian Academy of Sciences (ÖAW) , held on October 20th in the Johannessaal of the Academy in Vienna and dedicated to the many dimensions of time, with researchers from across disciplines reflecting on "time" from their own perspectives. In the first panel, "Time and the Body", Andre presented "The body keeps time: Reading organ-specific aging from a drop of blood". The talk explored the different kinds of time our bodies keep: t</description>
+    </item>
     <item>
       <title>The lab at the 1st EFAR Conference on the Biology of Aging</title>
       <guid isPermaLink="false">The lab at the 1st EFAR Conference on the Biology of Aging2026-10-16</guid>
@@ -150,12 +156,6 @@
       <guid isPermaLink="false">Welcome to Simon!2025-12-01</guid>
       <pubDate>Mon, 01 Dec 2025 00:00:00 -0000</pubDate>
       <description>Simon Schindler joined the lab as a joint PhD student between our lab and the lab of Joerg Menche at the LBI-NetMed. He has a background in electrical engineering and machine learning and will work on geometric learning of cellular organization.</description>
-    </item>
-    <item>
-      <title>Ernesto presented his work at Cytodata 2025</title>
-      <guid isPermaLink="false">Ernesto presented his work at Cytodata 20252025-11-21</guid>
-      <pubDate>Fri, 21 Nov 2025 00:00:00 -0000</pubDate>
-      <description>Ernesto Abila attented the Cytodata 2025 hackathon and symposium which took place at Campus Berlin-Buch, Berlin, Germany. He presented a posted on his main PhD project as well as a poster on our framework for whole slide image analysis - LazySlide. Thank you to the organizers for putting together such an exciting event!</description>
     </item>
   </channel>
 </rss>

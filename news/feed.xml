@@ -6,7 +6,13 @@
     <description>Recent news from the Rendeiro Lab</description>
     <language>en-us</language>
     <atom:link href="https://rendeiro.group/news/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Tue, 27 Oct 2026 09:54:45 -0000</lastBuildDate>
+    <lastBuildDate>Fri, 30 Oct 2026 13:09:40 -0000</lastBuildDate>
+    <item>
+      <title>Our tissue clocks work featured in Der Standard</title>
+      <guid isPermaLink="false">Our tissue clocks work featured in Der Standard2026-10-30</guid>
+      <pubDate>Fri, 30 Oct 2026 00:00:00 -0000</pubDate>
+      <description>The Austrian newspaper Der Standard featured our tissue clocks work in its "Forschung Spezial" section, in the article "Was es bedeutet, wenn Herz, Leber und Niere unterschiedlich altern" ("What it means when heart, liver and kidney age differently"). In an interview with Andre, the article explains how we used AI to read the age of 40 tissue types from over 25,000 histology slides, how organs can fall out of sync as we age, and how we are working towards a blood test for organ-specific aging. "</description>
+    </item>
     <item>
       <title>Andre speaks at the Young Academy Science Day</title>
       <guid isPermaLink="false">Andre speaks at the Young Academy Science Day2026-10-20</guid>
@@ -150,12 +156,6 @@
       <guid isPermaLink="false">StainX: CUDA-optimized stain normalization is now open source!2025-12-06</guid>
       <pubDate>Sat, 06 Dec 2025 00:00:00 -0000</pubDate>
       <description>We are excited to release StainX , a Python package for enhanced stain normalization of histopathology images with batch processing support. StainX provides multiple algorithms (Reinhard, Macenko, Histogram Matching) with automatic backend selection for CPU, GPU (CUDA), and Apple Silicon (MPS) devices. Our preliminary benchmarks show 8-11x speedups compared to standard PyTorch implementations when using optimized CUDA kernels! Install it with pip install stainx and check out the GitHub repositor</description>
-    </item>
-    <item>
-      <title>Welcome to Simon!</title>
-      <guid isPermaLink="false">Welcome to Simon!2025-12-01</guid>
-      <pubDate>Mon, 01 Dec 2025 00:00:00 -0000</pubDate>
-      <description>Simon Schindler joined the lab as a joint PhD student between our lab and the lab of Joerg Menche at the LBI-NetMed. He has a background in electrical engineering and machine learning and will work on geometric learning of cellular organization.</description>
     </item>
   </channel>
 </rss>

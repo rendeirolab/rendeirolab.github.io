@@ -5,6 +5,14 @@ press:
   content: "Press coverage of our our lab's work:"
   outro: ""
   press:
+      - date: 2026-10-30
+        title: "Was es bedeutet, wenn Herz, Leber und Niere unterschiedlich altern"
+        publisher: Der Standard
+        url: https://www.derstandard.at/story/3000000342952/was-es-bedeutet-wenn-herz-leber-und-niere-unterschiedlich-altern
+        description: Coverage of the tissue-clocks Nature Medicine paper, with an interview with Andre by Sophie Fessl.
+        img: https://at.staticfiles.at/img/meta/meta_image_1200x630-4d0796cf00.png
+        img_alt: The logo of the Der Standard newspaper
+
       - date: 2026-08-15
         title: "Portrait André Rendeiro: Den Takt des Alterns dirigieren"
         publisher: "Österreichische Ärztezeitung"

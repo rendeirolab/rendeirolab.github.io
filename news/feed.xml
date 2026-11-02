@@ -6,7 +6,13 @@
     <description>Recent news from the Rendeiro Lab</description>
     <language>en-us</language>
     <atom:link href="https://rendeiro.group/news/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Fri, 30 Oct 2026 13:09:40 -0000</lastBuildDate>
+    <lastBuildDate>Mon, 02 Nov 2026 08:09:05 -0000</lastBuildDate>
+    <item>
+      <title>WSIData featured in GitHub's Octoverse 2026 report!</title>
+      <guid isPermaLink="false">WSIData featured in GitHub's Octoverse 2026 report!2026-10-31</guid>
+      <pubDate>Sat, 31 Oct 2026 00:00:00 -0000</pubDate>
+      <description>WSIData , our data structure for whole slide images, is featured in GitHub's Octoverse 2026 report , GitHub's annual review of the state of open source and software development worldwide. In the Octoverse blog post , WSIData is highlighted as an example of how people in fields beyond software are building open source tools, in a section on the growth of scientific and health care code on GitHub: "A research lab in health care made it easier for scientists to analyze huge digital scans of tissue </description>
+    </item>
     <item>
       <title>Our tissue clocks work featured in Der Standard</title>
       <guid isPermaLink="false">Our tissue clocks work featured in Der Standard2026-10-30</guid>
@@ -150,12 +156,6 @@
       <guid isPermaLink="false">Congratulations to Lisa on securing a postdoctoral fellowship!2026-01-12</guid>
       <pubDate>Mon, 12 Jan 2026 00:00:00 -0000</pubDate>
       <description>Lisa Kleissl has been awarded the prestigious APART-MINT fellowship from the Austrian Academy of Sciences (ÖAW). This competitive fellowship supports outstanding early-career researchers in the natural sciences, technology, and medicine and will support her work for one year. Congratulations Lisa on this well-deserved recognition of your ideas and research!</description>
-    </item>
-    <item>
-      <title>StainX: CUDA-optimized stain normalization is now open source!</title>
-      <guid isPermaLink="false">StainX: CUDA-optimized stain normalization is now open source!2025-12-06</guid>
-      <pubDate>Sat, 06 Dec 2025 00:00:00 -0000</pubDate>
-      <description>We are excited to release StainX , a Python package for enhanced stain normalization of histopathology images with batch processing support. StainX provides multiple algorithms (Reinhard, Macenko, Histogram Matching) with automatic backend selection for CPU, GPU (CUDA), and Apple Silicon (MPS) devices. Our preliminary benchmarks show 8-11x speedups compared to standard PyTorch implementations when using optimized CUDA kernels! Install it with pip install stainx and check out the GitHub repositor</description>
     </item>
   </channel>
 </rss>

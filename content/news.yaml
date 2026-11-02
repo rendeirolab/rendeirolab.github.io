@@ -5,6 +5,18 @@ news:
   content: "News from our lab:"
   outro: ""
   news:
+    - date: 2026-10-31
+      title: "WSIData featured in GitHub's Octoverse 2026 report!"
+      description: |
+        <p><a href="https://github.com/rendeirolab/wsidata">WSIData</a>, our data structure for whole slide images, is featured in GitHub's <a href="https://octoverse.github.com/">Octoverse 2026 report</a>, GitHub's annual review of the state of open source and software development worldwide.</p>
+        <p>In the <a href="https://github.blog/news-insights/octoverse/octoverse-commits-pushes-reach-new-highs-in-2026-as-developers-build-with-agents/">Octoverse blog post</a>, WSIData is highlighted as an example of how people in fields beyond software are building open source tools, in a section on the growth of scientific and health care code on GitHub:</p>
+        <blockquote class="blockquote">
+          <p>"A research lab in health care made it easier for scientists to analyze huge digital scans of tissue samples, the kind pathologists study to understand disease."</p>
+        </blockquote>
+        <p>WSIData makes it easy to read a variety of whole slide image formats and store their analysis results in Python. It builds on <a href="https://spatialdata.scverse.org/">SpatialData</a> to be interoperable with the <a href="https://scverse.org/">scverse ecosystem</a>, and powers our <a href="https://github.com/rendeirolab/LazySlide">LazySlide</a> framework for histopathology analysis.</p>
+        <p>Thank you to GitHub for the recognition, to Yimin for conceiving and building the LazySlide/WSIData stack, and to the community of users and contributors who make it better every day!</p>
+      img: https://raw.githubusercontent.com/rendeirolab/WSIData/main/assets/logo.svg
+      img_alt: The WSIData logo with a stack of icons representing whole slide images and their transformations.
     - date: 2026-10-30
       title: "Our tissue clocks work featured in Der Standard"
       description: |

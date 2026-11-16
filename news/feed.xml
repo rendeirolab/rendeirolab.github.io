@@ -6,7 +6,13 @@
     <description>Recent news from the Rendeiro Lab</description>
     <language>en-us</language>
     <atom:link href="https://rendeiro.group/news/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Mon, 02 Nov 2026 08:09:05 -0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Nov 2026 11:22:17 -0000</lastBuildDate>
+    <item>
+      <title>Our group organized the CeMM 2026 Bioinformatics and Programming course: now in Python!</title>
+      <guid isPermaLink="false">Our group organized the CeMM 2026 Bioinformatics and Programming course: now in Python!2026-11-06</guid>
+      <pubDate>Fri, 06 Nov 2026 00:00:00 -0000</pubDate>
+      <description>This year our lab took over the organization of the bioinformatics and programming course at CeMM. The course has run since 2016. It was first organized by the team of Jörg Menche and then by the team of Christoph Bock, and we built on their materials and years of experience. We also used the chance to update and revamp parts of the course. The biggest change is that Python, rather than R, is now the main programming language. A huge thank you to the teams of Jörg Menche and Christoph Bock! For </description>
+    </item>
     <item>
       <title>WSIData featured in GitHub's Octoverse 2026 report!</title>
       <guid isPermaLink="false">WSIData featured in GitHub's Octoverse 2026 report!2026-10-31</guid>
@@ -150,12 +156,6 @@
       <guid isPermaLink="false">Clemens joins the lab!2026-01-19</guid>
       <pubDate>Mon, 19 Jan 2026 00:00:00 -0000</pubDate>
       <description>Clemens Kohl joins the lab as a postdoctoral researcher. After studying Food Science and Biotechnology in Vienna, he did a Master at ETH Zürich in Basel, Switzerland, and a PhD in Bioinformatics at the Max Planck Institute for Molecular Genetics in Berlin, Germany. With a strong background in single-cell analysis and clustering methods the lab will gain a major bridge to the genomics and single-cell field, as well as a close connection to the group of Georg Busslinger at the Medical University o</description>
-    </item>
-    <item>
-      <title>Congratulations to Lisa on securing a postdoctoral fellowship!</title>
-      <guid isPermaLink="false">Congratulations to Lisa on securing a postdoctoral fellowship!2026-01-12</guid>
-      <pubDate>Mon, 12 Jan 2026 00:00:00 -0000</pubDate>
-      <description>Lisa Kleissl has been awarded the prestigious APART-MINT fellowship from the Austrian Academy of Sciences (ÖAW). This competitive fellowship supports outstanding early-career researchers in the natural sciences, technology, and medicine and will support her work for one year. Congratulations Lisa on this well-deserved recognition of your ideas and research!</description>
     </item>
   </channel>
 </rss>
